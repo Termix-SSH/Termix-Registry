@@ -109,7 +109,7 @@ You only do this once. You need Node.js 22 and the SDK, either with `npm install
 
 5. Save the public key here as `keys/official.pub` so CI can check signatures.
 
-6. Give each plugin repository a `REGISTRY_TOKEN` secret: a fine-grained token with contents and pull request write access to this repository.
+6. Plugin repositories push to this one with the `TERMIX_PAT` org secret, a token with contents and pull request write access to this repository.
 
 <br />
 
