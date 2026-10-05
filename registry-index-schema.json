@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Termix-SSH/Termix-Registry/registry-index-schema.json",
+  "title": "Termix plugin registry index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry", "name", "apiVersion", "updatedAt", "plugins"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "registry": {
+      "description": "Short id of this registry, for example official.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "apiVersion": {
+      "description": "Version of this index format.",
+      "const": 1
+    },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "plugins": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/plugin" }
+    }
+  },
+  "$defs": {
+    "plugin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "author",
+        "category",
+        "repository",
+        "icon",
+        "versions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "maxLength": 64
+        },
+        "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "description": { "type": "string", "maxLength": 500 },
+        "author": { "type": "string", "minLength": 1 },
+        "category": { "type": "string", "minLength": 1 },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "icon": { "type": "string" },
+        "versions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/version" }
+        }
+      }
+    },
+    "version": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "api",
+        "url",
+        "sha256",
+        "signature",
+        "size",
+        "capabilities",
+        "releaseNotesUrl",
+        "publishedAt"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[0-9A-Za-z.-]+)?$"
+        },
+        "api": {
+          "description": "The plugin API major version from manifest engine.api.",
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://.*\\.tmxplug$"
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "signature": {
+          "description": "Base64 Ed25519 signature over the raw sha256 of the .tmxplug.",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9+/]{86}==$"
+        },
+        "size": { "type": "integer", "minimum": 1 },
+        "capabilities": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z]+:[a-z-]+$" },
+          "uniqueItems": true
+        },
+        "releaseNotesUrl": { "type": "string", "format": "uri" },
+        "publishedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}
