@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-06T02:39:23.458Z",
+  "updatedAt": "2026-10-06T02:39:57.549Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -36,6 +36,373 @@
       ]
     },
     {
+      "id": "ai",
+      "name": "AI Assistant",
+      "description": "An optional AI assistant that reads your setup and proposes changes for you to approve.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-AI",
+      "icon": "Sparkles",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.0.0/ai-1.0.0.tmxplug",
+          "sha256": "ea121658305bed9d28e046e096fc458976258d7cb77387e1b8ac82ccb9a001cb",
+          "signature": "CokBnBzP1RZMF1TnJBXD3eyou2y+eiIF1Nam71sG5eao8FwvbGWPDARJuqJPiqRP9+KndXEz11VM9Y9yrJXQDQ==",
+          "size": 1144599,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "notify:send",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "events:core"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:40.703Z"
+        }
+      ]
+    },
+    {
+      "id": "alerts",
+      "name": "Alerts",
+      "description": "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email.",
+      "author": "Termix",
+      "category": "Monitoring",
+      "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
+      "icon": "Bell",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.0.0/alerts-1.0.0.tmxplug",
+          "sha256": "93274529eb3445db9e1dddc630b7608b15250eb179bb7919a43c3e6707fa20b5",
+          "signature": "S+02jVIVMQsGAsEIjHwHMDOA72bbzVkFWsMzWEXSmdr+K7ClYHon6Z94LjHMkKQza0stE5psEYrqwH16bwQXCw==",
+          "size": 492424,
+          "capabilities": [
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "notify:send",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:41.720Z"
+        }
+      ]
+    },
+    {
+      "id": "automations",
+      "name": "Automations",
+      "description": "Run steps on your hosts on a schedule or when something happens, like a host going down or a metric crossing a limit.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Automations",
+      "icon": "Workflow",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.0/automations-1.0.0.tmxplug",
+          "sha256": "6cb00cf9464e42dbc46786a6ef74b07d62da39ece9905197584d2934265b9b10",
+          "signature": "2Mw/HbTzScCHCqwDKAK5Cj94pR6mBtd6J82CwuxZgtdlLj4GuoYRwK980sXSTvyLrnvzMn7TLFJr60wUdJ/2CQ==",
+          "size": 334843,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "events:core",
+            "notify:send",
+            "network:outbound",
+            "network:serve",
+            "settings:read-core",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "dependencies": {
+            "snippets": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:42.607Z"
+        }
+      ]
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Docker",
+      "icon": "Box",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.0.0/docker-1.0.0.tmxplug",
+          "sha256": "d1d1dd441b51a97231d5da94e38a12b2d2b25db6da5e2b13b4a4b9486881ed2d",
+          "signature": "DSZVBN3Kgd1Q5KMwOh4lmfsjZ5RfFbDzPexuJKzTfNVa/N+loC2+PPLGdOOs5smkfzuzUuswpy2sHqvJgxGuCQ==",
+          "size": 937418,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:43.471Z"
+        }
+      ]
+    },
+    {
+      "id": "fleets",
+      "name": "Fleets",
+      "description": "Group hosts into fleets and run commands, package actions and file transfers on all of them at once.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Fleets",
+      "icon": "Boxes",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.0.0/fleets-1.0.0.tmxplug",
+          "sha256": "4a774d4a3685b0ee8da5b73d14c60d40f10b6a3f1c5b31a5dfefb94ba30fb7ad",
+          "signature": "wpY+UpMoKoEw+gYIQYshFgJwaQtg/dQt1g0QMA/OKD5CZgYJEFa6Q2Z7AVq7o1tNVGeGxJqI49VyIxl8/l8+BQ==",
+          "size": 474288,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:44.644Z"
+        }
+      ]
+    },
+    {
+      "id": "homepage",
+      "name": "Homepage",
+      "description": "A drag and drop widget page for your servers and services, plus service links for the dashboard.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Homepage",
+      "icon": "LayoutGrid",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Homepage/releases/download/v1.0.0/homepage-1.0.0.tmxplug",
+          "sha256": "403513bc1f96a7c21d39d55c8fd1d4e55fde7b8e6ec63228839bf3243d93e68a",
+          "signature": "7Nti01TmSqO+61XNHdAcIEhGkFGVueRFTpUW2z4oD1A0b/cjZZ5yW8vicNyBx2MjNp1nzUmOVKF/tbFo0VNlBQ==",
+          "size": 312895,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "network:outbound",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:45.525Z"
+        }
+      ]
+    },
+    {
+      "id": "host-metrics",
+      "name": "Host Metrics",
+      "description": "Live CPU, memory, disk, network and GPU stats, plus cards to manage services, packages, firewall rules and more.",
+      "author": "Termix",
+      "category": "Monitoring",
+      "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
+      "icon": "Activity",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.0.0/host-metrics-1.0.0.tmxplug",
+          "sha256": "1cfc81f724418fd68306e3ac30daa529b03aa065740a866f6fbcaa67edb440ac",
+          "signature": "uNe62aYudNDp4Drqz/UavL6zmXPTE677hX/GhR9tGYRwEWOsXcPLg1gI9D36ctsp7XzVEK6MX1trIPZSsstlAw==",
+          "size": 518504,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:46.332Z"
+        }
+      ]
+    },
+    {
+      "id": "ldap",
+      "name": "LDAP",
+      "description": "Sign in with your LDAP or Active Directory username and password.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-LDAP",
+      "icon": "Server",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.0.0/ldap-1.0.0.tmxplug",
+          "sha256": "2d8cb269242c12522a5195fa44ec14e95ade3b00d7e7be12e9204631518a0f88",
+          "signature": "vahGUHrdTQYSbEE6siRlfCMw0yYzwc3hUJgqhqCX3kk4Q56+80SwMfCiBtWN8mFIwUTaVJcKaBNtPRZBg9CkAQ==",
+          "size": 312328,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:47.294Z"
+        }
+      ]
+    },
+    {
+      "id": "network-topology",
+      "name": "Network Topology",
+      "description": "Draws your hosts and the links between them as a live, interactive graph.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Network-Topology",
+      "icon": "Network",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/download/v1.0.0/network-topology-1.0.0.tmxplug",
+          "sha256": "5c0a585dcffd1cd523e94d45f2eda32800c403a4c832854fec7331b651da7b7d",
+          "signature": "zgjqS/pIVJg/P/I2SLhdLOvz8Od5ChUlBIOkHuCqvn2RjmFfQXS7l0B7Ime1TrffVZnlQyHGunD8UnHW5cMRDw==",
+          "size": 739246,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:48.267Z"
+        }
+      ]
+    },
+    {
+      "id": "opkssh",
+      "name": "OPKSSH",
+      "description": "Connect to hosts with short-lived OpenPubkey SSH certificates after signing in with your identity provider.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-OPKSSH",
+      "icon": "ShieldCheck",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.0/opkssh-1.0.0.tmxplug",
+          "sha256": "7e8a17aa9053954e937ac2274928e29b821dfd671759e356551b27c13e23c9ad",
+          "signature": "2f6KVLZB2AXwib7SKzV/3cJSIHRTJ8Euy9MJRSKgzM3NAKOL5xF/ImzfxyWK7qMZNcGwyyz9xdEjInVYi3ruBw==",
+          "size": 163553,
+          "capabilities": [
+            "db:own",
+            "files:own",
+            "secrets:own",
+            "hosts:read",
+            "process:spawn",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:49.043Z"
+        }
+      ]
+    },
+    {
+      "id": "secret-sources",
+      "name": "Secret Sources",
+      "description": "Pull host passwords and keys from 1Password when you connect instead of storing them in Termix.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-Secret-Sources",
+      "icon": "KeyRound",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.0.0/secret-sources-1.0.0.tmxplug",
+          "sha256": "b6fbe38cd6d62d0b361c102f13f050ee8a281983dc806e32e8d8feeb416ceb20",
+          "signature": "vqY5F9a2uy/J6NgxpsDGehRC5XalKapyhD+tuMZr08jf1AtLGrmujbSRq9hocXEol2YwAHC0DDaMkH901z7/AA==",
+          "size": 74913,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:50.577Z"
+        }
+      ]
+    },
+    {
+      "id": "serial",
+      "name": "Serial",
+      "description": "Open a serial console to a router, switch or other device plugged into your computer.",
+      "author": "Termix",
+      "category": "Terminal",
+      "repository": "https://github.com/Termix-SSH/Plugin-Serial",
+      "icon": "Usb",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Serial/releases/download/v1.0.0/serial-1.0.0.tmxplug",
+          "sha256": "c8c3ac8c916253c928195005773e558ee87555fb47b7b56f3e43c0df0fb852c4",
+          "signature": "xVPublX8iTa9bgFEcFhSRzIdFHe+hozsN52C74U+0AwzLWnNs+sb2TvhTQXk9hK1qENMNlw8Rt1991w9MaUFCA==",
+          "size": 760505,
+          "capabilities": [
+            "network:serve",
+            "device:serial",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:51.437Z"
+        }
+      ]
+    },
+    {
       "id": "snippets",
       "name": "Snippets",
       "description": "Save the commands you run often and run them in a terminal or on many hosts in one click.",
@@ -63,6 +430,64 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
           "publishedAt": "2026-10-06T02:38:01.057Z"
+        }
+      ]
+    },
+    {
+      "id": "sso",
+      "name": "Single sign-on",
+      "description": "Sign in with any OpenID Connect provider, GitHub or Google.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-SSO",
+      "icon": "KeyRound",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.0/sso-1.0.0.tmxplug",
+          "sha256": "88d7fcf8eb3b0916d69bcc7349a58d98e37c493bfadc8b90f81b8aa5c845abc5",
+          "signature": "OKWhTFlj8lgsQ2Pq1LrBptXRj3NESkOtsxARzfsPCC2vaMtJpU0SG+Rky21ocSnbzQcN3stNRem6kdPog4nBBw==",
+          "size": 848098,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:53.765Z"
+        }
+      ]
+    },
+    {
+      "id": "totp",
+      "name": "TOTP",
+      "description": "Two-factor sign in with a code from an authenticator app, with backup codes.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-TOTP",
+      "icon": "ShieldCheck",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-TOTP/releases/download/v1.0.0/totp-1.0.0.tmxplug",
+          "sha256": "c0b6b43d778dfd47af7bdbca099667bf46539de62936c3291947ac2425c02de9",
+          "signature": "kdxq9fbP8/rrTM65tUhA+nPd9YuuATMQcbpydaqPMMKSQcGfvTD4JLO7OFfpRSmt0Fd6pq/+/gvcY+m6FXtyAw==",
+          "size": 169424,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "db:core-refs"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:39:55.861Z"
         }
       ]
     }
