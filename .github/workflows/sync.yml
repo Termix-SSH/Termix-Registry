@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     steps:
       # A queued run must start from the index the last run pushed, not the
       # commit it was triggered on.
