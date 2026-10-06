@@ -3,6 +3,38 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-09-25T00:00:00.000Z",
-  "plugins": []
+  "updatedAt": "2026-10-06T02:38:04.391Z",
+  "plugins": [
+    {
+      "id": "snippets",
+      "name": "Snippets",
+      "description": "Save the commands you run often and run them in a terminal or on many hosts in one click.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
+      "icon": "Play",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Snippets/releases/download/v1.0.0/snippets-1.0.0.tmxplug",
+          "sha256": "0239e63df6d33cb38a1212935dae972402b174a7eab8b351084dab45196f1fe5",
+          "signature": "NPQKh+y8uGAkyYNaPh9u0BBZP8/kU58SaQF1p1+IybKTv25oLGPACsv5xzZGCwmYqfEwZ6Gn7genhQ0s4hGXCA==",
+          "size": 317756,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ssh:connect",
+            "credentials:use",
+            "hosts:write",
+            "ui:surface",
+            "events:core",
+            "db:core-refs"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T02:38:01.057Z"
+        }
+      ]
+    }
+  ]
 }
