@@ -1,0 +1,58 @@
+name: Stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 3 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: registry-stats
+  cancel-in-progress: false
+
+jobs:
+  stats:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # PostHog is optional: without the secrets only download counts are
+      # written. A PostHog failure still commits the download counts.
+      - name: Count downloads and active installs
+        id: stats
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
+          POSTHOG_PROJECT_ID: ${{ vars.POSTHOG_PROJECT_ID }}
+        run: npm run stats
+
+      - name: Commit
+        run: |
+          if [ -z "$(git status --porcelain -- '*/stats.json')" ]; then
+            echo "Stats are up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*/stats.json'
+          git commit -m "chore: update plugin stats"
+          git pull --rebase origin main
+          git push
+
+      - name: Report problems
+        if: steps.stats.outcome == 'failure'
+        run: |
+          echo "Some counts could not be read, see the stats step."
+          exit 1

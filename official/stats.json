@@ -1,0 +1,278 @@
+{
+  "updatedAt": "2026-10-06T19:11:54.153Z",
+  "activeInstallsSource": null,
+  "plugins": {
+    "acme-ssl": {
+      "downloads": 16,
+      "versions": {
+        "1.0.0": {
+          "downloads": 16
+        }
+      }
+    },
+    "ai": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "alerts": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "automations": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "docker": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "file-manager": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "fleets": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "homepage": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "host-metrics": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "ldap": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "network-topology": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "opkssh": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "proxmox": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "remote-desktop": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "secret-sources": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "serial": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "session-recording": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "session-sharing": {
+      "downloads": 15,
+      "versions": {
+        "1.0.0": {
+          "downloads": 15
+        }
+      }
+    },
+    "snippets": {
+      "downloads": 8,
+      "versions": {
+        "1.0.0": {
+          "downloads": 8
+        }
+      }
+    },
+    "ssh-terminal": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "sso": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "step-ca": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "tailscale": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "telemetry": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "termix-identity": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "tmux-monitor": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "totp": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "tunnels": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "vault": {
+      "downloads": 14,
+      "versions": {
+        "1.0.0": {
+          "downloads": 14
+        }
+      }
+    },
+    "wake-on-lan": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "warpgate": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "web-endpoint": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "webauthn": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    },
+    "workspaces": {
+      "downloads": 13,
+      "versions": {
+        "1.0.0": {
+          "downloads": 13
+        }
+      }
+    }
+  }
+}

@@ -5,7 +5,8 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "validate:offline": "node scripts/validate.mjs --offline",
-    "sync": "node scripts/sync.mjs"
+    "sync": "node scripts/sync.mjs",
+    "stats": "node scripts/stats.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
