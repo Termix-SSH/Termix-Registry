@@ -1,0 +1,60 @@
+name: Sync
+
+on:
+  repository_dispatch:
+    types: [plugin-released]
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+# The sync rebuilds the index from every release, so a queued run that
+# replaces another one loses nothing.
+concurrency:
+  group: registry-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # A release that fails its checks is left out and fails the run at
+      # the end, but the rest of the index still gets committed.
+      - name: Sync releases into the index
+        id: sync
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run sync
+
+      - name: Validate
+        run: npm run validate
+
+      - name: Commit
+        run: |
+          if git diff --quiet; then
+            echo "Index is up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add official/index.json
+          git commit -m "chore: sync plugin releases"
+          git push
+
+      - name: Report releases that were left out
+        if: steps.sync.outcome == 'failure'
+        run: |
+          echo "Some releases failed their checks, see the sync step."
+          exit 1

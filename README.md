@@ -19,9 +19,10 @@
 
 ## Overview
 
-This repository holds the list of plugins [Termix](https://github.com/Termix-SSH/Termix) can install, with a download link, checksum and signature for every version. Each folder holds one registry index:
+This repository holds the list of plugins [Termix](https://github.com/Termix-SSH/Termix) can install, with a download link, checksum and signature for every version. Each folder holds one registry:
 
 - `official/index.json`: plugins published by the Termix team
+- `official/sources.json`: the plugin repositories the index is built from
 
 <br />
 
@@ -34,27 +35,27 @@ Every index follows `registry-index-schema.json`:
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-09-25T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "plugins": [
     {
-      "id": "hello-world",
-      "name": "Hello World",
+      "id": "snippets",
+      "name": "Snippets",
       "description": "...",
       "author": "Termix",
       "category": "Productivity",
-      "repository": "https://github.com/Termix-SSH/termix-plugin-hello-world",
-      "icon": "https://github.com/.../raw/v1.0.0/icon.svg",
+      "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
+      "icon": "Play",
       "versions": [
         {
           "version": "1.0.0",
           "api": "1",
-          "url": "https://github.com/.../releases/download/v1.0.0/hello-world-1.0.0.tmxplug",
+          "url": "https://github.com/Termix-SSH/Plugin-Snippets/releases/download/v1.0.0/snippets-1.0.0.tmxplug",
           "sha256": "<64 hex>",
           "signature": "<base64 Ed25519 signature>",
-          "size": 6444,
+          "size": 123456,
           "capabilities": ["db:own", "network:serve", "ui:surface"],
-          "releaseNotesUrl": "https://github.com/.../releases/tag/v1.0.0",
-          "publishedAt": "2026-09-25T00:00:00.000Z"
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
+          "publishedAt": "2026-10-06T00:00:00.000Z"
         }
       ]
     }
@@ -62,25 +63,30 @@ Every index follows `registry-index-schema.json`:
 }
 ```
 
-Versions are listed newest first. `signature` is an Ed25519 signature over the raw sha256 of the `.tmxplug`, the same bytes as the `.sig` file next to it in the release.
+Versions are listed newest first. `icon` is a [Lucide](https://lucide.dev/icons) icon name, the same as `icon` in the plugin manifest. `dependencies` is listed on a version when its manifest has any. `signature` is an Ed25519 signature over the raw sha256 of the `.tmxplug`, the same bytes as the `.sig` file next to it in the release.
 
 <br />
 
 ## Adding a Version
 
-A plugin built from the [Termix Plugin Template](https://github.com/Termix-SSH/Termix-Plugin-Template) opens the pull request on its own when its version tag is pushed. To do it by hand:
+Nobody edits `index.json` by hand. The Sync workflow builds it from the GitHub releases of every repository in `sources.json`:
 
-1. Build, pack and sign the plugin with `termix-plugin pack` and `termix-plugin sign`.
-2. Upload the `.tmxplug` and `.sig` to a GitHub release.
-3. Add the version to `official/index.json` and open a pull request.
+1. A plugin built from the [Termix Plugin Template](https://github.com/Termix-SSH/Termix-Plugin-Template) runs `.github/workflows/plugin-release.yml` from this repo when a tag like `v1.0.0` is pushed. It tests, builds, packs and signs the plugin, uploads the `.tmxplug` and `.sig` to the release, and tells this repo a release happened.
+2. Sync downloads every release, checks its signature against `keys/` and its manifest against the tag, and commits the new index to `main`. It also runs every hour in case a notice was missed.
 
-CI checks the schema, checks that ids and versions are unique and sorted, and downloads every `.tmxplug` to check its size, sha256 and signature against the keys in `keys/`. Run it yourself with `npm ci && npm run validate`, or `npm run validate:offline` to skip the downloads.
+To re-release a version that is already out, run the plugin's Release workflow by hand, or force push its tag. The release files are replaced and Sync updates that version in place. A version whose release is deleted drops out of the index.
+
+To add a plugin, add its repository to `sources.json`. Its releases must be signed with a key in `keys/`.
+
+`.github/workflows/plugin-ci.yml` runs the same checks without signing, for pushes and pull requests in plugin repos.
+
+Run the checks yourself with `npm ci && npm run validate`, or `npm run validate:offline` to skip the downloads. `npm run sync` rebuilds the index locally; set `GH_TOKEN` to avoid the GitHub rate limit.
 
 <br />
 
 ## Signing Key Setup
 
-You only do this once. You need Node.js 22 and the SDK, either with `npm install -g @termix/plugin-sdk` or by running `node packages/plugin-sdk/cli/index.mjs` from the Termix repo.
+You only do this once. You need Node.js 22 and the SDK, either with `npm install -g @termix-ssh/plugin-sdk` or by running `node packages/plugin-sdk/cli/index.mjs` from the Termix repo.
 
 1. On a trusted machine, generate the key pair:
 
@@ -93,8 +99,8 @@ You only do this once. You need Node.js 22 and the SDK, either with `npm install
 2. Add the private key as a GitHub Actions secret named `TERMIX_PLUGIN_SIGNING_KEY`. For the Termix-SSH organization, make it an organization secret the plugin repositories can use:
 
    ```bash
-   gh secret set TERMIX_PLUGIN_SIGNING_KEY --org Termix-SSH --visibility selected \
-     --repos termix-plugin-hello-world < signing/termix-plugin-signing.key
+   gh secret set TERMIX_PLUGIN_SIGNING_KEY --org Termix-SSH --visibility all \
+     < signing/termix-plugin-signing.key
    ```
 
 3. Keep an offline backup of the key file, like in a password manager or on an encrypted drive, then delete `signing/`. Never commit it.
@@ -109,7 +115,7 @@ You only do this once. You need Node.js 22 and the SDK, either with `npm install
 
 5. Save the public key here as `keys/official.pub` so CI can check signatures.
 
-6. Plugin repositories push to this one with the `TERMIX_PAT` org secret, a token with contents and pull request write access to this repository.
+6. Plugin repositories tell this one about a release with the `TERMIX_PAT` org secret, a token with contents write access to this repository.
 
 <br />
 

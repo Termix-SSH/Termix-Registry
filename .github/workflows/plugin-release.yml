@@ -1,0 +1,87 @@
+name: Plugin Release
+
+# Called by a plugin repo's release.yml on a v* tag push or by hand.
+# Running it again for a version that is already released replaces the
+# release files, and the registry sync then updates that version in place.
+
+on:
+  workflow_call:
+    secrets:
+      TERMIX_PLUGIN_SIGNING_KEY:
+        required: true
+      TERMIX_PAT:
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Resolve the tag
+        id: tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(node -p "require('./manifest.json').version")
+          tag="v$version"
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
+            if [ "$tag" != "$GITHUB_REF_NAME" ]; then
+              echo "Tag $GITHUB_REF_NAME does not match manifest version $version"
+              exit 1
+            fi
+          else
+            git tag -f "$tag"
+            git push -f origin "refs/tags/$tag"
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Test
+        run: npx termix-plugin test
+
+      - name: Type-check
+        run: npm run typecheck --if-present
+
+      - name: Build
+        run: npx termix-plugin build
+
+      - name: Validate
+        run: npx termix-plugin validate
+
+      - name: Pack
+        run: npx termix-plugin pack --out release
+
+      - name: Sign
+        env:
+          TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
+        run: npx termix-plugin sign release/*.tmxplug
+
+      - name: GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" release/*.tmxplug release/*.tmxplug.sig --clobber
+          else
+            gh release create "$TAG" release/*.tmxplug release/*.tmxplug.sig \
+              --title "$TAG" --target "$GITHUB_SHA" --generate-notes
+          fi
+
+      - name: Tell the registry
+        env:
+          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
+        run: |
+          gh api repos/Termix-SSH/Termix-Registry/dispatches \
+            -f event_type=plugin-released \
+            -f "client_payload[repository]=$GITHUB_REPOSITORY"

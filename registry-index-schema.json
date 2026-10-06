@@ -52,7 +52,11 @@
           "format": "uri",
           "pattern": "^https://"
         },
-        "icon": { "type": "string" },
+        "icon": {
+          "description": "A Lucide icon name, the same as manifest icon.",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9]+$"
+        },
         "versions": {
           "type": "array",
           "minItems": 1,
@@ -100,6 +104,11 @@
           "type": "array",
           "items": { "type": "string", "pattern": "^[a-z]+:[a-z-]+$" },
           "uniqueItems": true
+        },
+        "dependencies": {
+          "description": "Plugins this version needs, by id, with a semver range.",
+          "type": "object",
+          "additionalProperties": { "type": "string", "minLength": 1 }
         },
         "releaseNotesUrl": { "type": "string", "format": "uri" },
         "publishedAt": { "type": "string", "format": "date-time" }
