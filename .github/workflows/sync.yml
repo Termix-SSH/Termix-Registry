@@ -20,7 +20,11 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
+      # A queued run must start from the index the last run pushed, not the
+      # commit it was triggered on.
       - uses: actions/checkout@v7
+        with:
+          ref: main
 
       - uses: actions/setup-node@v7
         with:
