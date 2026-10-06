@@ -15,6 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import {
+  changelogSection,
   compareVersions,
   isSigned,
   loadKeys,
@@ -76,6 +77,11 @@ async function readRelease(repo, release, keys, problems) {
     return null;
   }
 
+  const changelog = readTmxplugFile(buffer, "CHANGELOG.md");
+  const notes = changelog
+    ? changelogSection(changelog.toString("utf8"), manifest.version)
+    : null;
+
   return {
     manifest,
     version: {
@@ -90,6 +96,7 @@ async function readRelease(repo, release, keys, problems) {
         ? { dependencies: manifest.dependencies }
         : {}),
       releaseNotesUrl: release.html_url,
+      ...(notes ? { notes: notes.slice(0, 20_000) } : {}),
       publishedAt: new Date().toISOString(),
     },
   };
@@ -130,7 +137,9 @@ async function syncRegistry(dir, keys, problems) {
         (entry) =>
           entry.version === version.version && entry.sha256 === version.sha256,
       );
-      return kept ?? version;
+      if (!kept) return version;
+      const { notes, ...rest } = kept;
+      return version.notes ? { ...rest, notes: version.notes } : rest;
     });
 
     plugins.push({
@@ -141,6 +150,7 @@ async function syncRegistry(dir, keys, problems) {
       category: latest.category,
       repository: `https://github.com/${repo}`,
       icon: latest.icon ?? "Puzzle",
+      ...(typeof latest.video === "string" ? { video: latest.video } : {}),
       versions,
     });
   }

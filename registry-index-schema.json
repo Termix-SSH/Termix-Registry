@@ -57,6 +57,12 @@
           "type": "string",
           "pattern": "^[A-Za-z0-9]+$"
         },
+        "video": {
+          "description": "The manifest's YouTube link. Termix embeds only the video id.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
         "versions": {
           "type": "array",
           "minItems": 1,
@@ -111,6 +117,11 @@
           "additionalProperties": { "type": "string", "minLength": 1 }
         },
         "releaseNotesUrl": { "type": "string", "format": "uri" },
+        "notes": {
+          "description": "This version's section of the plugin's CHANGELOG.md, as Markdown.",
+          "type": "string",
+          "maxLength": 20000
+        },
         "publishedAt": { "type": "string", "format": "date-time" }
       }
     }

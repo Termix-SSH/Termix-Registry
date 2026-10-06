@@ -66,6 +66,16 @@ jobs:
           TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
         run: npx termix-plugin sign release/*.tmxplug
 
+      - name: Release notes
+        env:
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          if [ -f CHANGELOG.md ]; then
+            npx termix-plugin changelog --version "${TAG#v}" > RELEASE_NOTES.md
+          else
+            echo "No CHANGELOG.md, so this release has no notes." > RELEASE_NOTES.md
+          fi
+
       - name: GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -73,9 +83,10 @@ jobs:
         run: |
           if gh release view "$TAG" > /dev/null 2>&1; then
             gh release upload "$TAG" release/*.tmxplug release/*.tmxplug.sig --clobber
+            gh release edit "$TAG" --notes-file RELEASE_NOTES.md
           else
             gh release create "$TAG" release/*.tmxplug release/*.tmxplug.sig \
-              --title "$TAG" --target "$GITHUB_SHA" --generate-notes
+              --title "$TAG" --target "$GITHUB_SHA" --notes-file RELEASE_NOTES.md
           fi
 
       - name: Tell the registry

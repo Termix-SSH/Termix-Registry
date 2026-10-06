@@ -74,3 +74,25 @@ export function readTmxplugFile(buffer, wanted) {
   }
   return null;
 }
+
+const RELEASE_HEADING =
+  /^##\s+\[?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)\]?(?:\s+-\s+.+?)?\s*$/;
+
+/**
+ * The Markdown under one version's heading in a CHANGELOG.md, or null. A
+ * copy of changelogSection in the plugin SDK, which this repo does not use.
+ */
+export function changelogSection(markdown, version) {
+  const lines = markdown.replace(/\r/g, "").split("\n");
+  let start = -1;
+  let fence = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.trim().startsWith("```")) fence = !fence;
+    if (fence || !/^##\s/.test(line)) continue;
+    if (start >= 0) return lines.slice(start, i).join("\n").trim() || null;
+    const match = RELEASE_HEADING.exec(line.trim());
+    if (match && match[1] === version) start = i + 1;
+  }
+  return start >= 0 ? lines.slice(start).join("\n").trim() || null : null;
+}
