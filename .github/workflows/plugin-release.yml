@@ -1,11 +1,26 @@
 name: Plugin Release
 
-# Called by a plugin repo's release.yml on a v* tag push or by hand.
-# Running it again for a version that is already released replaces the
-# release files, and the registry sync then updates that version in place.
+# Called by a plugin repo's release.yml, run by hand from a dev-X.Y.Z branch.
+#
+# stable: stamps X.Y.Z, commits it to the dev branch, squash merges the dev
+#   branch into main, tags vX.Y.Z there, releases it, deletes the dev branch
+#   and this version's beta releases (their tags stay).
+# beta: stamps X.Y.Z-beta.N into the build only, tags the dev commit and
+#   publishes a GitHub prerelease. The registry lists it under prereleases,
+#   so only plugins on the beta channel are offered it.
+# overwrite: releases the manifest version again from the current commit,
+#   replacing its files. Works from any branch.
+# dry-run: everything up to pack, nothing is pushed or published.
 
 on:
   workflow_call:
+    inputs:
+      channel:
+        type: string
+        default: stable
+      mode:
+        type: string
+        default: release
     secrets:
       TERMIX_PLUGIN_SIGNING_KEY:
         required: true
@@ -15,11 +30,18 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: plugin-release-${{ github.repository }}
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: blacksmith-2vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.TERMIX_PAT }}
 
       - uses: actions/setup-node@v7
         with:
@@ -28,23 +50,59 @@ jobs:
 
       - run: npm ci
 
-      - name: Resolve the tag
-        id: tag
+      - name: Resolve the version
+        id: version
         env:
-          GH_TOKEN: ${{ github.token }}
+          CHANNEL: ${{ inputs.channel }}
+          MODE: ${{ inputs.mode }}
         run: |
-          version=$(node -p "require('./manifest.json').version")
-          tag="v$version"
-          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
-            if [ "$tag" != "$GITHUB_REF_NAME" ]; then
-              echo "Tag $GITHUB_REF_NAME does not match manifest version $version"
+          case "$CHANNEL" in stable|beta) ;; *) echo "channel must be stable or beta"; exit 1 ;; esac
+          case "$MODE" in release|overwrite|dry-run) ;; *) echo "mode must be release, overwrite or dry-run"; exit 1 ;; esac
+
+          if [ "$MODE" = "overwrite" ]; then
+            if [ "$CHANNEL" = "beta" ]; then
+              echo "overwrite re-releases a stable version, run it with channel stable"
               exit 1
             fi
+            version=$(node -p "require('./manifest.json').version")
           else
-            git tag -f "$tag"
-            git push -f origin "refs/tags/$tag"
+            base=$(printf '%s' "$GITHUB_REF_NAME" | sed -nE 's/^dev-([0-9]+\.[0-9]+\.[0-9]+)$/\1/p')
+            if [ -z "$base" ]; then
+              echo "Run this from a dev-X.Y.Z branch (got $GITHUB_REF_NAME)."
+              exit 1
+            fi
+            if [ "$CHANNEL" = "beta" ]; then
+              last=$(git tag -l "v$base-beta.*" | sed -E "s/^v$base-beta\.//" | grep -E '^[0-9]+$' | sort -n | tail -1)
+              version="$base-beta.$(( ${last:-0} + 1 ))"
+            else
+              version="$base"
+              if git rev-parse -q --verify "refs/tags/v$version" > /dev/null; then
+                echo "v$version is already released. Bump the dev branch or use mode overwrite."
+                exit 1
+              fi
+            fi
           fi
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+          prev=$(git tag -l 'v*' --sort=-v:refname --merged HEAD | grep -vx "v$version" | head -1)
+          echo "Releasing $version ($CHANNEL, $MODE), changes since ${prev:-the start}"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+          echo "prev=$prev" >> "$GITHUB_OUTPUT"
+          echo "base=${base:-$version}" >> "$GITHUB_OUTPUT"
+
+      - name: Stamp the version
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            for (const file of ["manifest.json", "package.json"]) {
+              const json = JSON.parse(fs.readFileSync(file, "utf8"));
+              json.version = process.env.VERSION;
+              fs.writeFileSync(file, JSON.stringify(json, null, 2) + "\n");
+            }
+          '
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund > /dev/null
 
       - name: Test
         run: npx termix-plugin test
@@ -62,34 +120,106 @@ jobs:
         run: npx termix-plugin pack --out release
 
       - name: Sign
+        if: ${{ inputs.mode != 'dry-run' }}
         env:
           TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
         run: npx termix-plugin sign release/*.tmxplug
 
       - name: Release notes
         env:
-          TAG: ${{ steps.tag.outputs.tag }}
+          CHANNEL: ${{ inputs.channel }}
+          VERSION: ${{ steps.version.outputs.version }}
+          PREV: ${{ steps.version.outputs.prev }}
         run: |
-          if [ -f CHANGELOG.md ]; then
-            npx termix-plugin changelog --version "${TAG#v}" > RELEASE_NOTES.md
+          if [ "$CHANNEL" = "beta" ]; then
+            {
+              echo "> [!WARNING]"
+              echo "> This is a beta. It can have bugs. In Termix, open this plugin and turn off Beta versions to go back to stable once a newer stable release is out."
+              echo
+              echo "Found a bug or have feedback? [Send beta feedback](https://github.com/$GITHUB_REPOSITORY/issues/new?template=beta_feedback.yml&plugin-version=$VERSION)."
+              echo
+              echo "### Changes"
+              echo
+              if [ -n "$PREV" ]; then
+                git log --no-merges --format='- %s' "$PREV..HEAD" -- . ':!package-lock.json' | head -100
+              else
+                echo "- First release"
+              fi
+            } > RELEASE_NOTES.md
+          elif [ -f CHANGELOG.md ]; then
+            npx termix-plugin changelog --version "$VERSION" > RELEASE_NOTES.md
           else
             echo "No CHANGELOG.md, so this release has no notes." > RELEASE_NOTES.md
           fi
+          cat RELEASE_NOTES.md
+
+      - name: Commit the version and merge into main
+        id: merge
+        if: ${{ inputs.mode == 'release' && inputs.channel == 'stable' }}
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          git config user.name "LukeGus"
+          git config user.email "bugattiguy527@gmail.com"
+          git add manifest.json package.json package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: release $VERSION"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+
+          # main only ever takes dev branches, so it gets the dev tree as one commit.
+          dev_sha=$(git rev-parse HEAD)
+          git fetch origin main
+          git checkout -B main origin/main
+          git read-tree -u --reset "$dev_sha"
+          if git diff --cached --quiet; then
+            echo "main already matches $GITHUB_REF_NAME"
+          else
+            git commit -m "feat: release $VERSION"
+          fi
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Tag
+        if: ${{ inputs.mode != 'dry-run' }}
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+          TARGET: ${{ steps.merge.outputs.sha || github.sha }}
+        run: |
+          git tag -f "$TAG" "$TARGET"
+          git push -f origin "refs/tags/$TAG"
 
       - name: GitHub release
+        if: ${{ inputs.mode != 'dry-run' }}
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG: ${{ steps.tag.outputs.tag }}
+          TAG: ${{ steps.version.outputs.tag }}
+          TARGET: ${{ steps.merge.outputs.sha || github.sha }}
+          PRERELEASE: ${{ inputs.channel == 'beta' && '--prerelease' || '' }}
         run: |
           if gh release view "$TAG" > /dev/null 2>&1; then
             gh release upload "$TAG" release/*.tmxplug release/*.tmxplug.sig --clobber
-            gh release edit "$TAG" --notes-file RELEASE_NOTES.md
+            gh release edit "$TAG" --notes-file RELEASE_NOTES.md $PRERELEASE
           else
             gh release create "$TAG" release/*.tmxplug release/*.tmxplug.sig \
-              --title "$TAG" --target "$GITHUB_SHA" --notes-file RELEASE_NOTES.md
+              --title "$TAG" --target "$TARGET" --notes-file RELEASE_NOTES.md $PRERELEASE
           fi
 
+      - name: Clean up after a stable release
+        if: ${{ inputs.mode == 'release' && inputs.channel == 'stable' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE: ${{ steps.version.outputs.base }}
+        run: |
+          gh release list --limit 200 --json tagName -q '.[].tagName' \
+            | grep -F "v$BASE-beta." | while read -r TAG; do
+              echo "Deleting release $TAG"
+              gh release delete "$TAG" --yes || true
+            done
+          git push origin --delete "$GITHUB_REF_NAME" || true
+
       - name: Tell the registry
+        if: ${{ inputs.mode != 'dry-run' }}
         env:
           GH_TOKEN: ${{ secrets.TERMIX_PAT }}
         run: |

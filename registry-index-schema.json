@@ -64,8 +64,13 @@
           "pattern": "^https://"
         },
         "versions": {
+          "description": "Stable releases, newest first.",
           "type": "array",
-          "minItems": 1,
+          "items": { "$ref": "#/$defs/version" }
+        },
+        "prereleases": {
+          "description": "Betas newer than the newest stable release, newest first. Kept apart so older Termix builds never offer them.",
+          "type": "array",
           "items": { "$ref": "#/$defs/version" }
         }
       }

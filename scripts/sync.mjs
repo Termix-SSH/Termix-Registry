@@ -6,6 +6,8 @@
  *   signature matches a key in keys/, and the packed manifest matches the tag
  * - a version whose file changed (a re-released version) is replaced
  * - a version whose release is gone is dropped
+ * - betas (GitHub prereleases with a semver prerelease version) go in
+ *   prereleases, and only while they are newer than the newest stable
  *
  * Set GH_TOKEN for the higher GitHub API rate limit.
  */
@@ -17,6 +19,7 @@ import process from "node:process";
 import {
   changelogSection,
   compareVersions,
+  isPrerelease,
   isSigned,
   loadKeys,
   readTmxplugFile,
@@ -116,7 +119,7 @@ async function syncRegistry(dir, keys, problems) {
     const releases = await github(`/repos/${repo}/releases?per_page=100`);
     const found = [];
     for (const release of releases) {
-      if (release.draft || release.prerelease) continue;
+      if (release.draft) continue;
       const entry = await readRelease(repo, release, keys, problems);
       if (entry) found.push(entry);
     }
@@ -125,22 +128,37 @@ async function syncRegistry(dir, keys, problems) {
     found.sort((a, b) =>
       compareVersions(b.manifest.version, a.manifest.version),
     );
-    const latest = found[0].manifest;
+    const stable = found.filter(
+      ({ manifest }) => !isPrerelease(manifest.version),
+    );
+    const newestStable = stable[0]?.manifest.version;
+    const betas = found.filter(
+      ({ manifest }) =>
+        isPrerelease(manifest.version) &&
+        (!newestStable ||
+          compareVersions(manifest.version, newestStable) > 0),
+    );
+    // Listing text follows stable, so a beta can't change what stable users see.
+    const latest = (stable[0] ?? found[0]).manifest;
     if (found.some(({ manifest }) => manifest.id !== latest.id)) {
       problems.push(`${repo}: releases use more than one plugin id`);
       continue;
     }
 
     const old = previous.get(latest.id);
-    const versions = found.map(({ version }) => {
-      const kept = old?.versions.find(
-        (entry) =>
-          entry.version === version.version && entry.sha256 === version.sha256,
-      );
-      if (!kept) return version;
-      const { notes, ...rest } = kept;
-      return version.notes ? { ...rest, notes: version.notes } : rest;
-    });
+    const keep = (list, entries) =>
+      entries.map(({ version }) => {
+        const kept = list?.find(
+          (entry) =>
+            entry.version === version.version &&
+            entry.sha256 === version.sha256,
+        );
+        if (!kept) return version;
+        const { notes, ...rest } = kept;
+        return version.notes ? { ...rest, notes: version.notes } : rest;
+      });
+    const versions = keep(old?.versions, stable);
+    const prereleases = keep(old?.prereleases, betas);
 
     plugins.push({
       id: latest.id,
@@ -155,6 +173,7 @@ async function syncRegistry(dir, keys, problems) {
         ? { features: latest.features }
         : {}),
       versions,
+      ...(prereleases.length > 0 ? { prereleases } : {}),
     });
   }
 

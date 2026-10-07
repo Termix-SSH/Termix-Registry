@@ -16,7 +16,13 @@ import path from "node:path";
 import process from "node:process";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
-import { compareVersions, isSigned, loadKeys, root } from "./lib.mjs";
+import {
+  compareVersions,
+  isPrerelease,
+  isSigned,
+  loadKeys,
+  root,
+} from "./lib.mjs";
 
 const offline = process.argv.includes("--offline");
 
@@ -83,13 +89,39 @@ async function main() {
         problems.push(`${rel}: ${plugin.id} is listed twice`);
       ids.add(plugin.id);
 
-      const versions = plugin.versions.map((entry) => entry.version);
-      if (new Set(versions).size !== versions.length) {
-        problems.push(`${rel}: ${plugin.id} lists a version twice`);
+      const prereleases = plugin.prereleases ?? [];
+      if (plugin.versions.length === 0 && prereleases.length === 0) {
+        problems.push(`${rel}: ${plugin.id} has no releases`);
       }
-      const sorted = [...versions].sort((a, b) => compareVersions(b, a));
-      if (sorted.join() !== versions.join()) {
-        problems.push(`${rel}: ${plugin.id} versions must be newest first`);
+      for (const [list, entries] of [
+        ["versions", plugin.versions],
+        ["prereleases", prereleases],
+      ]) {
+        const names = entries.map((entry) => entry.version);
+        if (new Set(names).size !== names.length) {
+          problems.push(`${rel}: ${plugin.id} lists a version twice`);
+        }
+        const sorted = [...names].sort((a, b) => compareVersions(b, a));
+        if (sorted.join() !== names.join()) {
+          problems.push(`${rel}: ${plugin.id} ${list} must be newest first`);
+        }
+        for (const name of names) {
+          if (isPrerelease(name) !== (list === "prereleases")) {
+            problems.push(
+              `${rel}: ${plugin.id}@${name} belongs in ${
+                list === "versions" ? "prereleases" : "versions"
+              }`,
+            );
+          }
+        }
+      }
+      const newestStable = plugin.versions[0]?.version;
+      for (const entry of prereleases) {
+        if (newestStable && compareVersions(entry.version, newestStable) <= 0) {
+          problems.push(
+            `${rel}: ${plugin.id}@${entry.version} is older than stable ${newestStable}`,
+          );
+        }
       }
 
       if (offline) continue;
@@ -97,7 +129,7 @@ async function main() {
         problems.push("keys/ has no .pub file to check signatures against");
         break;
       }
-      for (const version of plugin.versions) {
+      for (const version of [...plugin.versions, ...prereleases]) {
         await checkArtifact(
           `${rel}: ${plugin.id}@${version.version}`,
           version,

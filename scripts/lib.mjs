@@ -43,12 +43,44 @@ export function isSigned(digest, signature, keys) {
   return keys.some(({ key }) => crypto.verify(null, digest, key, sig));
 }
 
+function parseVersion(version) {
+  const [core, ...rest] = String(version).split("+")[0].split("-");
+  return {
+    core: core.split(".").map((part) => Number.parseInt(part, 10) || 0),
+    pre: rest.length ? rest.join("-").split(".") : [],
+  };
+}
+
+export function isPrerelease(version) {
+  return parseVersion(version).pre.length > 0;
+}
+
+/** Semver precedence: 1.1.0-beta.2 < 1.1.0-beta.10 < 1.1.0. */
 export function compareVersions(a, b) {
-  const pa = a.split(/[.-]/).map((part) => Number.parseInt(part, 10) || 0);
-  const pb = b.split(/[.-]/).map((part) => Number.parseInt(part, 10) || 0);
-  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-    const diff = (pa[i] ?? 0) - (pb[i] ?? 0);
+  const pa = parseVersion(a);
+  const pb = parseVersion(b);
+  for (let i = 0; i < 3; i++) {
+    const diff = (pa.core[i] ?? 0) - (pb.core[i] ?? 0);
     if (diff !== 0) return diff;
+  }
+  if (!pa.pre.length || !pb.pre.length) {
+    return pb.pre.length - pa.pre.length;
+  }
+  for (let i = 0; i < Math.max(pa.pre.length, pb.pre.length); i++) {
+    const x = pa.pre[i];
+    const y = pb.pre[i];
+    if (x === undefined) return -1;
+    if (y === undefined) return 1;
+    const nx = /^\d+$/.test(x);
+    const ny = /^\d+$/.test(y);
+    if (nx && ny) {
+      const diff = Number(x) - Number(y);
+      if (diff !== 0) return diff;
+    } else if (nx !== ny) {
+      return nx ? -1 : 1;
+    } else if (x !== y) {
+      return x < y ? -1 : 1;
+    }
   }
   return 0;
 }
