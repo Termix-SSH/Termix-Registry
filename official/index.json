@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-07T00:03:57.777Z",
+  "updatedAt": "2026-10-07T01:32:28.099Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -438,8 +438,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- RDP, VNC and Telnet from any browser\n- Tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app",
-          "publishedAt": "2026-10-07T00:03:45.387Z"
+          "publishedAt": "2026-10-07T00:03:45.387Z",
+          "notes": "### Added\n\n- RDP, VNC and Telnet from any browser\n- Tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app"
         }
       ]
     },
