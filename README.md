@@ -4,7 +4,7 @@
 
 <h1>Termix Registry</h1>
 
-<p>The index of plugins Termix can install</p>
+<p>The list of plugins you can install in Termix</p>
 
 <p>
   <img src="https://img.shields.io/github/stars/Termix-SSH/Termix-Registry?style=flat&label=Stars&color=F39044&labelColor=1a1a1a" />
@@ -19,7 +19,7 @@
 
 ## Overview
 
-This repository holds the list of plugins [Termix](https://github.com/Termix-SSH/Termix) can install. Right now it only lists the official plugins made by the Termix team, in `official/index.json`. Community plugins will come later.
+[Termix](https://github.com/Termix-SSH/Termix) is self-hosted, plugin-based server management. This repo holds the list of plugins you can install in it. Right now it only lists the official plugins made by the Termix team, in `official/index.json`. Community plugins will come later. To build your own, start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template).
 
 The index is updated on its own whenever an official plugin is released, so there is nothing to edit here by hand.
 
