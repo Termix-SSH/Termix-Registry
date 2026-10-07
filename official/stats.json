@@ -1,276 +1,276 @@
 {
-  "updatedAt": "2026-10-06T19:11:54.153Z",
+  "updatedAt": "2026-10-07T10:34:29.626Z",
   "activeInstallsSource": null,
   "plugins": {
     "acme-ssl": {
-      "downloads": 16,
+      "downloads": 36,
       "versions": {
         "1.0.0": {
-          "downloads": 16
+          "downloads": 36
         }
       }
     },
     "ai": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "alerts": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "automations": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "docker": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "file-manager": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "fleets": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "homepage": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "host-metrics": {
-      "downloads": 14,
+      "downloads": 35,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 35
         }
       }
     },
     "ldap": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "network-topology": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "opkssh": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "proxmox": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "remote-desktop": {
-      "downloads": 13,
+      "downloads": 12,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 12
         }
       }
     },
     "secret-sources": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "serial": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "session-recording": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "session-sharing": {
-      "downloads": 15,
+      "downloads": 35,
       "versions": {
         "1.0.0": {
-          "downloads": 15
+          "downloads": 35
         }
       }
     },
     "snippets": {
-      "downloads": 8,
+      "downloads": 28,
       "versions": {
         "1.0.0": {
-          "downloads": 8
+          "downloads": 28
         }
       }
     },
     "ssh-terminal": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "sso": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "step-ca": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "tailscale": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "telemetry": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "termix-identity": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "tmux-monitor": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "totp": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "tunnels": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "vault": {
-      "downloads": 14,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 14
+          "downloads": 34
         }
       }
     },
     "wake-on-lan": {
-      "downloads": 13,
+      "downloads": 34,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 34
         }
       }
     },
     "warpgate": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "web-endpoint": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "webauthn": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     },
     "workspaces": {
-      "downloads": 13,
+      "downloads": 33,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 33
         }
       }
     }
