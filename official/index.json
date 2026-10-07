@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-06T02:40:40.682Z",
+  "updatedAt": "2026-10-07T00:03:57.777Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -424,9 +424,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.0.0/remote-desktop-1.0.0.tmxplug",
-          "sha256": "5201dc1ce4846ef9f509a4c609698e2b2970e31fbc152bb2fe5c39c72c5c6d39",
-          "signature": "4vm+hIkvJPg5ZVyDRdN6ZLB3f+P/xk2Vm77oBXq4HibWELTYbTGWOg4wblp1fFyeviWSICTUN0vC482s8RjwAQ==",
-          "size": 649308,
+          "sha256": "b24e957591f0a019337eb4e50f44303bb1393d32f594149d1582d27cad07e171",
+          "signature": "4XmwXeu/13Iu2tC5Gt9Bf8+h1qaxZgPNXbry02n8v8VN3WP4EGFyeeTsy1Qxt6/djk1vZ0uDdw+rcFU0sdCxDA==",
+          "size": 653530,
           "capabilities": [
             "hosts:read",
             "credentials:read",
@@ -438,7 +438,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-06T02:40:24.543Z"
+          "notes": "### Added\n\n- RDP, VNC and Telnet from any browser\n- Tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app",
+          "publishedAt": "2026-10-07T00:03:45.387Z"
         }
       ]
     },
