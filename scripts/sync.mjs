@@ -86,7 +86,7 @@ async function readRelease(repo, release, keys, problems) {
     manifest,
     version: {
       version: manifest.version,
-      api: String(manifest.engine.api),
+      api: String(manifest.engine.api).match(/d+/)?.[0] ?? "",
       url: artifact.browser_download_url,
       sha256: digest.toString("hex"),
       signature,
