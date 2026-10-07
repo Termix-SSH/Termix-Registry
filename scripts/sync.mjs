@@ -151,6 +151,9 @@ async function syncRegistry(dir, keys, problems) {
       repository: `https://github.com/${repo}`,
       icon: latest.icon ?? "Puzzle",
       ...(typeof latest.video === "string" ? { video: latest.video } : {}),
+      ...(Array.isArray(latest.features) && latest.features.length > 0
+        ? { features: latest.features }
+        : {}),
       versions,
     });
   }
