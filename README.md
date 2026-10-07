@@ -19,16 +19,9 @@
 
 ## Overview
 
-[Termix](https://github.com/Termix-SSH/Termix) is self-hosted, plugin-based server management. This repo holds the list of plugins you can install in it. Right now it only lists the official plugins made by the Termix team, in `official/index.json`. Community plugins will come later. To build your own, start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template).
+This is the plugin registry for [Termix](https://github.com/Termix-SSH/Termix), self-hosted, plugin-based server management. It lists the official plugins and, later on, community plugins. Termix reads it to show the plugins you can install from the Plugins tab.
 
-The index is updated on its own whenever an official plugin is released, so there is nothing to edit here by hand.
-
-`official/stats.json` is rebuilt once a day and sorts the plugin store in Termix. It holds two numbers per plugin:
-
-- `downloads` is how many times the plugin's `.tmxplug` was downloaded from its GitHub releases. It counts downloads, not installs.
-- `activeInstalls` is how many instances reported the plugin turned on in the last 7 days through the Usage Statistics plugin. It is missing when the `POSTHOG_PERSONAL_API_KEY` secret and `POSTHOG_PROJECT_ID` variable are not set, and it undercounts by every instance that turned the report off.
-
-Termix shows active installs when there are any and falls back to downloads. Only these totals are stored, never anything about a single instance.
+Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template).
 
 <br />
 
