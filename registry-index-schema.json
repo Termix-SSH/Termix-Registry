@@ -63,6 +63,18 @@
           "format": "uri",
           "pattern": "^https://"
         },
+        "features": {
+          "description": "Short lines listing what the plugin does, from the manifest.",
+          "type": "array",
+          "maxItems": 20,
+          "items": { "type": "string", "minLength": 1, "maxLength": 160 }
+        },
+        "docs": {
+          "description": "Where the plugin's docs live. The manifest's docs link, or the registry's docsBase plus the id.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
         "versions": {
           "description": "Stable releases, newest first.",
           "type": "array",

@@ -46,6 +46,7 @@ jobs:
         run: npm run validate
 
       - name: Commit
+        id: commit
         run: |
           if git diff --quiet; then
             echo "Index is up to date."
@@ -56,6 +57,20 @@ jobs:
           git add official/index.json
           git commit -m "chore: sync plugin releases"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # The docs site pulls each plugin's docs from its release, so it
+      # rebuilds whenever the index changes.
+      - name: Tell the docs site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "No TERMIX_PAT, skipping the docs rebuild."
+            exit 0
+          fi
+          gh api repos/Termix-SSH/Docs/dispatches -f event_type=registry-updated
 
       - name: Report releases that were left out
         if: steps.sync.outcome == 'failure'

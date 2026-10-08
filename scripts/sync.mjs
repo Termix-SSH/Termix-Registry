@@ -105,6 +105,30 @@ async function readRelease(repo, release, keys, problems) {
   };
 }
 
+/**
+ * The manifest's docs link, or the registry's docsBase plus the id when the
+ * manifest has none. Only https links get through.
+ */
+function docsLink(manifest, sources) {
+  const candidates = [
+    manifest.docs,
+    sources.docsBase
+      ? `${sources.docsBase.replace(/\/+$/, "")}/${manifest.id}`
+      : null,
+  ];
+  for (const value of candidates) {
+    if (typeof value !== "string") continue;
+    try {
+      const url = new URL(value);
+      if (url.protocol === "https:")
+        return { docs: url.toString().replace(/\/$/, "") };
+    } catch {
+      // not a URL, try the next one
+    }
+  }
+  return {};
+}
+
 async function syncRegistry(dir, keys, problems) {
   const indexPath = path.join(dir, "index.json");
   const sources = JSON.parse(
@@ -171,6 +195,7 @@ async function syncRegistry(dir, keys, problems) {
       ...(Array.isArray(latest.features) && latest.features.length > 0
         ? { features: latest.features }
         : {}),
+      ...docsLink(latest, sources),
       versions,
       ...(prereleases.length > 0 ? { prereleases } : {}),
     });

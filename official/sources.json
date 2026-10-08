@@ -1,4 +1,5 @@
 {
+  "docsBase": "https://docs.termix.site/plugins",
   "repositories": [
     "Termix-SSH/Plugin-ACME-SSL",
     "Termix-SSH/Plugin-AI",
