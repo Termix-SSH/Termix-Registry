@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-07T01:32:28.099Z",
+  "updatedAt": "2026-10-08T08:57:59.300Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -13,6 +13,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-ACME-SSL",
       "icon": "Lock",
+      "docs": "https://docs.termix.site/plugins/acme-ssl",
       "versions": [
         {
           "version": "1.0.0",
@@ -43,6 +44,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-AI",
       "icon": "Sparkles",
+      "docs": "https://docs.termix.site/plugins/ai",
       "versions": [
         {
           "version": "1.0.0",
@@ -78,6 +80,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
       "icon": "Bell",
+      "docs": "https://docs.termix.site/plugins/alerts",
       "versions": [
         {
           "version": "1.0.0",
@@ -110,6 +113,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Automations",
       "icon": "Workflow",
+      "docs": "https://docs.termix.site/plugins/automations",
       "versions": [
         {
           "version": "1.0.0",
@@ -148,6 +152,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Docker",
       "icon": "Box",
+      "docs": "https://docs.termix.site/plugins/docker",
       "versions": [
         {
           "version": "1.0.0",
@@ -178,6 +183,7 @@
       "category": "Files & Transfer",
       "repository": "https://github.com/Termix-SSH/Plugin-File-Manager",
       "icon": "FolderSearch",
+      "docs": "https://docs.termix.site/plugins/file-manager",
       "versions": [
         {
           "version": "1.0.0",
@@ -211,6 +217,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Fleets",
       "icon": "Boxes",
+      "docs": "https://docs.termix.site/plugins/fleets",
       "versions": [
         {
           "version": "1.0.0",
@@ -242,6 +249,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Homepage",
       "icon": "LayoutGrid",
+      "docs": "https://docs.termix.site/plugins/homepage",
       "versions": [
         {
           "version": "1.0.0",
@@ -269,6 +277,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
       "icon": "Activity",
+      "docs": "https://docs.termix.site/plugins/host-metrics",
       "versions": [
         {
           "version": "1.0.0",
@@ -301,6 +310,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-LDAP",
       "icon": "Server",
+      "docs": "https://docs.termix.site/plugins/ldap",
       "versions": [
         {
           "version": "1.0.0",
@@ -329,6 +339,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Network-Topology",
       "icon": "Network",
+      "docs": "https://docs.termix.site/plugins/network-topology",
       "versions": [
         {
           "version": "1.0.0",
@@ -355,6 +366,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-OPKSSH",
       "icon": "ShieldCheck",
+      "docs": "https://docs.termix.site/plugins/opkssh",
       "versions": [
         {
           "version": "1.0.0",
@@ -387,6 +399,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Proxmox",
       "icon": "Server",
+      "docs": "https://docs.termix.site/plugins/proxmox",
       "versions": [
         {
           "version": "1.0.0",
@@ -419,6 +432,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Remote-Desktop",
       "icon": "Monitor",
+      "docs": "https://docs.termix.site/plugins/remote-desktop",
       "versions": [
         {
           "version": "1.0.0",
@@ -451,6 +465,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Secret-Sources",
       "icon": "KeyRound",
+      "docs": "https://docs.termix.site/plugins/secret-sources",
       "versions": [
         {
           "version": "1.0.0",
@@ -481,6 +496,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Serial",
       "icon": "Usb",
+      "docs": "https://docs.termix.site/plugins/serial",
       "versions": [
         {
           "version": "1.0.0",
@@ -507,6 +523,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Session-Recording",
       "icon": "ScrollText",
+      "docs": "https://docs.termix.site/plugins/session-recording",
       "versions": [
         {
           "version": "1.0.0",
@@ -537,6 +554,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Session-Sharing",
       "icon": "Presentation",
+      "docs": "https://docs.termix.site/plugins/session-sharing",
       "versions": [
         {
           "version": "1.0.0",
@@ -569,6 +587,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
       "icon": "Play",
+      "docs": "https://docs.termix.site/plugins/snippets",
       "versions": [
         {
           "version": "1.0.0",
@@ -600,6 +619,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-SSH-Terminal",
       "icon": "SquareTerminal",
+      "docs": "https://docs.termix.site/plugins/ssh-terminal",
       "versions": [
         {
           "version": "1.0.0",
@@ -631,6 +651,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-SSO",
       "icon": "KeyRound",
+      "docs": "https://docs.termix.site/plugins/sso",
       "versions": [
         {
           "version": "1.0.0",
@@ -660,6 +681,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
       "icon": "ShieldCheck",
+      "docs": "https://docs.termix.site/plugins/step-ca",
       "versions": [
         {
           "version": "1.0.0",
@@ -689,6 +711,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tailscale",
       "icon": "Network",
+      "docs": "https://docs.termix.site/plugins/tailscale",
       "versions": [
         {
           "version": "1.0.0",
@@ -721,6 +744,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Telemetry",
       "icon": "ChartNoAxesColumn",
+      "docs": "https://docs.termix.site/plugins/telemetry",
       "versions": [
         {
           "version": "1.0.0",
@@ -752,6 +776,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Termix-Identity",
       "icon": "Fingerprint",
+      "docs": "https://docs.termix.site/plugins/termix-identity",
       "versions": [
         {
           "version": "1.0.0",
@@ -781,6 +806,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor",
       "icon": "Layers",
+      "docs": "https://docs.termix.site/plugins/tmux-monitor",
       "versions": [
         {
           "version": "1.0.0",
@@ -810,6 +836,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-TOTP",
       "icon": "ShieldCheck",
+      "docs": "https://docs.termix.site/plugins/totp",
       "versions": [
         {
           "version": "1.0.0",
@@ -839,6 +866,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tunnels",
       "icon": "ArrowLeftRight",
+      "docs": "https://docs.termix.site/plugins/tunnels",
       "versions": [
         {
           "version": "1.0.0",
@@ -870,6 +898,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Vault",
       "icon": "KeyRound",
+      "docs": "https://docs.termix.site/plugins/vault",
       "versions": [
         {
           "version": "1.0.0",
@@ -899,6 +928,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN",
       "icon": "Zap",
+      "docs": "https://docs.termix.site/plugins/wake-on-lan",
       "versions": [
         {
           "version": "1.0.0",
@@ -926,6 +956,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Warpgate",
       "icon": "DoorOpen",
+      "docs": "https://docs.termix.site/plugins/warpgate",
       "versions": [
         {
           "version": "1.0.0",
@@ -950,6 +981,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Web-Endpoint",
       "icon": "Globe",
+      "docs": "https://docs.termix.site/plugins/web-endpoint",
       "versions": [
         {
           "version": "1.0.0",
@@ -980,6 +1012,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-WebAuthn",
       "icon": "Fingerprint",
+      "docs": "https://docs.termix.site/plugins/webauthn",
       "versions": [
         {
           "version": "1.0.0",
@@ -1009,6 +1042,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Workspaces",
       "icon": "LayoutTemplate",
+      "docs": "https://docs.termix.site/plugins/workspaces",
       "versions": [
         {
           "version": "1.0.0",
