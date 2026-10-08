@@ -1,3 +1,10 @@
 node_modules
 *.tmxplug
 termix-plugin-signing.key
+
+# Editors and OS
+.idea/
+.vscode/
+.claude/
+.DS_Store
+Thumbs.db

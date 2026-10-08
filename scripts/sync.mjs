@@ -135,8 +135,7 @@ async function syncRegistry(dir, keys, problems) {
     const betas = found.filter(
       ({ manifest }) =>
         isPrerelease(manifest.version) &&
-        (!newestStable ||
-          compareVersions(manifest.version, newestStable) > 0),
+        (!newestStable || compareVersions(manifest.version, newestStable) > 0),
     );
     // Listing text follows stable, so a beta can't change what stable users see.
     const latest = (stable[0] ?? found[0]).manifest;

@@ -6,10 +6,23 @@
     "validate": "node scripts/validate.mjs",
     "validate:offline": "node scripts/validate.mjs --offline",
     "sync": "node scripts/sync.mjs",
-    "stats": "node scripts/stats.mjs"
+    "stats": "node scripts/stats.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky || true"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
     "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.9"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,mjs,cjs,json,css,md}": [
+      "prettier --write"
+    ]
   }
 }
