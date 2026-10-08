@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-08T08:57:59.300Z",
+  "updatedAt": "2026-10-08T22:50:46.647Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -13,15 +13,21 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-ACME-SSL",
       "icon": "Lock",
+      "features": [
+        "Certificates from Let's Encrypt or any ACME directory",
+        "HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed",
+        "Renews before the certificate expires",
+        "Swaps in the new certificate without a restart"
+      ],
       "docs": "https://docs.termix.site/plugins/acme-ssl",
       "versions": [
         {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.0.0/acme-ssl-1.0.0.tmxplug",
-          "sha256": "1725735a058065b211436b166c0ef7d4ca6e74438102764664381160a2b305d3",
-          "signature": "ueVbEARxxUvDAOv86s4zVz4zL4BfThyL/pcjUcvfZpKDd/fzHW4TS2c7pl6hFZeIC+oACyoMls/y2aPttqIxDw==",
-          "size": 778442,
+          "sha256": "05b7b4c27897135437af6340c5c31501d2e96ac013dca0672940b74c76085433",
+          "signature": "WwzwIKqdfYPWOwFMldXp6z5eM817No0zU8Q18WGbqBvxRH00QPfQ8kVtVpAMh3xjwB2Y6YzVIlMNYlTbVSgvCw==",
+          "size": 779846,
           "capabilities": [
             "system:tls",
             "kv:own",
@@ -32,7 +38,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-06T02:39:15.587Z"
+          "notes": "### Added\n\n- Certificates from Let's Encrypt or any ACME directory\n- HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed\n- Renews before the certificate expires\n- Swaps in the new certificate without a restart",
+          "publishedAt": "2026-10-08T22:50:23.029Z"
         }
       ]
     },
@@ -80,16 +87,24 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
       "icon": "Bell",
+      "features": [
+        "One inbox for alerts from every part of Termix",
+        "Popups for new alerts",
+        "Send alerts to Discord, ntfy, email or a webhook",
+        "Rules that pick which alerts go where",
+        "Optional news from the Termix team, like security notices and releases"
+      ],
       "docs": "https://docs.termix.site/plugins/alerts",
       "versions": [
         {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.0.0/alerts-1.0.0.tmxplug",
-          "sha256": "93274529eb3445db9e1dddc630b7608b15250eb179bb7919a43c3e6707fa20b5",
-          "signature": "S+02jVIVMQsGAsEIjHwHMDOA72bbzVkFWsMzWEXSmdr+K7ClYHon6Z94LjHMkKQza0stE5psEYrqwH16bwQXCw==",
-          "size": 492424,
+          "sha256": "97e7be293ace897cd45615a8764e8395cf613546b86de82601ab49669dc36591",
+          "signature": "p2+r20esN+J6WVO4dQk9h18yuR58Hpp5BjZxwTxxWInpZyddLObtubfRZ10lfDaqpP+1glXbzuT9T5MctmG0BA==",
+          "size": 507200,
           "capabilities": [
+            "db:core-refs",
             "db:own",
             "events:core",
             "network:outbound",
@@ -101,27 +116,36 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-06T02:39:41.720Z"
+          "notes": "### Added\n\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined",
+          "publishedAt": "2026-10-08T22:50:24.682Z"
         }
       ]
     },
     {
       "id": "automations",
       "name": "Automations",
-      "description": "Run steps on your hosts on a schedule or when something happens, like a host going down or a metric crossing a limit.",
+      "description": "Run steps on your hosts on a schedule or when something happens.",
       "author": "Termix",
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Automations",
       "icon": "Workflow",
+      "features": [
+        "Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks",
+        "Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts",
+        "Conditions, waits and variables for more complex flows",
+        "Run on one host, a fleet or every host",
+        "Test runs and a history of every run",
+        "Maintenance windows that pause automations while you work on a host"
+      ],
       "docs": "https://docs.termix.site/plugins/automations",
       "versions": [
         {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.0/automations-1.0.0.tmxplug",
-          "sha256": "6cb00cf9464e42dbc46786a6ef74b07d62da39ece9905197584d2934265b9b10",
-          "signature": "2Mw/HbTzScCHCqwDKAK5Cj94pR6mBtd6J82CwuxZgtdlLj4GuoYRwK980sXSTvyLrnvzMn7TLFJr60wUdJ/2CQ==",
-          "size": 334843,
+          "sha256": "0972aef1c14917321c035f7497db81fe95f6b9e47d854b95b1c762444d9cb2a2",
+          "signature": "EPTX/qJEQGp04Ay0+o5+dzdzh183FP+hoXnyQwHkMnjEcIfyr1n+11/TUh+4m8jjjIN+A2APVDNC+MkoI4+KCw==",
+          "size": 343100,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -140,7 +164,8 @@
             "snippets": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-06T02:39:42.607Z"
+          "notes": "### Added\n\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts\n- Conditions, waits and variables for more complex flows\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host\n\n### Fixed\n\n- A nested automation step can only run automations you own\n- Values from triggers, steps and variables can no longer change the shell command they are put in",
+          "publishedAt": "2026-10-08T22:50:25.503Z"
         }
       ]
     },
@@ -152,15 +177,22 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Docker",
       "icon": "Box",
+      "features": [
+        "Start, stop, restart, pause and remove containers",
+        "Live CPU, memory, network and disk stats",
+        "Read and download container logs",
+        "Open a shell inside a container",
+        "Works with Docker and Podman"
+      ],
       "docs": "https://docs.termix.site/plugins/docker",
       "versions": [
         {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.0.0/docker-1.0.0.tmxplug",
-          "sha256": "d1d1dd441b51a97231d5da94e38a12b2d2b25db6da5e2b13b4a4b9486881ed2d",
-          "signature": "DSZVBN3Kgd1Q5KMwOh4lmfsjZ5RfFbDzPexuJKzTfNVa/N+loC2+PPLGdOOs5smkfzuzUuswpy2sHqvJgxGuCQ==",
-          "size": 937418,
+          "sha256": "ca9b8cf573d27a71adb544fd6ff4d19278349f10fdca98f9cc63d7fec63bc441",
+          "signature": "uHCEdEETbxloGJBOwr1panWhbQWJih+mlzlEwYTob5PbCY5mWvVClD373YjItKL5l2kw1G1omNum0/FywRvjBA==",
+          "size": 942533,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -171,7 +203,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-06T02:39:43.471Z"
+          "notes": "### Added\n\n- Start, stop, restart, pause and remove containers\n- Live CPU, memory, network and disk stats\n- Read and download container logs\n- Open a shell inside a container\n- Works with Docker and Podman",
+          "publishedAt": "2026-10-08T22:50:26.453Z"
         }
       ]
     },
@@ -217,15 +250,23 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Fleets",
       "icon": "Boxes",
+      "features": [
+        "Group hosts by hand or with tag rules, so new hosts join on their own",
+        "Run one command on every host and see each result",
+        "Install, remove or upgrade packages across the fleet",
+        "Push and pull files on every host",
+        "Collect an inventory of OS, kernel, architecture and uptime",
+        "Share a fleet with users or roles"
+      ],
       "docs": "https://docs.termix.site/plugins/fleets",
       "versions": [
         {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.0.0/fleets-1.0.0.tmxplug",
-          "sha256": "4a774d4a3685b0ee8da5b73d14c60d40f10b6a3f1c5b31a5dfefb94ba30fb7ad",
-          "signature": "wpY+UpMoKoEw+gYIQYshFgJwaQtg/dQt1g0QMA/OKD5CZgYJEFa6Q2Z7AVq7o1tNVGeGxJqI49VyIxl8/l8+BQ==",
-          "size": 474288,
+          "sha256": "410b19f3a6f47e2a292821b11876b8b5a0bdf779f8d852d5ac04a7501d0f12c0",
+          "signature": "jlyYFPlHDeahmOt7CsEWiowyqJrujv4z3ljgt2of2vryMot/ouYqHgq63h21WVuD5vERoOjPup2ubB7Fyb7PDw==",
+          "size": 478977,
           "capabilities": [
             "hosts:read",
             "hosts:write",
@@ -237,7 +278,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-06T02:39:44.644Z"
+          "notes": "### Added\n\n- Group hosts by hand or with tag rules, so new hosts join on their own\n- Run one command on every host and see each result\n- Install, remove or upgrade packages across the fleet\n- Push and pull files on every host\n- Collect an inventory of OS, kernel, architecture and uptime\n- Share a fleet with users or roles",
+          "publishedAt": "2026-10-08T22:50:28.233Z"
         }
       ]
     },
