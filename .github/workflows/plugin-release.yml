@@ -121,8 +121,35 @@ jobs:
       - name: Build
         run: npx termix-plugin build
 
+      # SDK 1.0.4 and older want the newest changelog heading to equal the
+      # manifest version, which a beta never does. Betas check against the
+      # newest heading instead (if it is not newer than the beta), then the
+      # beta version goes back. Drop this once plugins are on SDK 1.0.5.
       - name: Validate
-        run: npx termix-plugin validate
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          BASE: ${{ steps.version.outputs.base }}
+        run: |
+          if [ "$CHANNEL" != "beta" ] || [ ! -f CHANGELOG.md ]; then
+            npx termix-plugin validate
+            exit 0
+          fi
+          cp manifest.json "$RUNNER_TEMP/manifest.json"
+          node -e '
+            const fs = require("fs");
+            const semver = require("semver");
+            const heading = fs.readFileSync("CHANGELOG.md", "utf8")
+              .match(/^##\s+\[?(\d+\.\d+\.\d+)/m)?.[1];
+            if (heading && semver.lte(heading, process.env.BASE)) {
+              const manifest = JSON.parse(fs.readFileSync("manifest.json", "utf8"));
+              manifest.version = heading;
+              fs.writeFileSync("manifest.json", JSON.stringify(manifest, null, 2) + "\n");
+            }
+          '
+          status=0
+          npx termix-plugin validate || status=$?
+          cp "$RUNNER_TEMP/manifest.json" manifest.json
+          exit $status
 
       - name: Pack
         run: npx termix-plugin pack --out release
