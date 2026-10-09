@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-09T21:43:51.281Z",
+  "updatedAt": "2026-10-09T21:44:42.711Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -802,8 +802,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- First release\n- SSH terminals with tabs, split screen, jump hosts and host key checks\n- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support\n- Themes, fonts, syntax highlighting and a toolbar with live stats\n- Command history with autocomplete, macros and keystrokes sent to several terminals at once\n- Shared sessions keep read-only viewers read-only, even after they leave\n- A local terminal in the desktop app",
-          "publishedAt": "2026-10-09T21:43:03.000Z"
+          "publishedAt": "2026-10-09T21:43:03.000Z",
+          "notes": "### Added\n\n- First release\n- SSH terminals with tabs, split screen, jump hosts and host key checks\n- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support\n- Themes, fonts, syntax highlighting and a toolbar with live stats\n- Command history with autocomplete, macros and keystrokes sent to several terminals at once\n- Shared sessions keep read-only viewers read-only, even after they leave\n- A local terminal in the desktop app"
         }
       ]
     },
