@@ -19,9 +19,9 @@
 
 ## Overview
 
-This is the plugin registry for [Termix](https://github.com/Termix-SSH/Termix), self-hosted, plugin-based server management. It lists both official and community plugins. Termix reads it to show the plugins you can install from the Plugins tab.
+This is the plugin registry for [Termix](https://github.com/Termix-SSH/Termix), self-hosted, plugin-based server management. It lists the official Termix plugins, each built and signed from its own `Plugin-<Name>` repo. Termix reads it to show the plugins you can install from the Plugins tab.
 
-Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template).
+Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template). Plugins that are not in this list install from a `.tmxplug` file with plugin developer mode on.
 
 <br />
 

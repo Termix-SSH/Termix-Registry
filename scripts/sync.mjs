@@ -100,7 +100,10 @@ async function readRelease(repo, release, keys, problems) {
         : {}),
       releaseNotesUrl: release.html_url,
       ...(notes ? { notes: notes.slice(0, 20_000) } : {}),
-      publishedAt: new Date().toISOString(),
+      // The asset's upload time, so an overwritten release gets its new date.
+      publishedAt: new Date(
+        artifact.updated_at ?? release.published_at ?? Date.now(),
+      ).toISOString(),
     },
   };
 }

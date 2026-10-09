@@ -134,7 +134,7 @@ jobs:
           if [ "$CHANNEL" = "beta" ]; then
             {
               echo "> [!WARNING]"
-              echo "> This is a beta. It can have bugs. In Termix, open this plugin and turn off Beta versions to go back to stable once a newer stable release is out."
+              echo "> This is a beta. It can have bugs. In Termix, open this plugin and press Back to stable to go back."
               echo
               echo "Found a bug or have feedback? [Send beta feedback](https://github.com/$GITHUB_REPOSITORY/issues/new?template=beta_feedback.yml&plugin-version=$VERSION)."
               echo
