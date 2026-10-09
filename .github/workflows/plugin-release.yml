@@ -11,6 +11,11 @@ name: Plugin Release
 # overwrite: releases the manifest version again from the current commit,
 #   replacing its files. Works from any branch.
 # dry-run: everything up to pack, nothing is pushed or published.
+#
+# Plugins outside Termix-SSH need no secrets. Their release is not signed,
+# it gets GitHub build provenance instead, and the job summary shows what to
+# put in a community registry submission. Their release.yml must grant
+# id-token: write and attestations: write for that.
 
 on:
   workflow_call:
@@ -23,12 +28,12 @@ on:
         default: release
     secrets:
       TERMIX_PLUGIN_SIGNING_KEY:
-        required: true
+        required: false
       TERMIX_PAT:
-        required: true
+        required: false
 
-permissions:
-  contents: write
+# No permissions block on purpose: the job keeps what the caller grants, so
+# community plugins can add the ones build provenance needs.
 
 concurrency:
   group: plugin-release-${{ github.repository }}
@@ -36,12 +41,15 @@ concurrency:
 
 jobs:
   release:
-    runs-on: blacksmith-2vcpu-ubuntu-2404
+    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    env:
+      OFFICIAL: ${{ github.repository_owner == 'Termix-SSH' }}
+      HAS_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY != '' }}
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.TERMIX_PAT }}
+          token: ${{ secrets.TERMIX_PAT || github.token }}
 
       - uses: actions/setup-node@v7
         with:
@@ -120,10 +128,17 @@ jobs:
         run: npx termix-plugin pack --out release
 
       - name: Sign
-        if: ${{ inputs.mode != 'dry-run' }}
+        # Official plugins must be signed, so a missing key fails here.
+        if: ${{ inputs.mode != 'dry-run' && (env.OFFICIAL == 'true' || env.HAS_SIGNING_KEY == 'true') }}
         env:
           TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
         run: npx termix-plugin sign release/*.tmxplug
+
+      - name: Build provenance
+        if: ${{ inputs.mode != 'dry-run' && env.OFFICIAL != 'true' }}
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: release/*.tmxplug
 
       - name: Release notes
         env:
@@ -159,8 +174,13 @@ jobs:
         env:
           VERSION: ${{ steps.version.outputs.version }}
         run: |
-          git config user.name "LukeGus"
-          git config user.email "bugattiguy527@gmail.com"
+          if [ "$OFFICIAL" = "true" ]; then
+            git config user.name "LukeGus"
+            git config user.email "bugattiguy527@gmail.com"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          fi
           git add manifest.json package.json package-lock.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: release $VERSION"
@@ -197,11 +217,15 @@ jobs:
           TARGET: ${{ steps.merge.outputs.sha || github.sha }}
           PRERELEASE: ${{ inputs.channel == 'beta' && '--prerelease' || '' }}
         run: |
+          files=(release/*.tmxplug)
+          if compgen -G "release/*.tmxplug.sig" > /dev/null; then
+            files+=(release/*.tmxplug.sig)
+          fi
           if gh release view "$TAG" > /dev/null 2>&1; then
-            gh release upload "$TAG" release/*.tmxplug release/*.tmxplug.sig --clobber
+            gh release upload "$TAG" "${files[@]}" --clobber
             gh release edit "$TAG" --notes-file RELEASE_NOTES.md $PRERELEASE
           else
-            gh release create "$TAG" release/*.tmxplug release/*.tmxplug.sig \
+            gh release create "$TAG" "${files[@]}" \
               --title "$TAG" --target "$TARGET" --notes-file RELEASE_NOTES.md $PRERELEASE
           fi
 
@@ -219,10 +243,28 @@ jobs:
           git push origin --delete "$GITHUB_REF_NAME" || true
 
       - name: Tell the registry
-        if: ${{ inputs.mode != 'dry-run' }}
+        if: ${{ inputs.mode != 'dry-run' && env.OFFICIAL == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.TERMIX_PAT }}
         run: |
           gh api repos/Termix-SSH/Termix-Registry/dispatches \
             -f event_type=plugin-released \
             -f "client_payload[repository]=$GITHUB_REPOSITORY"
+
+      - name: Community registry submission
+        if: ${{ inputs.mode != 'dry-run' && env.OFFICIAL != 'true' }}
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          id=$(node -p "require('./manifest.json').id")
+          hash=$(sha256sum release/*.tmxplug | cut -d' ' -f1)
+          guide="https://github.com/Termix-SSH/Termix-Registry/blob/main/CONTRIBUTING.md"
+          {
+            echo "## Community registry"
+            echo
+            echo "To list this version, add it to the top of versions in community/plugins/$id.json in Termix-Registry and open a pull request. See [submitting a plugin]($guide)."
+            echo
+            echo '```json'
+            echo "{ \"version\": \"$VERSION\", \"sha256\": \"$hash\" }"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

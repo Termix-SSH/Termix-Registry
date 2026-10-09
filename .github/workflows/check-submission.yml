@@ -1,0 +1,38 @@
+name: Check submission
+
+on:
+  pull_request:
+    paths:
+      - "community/plugins/**"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    steps:
+      # The checks run from the base branch and only read the PR's files as
+      # data, so a PR can't change what checks it.
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+
+      - name: Fetch the PR
+        run: git fetch --no-tags origin "refs/pull/${{ github.event.pull_request.number }}/head"
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Check the submission
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_REF: ${{ github.event.pull_request.base.sha }}
+          HEAD_REF: FETCH_HEAD
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: npm run check:submission

@@ -1,49 +1,47 @@
 /**
- * Rebuilds each <registry>/index.json from the GitHub releases of the repos
- * in <registry>/sources.json.
+ * Rebuilds each <registry>/index.json.
  *
+ * A registry with a sources.json (official) lists every release of the
+ * repos in it:
  * - a release counts once it has <id>-<version>.tmxplug and its .sig, the
- *   signature matches a key in keys/, and the packed manifest matches the tag
+ *   signature matches keys/<registry>.pub, and the packed manifest matches
+ *   the tag
  * - a version whose file changed (a re-released version) is replaced
  * - a version whose release is gone is dropped
- * - betas (GitHub prereleases with a semver prerelease version) go in
- *   prereleases, and only while they are newer than the newest stable
+ *
+ * A registry with a plugins/ folder (community) lists only the versions
+ * pinned in plugins/<id>.json, which a person reviewed before merging:
+ * - the release's .tmxplug must still have the pinned sha256
+ * - the registry signs it with TERMIX_<REGISTRY>_SIGNING_KEY (for example
+ *   TERMIX_COMMUNITY_SIGNING_KEY) and keeps that signature on later runs
+ * - a plugin whose file is removed is dropped
+ *
+ * In both, betas (semver prerelease versions) go in prereleases, and only
+ * while they are newer than the newest stable.
  *
  * Set GH_TOKEN for the higher GitHub API rate limit.
  */
 
-import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import {
-  changelogSection,
-  compareVersions,
-  isPrerelease,
+  download,
+  github,
+  githubRepo,
+  inspectArtifact,
   isSigned,
+  keysFor,
+  listing,
   loadKeys,
-  readTmxplugFile,
+  loadPrivateKey,
+  readSubmissions,
   root,
+  sha256,
+  signDigest,
+  splitChannels,
+  versionEntry,
 } from "./lib.mjs";
-
-const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
-
-async function github(url) {
-  const response = await fetch(`https://api.github.com${url}`, {
-    headers: {
-      Accept: "application/vnd.github+json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-  });
-  if (!response.ok) throw new Error(`${url}: ${response.status}`);
-  return response.json();
-}
-
-async function download(url) {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`${url}: ${response.status}`);
-  return Buffer.from(await response.arrayBuffer());
-}
 
 async function readRelease(repo, release, keys, problems) {
   const where = `${repo}@${release.tag_name}`;
@@ -59,88 +57,47 @@ async function readRelease(repo, release, keys, problems) {
   const signature = (await download(sigAsset.browser_download_url))
     .toString("utf8")
     .trim();
-  const digest = crypto.createHash("sha256").update(buffer).digest();
+  const digest = sha256(buffer);
   if (!isSigned(digest, signature, keys)) {
-    problems.push(`${where}: signature does not match any key in keys/`);
+    problems.push(`${where}: signature does not match the registry key`);
     return null;
   }
 
-  const raw = readTmxplugFile(buffer, "manifest.json");
-  if (!raw) {
-    problems.push(`${where}: no manifest.json in ${artifact.name}`);
+  const inspected = inspectArtifact(buffer, release, artifact);
+  if (typeof inspected === "string") {
+    problems.push(`${where}: ${inspected}`);
     return null;
   }
-  const manifest = JSON.parse(raw.toString("utf8"));
-  if (`v${manifest.version}` !== release.tag_name) {
-    problems.push(`${where}: manifest version is ${manifest.version}`);
-    return null;
-  }
-  if (artifact.name !== `${manifest.id}-${manifest.version}.tmxplug`) {
-    problems.push(`${where}: ${artifact.name} does not match ${manifest.id}`);
-    return null;
-  }
-
-  const changelog = readTmxplugFile(buffer, "CHANGELOG.md");
-  const notes = changelog
-    ? changelogSection(changelog.toString("utf8"), manifest.version)
-    : null;
-
   return {
-    manifest,
-    version: {
-      version: manifest.version,
-      api: String(manifest.engine.api).match(/\d+/)?.[0] ?? "",
-      url: artifact.browser_download_url,
-      sha256: digest.toString("hex"),
+    manifest: inspected.manifest,
+    version: versionEntry({
+      ...inspected,
+      release,
+      artifact,
+      buffer,
+      digest,
       signature,
-      size: buffer.length,
-      capabilities: manifest.capabilities ?? [],
-      ...(manifest.dependencies && Object.keys(manifest.dependencies).length
-        ? { dependencies: manifest.dependencies }
-        : {}),
-      releaseNotesUrl: release.html_url,
-      ...(notes ? { notes: notes.slice(0, 20_000) } : {}),
-      // The asset's upload time, so an overwritten release gets its new date.
-      publishedAt: new Date(
-        artifact.updated_at ?? release.published_at ?? Date.now(),
-      ).toISOString(),
-    },
+    }),
   };
 }
 
-/**
- * The manifest's docs link, or the registry's docsBase plus the id when the
- * manifest has none. Only https links get through.
- */
-function docsLink(manifest, sources) {
-  const candidates = [
-    manifest.docs,
-    sources.docsBase
-      ? `${sources.docsBase.replace(/\/+$/, "")}/${manifest.id}`
-      : null,
-  ];
-  for (const value of candidates) {
-    if (typeof value !== "string") continue;
-    try {
-      const url = new URL(value);
-      if (url.protocol === "https:")
-        return { docs: url.toString().replace(/\/$/, "") };
-    } catch {
-      // not a URL, try the next one
-    }
-  }
-  return {};
+/** Keeps the listed copy of an unchanged version, with fresh notes. */
+function keep(list, entries) {
+  return entries.map(({ version }) => {
+    const kept = list?.find(
+      (entry) =>
+        entry.version === version.version && entry.sha256 === version.sha256,
+    );
+    if (!kept) return version;
+    const { notes, ...rest } = kept;
+    return version.notes ? { ...rest, notes: version.notes } : rest;
+  });
 }
 
-async function syncRegistry(dir, keys, problems) {
-  const indexPath = path.join(dir, "index.json");
+async function officialPlugins(dir, previous, keys, problems) {
   const sources = JSON.parse(
     fs.readFileSync(path.join(dir, "sources.json"), "utf8"),
   );
-  const index = JSON.parse(fs.readFileSync(indexPath, "utf8"));
-  const before = JSON.stringify(index.plugins);
-  const previous = new Map(index.plugins.map((plugin) => [plugin.id, plugin]));
-
   const plugins = [];
   for (const repo of sources.repositories) {
     const releases = await github(`/repos/${repo}/releases?per_page=100`);
@@ -152,18 +109,7 @@ async function syncRegistry(dir, keys, problems) {
     }
     if (found.length === 0) continue;
 
-    found.sort((a, b) =>
-      compareVersions(b.manifest.version, a.manifest.version),
-    );
-    const stable = found.filter(
-      ({ manifest }) => !isPrerelease(manifest.version),
-    );
-    const newestStable = stable[0]?.manifest.version;
-    const betas = found.filter(
-      ({ manifest }) =>
-        isPrerelease(manifest.version) &&
-        (!newestStable || compareVersions(manifest.version, newestStable) > 0),
-    );
+    const { stable, betas } = splitChannels(found);
     // Listing text follows stable, so a beta can't change what stable users see.
     const latest = (stable[0] ?? found[0]).manifest;
     if (found.some(({ manifest }) => manifest.id !== latest.id)) {
@@ -172,37 +118,123 @@ async function syncRegistry(dir, keys, problems) {
     }
 
     const old = previous.get(latest.id);
-    const keep = (list, entries) =>
-      entries.map(({ version }) => {
-        const kept = list?.find(
-          (entry) =>
-            entry.version === version.version &&
-            entry.sha256 === version.sha256,
-        );
-        if (!kept) return version;
-        const { notes, ...rest } = kept;
-        return version.notes ? { ...rest, notes: version.notes } : rest;
-      });
     const versions = keep(old?.versions, stable);
     const prereleases = keep(old?.prereleases, betas);
-
     plugins.push({
-      id: latest.id,
-      name: latest.name,
-      description: latest.description,
-      author: latest.author?.name ?? String(latest.author ?? ""),
-      category: latest.category,
-      repository: `https://github.com/${repo}`,
-      icon: latest.icon ?? "Puzzle",
-      ...(typeof latest.video === "string" ? { video: latest.video } : {}),
-      ...(Array.isArray(latest.features) && latest.features.length > 0
-        ? { features: latest.features }
-        : {}),
-      ...docsLink(latest, sources),
+      ...listing(latest, `https://github.com/${repo}`, sources.docsBase),
       versions,
       ...(prereleases.length > 0 ? { prereleases } : {}),
     });
   }
+  return plugins;
+}
+
+async function readPinned({ repo, id, pin, keys, signer, old, problems }) {
+  const where = `${id}@${pin.version}`;
+  const release = await github(`/repos/${repo}/releases/tags/v${pin.version}`);
+  const artifact = release.assets.find(
+    (asset) => asset.name === `${id}-${pin.version}.tmxplug`,
+  );
+  if (!artifact) {
+    problems.push(`${where}: the release has no ${id}-${pin.version}.tmxplug`);
+    return null;
+  }
+  const buffer = await download(artifact.browser_download_url);
+  const digest = sha256(buffer);
+  if (digest.toString("hex") !== pin.sha256) {
+    problems.push(`${where}: the file no longer has the reviewed sha256`);
+    return null;
+  }
+  const inspected = inspectArtifact(buffer, release, artifact);
+  if (typeof inspected === "string") {
+    problems.push(`${where}: ${inspected}`);
+    return null;
+  }
+  if (inspected.manifest.id !== id) {
+    problems.push(`${where}: the manifest id is ${inspected.manifest.id}`);
+    return null;
+  }
+
+  const listed = [...(old?.versions ?? []), ...(old?.prereleases ?? [])].find(
+    (entry) => entry.version === pin.version && entry.sha256 === pin.sha256,
+  );
+  let signature = listed?.signature;
+  if (!signature || !isSigned(digest, signature, keys)) {
+    if (!signer) {
+      problems.push(`${where}: no signing key set to sign it with`);
+      return null;
+    }
+    signature = signDigest(digest, signer);
+  }
+  return {
+    manifest: inspected.manifest,
+    version: versionEntry({
+      ...inspected,
+      release,
+      artifact,
+      buffer,
+      digest,
+      signature,
+    }),
+  };
+}
+
+async function reviewedPlugins(dir, registry, previous, keys, problems) {
+  const envName = `TERMIX_${registry.toUpperCase().replace(/-/g, "_")}_SIGNING_KEY`;
+  const signer = loadPrivateKey(process.env[envName]);
+  const plugins = [];
+  for (const { file, submission } of readSubmissions(dir)) {
+    const repo = githubRepo(submission.repository);
+    if (!repo) {
+      problems.push(`${path.basename(file)}: repository is not a GitHub repo`);
+      continue;
+    }
+    const old = previous.get(submission.id);
+    const found = [];
+    for (const pin of submission.versions ?? []) {
+      try {
+        const entry = await readPinned({
+          repo,
+          id: submission.id,
+          pin,
+          keys,
+          signer,
+          old,
+          problems,
+        });
+        if (entry) found.push(entry);
+      } catch (error) {
+        problems.push(`${submission.id}@${pin.version}: ${error.message}`);
+      }
+    }
+    if (found.length === 0) continue;
+
+    const { stable, betas } = splitChannels(found);
+    const latest = (stable[0] ?? found[0]).manifest;
+    const prereleases = betas.map(({ version }) => version);
+    plugins.push({
+      ...listing(latest, `https://github.com/${repo}`, null),
+      versions: stable.map(({ version }) => version),
+      ...(prereleases.length > 0 ? { prereleases } : {}),
+    });
+  }
+  return plugins;
+}
+
+async function syncRegistry(dir, allKeys, problems) {
+  const indexPath = path.join(dir, "index.json");
+  const index = JSON.parse(fs.readFileSync(indexPath, "utf8"));
+  const keys = keysFor(allKeys, index.registry);
+  if (keys.length === 0) {
+    problems.push(`keys/${index.registry}.pub is missing`);
+    return;
+  }
+  const before = JSON.stringify(index.plugins);
+  const previous = new Map(index.plugins.map((plugin) => [plugin.id, plugin]));
+
+  const plugins = fs.existsSync(path.join(dir, "sources.json"))
+    ? await officialPlugins(dir, previous, keys, problems)
+    : await reviewedPlugins(dir, index.registry, previous, keys, problems);
 
   plugins.sort((a, b) => a.id.localeCompare(b.id));
   const ids = new Set();
@@ -225,14 +257,18 @@ async function syncRegistry(dir, keys, problems) {
 
 async function main() {
   const keys = loadKeys();
-  if (keys.length === 0) throw new Error("keys/ has no .pub file");
   const problems = [];
 
   const dirs = fs
     .readdirSync(root, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
+    .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
     .map((entry) => path.join(root, entry.name))
-    .filter((dir) => fs.existsSync(path.join(dir, "sources.json")));
+    .filter(
+      (dir) =>
+        fs.existsSync(path.join(dir, "index.json")) &&
+        (fs.existsSync(path.join(dir, "sources.json")) ||
+          fs.existsSync(path.join(dir, "plugins"))),
+    );
 
   for (const dir of dirs) await syncRegistry(dir, keys, problems);
 

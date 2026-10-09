@@ -6,6 +6,7 @@
     "validate": "node scripts/validate.mjs",
     "validate:offline": "node scripts/validate.mjs --offline",
     "sync": "node scripts/sync.mjs",
+    "check:submission": "node scripts/check-submission.mjs",
     "stats": "node scripts/stats.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

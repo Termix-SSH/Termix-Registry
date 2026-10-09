@@ -1,6 +1,7 @@
 name: Plugin CI
 
 # Called by a plugin repo's ci.yml on pushes and pull requests.
+# Plugins outside Termix-SSH run on GitHub runners.
 
 on:
   workflow_call:
@@ -10,7 +11,7 @@ permissions:
 
 jobs:
   check:
-    runs-on: blacksmith-2vcpu-ubuntu-2404
+    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v7
 

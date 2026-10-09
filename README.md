@@ -19,9 +19,21 @@
 
 ## Overview
 
-This is the plugin registry for [Termix](https://github.com/Termix-SSH/Termix), self-hosted, plugin-based server management. It lists the official Termix plugins, each built and signed from its own `Plugin-<Name>` repo. Termix reads it to show the plugins you can install from the Plugins tab.
+This is the plugin registry for [Termix](https://github.com/Termix-SSH/Termix), self-hosted, plugin-based server management. It has two lists:
 
-Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template). Plugins that are not in this list install from a `.tmxplug` file with plugin developer mode on.
+- `official/index.json`: the official Termix plugins, each built and signed from its own `Plugin-<Name>` repo. Termix reads it to show the plugins you can install from the Plugins tab.
+- `community/index.json`: plugins made by anyone and reviewed by a person before they are listed.
+
+Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template). Plugins that are not in the official list install from a `.tmxplug` file with plugin developer mode on.
+
+<br />
+
+## Submit a plugin
+
+The community registry is open for submissions. Release your plugin with the template's Release workflow, then open a pull request that adds `community/plugins/<id>.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps and what reviewers check.
+
+> [!NOTE]
+> Termix can't install community plugins yet. That comes in a later update. Submissions are open now so the community registry is ready when it ships.
 
 <br />
 
@@ -79,7 +91,7 @@ Interested in a paid placement to support development? Email [mail@termix.site](
 
 ## Support
 
-Problems with the registry itself (a plugin missing from the list, a broken index) go in this repo's [issues](https://github.com/Termix-SSH/Termix-Registry/issues). A bug in a plugin goes in that plugin's own repo, and problems with Termix itself go in the [Termix repo](https://github.com/Termix-SSH/Termix/issues/new/choose).
+Problems with the registry itself (a plugin missing from a list, a broken index) go in this repo's [issues](https://github.com/Termix-SSH/Termix-Registry/issues). A bug in a plugin goes in that plugin's own repo, and problems with Termix itself go in the [Termix repo](https://github.com/Termix-SSH/Termix/issues/new/choose).
 
 Please be as detailed as possible, preferably in English.
 
