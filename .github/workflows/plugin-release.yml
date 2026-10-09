@@ -134,21 +134,23 @@ jobs:
             npx termix-plugin validate
             exit 0
           fi
-          cp manifest.json "$RUNNER_TEMP/manifest.json"
+          cp manifest.json package.json "$RUNNER_TEMP/"
           node -e '
             const fs = require("fs");
             const semver = require("semver");
             const heading = fs.readFileSync("CHANGELOG.md", "utf8")
               .match(/^##\s+\[?(\d+\.\d+\.\d+)/m)?.[1];
             if (heading && semver.lte(heading, process.env.BASE)) {
-              const manifest = JSON.parse(fs.readFileSync("manifest.json", "utf8"));
-              manifest.version = heading;
-              fs.writeFileSync("manifest.json", JSON.stringify(manifest, null, 2) + "\n");
+              for (const file of ["manifest.json", "package.json"]) {
+                const json = JSON.parse(fs.readFileSync(file, "utf8"));
+                json.version = heading;
+                fs.writeFileSync(file, JSON.stringify(json, null, 2) + "\n");
+              }
             }
           '
           status=0
           npx termix-plugin validate || status=$?
-          cp "$RUNNER_TEMP/manifest.json" manifest.json
+          cp "$RUNNER_TEMP/manifest.json" "$RUNNER_TEMP/package.json" .
           exit $status
 
       - name: Pack
