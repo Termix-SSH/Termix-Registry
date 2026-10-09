@@ -112,6 +112,38 @@ jobs:
           '
           npm install --package-lock-only --ignore-scripts --no-audit --no-fund > /dev/null
 
+      # A beta's notes come from git. Writing them into CHANGELOG.md for the
+      # build gives validate the heading it wants and puts them in the
+      # .tmxplug. Betas never commit, so the file in git stays as it was.
+      - name: Beta changelog section
+        if: ${{ inputs.channel == 'beta' }}
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          PREV: ${{ steps.version.outputs.prev }}
+        run: |
+          [ -f CHANGELOG.md ] || exit 0
+          {
+            echo "## $VERSION"
+            echo
+            echo "### Changed"
+            echo
+            if [ -n "$PREV" ]; then
+              git log --no-merges --format='- %s' "$PREV..HEAD" -- . ':!package-lock.json' | head -100
+            fi
+            echo "- Beta build"
+            echo
+          } > "$RUNNER_TEMP/beta.md"
+          node -e '
+            const fs = require("fs");
+            const text = fs.readFileSync("CHANGELOG.md", "utf8");
+            const section = fs.readFileSync(process.argv[1], "utf8");
+            const at = text.search(/^## /m);
+            fs.writeFileSync(
+              "CHANGELOG.md",
+              at < 0 ? `${text.trimEnd()}\n\n${section}` : text.slice(0, at) + section + text.slice(at),
+            );
+          ' "$RUNNER_TEMP/beta.md"
+
       - name: Test
         run: npx termix-plugin test
 
@@ -121,37 +153,8 @@ jobs:
       - name: Build
         run: npx termix-plugin build
 
-      # SDK 1.0.4 and older want the newest changelog heading to equal the
-      # manifest version, which a beta never does. Betas check against the
-      # newest heading instead (if it is not newer than the beta), then the
-      # beta version goes back. Drop this once plugins are on SDK 1.0.5.
       - name: Validate
-        env:
-          CHANNEL: ${{ inputs.channel }}
-          BASE: ${{ steps.version.outputs.base }}
-        run: |
-          if [ "$CHANNEL" != "beta" ] || [ ! -f CHANGELOG.md ]; then
-            npx termix-plugin validate
-            exit 0
-          fi
-          cp manifest.json package.json "$RUNNER_TEMP/"
-          node -e '
-            const fs = require("fs");
-            const semver = require("semver");
-            const heading = fs.readFileSync("CHANGELOG.md", "utf8")
-              .match(/^##\s+\[?(\d+\.\d+\.\d+)/m)?.[1];
-            if (heading && semver.lte(heading, process.env.BASE)) {
-              for (const file of ["manifest.json", "package.json"]) {
-                const json = JSON.parse(fs.readFileSync(file, "utf8"));
-                json.version = heading;
-                fs.writeFileSync(file, JSON.stringify(json, null, 2) + "\n");
-              }
-            }
-          '
-          status=0
-          npx termix-plugin validate || status=$?
-          cp "$RUNNER_TEMP/manifest.json" "$RUNNER_TEMP/package.json" .
-          exit $status
+        run: npx termix-plugin validate
 
       - name: Pack
         run: npx termix-plugin pack --out release
