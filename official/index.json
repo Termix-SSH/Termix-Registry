@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-09T02:09:55.924Z",
+  "updatedAt": "2026-10-09T21:42:52.231Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -25,9 +25,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.0.0/acme-ssl-1.0.0.tmxplug",
-          "sha256": "05b7b4c27897135437af6340c5c31501d2e96ac013dca0672940b74c76085433",
-          "signature": "WwzwIKqdfYPWOwFMldXp6z5eM817No0zU8Q18WGbqBvxRH00QPfQ8kVtVpAMh3xjwB2Y6YzVIlMNYlTbVSgvCw==",
-          "size": 779846,
+          "sha256": "de4188aaf5fd31395978b584dd6dcb3dc79a9891e500005e7facd831b2459873",
+          "signature": "v7cBBD/u9LLirgkp/BGUh6ugD/4TNZsz32o+xtHRDm0UKgpzmvl80SbyAEE45eVvq+Kv6afnKKAf0KoQDcO5CA==",
+          "size": 779883,
           "capabilities": [
             "system:tls",
             "kv:own",
@@ -38,8 +38,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:50:23.029Z",
-          "notes": "### Added\n\n- Certificates from Let's Encrypt or any ACME directory\n- HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed\n- Renews before the certificate expires\n- Swaps in the new certificate without a restart"
+          "notes": "### Added\n\n- First release\n- Certificates from Let's Encrypt or any ACME directory\n- HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed\n- Renews before the certificate expires and alerts admins when a renewal fails\n- Swaps in the new certificate without a restart",
+          "publishedAt": "2026-10-09T21:41:25.000Z"
         }
       ]
     },
@@ -65,9 +65,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.0.0/ai-1.0.0.tmxplug",
-          "sha256": "ed7a64a4be5978238427d4abbd2153ef2b44c17ebfec78fcb5df579967d01eed",
-          "signature": "1cCd9vB7QDpAesxCkNXOzOeUKd34EeC1KTlT/gS1pHNllc2NTmp2vz4aiypXfVocfIuWCXmtzr67PfgKOgU6Bw==",
-          "size": 1171793,
+          "sha256": "5bbe9864dde2aeb9138c172082ec666af38b9b991f17b79f1a5270d3e312e125",
+          "signature": "HRlFRjQmSD3OLRNo0uAELXafMDEGaWP0u9E5uHlni/3tSbdlFzGP127ay9npZbfBbHDflf7wEpVR3kzySdAdCw==",
+          "size": 1172303,
           "capabilities": [
             "hosts:read",
             "hosts:write",
@@ -83,8 +83,8 @@
             "events:core"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:14.803Z",
-          "notes": "### Added\n\n- Ask about your hosts, snippets, fleets, alerts, automations and more\n- Proposes changes instead of making them, and nothing runs until you approve it\n- Can run safe read-only commands like `df` and `uptime` if you allow it\n- Ask about a host right from its terminal\n- Works with Ollama, Anthropic, OpenAI, Google Gemini and any OpenAI compatible endpoint\n- AI Agents: run Pi, OpenCode, Claude Code or Codex on an SSH host using one of your Termix providers, with tool approvals, queued messages, attachments, Git diffs and worktrees\n- One-click install of the selected agent and Node.js, and a button to set up SSH loopback forwarding"
+          "notes": "### Added\n\n- First release\n- Ask about your hosts, snippets, fleets, alerts, automations and more, or about one host right from its terminal\n- Proposes changes instead of making them, and nothing runs until you approve it\n- Can run safe read-only commands like `df` and `uptime` if you allow it\n- Works with Ollama, Anthropic, OpenAI, Google Gemini and any OpenAI compatible endpoint\n- AI Agents: run Pi, OpenCode, Claude Code or Codex on an SSH host using one of your Termix providers, with tool approvals, queued messages, attachments, Git diffs and worktrees\n- One-click install of the selected agent and Node.js, and a button to set up SSH loopback forwarding",
+          "publishedAt": "2026-10-09T21:41:49.000Z"
         }
       ]
     },
@@ -109,9 +109,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.0.0/alerts-1.0.0.tmxplug",
-          "sha256": "97e7be293ace897cd45615a8764e8395cf613546b86de82601ab49669dc36591",
-          "signature": "p2+r20esN+J6WVO4dQk9h18yuR58Hpp5BjZxwTxxWInpZyddLObtubfRZ10lfDaqpP+1glXbzuT9T5MctmG0BA==",
-          "size": 507200,
+          "sha256": "23ec4f250c6e687ec628af1d7789e4a39203480c3124981e531d2f434309d7c3",
+          "signature": "THu+4pwaLanNRETRyZVpNT389jVNRddwGHU2qZgzY4ArNo2AHwDVxIGEshOHrHGTb8PSrNWC/E2gtIB0oG3VCw==",
+          "size": 507162,
           "capabilities": [
             "db:core-refs",
             "db:own",
@@ -119,14 +119,13 @@
             "network:outbound",
             "network:serve",
             "notify:hub",
-            "notify:send",
             "secrets:own",
             "settings:read-core",
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:50:24.682Z",
-          "notes": "### Added\n\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined"
+          "notes": "### Added\n\n- First release\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined",
+          "publishedAt": "2026-10-09T21:41:35.000Z"
         }
       ]
     },
@@ -152,9 +151,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.0/automations-1.0.0.tmxplug",
-          "sha256": "0972aef1c14917321c035f7497db81fe95f6b9e47d854b95b1c762444d9cb2a2",
-          "signature": "EPTX/qJEQGp04Ay0+o5+dzdzh183FP+hoXnyQwHkMnjEcIfyr1n+11/TUh+4m8jjjIN+A2APVDNC+MkoI4+KCw==",
-          "size": 343100,
+          "sha256": "3374b42846e116843119bc9536eb83202cd0fb44b38990f0be6568e346b0f9b1",
+          "signature": "yV3WOu91jEluTqqxYgKLFv87l6nk24ZiyxYSrVV510LF52lT932PiuczI7h26Y56Ifc6V2ZPIyYEdvlY8yl8Cg==",
+          "size": 343873,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -173,8 +172,8 @@
             "snippets": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:50:25.503Z",
-          "notes": "### Added\n\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts\n- Conditions, waits and variables for more complex flows\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host\n\n### Fixed\n\n- A nested automation step can only run automations you own\n- Values from triggers, steps and variables can no longer change the shell command they are put in"
+          "notes": "### Added\n\n- First release\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts, with values from triggers and variables always passed safely into shell commands\n- Conditions, waits and variables for more complex flows, and nested steps that only run automations you own\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host",
+          "publishedAt": "2026-10-09T21:41:46.000Z"
         }
       ]
     },
@@ -199,9 +198,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.0.0/docker-1.0.0.tmxplug",
-          "sha256": "ca9b8cf573d27a71adb544fd6ff4d19278349f10fdca98f9cc63d7fec63bc441",
-          "signature": "uHCEdEETbxloGJBOwr1panWhbQWJih+mlzlEwYTob5PbCY5mWvVClD373YjItKL5l2kw1G1omNum0/FywRvjBA==",
-          "size": 942533,
+          "sha256": "b50bca269596bd5613a76e21377160da174e4f921da18d9eafbc5633251e710f",
+          "signature": "Y4WjnwGGFVPsPL9cMN1FZKzRuiGaAcFh2jVtwAyZK9jhRdFQasEWHl1yckeV606cOFfOIQKgjuu+ZeULjtQ+AQ==",
+          "size": 945505,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -212,8 +211,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:50:26.453Z",
-          "notes": "### Added\n\n- Start, stop, restart, pause and remove containers\n- Live CPU, memory, network and disk stats\n- Read and download container logs\n- Open a shell inside a container\n- Works with Docker and Podman"
+          "notes": "### Added\n\n- First release\n- Start, stop, restart, pause and remove containers\n- Live CPU, memory, network and disk stats\n- Read and download container logs\n- Open a shell inside a container\n- Works with Docker and Podman",
+          "publishedAt": "2026-10-09T21:41:42.000Z"
         }
       ]
     },
@@ -239,9 +238,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/download/v1.0.0/file-manager-1.0.0.tmxplug",
-          "sha256": "d1d92ae051c79c7ce6f05c7dbf33c96de9d8b58083eaccb104d1d21a6bd8b58f",
-          "signature": "58bXePwDT/0w4SS7bd2aafIjo2WJ2n5LjMUAukUNMMv6mJwUEX0jbG0FNSg/vJ/oh8LyyhSH9bZh/RdtItA5DA==",
-          "size": 7491118,
+          "sha256": "a95936e4a2c0de4c03d342a82befdc4b8278bda4541e1b385b51387265bb7855",
+          "signature": "RdOZ7ewpmWRyshsaxghsIesUXv11Gdfnw0/iVkiuWIiM5GfcYH3YikKeGvoeA01jJpUj2kWYh4fJk++UIQDpBg==",
+          "size": 7489553,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -255,8 +254,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:18.139Z",
-          "notes": "### Added\n\n- Browse, upload, download, rename, move and delete files, with sudo support\n- Edit files in a built-in code editor\n- Preview images, PDFs, audio and video\n- A trash you can restore deleted files from\n- Copy files between two hosts, with the fastest route picked for you and an integrity check\n- A side by side local and remote view in the desktop app\n\n### Fixed\n\n- Connecting can no longer end or take over a file session that belongs to another user"
+          "notes": "### Added\n\n- First release\n- Browse, upload, download, rename, move and delete files, with sudo support\n- Edit files in a built-in code editor and preview images, PDFs, audio and video\n- A trash you can restore deleted files from\n- Copy files between two hosts, with the fastest route picked for you and an integrity check\n- A side by side local and remote view in the desktop app\n- Each file session belongs to the user who opened it, so another user cannot end or take it over",
+          "publishedAt": "2026-10-09T21:42:09.000Z"
         }
       ]
     },
@@ -282,9 +281,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.0.0/fleets-1.0.0.tmxplug",
-          "sha256": "410b19f3a6f47e2a292821b11876b8b5a0bdf779f8d852d5ac04a7501d0f12c0",
-          "signature": "jlyYFPlHDeahmOt7CsEWiowyqJrujv4z3ljgt2of2vryMot/ouYqHgq63h21WVuD5vERoOjPup2ubB7Fyb7PDw==",
-          "size": 478977,
+          "sha256": "24a1b3105a2d6f508bf9fd8f1a16e22078b0bc78d296983cd6c26f10a5e182d2",
+          "signature": "uK5hYV2iBNKLNct1KmEEkriv3t018AGMdZ2SlCIF/ZHpw0kAfocF8GD9MfIvhxqm5K8f5JLyDV1+fEoDbKlAAg==",
+          "size": 438001,
           "capabilities": [
             "hosts:read",
             "hosts:write",
@@ -296,8 +295,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:50:28.233Z",
-          "notes": "### Added\n\n- Group hosts by hand or with tag rules, so new hosts join on their own\n- Run one command on every host and see each result\n- Install, remove or upgrade packages across the fleet\n- Push and pull files on every host\n- Collect an inventory of OS, kernel, architecture and uptime\n- Share a fleet with users or roles"
+          "notes": "### Added\n\n- First release\n- Group hosts by hand or with tag rules, so new hosts join on their own\n- Run one command on every host and see each result\n- Install, remove or upgrade packages across the fleet\n- Push and pull files on every host\n- Collect an inventory of OS, kernel, architecture and uptime\n- Share a fleet with users or roles",
+          "publishedAt": "2026-10-09T21:41:43.000Z"
         }
       ]
     },
@@ -322,9 +321,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Homepage/releases/download/v1.0.0/homepage-1.0.0.tmxplug",
-          "sha256": "5652e378dbb208c7bb349ba2262034077f1cfca95b2d6d029f4186c70ed27999",
-          "signature": "A8ciblI8pfuF1+p6vYafuFZxznwqZddMgMEg0/FyEzQCtC8Y2Ppt3gu6dkzTiQCh4CICcF+XRzceqOnWEDJPDQ==",
-          "size": 317236,
+          "sha256": "65cd21802f6a71f3b3c582bc0007bfc91160abc161b2390bce715fd2ed987f99",
+          "signature": "e+XeqpRNyIq1mZAtZ+bj+B24/zAAHRbd/Jesxb7URHI+1vKPyuIQwVWJrUZl0EZA3DeSzgvycTOXuNL2uXnkDQ==",
+          "size": 317697,
           "capabilities": [
             "db:own",
             "network:serve",
@@ -332,8 +331,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:19.528Z",
-          "notes": "### Added\n\n- Drag, resize and arrange widgets on a canvas\n- Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal\n- Other features add their own widgets, like Docker, Tunnels and Host Metrics\n- Service links and a homepage preview on the dashboard\n- Syncs between the desktop app and a Termix server"
+          "notes": "### Added\n\n- First release\n- Drag, resize and arrange widgets on a canvas\n- Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal\n- Other features add their own widgets, like Docker, Tunnels and Host Metrics\n- Service links and a homepage preview on the dashboard\n- Syncs between the desktop app and a Termix server",
+          "publishedAt": "2026-10-09T21:41:48.000Z"
         }
       ]
     },
@@ -359,9 +358,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.0.0/host-metrics-1.0.0.tmxplug",
-          "sha256": "ca50e27f06bc7a275bd1bfb1deb5ac97f19023c84567105fe74e075602ec86da",
-          "signature": "vFsoddodOsWAJYV6/bZgS0GzkUNsIrcEZG0kMnA6nTAxDtG9r27Lhprx//BHZ6Q1upr05JlvbBKAVLgCLgKdDw==",
-          "size": 526244,
+          "sha256": "2fba9649643825cb423265a202fd2b612964bcccbab9dce6b2d5e073d7b39b1e",
+          "signature": "VdfGiNc415+ETcDAmaBQlsVJPDqHonlCHMF8MutI9qmpJSA86wi6tbEUGnHtVFosA3joFiEb11i/l6c3+iAVCA==",
+          "size": 534062,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -371,11 +370,12 @@
             "network:serve",
             "ui:surface",
             "events:core",
-            "users:impersonate"
+            "users:impersonate",
+            "notify:send"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:20.430Z",
-          "notes": "### Added\n\n- CPU, memory, disk, network, temperature, NVIDIA GPU, processes, ports and logins\n- History charts for each host\n- Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard\n- Health checks for your hosts and services\n- A layout you can rearrange per host\n- Live stats in the terminal toolbar"
+          "notes": "### Added\n\n- First release\n- CPU, memory, disk, network, temperature, NVIDIA GPU, processes, ports and logins\n- History charts for each host\n- Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard, with changes needing edit access on a shared host\n- Health checks for your hosts and services\n- A layout you can rearrange per host, and live stats in the terminal toolbar",
+          "publishedAt": "2026-10-09T21:42:03.000Z"
         }
       ]
     },
@@ -399,9 +399,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.0.0/ldap-1.0.0.tmxplug",
-          "sha256": "44d3f9e9be913b9791a084aff588d7d4217dd5cd3f61178006ed4fa2455cad23",
-          "signature": "O2LU/Dno32SZFKacSVCbc30blQgvLINZbYxyYBPZAxFTKUyJMCAdahxEKeFgt+9nfxpP+56XkmvAQ5kjttfjDg==",
-          "size": 317726,
+          "sha256": "9115468acae0524a5aa2cc253b68f075f86675b5e08a3c7b7c4e7b6f0441f302",
+          "signature": "Txpxrusa+TtNWhC76wiQbSw+2fZkOUPrfEN5vyBUqThjFd1dK7flnR4mwo++2T2tWLPcGib3qxd5Z6Y4p9gHCA==",
+          "size": 318584,
           "capabilities": [
             "db:own",
             "secrets:own",
@@ -410,8 +410,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:21.228Z",
-          "notes": "### Added\n\n- Sign in against LDAP or Active Directory\n- More than one directory, each with its own login button\n- LDAPS for encrypted connections\n- Make members of an admin group Termix admins\n\n### Fixed\n\n- LDAPS now checks the server certificate. A directory with a self-signed or private certificate needs its CA pasted in the provider, or the new skip check switch"
+          "notes": "### Added\n\n- First release\n- Sign in against LDAP or Active Directory\n- More than one directory, each with its own login button\n- LDAPS checks the server certificate, with a CA field and a skip check switch\n- Make members of an admin group Termix admins",
+          "publishedAt": "2026-10-09T21:41:45.000Z"
         }
       ]
     },
@@ -436,17 +436,17 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/download/v1.0.0/network-topology-1.0.0.tmxplug",
-          "sha256": "ba3db2a6bc87533c8273648549c466b95f2c7538700407b2d62e48f813526bac",
-          "signature": "jmWhA5sO3auLBthF1mfu+dkWqVWwG21dm2Cz1O2XGMPV6R5Tm4m5xGq4dxu+trmVcsZefFT7gaK7rWtIKVRvDg==",
-          "size": 742633,
+          "sha256": "dc3ad943c1753b352b4d80c09836a293a8767293061ddf2e641575bae97124e9",
+          "signature": "G3FBe2wrMGai6lTsNK1OXffDCReUwhHXcMXq75oWoS7OpTaDHygJcnPUIZFTDYRV2zfKuoKnKLTs5k2SW4+HDA==",
+          "size": 744226,
           "capabilities": [
             "db:own",
             "network:serve",
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:22.087Z",
-          "notes": "### Added\n\n- Add hosts and draw links between them\n- Live status for each host\n- Nested, colored groups\n- Import and export as JSON\n- A dashboard card for the graph"
+          "notes": "### Added\n\n- First release\n- Add hosts and draw links between them\n- Live status for each host\n- Nested, colored groups\n- Import and export as JSON\n- A dashboard card for the graph",
+          "publishedAt": "2026-10-09T21:41:48.000Z"
         }
       ]
     },
@@ -470,9 +470,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.0/opkssh-1.0.0.tmxplug",
-          "sha256": "05884e2244b4cc7f7f0465fe4b775ff95a99183ce6aba60848b68f1f3ec4078f",
-          "signature": "YLY+fquAeip7seGMPAtGo7C2mteUVUH0gfGU0YF5CrppfS6a1XNIzerVsIQ8SakVnlkorOc0lOsmUs5IRL7SBA==",
-          "size": 170246,
+          "sha256": "6745316bc1817a78800afadb39f74f0360a15bd8a413517d49da7bdbe8507072",
+          "signature": "6IpQf8ppykH8CyuyQe4gmcre5GLFewJ+SOa9zRfZIlgogxASoooxcxeoVey2HrlcYMXFnlb5iB974fQ2rsgKBQ==",
+          "size": 170456,
           "capabilities": [
             "db:own",
             "files:own",
@@ -485,8 +485,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:22.974Z",
-          "notes": "### Added\n\n- Adds the OPKSSH auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates last 24 hours, so you sign in once a day\n- Uses a pinned, checksum verified `opkssh` release"
+          "notes": "### Added\n\n- First release\n- Adds the OPKSSH auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates last 24 hours, so you sign in once a day\n- Uses a pinned, checksum verified `opkssh` release",
+          "publishedAt": "2026-10-09T21:41:50.000Z"
         }
       ]
     },
@@ -510,9 +510,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.0.0/proxmox-1.0.0.tmxplug",
-          "sha256": "3a304ba327352093f4bf5dff1a7d6fc981a83180ffc2e06fe1c63e59600e8e3c",
-          "signature": "VtwW9BAbyGv8mAsEKEjbnHYETOAd6OpOIcFP2nJv+e7tNtZlgJJuSIQj3SSku74GnCMN0RaMMSK3+X6AbwrYDw==",
-          "size": 261017,
+          "sha256": "267b51ea44fc849395d1672d016322ff2ac36a54b5f9db33dd9bea2b75c22f9a",
+          "signature": "QdoI90b6AXDW2SVKjcIV835VzAKTZZz1zFguUSvii7BdvumFRSAK80cWyx4ueiRtWdfjzXWLWMit9bFWMIk6AQ==",
+          "size": 263395,
           "capabilities": [
             "hosts:read",
             "hosts:write",
@@ -525,8 +525,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:23.781Z",
-          "notes": "### Added\n\n- Find and import VMs and LXC containers from a node\n- Keep imported hosts in sync on a schedule\n- Set up Windows guests for RDP and turn on Docker for guests by name\n- Node, guest, storage and cluster stats in their own tab"
+          "notes": "### Added\n\n- First release\n- Find and import VMs and LXC containers from a node\n- Keep imported hosts in sync on a schedule\n- Set up Windows guests for RDP and turn on Docker for guests by name\n- Node, guest, storage and cluster stats in their own tab",
+          "publishedAt": "2026-10-09T21:41:59.000Z"
         }
       ]
     },
@@ -552,9 +552,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.0.0/remote-desktop-1.0.0.tmxplug",
-          "sha256": "2dd13c79066c99816f78b3c8aa5f3e31e17d3d2568f2e48575ef1e01f1195c28",
-          "signature": "Ry9iIAZ/uHdtp2dVEgO2UNe5qq5jWthmq29351PTzX25gFHeziWrnox0mn0JFNon0keJNSv/OtMnUXMuaw9IDA==",
-          "size": 664851,
+          "sha256": "7b24691953550458ee1609372443eeb5580d20091b02c95011c0427268350efc",
+          "signature": "THqmnsi0v4yhsY94TIgFiEvhLwmUcUY2lssywPYFCUTicrcaWeoOPmm8lzsA9wyWRRYJy0lUkDbLfU81xVnXBA==",
+          "size": 670454,
           "capabilities": [
             "hosts:read",
             "credentials:read",
@@ -566,8 +566,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:24.655Z",
-          "notes": "### Added\n\n- RDP, VNC and Telnet from any browser\n- Tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app\n\n### Fixed\n\n- Connections need the remote desktop permission, and a host or quick connect can no longer pick guacd paths, drive folders or VNC listen mode"
+          "notes": "### Added\n\n- First release\n- RDP, VNC and Telnet from any browser, in tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app\n- Connections need the remote desktop permission, only the server decides guacd paths, drive folders and VNC listen mode, and only admins set a host's own guacd",
+          "publishedAt": "2026-10-09T21:42:06.000Z"
         }
       ]
     },
@@ -590,9 +590,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.0.0/secret-sources-1.0.0.tmxplug",
-          "sha256": "fdab87ca97ea05c60d7008b22da4f56c4897abf11505b6fa8b5c7bd8bc1a53e3",
-          "signature": "70xsPD1JNQNVy77Ek05gkJ7oa4Czul/CE1TQ3tJmCo71TXjlLw4nz485z8quyMYuRraQVvPcW3caE4tCenU8Cg==",
-          "size": 76354,
+          "sha256": "04e9cfca70ffafc41546ddf0f1f6411743a2e0e9835b26ad5c0b91ac11028485",
+          "signature": "AFXPvn1l5xL1XYITLYtiYtokkFK8Eqb/y7X1t8Fx50Bf39RnK8m3RsGZ7yvtOq+h19EEIrRfZ7JHWbwGV42xCg==",
+          "size": 76677,
           "capabilities": [
             "db:own",
             "secrets:own",
@@ -603,8 +603,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:25.480Z",
-          "notes": "### Added\n\n- Works with a self-hosted 1Password Connect server\n- Use `op://vault/item/field` references in a host's password or key fields\n- Secrets are fetched each time you connect and never stored in Termix"
+          "notes": "### Added\n\n- First release\n- Works with a self-hosted 1Password Connect server\n- Use `op://vault/item/field` references in a host's password or key fields\n- Secrets are fetched each time you connect and never stored in Termix",
+          "publishedAt": "2026-10-09T21:41:59.000Z"
         }
       ]
     },
@@ -627,17 +627,17 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Serial/releases/download/v1.0.0/serial-1.0.0.tmxplug",
-          "sha256": "a645144a11e591f9668f2e7b23b8423274006180862be9c5f3e59df361c27e5e",
-          "signature": "nEH0tzRMLuZ75djrUDWQwULlut/H49pewcvwPR+0SKhit6olBi3sifKpGk8yUDr1IK1wNPpPwndEKC7Y9g2YCw==",
-          "size": 760695,
+          "sha256": "2470acbd6c4c343c3d89dada972051f1ee7aace88af1e6719b92f19a4a6e46ea",
+          "signature": "LgN4hmDPrMZZzElnT4tijv5LIynLqe6ZSIiWp0ydJy9gXn/4zOTpnUSc+3k5+YazvJg7LUkP0dpFN9ablZJ+Aw==",
+          "size": 760958,
           "capabilities": [
             "network:serve",
             "device:serial",
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:26.358Z",
-          "notes": "### Added\n\n- Set the baud rate, data bits, stop bits and parity\n- The desktop app talks to the device directly\n- Browsers use the Web Serial API (Chrome, Edge or Firefox 151 and newer)"
+          "notes": "### Added\n\n- First release\n- Serial console to a router, switch or other device plugged into your computer\n- Set the baud rate, data bits, stop bits and parity\n- The desktop app talks to the device directly\n- Browsers use the Web Serial API (Chrome, Edge or Firefox 151 and newer)",
+          "publishedAt": "2026-10-09T21:42:04.000Z"
         }
       ]
     },
@@ -661,9 +661,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.0.0/session-recording-1.0.0.tmxplug",
-          "sha256": "3a9ab3a3638d0cf13a4c7debbcd315d9a324b9991faea1c192ae1e8fda1e525b",
-          "signature": "yRQdrS9+Hnbjru5rh8ssM9oKc/n16HG5oUvuCE88aleHjilr1nQaD8UZ35xeecaW4xuyIsEkXHYU4vU+yCBSCA==",
-          "size": 745412,
+          "sha256": "4ef0f9500abe93d83036bcad3cc237947c82da245b2370d5222d59df69b07272",
+          "signature": "h6wQ1iOoEo8iZAK3ouAkTkGRGDCgabKaev36eszeK4mWRu647TkeMzsNV3JwIyNJK/mBFNu8pfXz8QpY6pSuAA==",
+          "size": 746085,
           "capabilities": [
             "hosts:read",
             "db:own",
@@ -674,8 +674,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:27.197Z",
-          "notes": "### Added\n\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose"
+          "notes": "### Added\n\n- First release\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose\n- Only admins can delete a recording",
+          "publishedAt": "2026-10-09T21:42:06.000Z"
         }
       ]
     },
@@ -701,9 +701,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/download/v1.0.0/session-sharing-1.0.0.tmxplug",
-          "sha256": "f838e53401f6d75923821797829806b9ca03f0dd64fe87f8524d14a2e05f684e",
-          "signature": "ex/316YnpKB8TRlVi8l7Y7W6ux4cD0vQnFI6TuLgCFmZbcv5hxoaBiaZXpdxeyIDYZSU0hkeoCHrdYbFCXfRBQ==",
-          "size": 1588620,
+          "sha256": "0c0d3f2d63184d4a4b2a90b11a1ee247ddc937abba76af74eb39e27048b412f9",
+          "signature": "UF6n7UUyZys7ZLk3aGHCMpIuLPwWQliFZV6hzu5uG5G7CCxEUP4JIblFkKX/ODZQEf2S2TB3cGC0aykvsCyhDQ==",
+          "size": 1588609,
           "capabilities": [
             "hosts:read",
             "db:own",
@@ -716,8 +716,8 @@
             "ssh-terminal": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:28.095Z",
-          "notes": "### Added\n\n- Share terminal, RDP, VNC and Telnet sessions\n- Share by link with anyone, or with a Termix user\n- Read-only or read and write\n- Links that expire or can be revoked\n- Meeting rooms where a presenter shows a session and can hand over control\n- Guest links for people without an account"
+          "notes": "### Added\n\n- First release\n- Share terminal, RDP, VNC and Telnet sessions by link or with a Termix user\n- Read-only or read and write, with links that expire or can be revoked\n- Meeting rooms where a presenter shows a session and can hand over control\n- Guest links for people without an account",
+          "publishedAt": "2026-10-09T21:42:25.000Z"
         }
       ]
     },
@@ -743,9 +743,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Snippets/releases/download/v1.0.0/snippets-1.0.0.tmxplug",
-          "sha256": "a434dd442c54fd7a124f4ebc9579a0af1aa4b07b1a90e3875f8ae72c35ced410",
-          "signature": "jFaLbO0grddqDKRBDIONPrimvhGUXghJqMJyPF3dP14YHbvII3WsQOOts2wubKYpMjboXwd/0YFF+UfkWlqHCw==",
-          "size": 320424,
+          "sha256": "020dcc9e433ad746b5fb7049736e7fb90ffc3ffb700b836aa9d90e1e01983f81",
+          "signature": "9w5h+m6asC+q7AQNBA7vQWPM+STBtpTPbBJX8xjIucKpTUfdKdwPGtCjzK4m1xoljB1a8cZ5oSc/ZTK5L0yzBA==",
+          "size": 321244,
           "capabilities": [
             "db:own",
             "network:serve",
@@ -757,8 +757,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:28.893Z",
-          "notes": "### Added\n\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON"
+          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON",
+          "publishedAt": "2026-10-09T21:42:17.000Z"
         }
       ]
     },
@@ -828,9 +828,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.0/sso-1.0.0.tmxplug",
-          "sha256": "2045d1da03dcd47089cb6566a7f25fe021326cb556cbc36b01563a2c234d1230",
-          "signature": "7A66kpj5gq2w+VIX67TzOjEe4Wh+quqM9sATHV0OWGjGGoTXHBKt2XlBz2vlWvMa+WEoqULHN1+GnD6u1NJtDA==",
-          "size": 854796,
+          "sha256": "a6951415c277ed374c58c800e8a10a5832cf08bb0be0660e995d3e6a2f05de39",
+          "signature": "3PI9SKWYD8aKL3nNcqx0GpctuYBHYQaOnX7A+2AKINMPfyiQLqvWv9DVW2Oai1WcvHoXNbiP50ksfMjbsrLFDg==",
+          "size": 857561,
           "capabilities": [
             "db:own",
             "kv:own",
@@ -840,8 +840,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:30.442Z",
-          "notes": "### Added\n\n- Any OpenID Connect provider, plus GitHub and Google\n- More than one provider, each with its own login button\n- Make members of an admin group Termix admins\n- Limit sign in to certain users\n- Back-channel logout"
+          "notes": "### Added\n\n- First release\n- Sign in with any OpenID Connect provider, GitHub or Google\n- More than one provider, each with its own login button\n- Make members of an admin group Termix admins, and map groups to roles\n- Limit sign in to certain users\n- Back-channel logout",
+          "publishedAt": "2026-10-09T21:42:00.000Z"
         }
       ]
     },
@@ -865,9 +865,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/download/v1.0.0/step-ca-1.0.0.tmxplug",
-          "sha256": "fc38ac6dcf8c43c550b7a7c65836a095ec5a8bae76c8797b5563b2c6c8e8dad1",
-          "signature": "2zv6m8kBVr67tpt7byjGx1vBmMkFEegqs906mWgpcvzbPj4Jpf7TRwUWqfcXaZa+5qzGtaXSd0xusxR6FkQRAg==",
-          "size": 681299,
+          "sha256": "bb7f1061fa0923357818a8ca17745a0dd5a278d56f6c0b7b09671034039a80fd",
+          "signature": "P7LKn8a0+TD/CnWKOIO9++QfDqkYVX97dl6FwhdoEouGMC40R/EQI0apx6vURMBMAaL5AAgJmCZ1ByDXI+IQDQ==",
+          "size": 681353,
           "capabilities": [
             "db:own",
             "secrets:own",
@@ -877,8 +877,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:31.386Z",
-          "notes": "### Added\n\n- Adds the Step CA auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates are kept until they expire\n- No `step` binary needed"
+          "notes": "### Added\n\n- First release\n- Adds the Step CA auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates are kept until they expire\n- No `step` binary needed\n- Several Termix servers can share sign in state through Redis",
+          "publishedAt": "2026-10-09T21:42:16.000Z"
         }
       ]
     },
@@ -902,12 +902,11 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/download/v1.0.0/tailscale-1.0.0.tmxplug",
-          "sha256": "f7732afe584044258cc46205fee327223cdd290e1ba6e6858ddd22be6b3ef12d",
-          "signature": "j4PoDGGDRLsPPir0ynukzDB9eqaTAaEJ239PBvpIUbuCyXOSdcoSwyGXVwX3aTdi7UEWW85yy1HvKN+7wzxzCA==",
-          "size": 118159,
+          "sha256": "e9840bddef696b24354b9f04f2c97e164c3879f3fd1b337347de728db522874e",
+          "signature": "ZV2sE/qTVSXCK030FJ3Su2LaJbGBVyWi57GSbMFTo/z9A0xFssaUimYq3+oV4pRJSlFQBtNaj8J/1G0H1Y+1Dw==",
+          "size": 119231,
           "capabilities": [
             "hosts:read",
-            "settings:read-core",
             "network:outbound",
             "network:serve",
             "auth:provide",
@@ -917,8 +916,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:32.214Z",
-          "notes": "### Added\n\n- Add tailnet devices as hosts in a couple of clicks\n- Connect with Tailscale SSH, with no credentials stored\n- Works with Headscale\n- A Tailscale card in Host Metrics"
+          "notes": "### Added\n\n- First release\n- Add tailnet devices as hosts in a couple of clicks\n- Connect with Tailscale SSH, with no credentials stored\n- Works with Headscale\n- A Tailscale card in Host Metrics",
+          "publishedAt": "2026-10-09T21:42:17.000Z"
         }
       ]
     },
@@ -931,7 +930,7 @@
       "repository": "https://github.com/Termix-SSH/Plugin-Telemetry",
       "icon": "ChartNoAxesColumn",
       "features": [
-        "Never sends usernames, hostnames, IP addresses or credentials",
+        "Never sends usernames, hostnames or credentials",
         "Choose what the report includes, or turn it off",
         "Preview the exact report before it is sent"
       ],
@@ -941,9 +940,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/download/v1.0.0/telemetry-1.0.0.tmxplug",
-          "sha256": "103e2ef2d52993bf15fdf2cda0addfa4aeba5817b4340f28e3fdea634aba6af0",
-          "signature": "y2465FQ4fjgpe90I/+Nm1nzxj6A1thYrw7F3UWVEZbc6dAwZcvmLqjdNw2pEAqi2Y0841xDOCtd85vffYam8CQ==",
-          "size": 86104,
+          "sha256": "b41210d638b93470891ab238e3d1180a0e0d0f0c697b1c2079156416dec05966",
+          "signature": "R6EvdCn1/JvV+cbWN/QS36azvCRLBm70ukxG3+DCMmXw0zb8TM593eugZJ+3+fXcDqbJCV774wQJ2mEDX4kNCw==",
+          "size": 86091,
           "capabilities": [
             "db:core-refs",
             "network:outbound",
@@ -955,8 +954,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:33.089Z",
-          "notes": "### Added\n\n- Never sends usernames, hostnames, IP addresses or credentials\n- Choose what the report includes, or turn it off\n- Preview the exact report before it is sent"
+          "notes": "### Added\n\n- First release\n- Sends a small anonymous report once a day\n- Never sends usernames, hostnames or credentials\n- Choose what the report includes, or turn it off\n- Preview the exact report before it is sent\n- ENABLE_TELEMETRY locks the setting from the environment",
+          "publishedAt": "2026-10-09T21:42:20.000Z"
         }
       ]
     },
@@ -980,9 +979,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/download/v1.0.0/termix-identity-1.0.0.tmxplug",
-          "sha256": "f1f712178b5d64ae263227640b61d1f5ea5a301eae3ff8adb8b52de5f20892fe",
-          "signature": "X83K6ROxREvG82mtFJrcuR/wIJ+84IZuQfgkbRSU3EQGC2maAuhudvB+/xbkophty8CIcFdRsiXSkowCd6yvAg==",
-          "size": 161824,
+          "sha256": "74f3acee4486cacb837f235ee3609f3b88666b17f3fe61b687552c4ec59a2a0b",
+          "signature": "I7jCEAV1zXhYhErQsPWWdi0F15GKle9wwnjXS09VllmMGAYtE5GoiWvgmkWafit6wPBNeDklqP3kVMBa4pYYDA==",
+          "size": 162016,
           "capabilities": [
             "db:own",
             "secrets:own",
@@ -992,8 +991,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:33.937Z",
-          "notes": "### Added\n\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority"
+          "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority",
+          "publishedAt": "2026-10-09T21:42:21.000Z"
         }
       ]
     },
@@ -1019,9 +1018,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.0.0/tmux-monitor-1.0.0.tmxplug",
-          "sha256": "d6a98bcf99dbb31201d7079baf348100bca1c0eda0928aec4aeb075ea373a8d5",
-          "signature": "TiMz5p3KG6qmRSi068KZLgBDmLkI3fJfmdQnPMNl/0+wgJc8P0lLOrIgi89iX25lDYFFKmkIPYrDIFo4G/yqCg==",
-          "size": 210183,
+          "sha256": "d453e0c5f1bf54160615d5df4e12eac0d97fea3c78c0aad5ebe8552e1f2de42c",
+          "signature": "FuvEyeL7HUpokz6KJyBPPWw3UF/6IUiQWI0nGscTF3fK7fLVjBrztVMlysj4MggxSoNbBTmhGAxUYhhc3xMMBg==",
+          "size": 210135,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -1031,8 +1030,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:34.905Z",
-          "notes": "### Added\n\n- Every host's tmux sessions in one place\n- Live pane previews\n- Resource use for each session\n- Search across every pane\n- Create, rename, split and kill sessions, windows and panes\n- Attach a terminal in one click"
+          "notes": "### Added\n\n- First release\n- Every host's tmux sessions in one place, with live pane previews\n- Resource use for each session\n- Search across every pane\n- Create, rename, split and kill sessions, windows and panes\n- Attach a terminal in one click",
+          "publishedAt": "2026-10-09T21:42:26.000Z"
         }
       ]
     },
@@ -1055,9 +1054,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-TOTP/releases/download/v1.0.0/totp-1.0.0.tmxplug",
-          "sha256": "aed42422ccc38c661f1aac2f7409f7872acf271552d6623b79bbcc43813d4fca",
-          "signature": "uhUaEV+jlEeq0OvGyLj7TL6sWR1p244v7YrW7I4QCtuk1JK70hLiJeL99j7uhrfqqG2L18JvycQEFvsn4PMwDA==",
-          "size": 172906,
+          "sha256": "a2d389048d16e31c089cf211fe2fb37fcfb33369497b58ee445e8626e9ec494d",
+          "signature": "K6Fa63fAvi/MwZdO2KjD2ZIismkv0m9lzykBd1UWYcTSw6+JTcnq+oC5EL0Hq2imgnDQ/PYuZFNJRhGt27dEBg==",
+          "size": 173971,
           "capabilities": [
             "db:own",
             "secrets:own",
@@ -1067,8 +1066,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:35.693Z",
-          "notes": "### Added\n\n- Works with any authenticator app\n- Backup codes in case you lose your phone\n- More than one device"
+          "notes": "### Added\n\n- First release\n- Two-factor sign in with a code from any authenticator app\n- Each code works once, and wrong codes are rate limited\n- Backup codes in case you lose your phone\n- More than one device",
+          "publishedAt": "2026-10-09T21:42:12.000Z"
         }
       ]
     },
@@ -1093,9 +1092,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.0.0/tunnels-1.0.0.tmxplug",
-          "sha256": "215eae643d61d032bb6190bab7ed42140fd91c2165e2c4de079ff541e1522763",
-          "signature": "x2Mfcd9qgkx+w/uvSnhYGqnCHHZKa0GhVpX0ZqzZnrq42O2h8OgvYUfzOES9GyheYlLlSEGAoRx3sJuurvLNDg==",
-          "size": 279047,
+          "sha256": "091f06a7f34a5f27a3eb43f2b83f89a108a87ed5ea30c30748c69547bb4a4f68",
+          "signature": "/H+T0DbT0eV49ChKscXKPtmOnH1UTbJm8mIk8o4YjvfG1aoxgGHVTOJTdxcDiUufoo1JkI49EsxowNCrkUKmDg==",
+          "size": 279252,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -1107,8 +1106,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:36.559Z",
-          "notes": "### Added\n\n- Local, remote and dynamic SOCKS5 forwarding\n- Reconnects on its own when a tunnel drops\n- Start tunnels on boot\n- Route a tunnel through a second host\n- Client tunnels on your own computer from the desktop app, with presets you can save to the server"
+          "notes": "### Added\n\n- First release\n- Local, remote and dynamic SOCKS5 forwarding\n- Reconnects on its own when a tunnel drops\n- Start tunnels on boot\n- Route a tunnel through a second host\n- Client tunnels on your own computer from the desktop app, with presets you can save to the server",
+          "publishedAt": "2026-10-09T21:42:26.000Z"
         }
       ]
     },
@@ -1132,9 +1131,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Vault/releases/download/v1.0.0/vault-1.0.0.tmxplug",
-          "sha256": "0bbd95002866807ddd469f102d09bff9cf1b39e005dec6b96530066c6c3b0d19",
-          "signature": "+NTn/paLU65e48jGIF0BIBeDvCYZaGsbw601RyXLN0cM61dTGQ05Ae+6L6bR+myT/ERFMi8d7nvbGfyah8G5CA==",
-          "size": 111707,
+          "sha256": "bdad88ed576ed30b464c9cbddab4d9bb60696581dc1b815b76e1b4a08500f870",
+          "signature": "hcGNRmpDEBG5ye29WdO2nWhpNrWT5sVY/56++Ovo88mWL1sxapPdPYDIOtdrl7StMDkoStz2W87J30XlamZJDw==",
+          "size": 112086,
           "capabilities": [
             "db:own",
             "secrets:own",
@@ -1144,8 +1143,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Vault/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:37.355Z",
-          "notes": "### Added\n\n- Adds the Vault auth type to hosts\n- Sign in to Vault with OIDC when you connect\n- Never stores a Vault token or long-lived key\n- Reusable signer profiles you can share with everyone\n\n### Fixed\n\n- A personal Vault profile can no longer point the server at private or internal addresses unless an admin allows that host"
+          "notes": "### Added\n\n- First release\n- Adds the Vault auth type to hosts\n- Sign in to Vault with OIDC when you connect\n- Never stores a Vault token or long-lived key\n- Reusable signer profiles you can share with everyone\n- A personal profile only reaches a private or internal Vault address when an admin allows that host",
+          "publishedAt": "2026-10-09T21:42:26.000Z"
         }
       ]
     },
@@ -1168,9 +1167,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/download/v1.0.0/wake-on-lan-1.0.0.tmxplug",
-          "sha256": "39b97642e44e7b128df3632b10962bff6a26313f2e989e5acd29760cf91c4e04",
-          "signature": "unQEdXg0PF31IYRQ7PkCj/kGvzNX4QSJVHmT2gGCm/bzSl4Ge6FgmFJ/ohhbH4jhYpUYYM7K0pdrjeqjNuCnCw==",
-          "size": 30646,
+          "sha256": "3e7d4c8a9a20cde95d8594d4ae8e1fa0469d0751be9f00249f6431b10ada9ea9",
+          "signature": "BEjI2bNKNuPa6OxtyJNxle3Lq3cOVaKcieJcNZPQ1Ld/8vgRVJXqpmazM9cs3CLRRIruOvC8GoGZCBs1oz5ZDA==",
+          "size": 30930,
           "capabilities": [
             "hosts:read",
             "network:broadcast",
@@ -1178,8 +1177,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:38.362Z",
-          "notes": "### Added\n\n- Wake a host in one click\n- Wake a host before a remote desktop connection\n- Wake a host from an automation"
+          "notes": "### Added\n\n- First release\n- Wake a host in one click from its menu\n- Wake a host before a remote desktop connection\n- Wake a host from an automation\n- Per-host MAC address and subnet broadcast address",
+          "publishedAt": "2026-10-09T21:42:21.000Z"
         }
       ]
     },
@@ -1201,15 +1200,15 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/download/v1.0.0/warpgate-1.0.0.tmxplug",
-          "sha256": "a7b7ed6d39639d0d6050958417d33d646a0304f99dec4eb9da71a46e42ae80f1",
-          "signature": "DudzJ7zi5hAX9Il3V2nK/5vjOvRcEmEPKAN9xkOchBDwwpRqQJBxidxIwcSodBK5SagX3nC6efCJyl2wcHjpDQ==",
-          "size": 13533,
+          "sha256": "18ed1c8238ecf57b5776ad93c6533d7040b988ae765012c5da591b85faa02d2e",
+          "signature": "xFsWx+Z+LVpXM6/2TaVbtIGWEKDwjW4AK/9/X1lcx7Hug4xFFa8JrzaJNQ7nUFNHozi9f30mSMoXWsVi03efDw==",
+          "size": 13620,
           "capabilities": [
             "auth:provide"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:39.330Z",
-          "notes": "### Added\n\n- Warpgate's browser approval shows as a sign in dialog\n- Your saved password is sent to Warpgate for you"
+          "notes": "### Added\n\n- First release\n- Warpgate's browser approval shows as a sign in dialog\n- Your saved password is sent to Warpgate for you",
+          "publishedAt": "2026-10-09T21:42:34.000Z"
         }
       ]
     },
@@ -1232,9 +1231,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.0.0/web-endpoint-1.0.0.tmxplug",
-          "sha256": "22f5f276f6dab85e9b211f8e990f82fcbf63ebb8fa90379463f64d0fa38905ab",
-          "signature": "p80JlHrK1XmDzAmr2EpAxd9Uh/p/F/B1eW3ZiYtP8m/JatDU7hNSRsiv+WnbKYnjUoGh8qT43PTmYhz6yhXnBA==",
-          "size": 255570,
+          "sha256": "7f69e608eccd8cc6fa2436bffb3e2c3c8aae6cebebf7341913f15e7f9be58e42",
+          "signature": "Qwb7ErwxWOmX36S8CCMFT/rUXt/KbADvCCpd3C1iuYFr7KpHz1odj2DKl4vUwOCQH6Up3tq7dQI5sQEoN5RvAA==",
+          "size": 255905,
           "capabilities": [
             "hosts:read",
             "network:serve",
@@ -1245,8 +1244,8 @@
             "tunnels": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:52:30.456Z",
-          "notes": "### Added\n\n- Open a web UI in a Termix tab or its own desktop window\n- Connect directly, or over an SSH tunnel through the host\n- Embedded pages never see your Termix login"
+          "notes": "### Added\n\n- First release\n- Open a web UI in a Termix tab or its own desktop window\n- Connect directly, or over an SSH tunnel through the host\n- Embedded pages never see your Termix login",
+          "publishedAt": "2026-10-09T21:42:36.000Z"
         }
       ]
     },
@@ -1269,9 +1268,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/download/v1.0.0/webauthn-1.0.0.tmxplug",
-          "sha256": "50994ae148b2a5e68cf924b922eb2fb22cf6215905049dd5b61a16e30a376a50",
-          "signature": "3+xFhf3S/6/E3FtpDf/Chh9wDaAGHDRuFESqiSyfWCKjdRqIMJu+SViwAWVKOfwu/Zoqv8rAXumUortnmJ2MCw==",
-          "size": 448507,
+          "sha256": "6757664d7fd23aa518b7f578aa4e5331f7fb3add5557c6ef666a6ac8395dcf16",
+          "signature": "6FVisg3Tog+ZDGmXZo+6OiV8uRk5BOCJsGV1BSSwUWpuMApJG4e+XXqMYhT88N7i0D6+OKwxVGjV8s+3XB+wCA==",
+          "size": 448701,
           "capabilities": [
             "db:own",
             "network:serve",
@@ -1281,8 +1280,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:51:40.713Z",
-          "notes": "### Added\n\n- Passkeys and security keys\n- Counts as a second factor when it checks your PIN or fingerprint\n- More than one passkey, including synced ones"
+          "notes": "### Added\n\n- First release\n- Sign in with a passkey or security key instead of a password\n- Counts as a second factor when it checks your PIN or fingerprint\n- More than one passkey, including synced ones",
+          "publishedAt": "2026-10-09T21:42:36.000Z"
         }
       ]
     },
@@ -1306,17 +1305,17 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.0.0/workspaces-1.0.0.tmxplug",
-          "sha256": "23c6d2b0845b0e854dc6dde0ab4b60b9a58af020099fd4f6fcc1463a48d9ee62",
-          "signature": "QPXA/Yc7PanHB1cGJlncPqH4QHMdgvMStSqPVTYclxBxZDTbaUDVa/NzCvc0dQmYMejtJ890F8B13tuxb+B2CA==",
-          "size": 107528,
+          "sha256": "06db7e1b00ddda5f56b909127bfddfdfe28d13b37af6ad81af63a9b86e00f842",
+          "signature": "qNPCBAZIPgkEv3PbtkZp0bK+VAyZOWSqGa+bmhbXPLDuCmV+rQK5AJr8PgN/be4Sy/SSBekmVyylEwsaxPatAw==",
+          "size": 108419,
           "capabilities": [
             "db:own",
             "network:serve",
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-08T22:52:31.873Z",
-          "notes": "### Added\n\n- Save your tabs and split layout as a named workspace\n- Reopen it in one click\n- Recover your last session\n- Syncs between the desktop app and a Termix server"
+          "notes": "### Added\n\n- First release\n- Save your tabs and split layout as a named workspace\n- Reopen it in one click\n- Recover your last session\n- Syncs between the desktop app and a Termix server",
+          "publishedAt": "2026-10-09T21:42:37.000Z"
         }
       ]
     }
