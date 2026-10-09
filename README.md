@@ -32,8 +32,7 @@ Want to build your own plugin? Start from the [plugin template](https://github.c
 
 The community registry is open for submissions. Release your plugin with the template's Release workflow, then open a pull request that adds `community/plugins/<id>.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps and what reviewers check.
 
-> [!NOTE]
-> Termix can't install community plugins yet. That comes in a later update. Submissions are open now so the community registry is ready when it ships.
+Termix can't install community plugins yet. That comes in a later update. Submissions are open now so the community registry is ready when it ships.
 
 <br />
 

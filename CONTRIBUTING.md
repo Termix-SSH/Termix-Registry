@@ -5,8 +5,7 @@ This repo holds two plugin lists:
 - `official/`: the plugins made by the Termix team. Not open to submissions.
 - `community/`: plugins made by anyone, reviewed by a person before they are listed.
 
-> [!NOTE]
-> Termix can't install community plugins yet. That comes in a later update. The community registry is open now so it is ready when that update ships. Until then, people can install your plugin from a `.tmxplug` file with plugin developer mode on.
+Termix can't install community plugins yet. That comes in a later update. The community registry is open now so it is ready when that update ships. Until then, people can install your plugin from a `.tmxplug` file with plugin developer mode on.
 
 The full guide is at [docs.termix.site/develop/community-registry](https://docs.termix.site/develop/community-registry).
 
@@ -20,7 +19,7 @@ The full guide is at [docs.termix.site/develop/community-registry](https://docs.
 
 ## Submit
 
-1. Run the **Release** workflow in your plugin repo (stable or beta). It builds the `.tmxplug`, publishes it as a GitHub release and records where it was built (GitHub build provenance). No secrets are needed.
+1. Run the Release workflow in your plugin repo (stable or beta). It builds the `.tmxplug`, publishes it as a GitHub release and records where it was built (GitHub build provenance). No secrets are needed.
 2. Open the workflow run. Its summary shows the version and the `sha256` of the file.
 3. Fork this repo and add `community/plugins/<id>.json`:
 
@@ -36,7 +35,7 @@ The full guide is at [docs.termix.site/develop/community-registry](https://docs.
 
    `maintainers` are the GitHub usernames allowed to send updates. You must be one of them.
 
-4. Open a pull request. The **Check submission** job downloads your release, checks the `sha256`, the manifest and the build provenance, and writes a summary for the reviewer.
+4. Open a pull request. The Check submission job downloads your release, checks the `sha256`, the manifest and the build provenance, and writes a summary for the reviewer.
 5. A maintainer reviews the source at your release tag. Once it is merged, your plugin is listed in `community/index.json` within a few minutes.
 
 ## Updates
