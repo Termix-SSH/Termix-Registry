@@ -1,0 +1,7 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "hello-world",
+  "repository": "https://github.com/LukeGus/termix-community-test",
+  "maintainers": ["LukeGus"],
+  "versions": [{ "version": "1.0.0", "sha256": "078fc0f78f00a9c44010efee2f64b430cd6ebb27b5b1da6c92a7cb46b2e59d52" }]
+}
