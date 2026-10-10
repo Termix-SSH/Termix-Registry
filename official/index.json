@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-10T05:13:29.136Z",
+  "updatedAt": "2026-10-10T05:57:05.198Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -109,9 +109,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.0.0/alerts-1.0.0.tmxplug",
-          "sha256": "ff3cc9f0b1f6bc2e05412bcb76aee78fca25a4ab19c4a2ee4aa8136506ad6828",
-          "signature": "1OB9zYpFnqBlk1HglA4NlzHv//rAwlHk0PuMGczcuyVsyzQwEK0glmRu16Y6C3WzmW9EST4wK7nhSXGWUwiABA==",
-          "size": 507655,
+          "sha256": "3fe008f9d2a32e2b7111399054a2264ea5cf5d71264cc31e85cdab3e909cc62f",
+          "signature": "st+4VJXbMM2jp9sBTDRpwPAP+nlBPLLzI1X84JzIMdz04+qUpKRBP9f2VWK40fVqiFur3E9ixX7XXGtgl1MxDw==",
+          "size": 510523,
           "capabilities": [
             "db:core-refs",
             "db:own",
@@ -125,7 +125,7 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.0",
           "notes": "### Added\n\n- First release\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined",
-          "publishedAt": "2026-10-10T05:12:10.000Z"
+          "publishedAt": "2026-10-10T05:56:26.000Z"
         }
       ]
     },
@@ -151,9 +151,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.0/automations-1.0.0.tmxplug",
-          "sha256": "00747fd5d80df0e33c81cf64a21c5d4e1def802705bbfd775c84414b861a42c6",
-          "signature": "4Hqfa6yBhmSQP/1jkDo9yMQZN8Fgj4EIqa2qFFI7tpINigwDyxJFGkJwi3WsTRIt7kmUx0a8j1281el/I9AkDA==",
-          "size": 343908,
+          "sha256": "76d4cff6e78d40ec67e899f0c7b2aca43d35a47b9a15071d0a8f5a8d939af9a9",
+          "signature": "czpyQOEkItaqTn1iVYyor2HcnnEVf14WUMOvlF75z4Z4tPoEq3vA4QnDWLiXcV5vg8gI4g/tECVIp5nWk+H3Dg==",
+          "size": 346553,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -173,7 +173,7 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.0",
           "notes": "### Added\n\n- First release\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts, with values from triggers and variables always passed safely into shell commands\n- Conditions, waits and variables for more complex flows, and nested steps that only run automations you own\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host",
-          "publishedAt": "2026-10-10T05:12:07.000Z"
+          "publishedAt": "2026-10-10T05:56:35.000Z"
         }
       ]
     },
@@ -281,9 +281,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.0.0/fleets-1.0.0.tmxplug",
-          "sha256": "b05e5a1eb7e268f6fa900e337692ed2d03daa655b200d6b300ecb51b8c54a9fa",
-          "signature": "FfuZZH6vrb8XUWvkSJVwhKDP6oZz1zHisihbuRHTI5vktSsOBB/iIrsV4XxeumEPGipNwIhiyJKahpj72SJeAA==",
-          "size": 438020,
+          "sha256": "1ebeccd6b2a8e9510ab56658374d0b87f652149101d14956752a696ca920f611",
+          "signature": "ILLmFFrpmkAmpGp0SvO5PJSLFewKQ2x3aSfGQdfrYVmTyob5xPHrg6l+MEeqhV1N2xe+Bm8TV8B7xJVc6ir4AQ==",
+          "size": 440771,
           "capabilities": [
             "hosts:read",
             "hosts:write",
@@ -296,7 +296,7 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.0.0",
           "notes": "### Added\n\n- First release\n- Group hosts by hand or with tag rules, so new hosts join on their own\n- Run one command on every host and see each result\n- Install, remove or upgrade packages across the fleet\n- Push and pull files on every host\n- Collect an inventory of OS, kernel, architecture and uptime\n- Share a fleet with users or roles",
-          "publishedAt": "2026-10-10T05:12:00.000Z"
+          "publishedAt": "2026-10-10T05:56:29.000Z"
         }
       ]
     },
@@ -661,9 +661,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.0.0/session-recording-1.0.0.tmxplug",
-          "sha256": "4ef0f9500abe93d83036bcad3cc237947c82da245b2370d5222d59df69b07272",
-          "signature": "h6wQ1iOoEo8iZAK3ouAkTkGRGDCgabKaev36eszeK4mWRu647TkeMzsNV3JwIyNJK/mBFNu8pfXz8QpY6pSuAA==",
-          "size": 746085,
+          "sha256": "6b630ca0e08d79be7cb49366c898586ee3416a518f8e200157a6191c2c7c9ab7",
+          "signature": "/I9+ulJOIgzZRX8aGm5UMckS/ZsIsmyBeVUKmGc9lqvkCbONePYwXezhkex2wLrLJXYmBiPgXGiVfcc+baUqBg==",
+          "size": 752547,
           "capabilities": [
             "hosts:read",
             "db:own",
@@ -674,8 +674,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-09T21:42:06.000Z",
-          "notes": "### Added\n\n- First release\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose\n- Only admins can delete a recording"
+          "notes": "### Added\n\n- First release\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose\n- Only admins can delete a recording",
+          "publishedAt": "2026-10-10T05:56:32.000Z"
         }
       ]
     },
@@ -757,8 +757,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON",
-          "publishedAt": "2026-10-10T05:12:10.000Z"
+          "publishedAt": "2026-10-10T05:12:10.000Z",
+          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON"
         }
       ]
     },
@@ -802,8 +802,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- First release\n- SSH terminals with tabs, split screen, jump hosts and host key checks\n- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support\n- Themes, fonts, syntax highlighting and a toolbar with live stats\n- Command history with autocomplete, macros and keystrokes sent to several terminals at once\n- Shared sessions keep read-only viewers read-only, even after they leave\n- A local terminal in the desktop app",
-          "publishedAt": "2026-10-10T05:12:45.000Z"
+          "publishedAt": "2026-10-10T05:12:45.000Z",
+          "notes": "### Added\n\n- First release\n- SSH terminals with tabs, split screen, jump hosts and host key checks\n- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support\n- Themes, fonts, syntax highlighting and a toolbar with live stats\n- Command history with autocomplete, macros and keystrokes sent to several terminals at once\n- Shared sessions keep read-only viewers read-only, even after they leave\n- A local terminal in the desktop app"
         }
       ]
     },
@@ -1305,9 +1305,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.0.0/workspaces-1.0.0.tmxplug",
-          "sha256": "4002a23c007ffc1989b2940c45e46b917a73a25e047124a17fe83e0aa74979b2",
-          "signature": "uZFH+aVwDTyAa6RojVPyLBSX0gA7EZ7LjigsxcpPznTjJBz8uh208UV6jM0VubqaJL8siwDvzrUlEIm6jRBZAw==",
-          "size": 108485,
+          "sha256": "1ee3a07bd8d61b46b6fbe118d2a424f8027575282287622b467e83a4356e6412",
+          "signature": "3kMdt6vLutIyVYAxTbKuD/5sgvOU56UcDwnGdqXpTHy45/Lot0bWNHsVTbuyO5AHlp856W8M48QacZPq6z2gBg==",
+          "size": 111588,
           "capabilities": [
             "db:own",
             "network:serve",
@@ -1315,7 +1315,7 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.0.0",
           "notes": "### Added\n\n- First release\n- Save your tabs and split layout as a named workspace\n- Reopen it in one click\n- Recover your last session\n- Syncs between the desktop app and a Termix server",
-          "publishedAt": "2026-10-10T05:12:03.000Z"
+          "publishedAt": "2026-10-10T05:56:35.000Z"
         }
       ]
     }
