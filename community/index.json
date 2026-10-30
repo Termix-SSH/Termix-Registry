@@ -4,8 +4,44 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-30T12:06:12.291Z",
+  "updatedAt": "2026-10-30T15:30:34.024Z",
   "plugins": [
+    {
+      "id": "command-editor",
+      "name": "Command Editor",
+      "description": "Edit the command at the prompt in a real editor window, then put it back or run it.",
+      "author": "shady_nabil",
+      "category": "Terminal",
+      "repository": "https://github.com/ShadyNabil8/termix-plugin-command-editor",
+      "icon": "SquarePen",
+      "features": [
+        "Opens the command you are typing in a floating editor over the terminal",
+        "Shell syntax highlighting, search and replace, multiple cursors",
+        "Insert the edited command back at the prompt, or run it straight away",
+        "Multi-line commands go in as one paste, so they don't run line by line",
+        "Works over SSH with no setup on the server"
+      ],
+      "docs": "https://github.com/ShadyNabil8/termix-plugin-command-editor/tree/main/docs",
+      "contributes": ["keybindingActions", "settings"],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/ShadyNabil8/termix-plugin-command-editor/releases/download/v1.0.0/command-editor-1.0.0.tmxplug",
+          "sha256": "1d253b3d3dc29f292478b2b67b3df65dca4f3a3c09528c01849ca3c1706ba5bb",
+          "signature": "byzr0C10p2sGnmi/lBm2BSypHddfnUesWxf7kwGMw+rYIrfWs+i/mhjXFkrT2GCDe/KLB8xYLtbFfU8rZHf+BQ==",
+          "size": 653731,
+          "capabilities": ["ui:surface"],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/ShadyNabil8/termix-plugin-command-editor/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Edit the command at the prompt in a floating editor over any SSH terminal\n- Open it with Ctrl+Shift+X, the terminal toolbar, the command palette or a key of your own\n- Insert the edited command back at the prompt, or run it\n- Multi-line commands go in as one paste\n- Settings for the key, how the line is cleared, font size and line wrapping\n- Uses the prompt access of newer SSH Terminal versions: the local terminal, the exact cursor line, no opening inside full-screen programs, and a warning when a shell would run a multi-line paste line by line",
+          "publishedAt": "2026-10-30T14:57:00.000Z"
+        }
+      ]
+    },
     {
       "id": "container-files",
       "name": "Container Files",
