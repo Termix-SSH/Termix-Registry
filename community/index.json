@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-29T23:25:03.550Z",
+  "updatedAt": "2026-10-30T12:06:12.291Z",
   "plugins": [
     {
       "id": "container-files",
@@ -202,6 +202,24 @@
           "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.2.0",
           "notes": "First release.\n\n### Added\n\n- An Icon and an Icon color field in the host editor, with a searchable picker of general icons and an Icons and Brands switch\n- Brand logos to pick from: operating systems and Linux distributions, clouds, containers, databases, network gear and more, colored by the icon color like the other icons\n- Icon and color defaults for a folder, a user or the whole server\n- The icon in the Hosts list: large and left of the host, or small before or after the name, picked per user under Icon position, indenting only hosts that have an icon unless the user lines up all names\n- Icon size, from 50% to 150%\n- Change icon in the host context menu and in the command palette, where Use default hands the icon or the color back to the folder, user or server default\n- Automatic icons: rules that give hosts an icon or a color by tag or by name, in a table you can reorder by dragging, with suggestions from your tags. A rule fills in what a host has not got, or with Priority on replaces the host's own icon\n- Russian translation",
           "publishedAt": "2026-10-27T11:56:42.000Z"
+        }
+      ],
+      "gated": [
+        {
+          "version": "0.6.0",
+          "api": "1",
+          "url": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/download/v0.6.0/host-icons-0.6.0.tmxplug",
+          "sha256": "8672d7d8173f9dc8160b4281d4dd30f88ffeb374f8f01d3ee64384a1e47121b6",
+          "signature": "oKqNGgOKjw/0F3lta1CTUp9YxYyb2wARFeZ9ao4VvgijkvNB3rH8v5UGBfKynLht8WIaVDocQkRqdkP4wp7cBg==",
+          "size": 412685,
+          "capabilities": ["db:own", "network:serve", "ui:surface"],
+          "engine": {
+            "api": "^1.13",
+            "termix": ">=26.10.6"
+          },
+          "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.6.0",
+          "notes": "### Added\n\n- Folder icon size setting: folder icons in the Hosts list from 75% to 200% (Classic Layout)\n- Icons uploaded by other people sync to the Termix desktop app, so shared hosts show the same icons there\n\n### Changed\n\n- Needs Termix 26.10.6 or newer\n\n### Fixed\n\n- An icon another user uploaded and gave to a shared host shows without a page reload, instead of the fallback icon\n- The Change icon dialog stays open while it is saving\n- The Badge section opens for a host's badge that loads late\n- Focus rings in the Badge section are no longer cut off",
+          "publishedAt": "2026-10-30T07:32:13.000Z"
         }
       ]
     },
