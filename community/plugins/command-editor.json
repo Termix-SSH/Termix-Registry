@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "command-editor",
+  "repository": "https://github.com/ShadyNabil8/termix-plugin-command-editor",
+  "maintainers": ["ShadyNabil8"],
+  "versions": [
+    {
+      "version": "1.0.0",
+      "sha256": "1d253b3d3dc29f292478b2b67b3df65dca4f3a3c09528c01849ca3c1706ba5bb"
+    }
+  ]
+}
