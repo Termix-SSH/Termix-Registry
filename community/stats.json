@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-10-31T09:56:57.526Z",
+  "updatedAt": "2026-11-01T10:47:20.780Z",
   "plugins": {
     "command-editor": {
-      "downloads": 8,
+      "downloads": 10,
       "versions": {
         "1.0.0": {
-          "downloads": 8
+          "downloads": 10
         }
       }
     },
     "container-files": {
-      "downloads": 52,
+      "downloads": 60,
       "versions": {
         "1.0.2": {
-          "downloads": 23
+          "downloads": 31
         },
         "1.0.1": {
           "downloads": 25
@@ -24,38 +24,38 @@
       }
     },
     "herdr": {
-      "downloads": 13,
+      "downloads": 18,
       "versions": {
         "1.0.0": {
-          "downloads": 13
+          "downloads": 18
         }
       }
     },
     "host-icons": {
-      "downloads": 110,
+      "downloads": 127,
       "versions": {
         "0.6.0": {
-          "downloads": 20
+          "downloads": 26
         },
         "0.5.0": {
-          "downloads": 25
+          "downloads": 28
         },
         "0.4.0": {
           "downloads": 19
         },
         "0.3.0": {
-          "downloads": 15
+          "downloads": 19
         },
         "0.2.0": {
-          "downloads": 31
+          "downloads": 35
         }
       }
     },
     "netbird": {
-      "downloads": 37,
+      "downloads": 40,
       "versions": {
         "1.2.0": {
-          "downloads": 22
+          "downloads": 25
         },
         "1.1.0": {
           "downloads": 15
@@ -63,10 +63,10 @@
       }
     },
     "pve-power": {
-      "downloads": 93,
+      "downloads": 101,
       "versions": {
         "0.6.9": {
-          "downloads": 76
+          "downloads": 84
         },
         "0.6.8": {
           "downloads": 9
@@ -80,10 +80,10 @@
       }
     },
     "termix-vscode": {
-      "downloads": 30,
+      "downloads": 37,
       "versions": {
         "1.1.1": {
-          "downloads": 27
+          "downloads": 34
         },
         "1.1.0": {
           "downloads": 3
