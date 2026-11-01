@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-01T23:03:06.142Z",
+  "updatedAt": "2026-11-01T23:05:03.901Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -162,6 +162,37 @@
       ],
       "versions": [
         {
+          "version": "1.3.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.3.1/ai-1.3.1.tmxplug",
+          "sha256": "dbee8bc101b8584e9e356bc3539787bb534ffc25809cd92c4f5d45d52cad4ce2",
+          "signature": "VxQ7CPzpHW9DivlWYRAWpRh+NSIrCnWgzO+oidm9Aud2e+S0Dt2EWfAu+JgEAYC08h0kOeqjTb3B3qPwQRgMAg==",
+          "size": 2961417,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "notify:send",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "users:read",
+            "events:core",
+            "process:spawn"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.3.1",
+          "notes": "### Fixed\n\n- The assistant no longer offers to open the SSH Tools panel, which Plugin SSH Terminal 1.3.0 removes",
+          "publishedAt": "2026-11-01T23:03:02.000Z"
+        },
+        {
           "version": "1.3.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.3.0/ai-1.3.0.tmxplug",
@@ -189,8 +220,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- The assistant starts on the model you used last\n- Advanced settings for OpenAI and OpenAI compatible providers: endpoint (Auto, Responses API or Chat Completions), reasoning effort, reasoning summary, verbosity, max output tokens and temperature. Left on Default, nothing extra is sent\n\n### Changed\n\n- The terminal assistant lives in the panel bar beside the SSH terminal on Termix 26.10.3 and later, so it can be resized, moved to a side or the bottom, and ordered with the other panels\n- Panel beside the terminal host setting and panel settings for where it opens and how big it is\n- OpenAI providers on api.openai.com use the Responses API, so reasoning models such as GPT-5.6 and GPT-6 keep their reasoning while calling tools. OpenAI compatible providers and custom base URLs still use Chat Completions\n- The Thinking block shows markdown, and images in model text are never loaded\n\n### Fixed\n\n- OpenAI models that refuse tools with their default reasoning now work, by asking again with reasoning off",
-          "publishedAt": "2026-10-22T18:13:43.000Z"
+          "publishedAt": "2026-10-22T18:13:43.000Z",
+          "notes": "### Added\n\n- The assistant starts on the model you used last\n- Advanced settings for OpenAI and OpenAI compatible providers: endpoint (Auto, Responses API or Chat Completions), reasoning effort, reasoning summary, verbosity, max output tokens and temperature. Left on Default, nothing extra is sent\n\n### Changed\n\n- The terminal assistant lives in the panel bar beside the SSH terminal on Termix 26.10.3 and later, so it can be resized, moved to a side or the bottom, and ordered with the other panels\n- Panel beside the terminal host setting and panel settings for where it opens and how big it is\n- OpenAI providers on api.openai.com use the Responses API, so reasoning models such as GPT-5.6 and GPT-6 keep their reasoning while calling tools. OpenAI compatible providers and custom base URLs still use Chat Completions\n- The Thinking block shows markdown, and images in model text are never loaded\n\n### Fixed\n\n- OpenAI models that refuse tools with their default reasoning now work, by asking again with reasoning off"
         },
         {
           "version": "1.2.1",
@@ -794,6 +825,28 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.1.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.1.1/classic-layout-1.1.1.tmxplug",
+          "sha256": "2b0cee0c57b21d8017ed833aa923e934b57b908fa68ff395951b4d52e5113e47",
+          "signature": "fqCRiXs9nAZULD1ABR3NvPxKlDVfHOA0zEC2To5S8uKSCrBgNihd8PGu0UTMSi03rIErhtRLvb2bDrlVCagJAA==",
+          "size": 1863545,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.1.1",
+          "notes": "### Added\n\n- Plugins can add buttons to the right of the tab bar, next to split view. SSH Terminal puts its terminal tools there\n\n### Fixed\n\n- The side rail no longer opens behind Customize sidebar and other panels when you hover over it",
+          "publishedAt": "2026-11-01T23:02:39.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.1.0/classic-layout-1.1.0.tmxplug",
@@ -812,8 +865,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Rail items can show a small status dot, used by Sync to show if the desktop is connected to its server\n- Plugins can replace the status badge in the dashboard's host list, used by Host Metrics to show failing health checks\n- Customize sidebar can turn off alternating row colors in the host list (needs Termix 26.10.6)\n- Removing someone from a shared folder offers to remove their access from the folder's hosts too (needs Termix 26.10.6)\n- A folder with hosts shared with you has a Set personal login button, so you pick your own login once for all of them (needs Termix 26.10.6)\n\n### Fixed\n\n- On the desktop, a host shared with you opens read only with a note to change it on the server, instead of failing with Error saving host\n- A failed host save shows the reason the server gave\n- Compact host rows give the name its own full line, so long names are not cut short or covered by the row actions",
-          "publishedAt": "2026-10-29T22:24:54.000Z"
+          "publishedAt": "2026-10-29T22:24:54.000Z",
+          "notes": "### Added\n\n- Rail items can show a small status dot, used by Sync to show if the desktop is connected to its server\n- Plugins can replace the status badge in the dashboard's host list, used by Host Metrics to show failing health checks\n- Customize sidebar can turn off alternating row colors in the host list (needs Termix 26.10.6)\n- Removing someone from a shared folder offers to remove their access from the folder's hosts too (needs Termix 26.10.6)\n- A folder with hosts shared with you has a Set personal login button, so you pick your own login once for all of them (needs Termix 26.10.6)\n\n### Fixed\n\n- On the desktop, a host shared with you opens read only with a note to change it on the server, instead of failing with Error saving host\n- A failed host save shows the reason the server gave\n- Compact host rows give the name its own full line, so long names are not cut short or covered by the row actions"
         },
         {
           "version": "1.0.2",
@@ -1254,6 +1307,30 @@
       ],
       "gated": [
         {
+          "version": "1.2.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.2.3/docker-1.2.3.tmxplug",
+          "sha256": "c997d5d1a751703facef544e901fb52e93fb79d5dc1c59496d4cb624210bbe14",
+          "signature": "cqSrw4qC9LvdVHl9nAJV34g3pgPdMmaF3SWdYfyAMdA/Ow9rveMkqmN7BZDH46z4nzaa5t2ukZtl79oQvomfCQ==",
+          "size": 1178760,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.6"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.2.3",
+          "notes": "### Fixed\n\n- Opening Docker for a host whose SSH key has no saved passphrase now asks for the passphrase instead of retrying",
+          "publishedAt": "2026-11-01T23:03:35.000Z"
+        },
+        {
           "version": "1.2.2",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.2.2/docker-1.2.2.tmxplug",
@@ -1274,8 +1351,8 @@
             "termix": ">=26.10.6"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.2.2",
-          "notes": "### Changed\n\n- Needs Termix 26.10.6 or newer",
-          "publishedAt": "2026-10-29T22:10:42.000Z"
+          "publishedAt": "2026-10-29T22:10:42.000Z",
+          "notes": "### Changed\n\n- Needs Termix 26.10.6 or newer"
         },
         {
           "version": "1.2.1",
@@ -1960,6 +2037,33 @@
       ],
       "gated": [
         {
+          "version": "1.3.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.3.1/host-metrics-1.3.1.tmxplug",
+          "sha256": "3c14a72b3efa2a8b0010229acba64a6a4098e8c2e35d5a01cbc3cb731df39fb5",
+          "signature": "p4pvuQzvm1IKe9foYPHV066BWRpJSMpez5xTwkYDOXl/Fr2Pf6RsJpmXrXXh3pFyOhlYLbD1SaFtoTjUZC9DDw==",
+          "size": 1115146,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.6"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.3.1",
+          "notes": "### Fixed\n\n- Live metrics no longer get stuck on hosts shown in several places at once, which filled the host's SSH connections and made the app report a lost server connection\n- A dashboard with many hosts no longer blocks the rest of the app. Live requests answer right away instead of waiting on the host, and only 6 dashboard rows update live at a time\n- Saving metrics history no longer slows down the whole server. History keeps one sample a minute per host and asks for a database save far less often\n- Opening metrics for a host whose SSH key has no saved passphrase now asks for the passphrase, and background collection stops retrying until then\n- Coming back to a browser tab after a while no longer shows the connection screen. The cards stay up while metrics reconnect, unless the reconnect fails",
+          "publishedAt": "2026-11-01T23:04:16.000Z"
+        },
+        {
           "version": "1.3.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.3.0/host-metrics-1.3.0.tmxplug",
@@ -1983,8 +2087,8 @@
             "termix": ">=26.10.6"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- A 12 column card grid: drag cards anywhere, resize them by any edge, and only the cards in the way move down. Change how each card shows, undo and redo layout changes, and save layouts as templates to apply to other hosts\n- Task Manager style details for CPU, memory, disks and network: hardware info, per core graphs, history, disk activity and rates per network card, on Linux, Windows and macOS. Pick which details each card shows\n- A setting to keep live metrics running for a few seconds while the tab is in the background, so a quick switch away does not drop them\n- Smoother charts, which stay still when your system asks for reduced motion\n- Script health checks: run your own command and show its status, a number with warn and fail limits, or its output\n- Health checks can show on the dashboard: the latest result appears in the host's row, and a check that warns or fails turns the host's status badge yellow or red (the badge needs Classic Layout 1.1.0)\n- MikroTik RouterOS v7 support: CPU, memory, storage, uptime, temperature and interface traffic\n\n### Changed\n\n- Needs Termix 26.10.6 or newer\n- Everyone watching a host's live metrics shares one reading of it, so more viewers add no load on the host\n- Live update rate gains a 0.5 second option, and the admin live minimum can go down to 0.25 seconds\n\n### Fixed\n\n- The log viewer reads a unit when you press Enter or leave the field, instead of failing with Invalid unit while you type, and a bare name like webapp means webapp.service",
-          "publishedAt": "2026-10-29T22:47:51.000Z"
+          "publishedAt": "2026-10-29T22:47:51.000Z",
+          "notes": "### Added\n\n- A 12 column card grid: drag cards anywhere, resize them by any edge, and only the cards in the way move down. Change how each card shows, undo and redo layout changes, and save layouts as templates to apply to other hosts\n- Task Manager style details for CPU, memory, disks and network: hardware info, per core graphs, history, disk activity and rates per network card, on Linux, Windows and macOS. Pick which details each card shows\n- A setting to keep live metrics running for a few seconds while the tab is in the background, so a quick switch away does not drop them\n- Smoother charts, which stay still when your system asks for reduced motion\n- Script health checks: run your own command and show its status, a number with warn and fail limits, or its output\n- Health checks can show on the dashboard: the latest result appears in the host's row, and a check that warns or fails turns the host's status badge yellow or red (the badge needs Classic Layout 1.1.0)\n- MikroTik RouterOS v7 support: CPU, memory, storage, uptime, temperature and interface traffic\n\n### Changed\n\n- Needs Termix 26.10.6 or newer\n- Everyone watching a host's live metrics shares one reading of it, so more viewers add no load on the host\n- Live update rate gains a 0.5 second option, and the admin live minimum can go down to 0.25 seconds\n\n### Fixed\n\n- The log viewer reads a unit when you press Enter or leave the field, instead of failing with Invalid unit while you type, and a bare name like webapp means webapp.service"
         },
         {
           "version": "1.2.0",
@@ -3184,6 +3288,30 @@
       ],
       "versions": [
         {
+          "version": "1.1.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.1.1/secret-sources-1.1.1.tmxplug",
+          "sha256": "2211ce2dac6355db49590532dfc339dc44df9cf14008157b420c7d4533d669ee",
+          "signature": "cqjl98vvGT/afDMVWTeGLqIOk4DFqmI6e+gANk/iNE5ydbB9q/X5l23cneV6OCWxWHQFMevFINIgoBSt23jXAQ==",
+          "size": 148885,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.1.1",
+          "notes": "### Added\n\n- Test a secret reference in the sources panel. It says if the secret was found, is missing, is refused or the source cannot be reached, and never shows the secret\n\n### Fixed\n\n- Saving a new source no longer fails with error 500 on a server first set up before 26.10",
+          "publishedAt": "2026-11-01T23:04:43.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.1.0/secret-sources-1.1.0.tmxplug",
@@ -3204,8 +3332,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Infisical, Bitwarden Secrets Manager and HashiCorp Vault sources, with `infisical://`, `bws://` and `vault://` references\n- Bitwarden and Vaultwarden vaults through `bw serve`, with `bw://item/field` references\n- Pick the type of a new source, and Test shows what it found for each type",
-          "publishedAt": "2026-10-29T22:23:28.000Z"
+          "publishedAt": "2026-10-29T22:23:28.000Z",
+          "notes": "### Added\n\n- Infisical, Bitwarden Secrets Manager and HashiCorp Vault sources, with `infisical://`, `bws://` and `vault://` references\n- Bitwarden and Vaultwarden vaults through `bw serve`, with `bw://item/field` references\n- Pick the type of a new source, and Test shows what it found for each type"
         },
         {
           "version": "1.0.2",
@@ -4201,6 +4329,29 @@
       ],
       "versions": [
         {
+          "version": "1.0.5",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.5/sso-1.0.5.tmxplug",
+          "sha256": "c1353d17fd25c1f503528c2a64a31ef14a638d9845c1d6cd70bb540e0321d41c",
+          "signature": "5kPH6e9AoMH9PZLHQZJp+fNOEWXoAtJ2J/aAo7ZmYfXK0vP9/0NaxNVliPUV6myHsgqovmMBhcZ5pd60NCCxCA==",
+          "size": 244947,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.5",
+          "notes": "### Changed\n\n- The Admin Group setting says that it decides admin at every sign in, including for accounts promoted in Termix or merged with an admin account",
+          "publishedAt": "2026-11-01T23:04:19.000Z"
+        },
+        {
           "version": "1.0.4",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.4/sso-1.0.4.tmxplug",
@@ -4220,8 +4371,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.4",
-          "notes": "### Fixed\n\n- Sign in with providers like Authelia no longer fails with OIDC authentication failed",
-          "publishedAt": "2026-10-22T17:48:44.000Z"
+          "publishedAt": "2026-10-22T17:48:44.000Z",
+          "notes": "### Fixed\n\n- Sign in with providers like Authelia no longer fails with OIDC authentication failed"
         },
         {
           "version": "1.0.3",
