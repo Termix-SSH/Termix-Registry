@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-01T23:06:48.701Z",
+  "updatedAt": "2026-11-01T23:09:27.398Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4159,7 +4159,10 @@
         "A toolbar with live stats and quick links to the host's other tools",
         "Command history with autocomplete",
         "Macros that automate logins and prompts",
-        "Send keystrokes to several terminals at once",
+        "Broadcast typing and commands to several terminals at once",
+        "Alerts when output matches, a job goes quiet or a background tab has news",
+        "Search all open terminals, and save or copy their output",
+        "Fix a garbled terminal and send keys that are hard to type",
         "A local terminal in the desktop app"
       ],
       "docs": "https://docs.termix.site/plugins/ssh-terminal",
@@ -4276,6 +4279,34 @@
       ],
       "gated": [
         {
+          "version": "1.3.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.3.0/ssh-terminal-1.3.0.tmxplug",
+          "sha256": "ad39449f1e60724a9f84451e1190982e5d3ecd17e1751ec09a3b21c228e6dd5e",
+          "signature": "2A2qlBi9OxaLL4rT3Z1G767xDcYH3qZiKeuXCITWk2Z3jxd5iBiTYrIJkdGXDbwHCRJbEnQpOFi7/GYdbL3qCQ==",
+          "size": 2380703,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "ssh:transport",
+            "network:serve",
+            "db:own",
+            "events:core",
+            "ui:surface",
+            "desktop:local",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.11",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.3.0",
+          "notes": "### Added\n\n- Broadcast: type in one terminal and every terminal in the group gets it, with a bar and colored border on each, a box to write and send commands, and a pause at password prompts so a password never reaches another host\n- Fill password answers only terminals that are asking, each with its own host's password\n- Watch output: alerts when output matches some text or a regex, a job goes quiet, or a background tab has new output\n- Find in all terminals: search every open terminal's scrollback and jump to a result\n- Save or copy a terminal's output as plain text\n- Reset display, clear scrollback, reset shell and send keys such as Ctrl+C or Ctrl+Z from a new Tools button in the tab bar next to split view (needs Classic Layout 1.1.1), the terminal's right click menu, the command palette and the phone key row\n- A Right click setting with copy or paste, a terminal menu, or the browser menu\n- Terminal overlay plugins can read the text at the prompt and paste into it, and they now work in the desktop app's local terminal too\n- A per-host Disable Nagle's Algorithm (TCP_NODELAY) option to reduce terminal input latency\n\n### Changed\n\n- Right click, Ctrl+V and copy on select are now terminal settings that follow your account, moved over from your browser once\n\n### Fixed\n\n- With Auto-Tmux, a new tab on a host whose only tmux session is already open asks what to do instead of mirroring that tab\n- Commands run right after answering a password prompt were left out of command history\n- Tools that send to a terminal no longer report success when its connection is closed\n\n### Removed\n\n- The SSH Tools panel. Its tools are now in the terminal's Tools menu and its switches are in settings",
+          "publishedAt": "2026-11-01T23:08:39.000Z"
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.2.0/ssh-terminal-1.2.0.tmxplug",
@@ -4299,8 +4330,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Connect from host setting for the mobile app: the phone, this server, or automatic\n- Auto-Tmux host option Ask when one session exists, so a new tab can start its own tmux session instead of joining the only one\n- Ctrl+click (Cmd+click on Mac) opens a link right away, and a new link setting opens links only that way so a plain click can select text\n- An Edit host button on the connection failure screen opens the host's editor (needs Termix 26.10.6)\n- Su Password Auto-fill: at a su prompt the terminal offers the password saved on another host with the same address and that user, and never offers the login password there\n- rz and sz (lrzsz) file transfers in the terminal, with progress and cancel\n\n### Fixed\n\n- Right click goes to programs that use the mouse, like tmux with mouse mode, instead of pasting into their menus. Hold Shift for the old behavior\n- Reconnecting a tab no longer types stray text like 1;2c at the prompt\n- A tab that reconnects to its live session no longer logs in to the host again first, so auth logs and fail2ban stay quiet\n- Hosts with Cloudflare Tunnel on now work in File Manager, Snippets and every other feature, not only the terminal",
-          "publishedAt": "2026-10-29T22:17:32.000Z"
+          "publishedAt": "2026-10-29T22:17:32.000Z",
+          "notes": "### Added\n\n- Connect from host setting for the mobile app: the phone, this server, or automatic\n- Auto-Tmux host option Ask when one session exists, so a new tab can start its own tmux session instead of joining the only one\n- Ctrl+click (Cmd+click on Mac) opens a link right away, and a new link setting opens links only that way so a plain click can select text\n- An Edit host button on the connection failure screen opens the host's editor (needs Termix 26.10.6)\n- Su Password Auto-fill: at a su prompt the terminal offers the password saved on another host with the same address and that user, and never offers the login password there\n- rz and sz (lrzsz) file transfers in the terminal, with progress and cancel\n\n### Fixed\n\n- Right click goes to programs that use the mouse, like tmux with mouse mode, instead of pasting into their menus. Hold Shift for the old behavior\n- Reconnecting a tab no longer types stray text like 1;2c at the prompt\n- A tab that reconnects to its live session no longer logs in to the host again first, so auth logs and fail2ban stay quiet\n- Hosts with Cloudflare Tunnel on now work in File Manager, Snippets and every other feature, not only the terminal"
         },
         {
           "version": "1.1.1",
