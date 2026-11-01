@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-29T22:48:43.683Z",
+  "updatedAt": "2026-11-01T23:03:06.142Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2644,6 +2644,32 @@
       ],
       "versions": [
         {
+          "version": "1.2.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.2.1/proxmox-1.2.1.tmxplug",
+          "sha256": "d5a6e9cd50756785ede6aec351e2de08927816f71e54f3162c52331e0a804d74",
+          "signature": "HPZfSrhLXNY5fZRjMdRDux8gUKVH5NfKP5GaxV3hckjsETKkaPxusFzht3cCcGkvmHj9uM2RwePmyGc29ekzDg==",
+          "size": 318442,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.2.1",
+          "notes": "### Fixed\n\n- Switching browser tabs no longer shows the connection screen on Proxmox stats. A quick switch keeps the session, and after a longer one the stats stay up while they reconnect, unless the reconnect fails",
+          "publishedAt": "2026-11-01T23:02:13.000Z"
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.2.0/proxmox-1.2.0.tmxplug",
@@ -2666,8 +2692,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Cluster aware sync: nodes of the same cluster share one host per guest, so sync can run on every node\n- Imported guests go in a folder named after the cluster, with a Folder for guests setting and an optional folder per node\n\n### Fixed\n\n- Auto Sync no longer makes duplicate guests when a linked desktop and the server both sync the same Proxmox host. Delete the duplicates once and they stay gone\n- Discovery uses an IP in your Preferred IP ranges for a container with more than one network card, also when that card gets its address from DHCP\n- The Proxmox view no longer fails and retries on the first connect after a restart",
-          "publishedAt": "2026-10-29T22:16:21.000Z"
+          "publishedAt": "2026-10-29T22:16:21.000Z",
+          "notes": "### Added\n\n- Cluster aware sync: nodes of the same cluster share one host per guest, so sync can run on every node\n- Imported guests go in a folder named after the cluster, with a Folder for guests setting and an optional folder per node\n\n### Fixed\n\n- Auto Sync no longer makes duplicate guests when a linked desktop and the server both sync the same Proxmox host. Delete the duplicates once and they stay gone\n- Discovery uses an IP in your Preferred IP ranges for a container with more than one network card, also when that card gets its address from DHCP\n- The Proxmox view no longer fails and retries on the first connect after a restart"
         },
         {
           "version": "1.1.0",
@@ -2906,6 +2932,31 @@
       ],
       "gated": [
         {
+          "version": "1.3.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.3.1/remote-desktop-1.3.1.tmxplug",
+          "sha256": "41483f8d64995206e0199cca7d37033e5b1f1194725da3525e1b8afa1b4e09a9",
+          "signature": "KP90Ia3YYBiDHvtIhu9TYiTRbb9O8U1PliWDM+HrAaF8eOSTBHjou7bfBx2+9f5kAlRBHLJiR9B7qTZvPfpJBg==",
+          "size": 3963151,
+          "capabilities": [
+            "hosts:read",
+            "credentials:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "desktop:local",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.3.1",
+          "notes": "### Fixed\n\n- Option characters on Apple Remote Desktop hosts, like Option+2 for @ on a Spanish keyboard, go through the Mac's own layout, and right Option works as Option\n- The Korean Han/Eng and Hanja keys switch the remote IME once per press. Holding them or a slightly long tap no longer flips it many times",
+          "publishedAt": "2026-11-01T23:02:26.000Z"
+        },
+        {
           "version": "1.3.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.3.0/remote-desktop-1.3.0.tmxplug",
@@ -2927,8 +2978,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- Sign out button for RDP that signs out of Windows after you confirm\n- Record button to start and stop a recording during a session on the built-in engine, with Session Recording on\n\n### Changed\n\n- A TLS failure on the built-in engine says why it failed\n\n### Fixed\n\n- A remote desktop no longer freezes after the browser tab was hidden or the screen locked; it reconnects on its own when the connection dropped (#104)\n- The built-in engine no longer ends a session because a hidden tab or a phone in the background stopped sending keepalives for a few seconds\n- RDP in the built-in engine keeps its display scale after the window is resized or a phone is rotated\n- Copying text in a remote session reaches your clipboard when Termix is opened over plain HTTP: it is put there on your next click or key press, with a note saying so\n- The Korean Han/Eng and Hanja keys switch the input language in RDP sessions on the built-in engine, also from clients with a Korean keyboard driver\n- The built-in engine connects to Windows Server 2019 hosts that send a short multitransport message during connect\n- Open in Windows Remote Desktop shows the mstsc window instead of opening it hidden",
-          "publishedAt": "2026-10-29T22:22:01.000Z"
+          "publishedAt": "2026-10-29T22:22:01.000Z",
+          "notes": "### Added\n\n- Sign out button for RDP that signs out of Windows after you confirm\n- Record button to start and stop a recording during a session on the built-in engine, with Session Recording on\n\n### Changed\n\n- A TLS failure on the built-in engine says why it failed\n\n### Fixed\n\n- A remote desktop no longer freezes after the browser tab was hidden or the screen locked; it reconnects on its own when the connection dropped (#104)\n- The built-in engine no longer ends a session because a hidden tab or a phone in the background stopped sending keepalives for a few seconds\n- RDP in the built-in engine keeps its display scale after the window is resized or a phone is rotated\n- Copying text in a remote session reaches your clipboard when Termix is opened over plain HTTP: it is put there on your next click or key press, with a note saying so\n- The Korean Han/Eng and Hanja keys switch the input language in RDP sessions on the built-in engine, also from clients with a Korean keyboard driver\n- The built-in engine connects to Windows Server 2019 hosts that send a short multitransport message during connect\n- Open in Windows Remote Desktop shows the mstsc window instead of opening it hidden"
         },
         {
           "version": "1.2.1",
