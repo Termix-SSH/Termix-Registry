@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-01T23:09:27.398Z",
+  "updatedAt": "2026-11-02T23:43:13.910Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3192,6 +3192,32 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.1.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/download/v1.1.1/reverse-proxy-1.1.1.tmxplug",
+          "sha256": "f5e0089ca5eae1254f21ce18b222e70eb2beeae3bd874c2abc4faa1a68d3e47a",
+          "signature": "RvlYWTuXdMmPFxKpiQ8xlSILVwEkpC2PQ6EWEuMMD3p4XcixUv8YXm8AKB4eS2pWR6GhKGXvIKV7ZqJ3hATTAw==",
+          "size": 1038854,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "network:serve",
+            "network:outbound",
+            "secrets:own",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.1.1",
+          "notes": "### Fixed\n\n- Redirects from an app no longer send visitors to the target's own address, like a Tailscale IP. They now point at the route's domain, and plain http redirects move to https",
+          "publishedAt": "2026-11-02T23:42:17.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/download/v1.1.0/reverse-proxy-1.1.0.tmxplug",
@@ -3214,8 +3240,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Reverse proxy dashboard card: how many routes are running, the ones that are not, and certificates by expiry",
-          "publishedAt": "2026-10-22T18:09:00.000Z"
+          "publishedAt": "2026-10-22T18:09:00.000Z",
+          "notes": "### Added\n\n- Reverse proxy dashboard card: how many routes are running, the ones that are not, and certificates by expiry"
         },
         {
           "version": "1.0.0",
