@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "host-auth-badges",
+  "repository": "https://github.com/Reydan46/termix-plugin-host-auth-badges",
+  "maintainers": ["Reydan46"],
+  "versions": [
+    {
+      "version": "1.0.1",
+      "sha256": "54e74b09bcd736c834dc9dac9df67b7619dc98620d6d6a6c5d3de63a1a0036c4"
+    }
+  ]
+}
