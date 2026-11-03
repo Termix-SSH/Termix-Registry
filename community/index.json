@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-11-03T13:47:28.249Z",
+  "updatedAt": "2026-11-03T18:26:59.879Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -62,6 +62,52 @@
       "contributes": ["permissions", "settings", "tabs"],
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.5",
+          "api": "1",
+          "url": "https://github.com/Reydan46/termix-plugin-container-files/releases/download/v1.0.5/container-files-1.0.5.tmxplug",
+          "sha256": "c6918d51ce5229a06c385e6f64961b1bce6ba422dd8a7ea96efb9d6ef08ba2ce",
+          "signature": "qeNNITJvFhxN1726lA4SgZRpiRwP9+Zx3nFQZklsJpPZifMMIqraySr2WBkxLgWW2BO/Urcgexk/a3pQBgpIBw==",
+          "size": 7282459,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.5",
+          "notes": "### Fixed\n\n- Document and window listeners (pane focus, pointer tracking, window focus, page unload) are now attached when the plugin is enabled and removed when it is disabled, instead of at module load.\n- The temporary copy made by Copy is removed, and its exit handler detached, when the plugin is disabled.",
+          "publishedAt": "2026-11-03T17:07:14.000Z"
+        },
+        {
+          "version": "1.0.4",
+          "api": "1",
+          "url": "https://github.com/Reydan46/termix-plugin-container-files/releases/download/v1.0.4/container-files-1.0.4.tmxplug",
+          "sha256": "a35138a705c8ac4cc3349ff8184511125b3ca000acb785f286dd4dc7a67aeef5",
+          "signature": "f8gNp9aAJSTxpSXhl9f/YSPPrWSP9wPTcoB3SZ8C47Fp8DDhkaneC+6WvwqMyYKTFHv5gQTmtRB57SEzV0RSDA==",
+          "size": 7281705,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.4",
+          "notes": "### Changed\n\n- The package scripts `pack` and `format` were added, and unused code was removed.\n\n### Fixed\n\n- The Russian translation is now loaded: it was shipped where Termix does not look for it, so the plugin stayed in English. The plugin name and description are translated too.\n- A host without docker or podman shows its message once and waits for you to retry, instead of reconnecting over and over.\n- A failed check for docker or podman (for example when the SSH command could not run) is shown as a connection error, not as \"neither docker nor podman was found\".\n- When cancelling a transfer fails, you now see a message instead of nothing happening.\n- Every local desktop route is described in the API docs, and a test checks that each translation key the interface uses exists in English and Russian.\n- Remaining English error texts in the interface are translated.",
+          "publishedAt": "2026-11-03T16:34:24.000Z"
+        },
         {
           "version": "1.0.3",
           "api": "1",
