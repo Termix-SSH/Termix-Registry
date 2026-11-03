@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-02T23:43:13.910Z",
+  "updatedAt": "2026-11-03T01:26:05.901Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5493,6 +5493,33 @@
       ],
       "gated": [
         {
+          "version": "1.2.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.2.3/tunnels-1.2.3.tmxplug",
+          "sha256": "5a23953ee19b2951bb895e033d2099b8f6d5abc0121253ef3da25328134984ad",
+          "signature": "6TIhrqHUmM/oBg5bEId9gqWPjnMInlsUo3bHpFRfpXvUjTdsIFbU9IzT3RYdC7erkrJS4rpbZnEfpWm25xQ7CA==",
+          "size": 558709,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs",
+            "desktop:local",
+            "secrets:own"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.2.3",
+          "notes": "### Fixed\n\n- The gateway port scan no longer forwards the tunnel's own WireGuard port. The private end now uses a fixed port instead of a random one\n- Gateway ports only catch traffic sent to the public host itself, so other machines behind it can still reach those ports on the internet\n- A gateway's page scrolls again instead of squeezing its sections to fit the window",
+          "publishedAt": "2026-11-03T01:25:05.000Z"
+        },
+        {
           "version": "1.2.2",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.2.2/tunnels-1.2.2.tmxplug",
@@ -5516,8 +5543,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.2.2",
-          "notes": "### Fixed\n\n- A local tunnel to an address that a saved host also uses now listens on this machine like any other local tunnel, instead of quietly listening on the SSH host. Pick the saved host by name to route through it",
-          "publishedAt": "2026-10-29T22:11:06.000Z"
+          "publishedAt": "2026-10-29T22:11:06.000Z",
+          "notes": "### Fixed\n\n- A local tunnel to an address that a saved host also uses now listens on this machine like any other local tunnel, instead of quietly listening on the SSH host. Pick the saved host by name to route through it"
         },
         {
           "version": "1.2.1",
