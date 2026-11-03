@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-11-02T20:04:01.773Z",
+  "updatedAt": "2026-11-03T13:47:28.249Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -175,6 +175,44 @@
           "releaseNotesUrl": "https://github.com/jaygz316/termix-plugin-herdr/releases/tag/v1.0.0",
           "notes": "### Added\n\n- A Herdr tab that attaches to herdr on a host inside Termix's SSH terminal\n- Touch as mouse: tap to click, long press to right click, long press and drag to drag, swipe to scroll\n- A key bar with herdr's prefix, Ctrl, Alt, Esc, Tab, arrows and herdr actions\n- A navigator with workspaces, tabs, agents waiting, a map of the current tab's panes and a text box that sends to the focused pane\n- Open in Herdr on host rows and in the SSH terminal's toolbar\n- Host settings for the herdr binary and session, and user settings for touch, long press, prefix key and the key bar",
           "publishedAt": "2026-10-28T04:55:06.000Z"
+        }
+      ]
+    },
+    {
+      "id": "host-auth-badges",
+      "name": "Host Auth Badges",
+      "description": "Compact configurable SSH authentication source and method badges for the host list.",
+      "author": "Reydan46",
+      "category": "Productivity",
+      "repository": "https://github.com/Reydan46/termix-plugin-host-auth-badges",
+      "icon": "KeyRound",
+      "features": [
+        "See the SSH authentication source and method at a glance in the host list",
+        "Customize icons, text labels and colors separately for every category",
+        "Choose from 12 single-line layouts and 18 color palettes",
+        "Search more than 100 built-in icons without storing or accessing SSH secrets",
+        "Use Termix native host, folder and user settings with inherited defaults",
+        "Read-only badges with viewport-aware store subscriptions"
+      ],
+      "docs": "https://github.com/Reydan46/termix-plugin-host-auth-badges/tree/main/docs",
+      "contributes": ["settings"],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/download/v1.0.1/host-auth-badges-1.0.1.tmxplug",
+          "sha256": "54e74b09bcd736c834dc9dac9df67b7619dc98620d6d6a6c5d3de63a1a0036c4",
+          "signature": "SXetRp5Y1aoisBx7uckVuFwgtS51XfbCzlObjM6U0nPbCwpkTNbSJXI5FRWJWRsA+DHiTE/D17Vq/yhI7c2nDw==",
+          "size": 78491,
+          "capabilities": ["ui:surface"],
+          "engine": {
+            "api": "^1.13",
+            "termix": ">=26.10.6"
+          },
+          "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/tag/v1.0.1",
+          "notes": "### Fixed\n\n- Replaced long dashes in a source comment, documentation and the empty-value placeholder with plain hyphens, as the registry rules require.",
+          "publishedAt": "2026-11-03T10:26:14.000Z"
         }
       ]
     },
