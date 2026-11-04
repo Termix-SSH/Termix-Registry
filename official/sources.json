@@ -13,6 +13,7 @@
     "Termix-SSH/Plugin-Databases",
     "Termix-SSH/Plugin-Docker",
     "Termix-SSH/Plugin-File-Manager",
+    "Termix-SSH/Plugin-Firewall",
     "Termix-SSH/Plugin-Fleets",
     "Termix-SSH/Plugin-Homepage",
     "Termix-SSH/Plugin-Host-Metrics",
