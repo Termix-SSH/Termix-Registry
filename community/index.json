@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-11-03T18:26:59.879Z",
+  "updatedAt": "2026-11-04T14:09:51.210Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -227,16 +227,16 @@
     {
       "id": "host-auth-badges",
       "name": "Host Auth Badges",
-      "description": "Compact configurable SSH authentication source and method badges for the host list.",
+      "description": "Compact configurable authentication source and method badges for the host list.",
       "author": "Reydan46",
       "category": "Productivity",
       "repository": "https://github.com/Reydan46/termix-plugin-host-auth-badges",
       "icon": "KeyRound",
       "features": [
-        "See the SSH authentication source and method at a glance in the host list",
+        "See the authentication source and method of SSH, RDP and other hosts at a glance",
         "Customize icons, text labels and colors separately for every category",
         "Choose from 12 single-line layouts and 18 color palettes",
-        "Search more than 100 built-in icons without storing or accessing SSH secrets",
+        "Search more than 100 built-in icons without storing or accessing secrets",
         "Use Termix native host, folder and user settings with inherited defaults",
         "Read-only badges with viewport-aware store subscriptions"
       ],
@@ -244,6 +244,22 @@
       "contributes": ["settings"],
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/download/v1.0.2/host-auth-badges-1.0.2.tmxplug",
+          "sha256": "16bf16cfeea8becd10c46807f03310af915e70a793699c18ee3c4f7d86c41149",
+          "signature": "nWBFQv8uVmtvqJaB0tN4Fwl1Ia9F8SgwS8WBclpdLzbblPQ5O8+A6Qf38zMCoE9exOY8svr89L/WmRMB2rfTDw==",
+          "size": 80535,
+          "capabilities": ["ui:surface"],
+          "engine": {
+            "api": "^1.13",
+            "termix": ">=26.10.6"
+          },
+          "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/tag/v1.0.2",
+          "notes": "### Fixed\n\n- Fixed the SOURCE badge for hosts without SSH (RDP and others) and for shared hosts.",
+          "publishedAt": "2026-11-04T13:46:39.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
