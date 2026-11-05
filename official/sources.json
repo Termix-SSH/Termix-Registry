@@ -15,6 +15,7 @@
     "Termix-SSH/Plugin-Credential-Tools",
     "Termix-SSH/Plugin-Cron",
     "Termix-SSH/Plugin-Databases",
+    "Termix-SSH/Plugin-DNS",
     "Termix-SSH/Plugin-Docker",
     "Termix-SSH/Plugin-File-Manager",
     "Termix-SSH/Plugin-Firewall",
