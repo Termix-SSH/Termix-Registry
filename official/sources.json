@@ -51,6 +51,7 @@
     "Termix-SSH/Plugin-Tmux-Monitor",
     "Termix-SSH/Plugin-TOTP",
     "Termix-SSH/Plugin-Tunnels",
+    "Termix-SSH/Plugin-Uptime",
     "Termix-SSH/Plugin-User-Manager",
     "Termix-SSH/Plugin-Vault",
     "Termix-SSH/Plugin-Wake-On-LAN",
