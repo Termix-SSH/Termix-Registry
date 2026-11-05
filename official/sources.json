@@ -57,6 +57,7 @@
     "Termix-SSH/Plugin-Wake-On-LAN",
     "Termix-SSH/Plugin-Warpgate",
     "Termix-SSH/Plugin-Web-Endpoint",
+    "Termix-SSH/Plugin-Web-Servers",
     "Termix-SSH/Plugin-WebAuthn",
     "Termix-SSH/Plugin-WireGuard",
     "Termix-SSH/Plugin-Workspaces"
