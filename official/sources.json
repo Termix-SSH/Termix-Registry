@@ -33,6 +33,7 @@
     "Termix-SSH/Plugin-Notes",
     "Termix-SSH/Plugin-Operations-Center",
     "Termix-SSH/Plugin-OPKSSH",
+    "Termix-SSH/Plugin-Out-Of-Band",
     "Termix-SSH/Plugin-Package-Manager",
     "Termix-SSH/Plugin-Process-Manager",
     "Termix-SSH/Plugin-Proxmox",
