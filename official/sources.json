@@ -30,6 +30,7 @@
     "Termix-SSH/Plugin-Operations-Center",
     "Termix-SSH/Plugin-OPKSSH",
     "Termix-SSH/Plugin-Package-Manager",
+    "Termix-SSH/Plugin-Process-Manager",
     "Termix-SSH/Plugin-Proxmox",
     "Termix-SSH/Plugin-Remote-Desktop",
     "Termix-SSH/Plugin-Reverse-Proxy",
