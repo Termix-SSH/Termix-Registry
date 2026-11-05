@@ -55,6 +55,7 @@
     "Termix-SSH/Plugin-Uptime",
     "Termix-SSH/Plugin-User-Manager",
     "Termix-SSH/Plugin-Vault",
+    "Termix-SSH/Plugin-Virtual-Machines",
     "Termix-SSH/Plugin-Wake-On-LAN",
     "Termix-SSH/Plugin-Warpgate",
     "Termix-SSH/Plugin-Web-Endpoint",
