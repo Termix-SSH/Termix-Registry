@@ -50,6 +50,7 @@
     "Termix-SSH/Plugin-SSH-Terminal",
     "Termix-SSH/Plugin-SSO",
     "Termix-SSH/Plugin-Step-CA",
+    "Termix-SSH/Plugin-Storage-Health",
     "Termix-SSH/Plugin-Sync",
     "Termix-SSH/Plugin-Tailscale",
     "Termix-SSH/Plugin-Telemetry",
