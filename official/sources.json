@@ -4,6 +4,7 @@
     "Termix-SSH/Plugin-ACME-SSL",
     "Termix-SSH/Plugin-AI",
     "Termix-SSH/Plugin-Alerts",
+    "Termix-SSH/Plugin-Ansible",
     "Termix-SSH/Plugin-Audit-Tools",
     "Termix-SSH/Plugin-Automations",
     "Termix-SSH/Plugin-Backups",
