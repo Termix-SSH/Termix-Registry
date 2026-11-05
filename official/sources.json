@@ -30,6 +30,7 @@
     "Termix-SSH/Plugin-Login-Security",
     "Termix-SSH/Plugin-Network-Devices",
     "Termix-SSH/Plugin-Network-Topology",
+    "Termix-SSH/Plugin-Notes",
     "Termix-SSH/Plugin-Operations-Center",
     "Termix-SSH/Plugin-OPKSSH",
     "Termix-SSH/Plugin-Package-Manager",
