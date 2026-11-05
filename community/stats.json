@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-11-04T11:33:23.634Z",
+  "updatedAt": "2026-11-05T11:29:37.068Z",
   "plugins": {
     "command-editor": {
-      "downloads": 27,
+      "downloads": 31,
       "versions": {
         "1.0.0": {
-          "downloads": 27
+          "downloads": 31
         }
       }
     },
     "container-files": {
-      "downloads": 121,
+      "downloads": 131,
       "versions": {
         "1.0.5": {
-          "downloads": 11
+          "downloads": 21
         },
         "1.0.4": {
           "downloads": 7
@@ -33,18 +33,21 @@
       }
     },
     "herdr": {
-      "downloads": 32,
+      "downloads": 36,
       "versions": {
         "1.0.0": {
-          "downloads": 32
+          "downloads": 36
         }
       }
     },
     "host-auth-badges": {
-      "downloads": 10,
+      "downloads": 27,
       "versions": {
+        "1.0.2": {
+          "downloads": 12
+        },
         "1.0.1": {
-          "downloads": 7
+          "downloads": 12
         },
         "1.0.0": {
           "downloads": 3
@@ -52,13 +55,13 @@
       }
     },
     "host-icons": {
-      "downloads": 166,
+      "downloads": 176,
       "versions": {
         "0.6.0": {
-          "downloads": 60
+          "downloads": 69
         },
         "0.5.0": {
-          "downloads": 33
+          "downloads": 34
         },
         "0.4.0": {
           "downloads": 19
@@ -72,10 +75,10 @@
       }
     },
     "netbird": {
-      "downloads": 53,
+      "downloads": 57,
       "versions": {
         "1.2.0": {
-          "downloads": 38
+          "downloads": 42
         },
         "1.1.0": {
           "downloads": 15
@@ -83,10 +86,10 @@
       }
     },
     "pve-power": {
-      "downloads": 112,
+      "downloads": 117,
       "versions": {
         "0.6.9": {
-          "downloads": 95
+          "downloads": 100
         },
         "0.6.8": {
           "downloads": 9
@@ -100,10 +103,10 @@
       }
     },
     "termix-vscode": {
-      "downloads": 60,
+      "downloads": 64,
       "versions": {
         "1.1.1": {
-          "downloads": 57
+          "downloads": 61
         },
         "1.1.0": {
           "downloads": 3
