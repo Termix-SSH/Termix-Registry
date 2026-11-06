@@ -39,6 +39,7 @@
     "Termix-SSH/Plugin-OPKSSH",
     "Termix-SSH/Plugin-Out-Of-Band",
     "Termix-SSH/Plugin-Package-Manager",
+    "Termix-SSH/Plugin-Privileged-Access",
     "Termix-SSH/Plugin-Process-Manager",
     "Termix-SSH/Plugin-Proxmox",
     "Termix-SSH/Plugin-Remote-Desktop",
