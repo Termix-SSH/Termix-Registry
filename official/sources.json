@@ -29,6 +29,7 @@
     "Termix-SSH/Plugin-IP-KVM",
     "Termix-SSH/Plugin-Kubernetes",
     "Termix-SSH/Plugin-LDAP",
+    "Termix-SSH/Plugin-Log-Search",
     "Termix-SSH/Plugin-Login-Security",
     "Termix-SSH/Plugin-Network-Devices",
     "Termix-SSH/Plugin-Network-Topology",
