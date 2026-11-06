@@ -26,6 +26,7 @@
     "Termix-SSH/Plugin-Host-Status",
     "Termix-SSH/Plugin-Hosts-Config",
     "Termix-SSH/Plugin-Import-Export",
+    "Termix-SSH/Plugin-IP-KVM",
     "Termix-SSH/Plugin-Kubernetes",
     "Termix-SSH/Plugin-LDAP",
     "Termix-SSH/Plugin-Login-Security",
