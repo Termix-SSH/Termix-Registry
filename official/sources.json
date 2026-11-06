@@ -32,6 +32,7 @@
     "Termix-SSH/Plugin-Network-Devices",
     "Termix-SSH/Plugin-Network-Topology",
     "Termix-SSH/Plugin-Notes",
+    "Termix-SSH/Plugin-Object-Storage",
     "Termix-SSH/Plugin-Operations-Center",
     "Termix-SSH/Plugin-OPKSSH",
     "Termix-SSH/Plugin-Out-Of-Band",
