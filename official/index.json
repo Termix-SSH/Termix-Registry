@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T21:32:52.100Z",
+  "updatedAt": "2026-11-08T21:34:41.795Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2324,9 +2324,12 @@
       ],
       "docs": "https://docs.termix.site/plugins/fleets",
       "contributes": [
+        "dashboardCards",
+        "operations",
         "panels",
         "permissions",
         "settings",
+        "syncEntities",
         "tabs",
         "uses"
       ],
@@ -2353,8 +2356,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Fleet actions try a host again when its SSH connection times out, only for the hosts that failed, with admin settings for how many tries and how long to wait",
-          "publishedAt": "2026-10-29T22:23:32.000Z"
+          "publishedAt": "2026-10-29T22:23:32.000Z",
+          "notes": "### Added\n\n- Fleet actions try a host again when its SSH connection times out, only for the hosts that failed, with admin settings for how many tries and how long to wait"
         },
         {
           "version": "1.0.2",
@@ -2430,6 +2433,34 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Group hosts by hand or with tag rules, so new hosts join on their own\n- Run one command on every host and see each result\n- Install, remove or upgrade packages across the fleet\n- Push and pull files on every host\n- Collect an inventory of OS, kernel, architecture and uptime\n- Share a fleet with users or roles"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.2.0/fleets-1.2.0.tmxplug",
+          "sha256": "1457fa3d4ec9febe312c553337d26ce39ab9c6ac64dc91b80d067cd459f97737",
+          "signature": "BHWJGAtXCunEkSVzv63CVH0XciHpHTtfnad3xZTbmgShvev74iSL0D8sXpc3Eg4bkC3jcrAJ6kBD4HN98zX9AA==",
+          "size": 508493,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Run a command as a Termix action, so it can roll out across hosts from Operations Center and Automations with a result per host in run history\n- A Fleets dashboard card with each fleet and its host count, and a list action for the assistant and the CLI\n- Fleets and their hosts sync to linked desktop apps (#5)\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Settings and the inventory use the Termix tile look\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-08T21:32:58.000Z"
         }
       ]
     },
