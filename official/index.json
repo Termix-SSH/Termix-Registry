@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T19:59:02.068Z",
+  "updatedAt": "2026-11-08T20:30:32.508Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -627,6 +627,60 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.3.0",
           "notes": "### Added\n\n- Send yourself an alert through Termix actions, so rules, rollouts and the CLI can notify you, and see unread alerts as a status tile\n- Open Alerts from the command palette\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The Alerts tab has the Termix page header and fills the width of the tab\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "publishedAt": "2026-11-08T19:54:49.000Z"
+        }
+      ]
+    },
+    {
+      "id": "ansible",
+      "name": "Ansible",
+      "description": "Run Ansible playbooks and ad-hoc commands from a control host, with an inventory made from your Termix hosts.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Ansible",
+      "icon": "Workflow",
+      "features": [
+        "Edit the playbooks in a project folder on the control host",
+        "Run playbooks with check mode, diff, tags, limit and extra vars",
+        "Use your Termix hosts and folders as the inventory",
+        "Live run output, a recap per host and run history",
+        "Run ad-hoc modules on any hosts",
+        "Gather and read facts from hosts"
+      ],
+      "docs": "https://docs.termix.site/plugins/ansible",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Ansible/releases/download/v1.0.0/ansible-1.0.0.tmxplug",
+          "sha256": "f6ce9fab3521a7d3ab9e90b123bb5a206ab42da4df7ec36942784cd99dfcb1c7",
+          "signature": "8Hmtw6Cyr7bNQo2iUjwbo6Yz6MRwjSVfF/QJ1TH4y5xtLUvLqqX415WhfXt2PxyfSLnoMGrcXr+OGli24JXSBA==",
+          "size": 257953,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Ansible/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Edit the playbooks and other files in a project folder on a control host\n- Run playbooks with check mode, diff, tags, limit and extra variables\n- Use Termix hosts, folders and tags as the inventory\n- Live run output, a recap per host and a run history\n- Run ad-hoc modules on any hosts\n- Gather facts from hosts\n- Run and list playbooks through Termix actions",
+          "publishedAt": "2026-11-08T20:29:36.000Z"
         }
       ]
     },
