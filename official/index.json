@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T20:59:51.193Z",
+  "updatedAt": "2026-11-08T21:13:28.038Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1464,6 +1464,60 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/tag/v1.0.0",
           "publishedAt": "2026-10-20T19:56:43.000Z",
           "notes": "### Added\n\n- Generate Ed25519, ECDSA and RSA key pairs in the credential editor\n- Get the public key from a private key, detect key types and check that a key pair matches\n- Deploy a key credential's public key to a host's authorized keys, written to the audit log"
+        }
+      ]
+    },
+    {
+      "id": "cron",
+      "name": "Cron",
+      "description": "See, add and run cron jobs on your hosts, with a schedule preview and the system cron files.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Cron",
+      "icon": "Clock",
+      "features": [
+        "List, add, change and delete cron jobs on a host",
+        "A schedule helper with a plain summary and the next run times",
+        "Turn jobs off without losing them, and run any job now",
+        "Edit another user's crontab, or the whole crontab as text",
+        "See /etc/crontab, /etc/cron.d and the hourly to monthly scripts",
+        "Read the cron log",
+        "A Cron card in Host Metrics"
+      ],
+      "docs": "https://docs.termix.site/plugins/cron",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Cron/releases/download/v1.0.0/cron-1.0.0.tmxplug",
+          "sha256": "d7b22442d77c522c5551d4706a826fb8a33f5f05501050701b872c8e80e38fb5",
+          "signature": "X/7Nib+mYUKtGvwJ+OkJlGYoRoVcD5ZHAQjalvsXVbhy8XM9h3y8AD9IyWuWQfWQ+QDBkYRYZ8FIjG3cTZFtDw==",
+          "size": 260937,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cron/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Turn on, turn off, run and delete jobs through Termix actions\n- List, add, change and delete cron jobs on a host\n- A schedule helper with a plain summary and the next run times\n- Turn jobs off without losing them, and run any job now\n- Edit another user's crontab, or the whole crontab as text\n- See /etc/crontab, /etc/cron.d and the hourly to monthly scripts\n- Read the cron log\n- A Cron card in Host Metrics",
+          "publishedAt": "2026-11-08T21:12:37.000Z"
         }
       ]
     },
