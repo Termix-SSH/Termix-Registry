@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:02:43.309Z",
+  "updatedAt": "2026-11-08T23:09:56.755Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2965,6 +2965,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Hosts-Config",
       "icon": "FileCode",
+      "video": "https://www.youtube.com/watch?v=o_uWOGcG7oQ",
       "features": [
         "SSH, RDP, VNC, Telnet and any plugin protocol from one YAML or JSON file",
         "Hosts from the file are read only, while pins and order stay with each user",
@@ -2976,12 +2977,39 @@
       ],
       "docs": "https://docs.termix.site/plugins/hosts-config",
       "contributes": [
+        "operations",
         "permissions",
         "settings"
       ],
-      "video": "https://www.youtube.com/watch?v=o_uWOGcG7oQ",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/download/v1.1.0/hosts-config-1.1.0.tmxplug",
+          "sha256": "7523e3ed1583f06a34cb5847f24e05de893fba3be57391430bc486a450b777e2",
+          "signature": "CnSgIaSnFeIZD2YtWOmYi7Qt4iXMZz2AKZc8r0X3gtRbncWpSiRvnLxnyE7l4UAhrOgMOhjfwub72Xlcc8sdDA==",
+          "size": 222745,
+          "capabilities": [
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "hosts:lock",
+            "credentials:use",
+            "users:impersonate",
+            "network:serve",
+            "ui:surface",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Reload the hosts file through Termix actions and see whether it applied as a status tile\n- An alert to admins when the hosts file cannot be read or some hosts are not applied, with a setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-08T23:09:04.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -3004,8 +3032,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Load hosts, folders and sharing from the YAML or JSON file named by TERMIX_HOSTS_CONFIG\n- Hosts from the file are read only in Termix and keep their id across reloads\n- Secrets from env vars, files or saved credentials by name\n- Per host plugin switches and settings\n- Reload when the file changes or from the admin settings, with every problem listed\n- Strict mode that blocks adding hosts by hand",
-          "publishedAt": "2026-10-20T19:57:49.000Z"
+          "publishedAt": "2026-10-20T19:57:49.000Z",
+          "notes": "### Added\n\n- Load hosts, folders and sharing from the YAML or JSON file named by TERMIX_HOSTS_CONFIG\n- Hosts from the file are read only in Termix and keep their id across reloads\n- Secrets from env vars, files or saved credentials by name\n- Per host plugin switches and settings\n- Reload when the file changes or from the admin settings, with every problem listed\n- Strict mode that blocks adding hosts by hand"
         }
       ]
     },
