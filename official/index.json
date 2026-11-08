@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:27:07.846Z",
+  "updatedAt": "2026-11-08T23:44:17.056Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3353,6 +3353,56 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Sign in against LDAP or Active Directory\n- More than one directory, each with its own login button\n- LDAPS checks the server certificate, with a CA field and a skip check switch\n- Make members of an admin group Termix admins"
+        }
+      ]
+    },
+    {
+      "id": "log-search",
+      "name": "Log Search",
+      "description": "Search logs from the journal, log files and Docker containers across many hosts at once.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Log-Search",
+      "icon": "ScrollText",
+      "features": [
+        "Search the systemd journal, log files and Docker logs on many hosts at once",
+        "Plain text or regular expression search with a time range and level filter",
+        "One merged result list with a status line for every host",
+        "Live search over SSH, nothing is stored or indexed",
+        "A search action for Operations, the assistant and the CLI"
+      ],
+      "docs": "https://docs.termix.site/plugins/log-search",
+      "contributes": [
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/download/v1.0.0/log-search-1.0.0.tmxplug",
+          "sha256": "58acbc9167658bfc3773e538ebec6065a7d4846c43382b044cd71e079c8301a6",
+          "signature": "dnybk/l7hPyomcC6FeH4arMzGxwYFNz1TLemDCXuQI7V2FMgO81KmUUvlyOcqQDch2NOO0I59t3jtuKAAsvVCg==",
+          "size": 141293,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Search the systemd journal, log files and Docker logs on many hosts at once\n- Plain text or regular expression search with a time range and level filter\n- One merged result list with a status line for every host\n- Live search over SSH, nothing is stored or indexed\n- A search action for Operations, the assistant and the CLI",
+          "publishedAt": "2026-11-08T23:43:23.000Z"
         }
       ]
     },
