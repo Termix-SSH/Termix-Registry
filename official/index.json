@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T19:55:24.531Z",
+  "updatedAt": "2026-11-08T19:57:12.227Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -185,6 +185,7 @@
         "actions",
         "dashboardCards",
         "keybindingActions",
+        "operations",
         "permissions",
         "settings",
         "tabs",
@@ -219,8 +220,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.3.1",
-          "notes": "### Fixed\n\n- The assistant no longer offers to open the SSH Tools panel, which Plugin SSH Terminal 1.3.0 removes",
-          "publishedAt": "2026-11-01T23:03:02.000Z"
+          "publishedAt": "2026-11-01T23:03:02.000Z",
+          "notes": "### Fixed\n\n- The assistant no longer offers to open the SSH Tools panel, which Plugin SSH Terminal 1.3.0 removes"
         },
         {
           "version": "1.3.0",
@@ -403,6 +404,40 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Ask about your hosts, snippets, fleets, alerts, automations and more, or about one host right from its terminal\n- Proposes changes instead of making them, and nothing runs until you approve it\n- Can run safe read-only commands like `df` and `uptime` if you allow it\n- Works with Ollama, Anthropic, OpenAI, Google Gemini and any OpenAI compatible endpoint\n- AI Agents: run Pi, OpenCode, Claude Code or Codex on an SSH host using one of your Termix providers, with tool approvals, queued messages, attachments, Git diffs and worktrees\n- One-click install of the selected agent and Node.js, and a button to set up SSH loopback forwarding"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.4.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.4.0/ai-1.4.0.tmxplug",
+          "sha256": "075dee0e9869edf958d8f9ab89755c65ca89660f703e546efeca039a0ac7c66b",
+          "signature": "hzuQH6PU4IIBJXMSUy5F8cDs8MXiW2kfef+5/u9RlfI+Ko5N0d8KePrt2OTNH4vJWiJYqnL4FFVA/rgC6CHKCQ==",
+          "size": 2996198,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "notify:send",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "users:read",
+            "events:core",
+            "process:spawn",
+            "operations:invoke"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.4.0",
+          "notes": "### Added\n\n- The assistant can find and run actions other plugins offer, such as restarting a container or service or waking a machine. Changes wait for your approval in Operations by default\n- Read only commands for drive and array health: smartctl, nvme, mdadm, btrfs, lvs, vgs and pvs\n- A Failing drive task preset: when Storage Health finds a failing or worn drive or a degraded pool or array, the assistant reads SMART and array state and reports what to do\n- A homepage widget with recent auto-ops tasks and plans waiting for approval\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Buttons next to fields in the assets and exposure settings are as tall as the fields",
+          "publishedAt": "2026-11-08T19:56:11.000Z"
         }
       ]
     },
