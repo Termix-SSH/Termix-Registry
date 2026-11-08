@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T20:49:43.880Z",
+  "updatedAt": "2026-11-08T20:59:51.193Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1008,6 +1008,65 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.2.1",
           "notes": "### Added\n\n- Run an automation as a Termix action, from the command palette, the CLI, the phone app or another automation\n- Run an action step: any action a plugin offers, with its own form, on the trigger host, picked hosts or a fleet\n- An event happens trigger: start an automation when a plugin reports an event or an action fails\n- A failed runs status tile and a homepage widget with the latest runs\n\n### Fixed\n\n- The automations dashboard card scrolls as one list instead of squeezing your automations and runs into two small boxes\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The maintenance page and the Automations tab use the Termix page header and tile look\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-08T19:58:29.000Z"
+        }
+      ]
+    },
+    {
+      "id": "certificates",
+      "name": "Certificates",
+      "description": "See, issue and renew TLS certificates on your hosts with certbot and acme.sh, and get an alert before they expire.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-Certificates",
+      "icon": "ShieldCheck",
+      "features": [
+        "See every certbot and acme.sh certificate on a host with its days left",
+        "Issue certificates with the standalone, web root or DNS challenge",
+        "Renew one or all certificates, with a dry run for certbot",
+        "Revoke or stop managing a certificate",
+        "Read any certificate file, or check what a server sends over TLS",
+        "See how automatic renewal is set up",
+        "Get an alert before a certificate expires",
+        "A dashboard card with the certificates that expire next and a Certificates card in Host Metrics",
+        "A homepage widget with expiring certificates and a panel beside terminals"
+      ],
+      "docs": "https://docs.termix.site/plugins/certificates",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Certificates/releases/download/v1.0.0/certificates-1.0.0.tmxplug",
+          "sha256": "48604eee6f616816fe31a5b4407d10845feaca85eb370e5f00591951a9b6afea",
+          "signature": "kiPJW5X2Zbz6NslIRdlL2g1GEnumo4+iIukltFPTvHYSuGpS9qL+npa9LhFdlHDsgRgpOoR7en9GtlSJH0zMDQ==",
+          "size": 304332,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Certificates/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Renew and revoke through Termix actions, and see expiring certificates as a status tile\n- See every certbot and acme.sh certificate on a host with its days left\n- Issue certificates with the standalone, web root or DNS challenge\n- Renew one or all certificates, with a dry run for certbot\n- Revoke or stop managing a certificate\n- Read any certificate file, or check what a server sends over TLS\n- See how automatic renewal is set up\n- Get an alert before a certificate expires\n- A dashboard card with the certificates that expire next and a Certificates card in Host Metrics",
+          "publishedAt": "2026-11-08T20:58:56.000Z"
         }
       ]
     },
