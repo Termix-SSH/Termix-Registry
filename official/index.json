@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T19:57:12.227Z",
+  "updatedAt": "2026-11-08T19:59:02.068Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -638,6 +638,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Audit-Tools",
       "icon": "ClipboardList",
+      "video": "https://www.youtube.com/watch?v=bUwPFReNIvg",
       "features": [
         "Forward every audit entry to an HTTP collector as it happens",
         "Catch up on entries written while the collector or Termix was down",
@@ -649,9 +650,31 @@
         "permissions",
         "settings"
       ],
-      "video": "https://www.youtube.com/watch?v=bUwPFReNIvg",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/download/v1.1.0/audit-tools-1.1.0.tmxplug",
+          "sha256": "8ea584ebaae044adc2d2fe178524c06c970efca068ace149a649281f1fee15fa",
+          "signature": "b3iX43zj/uxwxmdMiN5cLJPEhAv3ugRw4944vfQ64/0TvwdwCB40daleWTZo1FRg85nygCu9TutbtR/FGg28CA==",
+          "size": 49679,
+          "capabilities": [
+            "audit:read",
+            "network:outbound",
+            "network:serve",
+            "kv:own",
+            "ui:surface",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Alert admins when forwarding to the collector fails and when it recovers",
+          "publishedAt": "2026-11-08T19:57:05.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -671,8 +694,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Forward every audit entry to an HTTP collector as it happens, with an optional bearer token\n- Entries written while the collector or Termix was down are sent when it is back\n- Export the audit log as CSV or NDJSON from the audit log section, with the viewer's filters\n- Move the forwarding settings and the export out of Termix core. Existing forwarding settings and the token are copied over on upgrade",
-          "publishedAt": "2026-10-20T19:59:37.000Z"
+          "publishedAt": "2026-10-20T19:59:37.000Z",
+          "notes": "### Added\n\n- Forward every audit entry to an HTTP collector as it happens, with an optional bearer token\n- Entries written while the collector or Termix was down are sent when it is back\n- Export the audit log as CSV or NDJSON from the audit log section, with the viewer's filters\n- Move the forwarding settings and the export out of Termix core. Existing forwarding settings and the token are copied over on upgrade"
         }
       ]
     },
@@ -697,6 +720,7 @@
       "docs": "https://docs.termix.site/plugins/automations",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
         "settings",
         "tabs",
@@ -732,8 +756,8 @@
             "snippets": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Automations panel beside an SSH terminal: the host's maintenance state, the automations that use the host with Run now, and their latest runs\n- Upcoming automations dashboard card: scheduled automations in the order they run next\n- Automation runs dashboard card: the latest runs and how they went",
-          "publishedAt": "2026-10-22T18:11:00.000Z"
+          "publishedAt": "2026-10-22T18:11:00.000Z",
+          "notes": "### Added\n\n- Automations panel beside an SSH terminal: the host's maintenance state, the automations that use the host with Run now, and their latest runs\n- Upcoming automations dashboard card: scheduled automations in the order they run next\n- Automation runs dashboard card: the latest runs and how they went"
         },
         {
           "version": "1.1.0",
@@ -894,6 +918,42 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts, with values from triggers and variables always passed safely into shell commands\n- Conditions, waits and variables for more complex flows, and nested steps that only run automations you own\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.2.1/automations-1.2.1.tmxplug",
+          "sha256": "25e663cc1b161e5a7c50c8e8955edef6b534f10167d88e3beefd6374a9ca5da9",
+          "signature": "Pn9RsHEQ+5Kmh7C5HZG0PXKXHmWTycpFQROVc/1mFRmCvTP2+byZsxZxdSC+IzcpaXLFdRkJD4+AI6OX1Jh2Bg==",
+          "size": 470321,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "events:core",
+            "notify:send",
+            "network:outbound",
+            "network:serve",
+            "settings:read-core",
+            "ui:surface",
+            "users:impersonate",
+            "operations:invoke",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "dependencies": {
+            "snippets": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.2.1",
+          "notes": "### Added\n\n- Run an automation as a Termix action, from the command palette, the CLI, the phone app or another automation\n- Run an action step: any action a plugin offers, with its own form, on the trigger host, picked hosts or a fleet\n- An event happens trigger: start an automation when a plugin reports an event or an action fails\n- A failed runs status tile and a homepage widget with the latest runs\n\n### Fixed\n\n- The automations dashboard card scrolls as one list instead of squeezing your automations and runs into two small boxes\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The maintenance page and the Automations tab use the Termix page header and tile look\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-08T19:58:29.000Z"
         }
       ]
     },
