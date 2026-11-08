@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:44:17.056Z",
+  "updatedAt": "2026-11-08T23:46:23.945Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3130,6 +3130,65 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/tag/v1.0.0",
           "publishedAt": "2026-10-20T19:55:55.000Z",
           "notes": "### Added\n\n- Import hosts from a Termix JSON file or an SSH config file, skipping or overwriting hosts that already exist\n- Export all or some hosts, choose the fields to include, and share an export without secrets\n- Export selected hosts from the Hosts panel\n- Download a sample import file"
+        }
+      ]
+    },
+    {
+      "id": "ip-kvm",
+      "name": "IP-KVM",
+      "description": "See and control machines through PiKVM, NanoKVM and JetKVM devices.",
+      "author": "Termix",
+      "category": "Networking",
+      "repository": "https://github.com/Termix-SSH/Plugin-IP-KVM",
+      "icon": "MonitorSmartphone",
+      "features": [
+        "Works with PiKVM, GL.iNet Comet, NanoKVM and JetKVM",
+        "See the screen of a machine and use its keyboard and mouse in the browser",
+        "Termix connects to the KVM, so it works for KVMs your browser cannot reach",
+        "Power on, shut down, hard power off and reset through the KVM",
+        "Mount ISO images as a USB drive or CD (PiKVM, NanoKVM)",
+        "Ctrl+Alt+Del and other shortcuts, paste text and screenshots",
+        "Wake-on-LAN, alerts when a KVM goes offline, and the ip-kvm.power service",
+        "Link a KVM to a Termix host"
+      ],
+      "docs": "https://docs.termix.site/plugins/ip-kvm",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-IP-KVM/releases/download/v1.0.0/ip-kvm-1.0.0.tmxplug",
+          "sha256": "d831be48b9fc08b7f36add6467d10508a58ff34a960b30cf3eba1033493f1745",
+          "signature": "yr1deQs9j0yxtzIsAbB4UBAo/CF+vnxxSNO66FeLBqRDtBVAQW0Vz97e3tRojPnfRPUeaoPuvZBhILIP0KjSDQ==",
+          "size": 281790,
+          "capabilities": [
+            "db:own",
+            "events:core",
+            "hosts:read",
+            "network:broadcast",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "operations:provide",
+            "secrets:own",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-IP-KVM/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Manage PiKVM, GL.iNet Comet (GLKVM), NanoKVM and JetKVM devices\n- Screen, keyboard and mouse in the browser through the Termix server\n- JetKVM screen over WebRTC straight from the browser\n- Power on, shut down, power off and reset\n- Wake-on-LAN, shortcuts, paste text and screenshots\n- Virtual media for PiKVM and NanoKVM\n- Link a KVM to a host, offline and power change alerts\n- Dashboard card, host menu button, operations and the `ip-kvm.power` service",
+          "publishedAt": "2026-11-08T23:45:32.000Z"
         }
       ]
     },
