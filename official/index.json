@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:00:52.397Z",
+  "updatedAt": "2026-11-08T23:02:43.309Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2889,6 +2889,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Host-Status",
       "icon": "Activity",
+      "video": "https://www.youtube.com/watch?v=vZPsgT9B4-U",
       "features": [
         "An online or offline dot for every host",
         "Checks the host's port and never logs in",
@@ -2898,11 +2899,38 @@
       ],
       "docs": "https://docs.termix.site/plugins/host-status",
       "contributes": [
+        "operations",
+        "permissions",
         "settings"
       ],
-      "video": "https://www.youtube.com/watch?v=vZPsgT9B4-U",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/download/v1.1.0/host-status-1.1.0.tmxplug",
+          "sha256": "75e4834b13fbdf657187001ada7083e44cdd17a87eef7447ccbbdb0beea4b451",
+          "signature": "ns4Ieh09bOMiH4iu7t2MY9Pt42/f5TtA5NjoBQ4+xAHjdfaYx1sFBISFmJlgaVzzeM8E6ZnuOE9nPJ8thgDUCg==",
+          "size": 44624,
+          "capabilities": [
+            "hosts:read",
+            "hosts:status-provide",
+            "network:probe",
+            "network:serve",
+            "ssh:connect",
+            "events:core",
+            "users:impersonate",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Check whether a host is online through Termix actions, with an Online tile on the host page and in the All hosts table\n- Permission Check host status\n- An alert when a checked host goes offline and when it is back, with an admin setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-08T23:01:30.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -2924,8 +2952,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- The online or offline dot in the host list now comes from this plugin\n- Checks use the host's port and never log in, so devices with two factor logins get no prompt\n- Hosts behind jump hosts are checked through the chain\n- An open session or a working login counts as online\n- Check interval setting for everyone, with a different interval per host",
-          "publishedAt": "2026-10-20T19:23:13.000Z"
+          "publishedAt": "2026-10-20T19:23:13.000Z",
+          "notes": "### Added\n\n- The online or offline dot in the host list now comes from this plugin\n- Checks use the host's port and never log in, so devices with two factor logins get no prompt\n- Hosts behind jump hosts are checked through the chain\n- An open session or a working login counts as online\n- Check interval setting for everyone, with a different interval per host"
         }
       ]
     },
