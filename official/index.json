@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-03T01:26:05.901Z",
+  "updatedAt": "2026-11-08T19:52:55.180Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3279,6 +3279,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Samba",
       "icon": "Share2",
+      "video": "https://www.youtube.com/watch?v=eplAs0N9I60",
       "features": [
         "Install Samba and start, stop or restart it on a host",
         "Create, edit and delete SMB shares with access options",
@@ -3289,13 +3290,38 @@
       ],
       "docs": "https://docs.termix.site/plugins/samba",
       "contributes": [
+        "dashboardCards",
+        "operations",
         "permissions",
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=eplAs0N9I60",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Samba/releases/download/v1.0.1/samba-1.0.1.tmxplug",
+          "sha256": "f16519a1208f20230baac00001e2fd535acea92a3f93ece66eaf79aa54b93999",
+          "signature": "CkFRWGawpIqrDXw7U4r2kKewsXqr5LilMeRBZeI1KhReL4vDZv7H4c5IaHf+UOxvJkTG4Owi0y6wRB/v8RciDw==",
+          "size": 323849,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Samba/releases/tag/v1.0.1",
+          "notes": "### Added\n\n- Start, stop, restart and reload Samba through Termix actions, list shares across hosts and see whether Samba runs as a status tile\n- Dashboard card with Samba state, shares and sessions on every host\n- Shares panel beside SSH terminals\n\n### Fixed\n\n- Notes at the top of the tab no longer squeeze their text to one word per line\n- Every view in the tab shows a loading message instead of a blank screen while it loads\n- The Back button in a group's members stays pinned at the bottom\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-08T19:51:59.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -3316,8 +3342,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Samba/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A Samba Shares tab for each host to install and manage Samba over SSH\n- Create, edit and delete shares, with a tested config before every change\n- Samba users, passwords and Linux groups\n- Folder owner, mode and ACL entries for shares\n- Connected users, open files and disconnecting a session\n- A config editor with testparm, a log viewer and service controls",
-          "publishedAt": "2026-10-21T23:07:52.000Z"
+          "publishedAt": "2026-10-21T23:07:52.000Z",
+          "notes": "### Added\n\n- A Samba Shares tab for each host to install and manage Samba over SSH\n- Create, edit and delete shares, with a tested config before every change\n- Samba users, passwords and Linux groups\n- Folder owner, mode and ACL entries for shares\n- Connected users, open files and disconnecting a session\n- A config editor with testparm, a log viewer and service controls"
         }
       ]
     },
