@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T21:16:09.050Z",
+  "updatedAt": "2026-11-08T21:21:38.785Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1678,6 +1678,65 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Databases/releases/tag/v1.0.0",
           "publishedAt": "2026-10-21T22:54:41.000Z",
           "notes": "### Added\n\n- A Databases tab for each host to browse and edit MySQL, MariaDB, PostgreSQL and SQLite over SSH\n- Saved logins per host with sealed passwords, socket logins and running the client as another Linux user\n- Table browser with paging, sorting, a filter and row add, edit and delete by primary key\n- Structure view with columns, types, keys and indexes\n- SQL console with history and CSV or JSON export\n- Read only logins, and read only console sessions for users without edit access to the host"
+        }
+      ]
+    },
+    {
+      "id": "dns",
+      "name": "DNS",
+      "description": "Manage DNS records and domains across Cloudflare, Route 53, Namecheap and other providers.",
+      "author": "Termix",
+      "category": "Networking",
+      "repository": "https://github.com/Termix-SSH/Plugin-DNS",
+      "icon": "Globe",
+      "features": [
+        "Works with Cloudflare, Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun and Gandi",
+        "Add, change and delete records in one place across all your providers",
+        "Domain list with expiry dates, auto renew, transfer lock and name servers, plus alerts before a domain expires",
+        "Watch any domain by name, even ones you did not register through a connected provider",
+        "Keep a record pointed at a host or at this server's public address",
+        "Health checks for delegation, DNSSEC, SPF, DMARC and broken CNAMEs, and a propagation check against public resolvers",
+        "Copies of every zone with a diff and restore, BIND file import and export, and an alert when a zone changes outside Termix",
+        "A DNS service other plugins use for certificate challenges"
+      ],
+      "docs": "https://docs.termix.site/plugins/dns",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-DNS/releases/download/v1.0.0/dns-1.0.0.tmxplug",
+          "sha256": "ad5204e8a9834934bab982d7ce4d348aec7e07248c9e54da2874686dac3ecb9d",
+          "signature": "/SFmg8AkoygZKx17NLpIaxWV0h2SpSOUaikqqt1Riqce+d3J5X+d8UPx3UQC9lMNaUkmWQZAhu5d8yNE0A+JBg==",
+          "size": 413745,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:probe",
+            "network:serve",
+            "ui:surface",
+            "hosts:read",
+            "users:impersonate",
+            "events:core",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-DNS/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A DNS tab to manage records at Cloudflare, Amazon Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun and Gandi\n- A domain list with expiry dates, auto renew, transfer lock and name servers from Route 53, Namecheap, GoDaddy, Porkbun and Gandi\n- Watch any domain by name through RDAP\n- Alerts when a domain is about to expire\n- Links that keep a record pointed at a host or at this server's public address\n- Health checks for name servers, DNSSEC, mail records and broken CNAMEs, and a check against public resolvers\n- Zone copies before each change, with compare and restore, and an alert when a zone changes outside Termix\n- BIND zone file import and export\n- A dns.records service for other plugins, and actions for the assistant, rules and the CLI\n- A dashboard card with domains close to expiry",
+          "publishedAt": "2026-11-08T21:20:45.000Z"
         }
       ]
     },
