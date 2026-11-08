@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T19:52:55.180Z",
+  "updatedAt": "2026-11-08T19:55:24.531Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -25,8 +25,10 @@
       "docs": "https://docs.termix.site/plugins/acme-ssl",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
-        "settings"
+        "settings",
+        "uses"
       ],
       "versions": [
         {
@@ -50,8 +52,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- HTTPS certificate dashboard card: days left on the certificate, the last error and a button to renew now",
-          "publishedAt": "2026-10-22T17:49:29.000Z"
+          "publishedAt": "2026-10-22T17:49:29.000Z",
+          "notes": "### Added\n\n- HTTPS certificate dashboard card: days left on the certificate, the last error and a button to renew now"
         },
         {
           "version": "1.0.2",
@@ -124,6 +126,34 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Certificates from Let's Encrypt or any ACME directory\n- HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed\n- Renews before the certificate expires and alerts admins when a renewal fails\n- Swaps in the new certificate without a restart"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.2.0/acme-ssl-1.2.0.tmxplug",
+          "sha256": "33641243ed8fbe0129fac916a2bf893befe77f0a9fa1e88c713aaf6ba3bcdbd2",
+          "signature": "EWQtUInzprKnZNfO/Eeo6JpmimtH3j9C/slOfGBuQbbGUhf/VVkZ9PO4gEQlbpVvCkUpKKdfKUPzQ8PKmjRmBQ==",
+          "size": 814360,
+          "capabilities": [
+            "system:tls",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "ui:surface",
+            "operations:provide",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- A DNS plugin challenge type that answers the DNS challenge at any provider the DNS plugin supports\n- How long the HTTPS certificate has left shows as a status tile, with Request a certificate now as its fix through Termix actions\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-08T19:54:28.000Z"
         }
       ]
     },
@@ -396,6 +426,7 @@
       "docs": "https://docs.termix.site/plugins/alerts",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
         "settings",
         "tabs",
@@ -425,8 +456,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Telegram channels: alerts go to a chat, group or channel through your own bot\n- Webhook channels can send your own JSON body with placeholders like {{title}} and {{message}}, for services like Mattermost",
-          "publishedAt": "2026-10-29T22:14:01.000Z"
+          "publishedAt": "2026-10-29T22:14:01.000Z",
+          "notes": "### Added\n\n- Telegram channels: alerts go to a chat, group or channel through your own bot\n- Webhook channels can send your own JSON body with placeholders like {{title}} and {{message}}, for services like Mattermost"
         },
         {
           "version": "1.1.0",
@@ -531,6 +562,36 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.3.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.3.0/alerts-1.3.0.tmxplug",
+          "sha256": "5e47e49d68b9383ee4d6dfdfb51d4c2edb66c05501785c8c3b0a9ab1ae1dd01b",
+          "signature": "uP5KwMl2SS+mrQQWwlPcjVENqkzWqNt8aGrJFjGzJVHybj6YvbpfONL1pIcUv+F95e+JlRkXoRJvt59r+JqjAw==",
+          "size": 575590,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface",
+            "operations:provide",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.3.0",
+          "notes": "### Added\n\n- Send yourself an alert through Termix actions, so rules, rollouts and the CLI can notify you, and see unread alerts as a status tile\n- Open Alerts from the command palette\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The Alerts tab has the Termix page header and fills the width of the tab\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
+          "publishedAt": "2026-11-08T19:54:49.000Z"
         }
       ]
     },
