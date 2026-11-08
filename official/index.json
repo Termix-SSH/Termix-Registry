@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T20:30:32.508Z",
+  "updatedAt": "2026-11-08T20:32:20.048Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1154,6 +1154,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Classic-Themes",
       "icon": "Palette",
+      "video": "https://www.youtube.com/watch?v=PhKhH_e4_VU",
       "features": [
         "Light and dark themes",
         "Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox"
@@ -1162,9 +1163,26 @@
       "contributes": [
         "themes"
       ],
-      "video": "https://www.youtube.com/watch?v=PhKhH_e4_VU",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/download/v1.0.1/classic-themes-1.0.1.tmxplug",
+          "sha256": "d03228a532cb169a94f0d7ba8b77946c55d26f57ed709c92619ab80c53516342",
+          "signature": "q1meni7z9boi61tw6DnJMtk8+xLUaq3GbreDWQrUPui+wJhXfyRIlmlnTvS74IWRWWkwk9r0D3SqlcxbgagGAQ==",
+          "size": 16306,
+          "capabilities": [
+            "ui:theme"
+          ],
+          "engine": {
+            "api": "^1.4",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Borders are solid colors, so they look the same on every surface",
+          "publishedAt": "2026-11-08T20:30:19.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -1180,8 +1198,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- The Termix color themes as a plugin: light, dark, Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox",
-          "publishedAt": "2026-10-20T19:56:08.000Z"
+          "publishedAt": "2026-10-20T19:56:08.000Z",
+          "notes": "### Added\n\n- The Termix color themes as a plugin: light, dark, Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox"
         }
       ]
     },
