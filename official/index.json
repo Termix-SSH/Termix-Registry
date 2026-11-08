@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:46:23.945Z",
+  "updatedAt": "2026-11-08T23:48:14.624Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2465,6 +2465,64 @@
       ]
     },
     {
+      "id": "git",
+      "name": "Git",
+      "description": "See, pull, commit and push git repos on your hosts, and keep them up to date with auto pull.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Git",
+      "icon": "GitBranch",
+      "features": [
+        "Add the git repos on a host, or find them with a scan",
+        "Branch, ahead and behind counts, changed files and the last commit for each repo",
+        "Diffs, staging, commits, history and commit details",
+        "Fetch, pull, push, switch, create, merge and delete branches, stash",
+        "Clone a repo onto the host",
+        "Auto pull on a schedule with an optional command after a pull and alerts when it fails",
+        "Uses the keys and git settings of the host's login user, no secrets stored in Termix",
+        "A Git panel beside terminals, a dashboard card and status tiles for Operations Center"
+      ],
+      "docs": "https://docs.termix.site/plugins/git",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Git/releases/download/v1.0.0/git-1.0.0.tmxplug",
+          "sha256": "5641e5cc26d3868c7a2130dd24f6a12000b01a1788c446a5f12fc6c686b1d37e",
+          "signature": "pxGSCB3+8K3sCl4yUwYYbjTHrFu9+QPZhMmuVmq4qT8su17HOYuiI8w5tS5Z5xS6ZSPWQaPjs88HNj1X0lbvDw==",
+          "size": 352333,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Git/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Add the git repos on a host, or find them with a scan\n- Branch, ahead and behind counts, changed files and the last commit for each repo\n- Diffs, staging, commits, history and commit details\n- Fetch, pull, push, switch, create, merge and delete branches, stash\n- Clone a repo onto the host\n- Auto pull on a schedule with an optional command after a pull and alerts when it fails\n- Uses the keys and git settings of the host's login user, no secrets stored in Termix\n- A Git panel beside terminals, a dashboard card and status tiles for Operations Center\n- Pull, push, fetch, switch, merge and reset through Termix actions\n- Status tiles for repos that are behind, have changes or fail to pull\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-08T23:47:28.000Z"
+        }
+      ]
+    },
+    {
       "id": "homepage",
       "name": "Homepage",
       "description": "A drag and drop widget page for your servers and services, plus service links for the dashboard.",
@@ -3473,22 +3531,46 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Login-Security",
       "icon": "ShieldCheck",
+      "video": "https://www.youtube.com/watch?v=F9fyIuWSAeE",
       "features": [
         "Sign out after a set time without activity, in the browser and on the server",
         "Limit how long a session can last",
         "Turn off remember me and remembered devices",
         "Require a second factor at every login or on a new device",
         "Works with any installed second factor, like an authenticator app or a security key",
-        "People without a second factor are asked to set one up before they can use Termix"
+        "People without a second factor are asked to set one up before they can use Termix",
+        "Ask for a second factor before connecting to a host, for every host or only marked ones"
       ],
       "docs": "https://docs.termix.site/plugins/login-security",
       "contributes": [
         "permissions",
-        "settings"
+        "settings",
+        "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=F9fyIuWSAeE",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Login-Security/releases/download/v1.1.0/login-security-1.1.0.tmxplug",
+          "sha256": "344a1fa8c6bf7d9b6c455a4f203fc446f1adbaf912845c965b6cf2f1fbbf2552",
+          "signature": "8sZ8tnBAP2qbR3g1jnLl8RqKDWziiasy57bn8UVd3nVqyU4yyvmeMH5H5FObkRu6IZJ3nz+tCGSi28zr+rwFCQ==",
+          "size": 124566,
+          "capabilities": [
+            "auth:policy",
+            "hosts:connect-policy",
+            "hosts:read",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.16",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Login-Security/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Ask for a second factor before connecting to a host, on every host or only marked ones. Once entered it lasts for a set time per person, and background work is never asked (#2)\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-08T23:46:35.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -3506,8 +3588,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Login-Security/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Sign out after a set time without activity, in the browser and on the server\n- Limit how long a session can last\n- Turn off remember me and remembered devices\n- Require a second factor at every login or on a new device, using any installed second factor\n- People without a second factor are asked to set one up after they sign in\n- A warning in the settings when no second factor plugin is installed",
-          "publishedAt": "2026-10-20T19:53:56.000Z"
+          "publishedAt": "2026-10-20T19:53:56.000Z",
+          "notes": "### Added\n\n- Sign out after a set time without activity, in the browser and on the server\n- Limit how long a session can last\n- Turn off remember me and remembered devices\n- Require a second factor at every login or on a new device, using any installed second factor\n- People without a second factor are asked to set one up after they sign in\n- A warning in the settings when no second factor plugin is installed"
         }
       ]
     },
