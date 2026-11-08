@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T20:39:44.070Z",
+  "updatedAt": "2026-11-08T20:41:34.878Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1030,10 +1030,33 @@
       "contributes": [
         "layouts",
         "permissions",
+        "settings",
         "tabs"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.1.2/classic-layout-1.1.2.tmxplug",
+          "sha256": "8fb17cbfd1853abbc9121bdfdeaae6fdaad2ad23f820302b554ea80c3f542016",
+          "signature": "ddzC6ZXB6QQpUAywOZ2TK63E5ir9qv6R6CXLXUdIe9Sirs2yY3fLPvEM/NlOGqXU5D27G5PnX3KCruGDqWTRCQ==",
+          "size": 1990010,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.1.2",
+          "notes": "### Added\n\n- Pick what a click on a host opens, such as the terminal, Docker or the host page. Set a default in Customize sidebar and change it for one host from its menu\n- Host tools can open inside the host page instead of their own tab, set in Customize sidebar. Their own tab stays the default\n- Only the host page, in the same setting, takes the connect buttons off host rows so a click on a host opens its page\n- Pick which buttons show on one host's row from its menu. Customize sidebar keeps the default for every host\n- The host menu lists the host's actions, when Operations Center is on\n- API keys can be limited to reading or running actions\n- The dashboard is a grid of tiles you can move and resize freely, with as many columns as you like. Your old layout moves over on its own\n- Until you arrange it, the dashboard fills the screen down to the bottom\n- The dashboard's add list has a search, filters and groups, and can add a plugin's status or action as its own tile, like Operations Center's\n- A setup step to pick how host rows work, connect buttons, buttons plus a host page button, or only the host page, when a plugin offers a host page\n- The dashboard layout is saved with your account, so it follows you to every browser. A layout saved in this browser moves over on its own\n- A dashboard you never arranged puts Needs attention first, when Operations Center is on\n- Admin setting to stop anyone saving passwords and keys, with a note in the host and credential editors (Termix #1753)\n- Desktop app: keep a credential on this device only and use it as your login for a shared host or folder (Termix #1749)\n\n### Changed\n\n- Settings, the host and login editors and the dashboard use the shared tile look, with lines between sections instead of separate boxes\n- Keybindings settings use one list with a line between rows instead of separate boxes\n- The SSL certificate status is a plain row instead of a box\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Closing the command palette puts focus back on the terminal, so you can keep typing\n- Folder host counts now include sub-hosts, so a folder no longer shows more online hosts than it has\n- A host's status tooltip no longer covers its right click menu\n- The session timeout box in admin settings is as tall as its Save button\n- Recent activity in quick search opens the host you used, not another host with the same or its old name\n- A compact host row with the address and tags turned off fits on one line, with its buttons next to the name\n- The Manage tab shows the list or the editor, not both squeezed together, when the tab is narrow, like beside the sidebar on a tablet\n- The clear buttons in the folder and parent host pickers have a name and work from the keyboard\n- Protocol switches in the host editor have names for screen readers\n- Folders in the Manage tab start open even when the list loads after the tab opens\n- Picking another credential or defaults level while one is loading in the Manage tab no longer opens the first one\n- Dashboard host status and recent activity rows open with Enter or Space\n- Leaving the keybinding field without pressing a key stops recording\n- Clearing recent activity on the dashboard says so when it fails\n- Tab bar, keybinding and accent color buttons have names for screen readers",
+          "publishedAt": "2026-11-08T20:39:56.000Z"
+        },
         {
           "version": "1.1.1",
           "api": "1",
@@ -1053,8 +1076,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.1.1",
-          "notes": "### Added\n\n- Plugins can add buttons to the right of the tab bar, next to split view. SSH Terminal puts its terminal tools there\n\n### Fixed\n\n- The side rail no longer opens behind Customize sidebar and other panels when you hover over it",
-          "publishedAt": "2026-11-01T23:02:39.000Z"
+          "publishedAt": "2026-11-01T23:02:39.000Z",
+          "notes": "### Added\n\n- Plugins can add buttons to the right of the tab bar, next to split view. SSH Terminal puts its terminal tools there\n\n### Fixed\n\n- The side rail no longer opens behind Customize sidebar and other panels when you hover over it"
         },
         {
           "version": "1.1.0",
