@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T21:34:41.795Z",
+  "updatedAt": "2026-11-08T22:57:10.355Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2474,7 +2474,7 @@
       "icon": "LayoutGrid",
       "video": "https://www.youtube.com/watch?v=EX-bZzuGiZo",
       "features": [
-        "Drag, resize and arrange widgets on a canvas",
+        "Drag, resize and arrange widgets on a grid",
         "Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal",
         "Other features add their own widgets, like Docker, Tunnels and Host Metrics",
         "Service links and a homepage preview on the dashboard",
@@ -2556,6 +2556,28 @@
       ],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Homepage/releases/download/v1.2.0/homepage-1.2.0.tmxplug",
+          "sha256": "16ab036ca7328ab0209bd30f122fbc5910922394a81f166d10f0b626bf0f3598",
+          "signature": "qmO8Z95+AHQhSuX3N61O5OFfAA69k+ahmkAaLMNb9aFqr0VMMToIjkxcFNdz/jTeijI5WoQpEEueAmtUfEmSDg==",
+          "size": 421864,
+          "capabilities": [
+            "db:own",
+            "hosts:activity-provide",
+            "network:serve",
+            "network:outbound",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- The homepage is now a tile grid like the dashboard, with no zoom or pan. Open Customize to move, resize, add and remove widgets\n- Layouts from the old canvas move over on their own the first time you open the homepage\n- Folders are now headings for a group of widgets\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- A ping widget site that does not answer shows as down without an error in the browser console\n- RSS feeds on a host in the admin private address list load, like ping and link widgets already did",
+          "publishedAt": "2026-11-08T22:56:13.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Homepage/releases/download/v1.1.0/homepage-1.1.0.tmxplug",
@@ -2574,8 +2596,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.1.0",
-          "notes": "### Changed\n\n- The dashboard's recent activity list is stored by this plugin instead of Termix itself. Existing entries are kept\n- Needs Termix 26.10.3 or newer",
-          "publishedAt": "2026-10-20T19:20:15.000Z"
+          "publishedAt": "2026-10-20T19:20:15.000Z",
+          "notes": "### Changed\n\n- The dashboard's recent activity list is stored by this plugin instead of Termix itself. Existing entries are kept\n- Needs Termix 26.10.3 or newer"
         }
       ]
     },
