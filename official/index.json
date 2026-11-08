@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T20:32:20.048Z",
+  "updatedAt": "2026-11-08T20:36:17.852Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1222,11 +1222,41 @@
       "docs": "https://docs.termix.site/plugins/cloud-providers",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
-        "tabs"
+        "tabs",
+        "uses"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/download/v1.2.0/cloud-providers-1.2.0.tmxplug",
+          "sha256": "ea6ccb952a49129b861f4e4895bc4620abe49053e9fc99b0e4a17cc14d80ffb2",
+          "signature": "vm3nYD5sJRzb1Jlb3pKsTw73dM3bk/9xUubMvgh+SIZP+agonm7YjRawxcfbP/0Q76L+Qb8ifhG6Pz0W4N/iBQ==",
+          "size": 194713,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "ui:surface",
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "users:impersonate",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Sync a cloud account through Termix actions, so a rule, rollout or the CLI can run it, and see failing syncs as a status tile\n- A homepage widget with your cloud accounts and any that fail\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The accounts page and its forms use the Termix page header and tile look\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
+          "publishedAt": "2026-11-08T20:35:22.000Z"
+        },
         {
           "version": "1.1.0",
           "api": "1",
@@ -1251,8 +1281,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Cloud accounts dashboard card: each account with when it last synced or why it failed, and Sync now",
-          "publishedAt": "2026-10-22T17:57:39.000Z"
+          "publishedAt": "2026-10-22T17:57:39.000Z",
+          "notes": "### Added\n\n- Cloud accounts dashboard card: each account with when it last synced or why it failed, and Sync now"
         },
         {
           "version": "1.0.0",
