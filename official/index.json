@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:15:44.681Z",
+  "updatedAt": "2026-11-08T23:25:14.034Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3158,6 +3158,7 @@
       "docs": "https://docs.termix.site/plugins/kubernetes",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
         "settings",
         "tabs",
@@ -3166,6 +3167,33 @@
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/download/v1.1.0/kubernetes-1.1.0.tmxplug",
+          "sha256": "7ad839230bfff9b164399e9a3f27cfd5c490ac406677b467da96558809290417",
+          "signature": "QMRFJYujH0VbXHxydYTn4QKlaBuXniWwuSe8Ed9Zfw5ciIRsHIMeapqVWYbqqxnnp0DwhcSw76Jmkisrr80FCw==",
+          "size": 1276294,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Cluster health tile on the host page and a Kubernetes entry in the host command palette\n- Optional alerts for nodes that are not ready and failing pods, set per host\n- Pods and workloads can be listed, restarted, scaled and deleted from Automations, the CLI, the phone app and the command palette through Termix actions\n- Failing pods show as a status tile on the dashboard and host page\n\n### Changed\n\n- Changing a cluster now needs edit access to the host, not just connect\n- Needs Termix 26.11.1 or newer\n- Resources, Helm, details and pod metrics use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-08T23:24:21.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -3187,8 +3215,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/tag/v1.0.1",
-          "notes": "### Added\n\n- Kubernetes clusters dashboard card: ready nodes and running and failing pods on each cluster\n\n### Changed\n\n- The resource and Helm grids fit as many cards as the tab has room for, or pick how many per row next to the grid and list switch",
-          "publishedAt": "2026-10-22T18:09:16.000Z"
+          "publishedAt": "2026-10-22T18:09:16.000Z",
+          "notes": "### Added\n\n- Kubernetes clusters dashboard card: ready nodes and running and failing pods on each cluster\n\n### Changed\n\n- The resource and Helm grids fit as many cards as the tab has room for, or pick how many per row next to the grid and list switch"
         },
         {
           "version": "1.0.0",
