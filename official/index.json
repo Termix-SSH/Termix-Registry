@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T22:57:10.355Z",
+  "updatedAt": "2026-11-08T23:00:52.397Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2613,7 +2613,7 @@
       "features": [
         "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
         "History charts for each host",
-        "Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard",
+        "Run health checks on each host",
         "Health checks for your hosts and services",
         "A layout you can rearrange per host",
         "Live stats in the terminal toolbar",
@@ -2624,8 +2624,10 @@
       "contributes": [
         "actionSlots",
         "dashboardCards",
+        "operations",
         "permissions",
         "settings",
+        "syncEntities",
         "tabs",
         "uiPresets",
         "uses"
@@ -2742,6 +2744,34 @@
       ],
       "gated": [
         {
+          "version": "1.4.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.4.0/host-metrics-1.4.0.tmxplug",
+          "sha256": "b8cde32bd6345be9831660068acc967fe6c06bf80d37441fb235b4cc161cf61b",
+          "signature": "HDTjSpBQysZKJGqIUXMbEKbvvF6aMlBV5SyROHR/vP0NXL6TQbK63qi8w1TQ6b3nk/5cb3eqCP0QaimFfCn8AA==",
+          "size": 894963,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.16",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.4.0",
+          "notes": "### Added\n\n- Open a host's metrics from the command palette\n- Dashboard layouts and layout templates sync to linked desktop apps (#23)\n- Export and import of layouts, health checks, dashboard templates and history, with `GET /export` and `POST /import` and buttons in the dashboard edit mode\n- Health checks show as a status tile on the dashboard and host page\n- CPU, memory, disk, network, uptime, system, processes and ports cards can go on Operations Center's host page as tiles\n- A Web Servers card, filled by the Web Servers plugin when it is installed\n- GPU readings on NVIDIA and AMD hosts refresh with live updates, like CPU and network\n\n### Changed\n\n- Cards sit edge to edge with shared lines and no gaps, like the dashboard, and the add list sits beside the grid with a search and filters\n- The default layout puts cards in rows that share one height, so there are no gaps between them\n- CPU, memory and disk open on the number, with a live chart of the last couple of minutes that scales to the data so small changes show, drawn like the history charts\n- Charts show a placeholder until their first readings come in, instead of an empty space\n- Network interfaces are rows with a line between them instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The memory card no longer shows an empty Hardware heading when the host does not report its memory modules\n- Disk throughput charts show one decimal for small rates instead of the same label on every line\n- The Tree button in the processes card and the protocol picker in the ports card are as tall as the search box next to them\n- CPU percent is no longer too high on hosts that run VMs, like Proxmox\n\n### Removed\n\n- The Firewall manager card. Changing firewall rules moved to the Firewall plugin, which fills the same card when it is installed. The Firewall status card stays\n- The Services, Timers and Log Viewer cards. The Services plugin fills them when it is installed\n- The WireGuard card. The WireGuard plugin fills it when it is installed\n- The Packages, Cron, Users and SSL cards. The Packages, Cron, Users and Certificates plugins fill them when they are installed\n- The Process Inspector card. The Process Manager plugin fills it when it is installed. The top processes card stays",
+          "publishedAt": "2026-11-08T22:59:53.000Z"
+        },
+        {
           "version": "1.3.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.3.1/host-metrics-1.3.1.tmxplug",
@@ -2765,8 +2795,8 @@
             "termix": ">=26.10.6"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.3.1",
-          "notes": "### Fixed\n\n- Live metrics no longer get stuck on hosts shown in several places at once, which filled the host's SSH connections and made the app report a lost server connection\n- A dashboard with many hosts no longer blocks the rest of the app. Live requests answer right away instead of waiting on the host, and only 6 dashboard rows update live at a time\n- Saving metrics history no longer slows down the whole server. History keeps one sample a minute per host and asks for a database save far less often\n- Opening metrics for a host whose SSH key has no saved passphrase now asks for the passphrase, and background collection stops retrying until then\n- Coming back to a browser tab after a while no longer shows the connection screen. The cards stay up while metrics reconnect, unless the reconnect fails",
-          "publishedAt": "2026-11-01T23:04:16.000Z"
+          "publishedAt": "2026-11-01T23:04:16.000Z",
+          "notes": "### Fixed\n\n- Live metrics no longer get stuck on hosts shown in several places at once, which filled the host's SSH connections and made the app report a lost server connection\n- A dashboard with many hosts no longer blocks the rest of the app. Live requests answer right away instead of waiting on the host, and only 6 dashboard rows update live at a time\n- Saving metrics history no longer slows down the whole server. History keeps one sample a minute per host and asks for a database save far less often\n- Opening metrics for a host whose SSH key has no saved passphrase now asks for the passphrase, and background collection stops retrying until then\n- Coming back to a browser tab after a while no longer shows the connection screen. The cards stay up while metrics reconnect, unless the reconnect fails"
         },
         {
           "version": "1.3.0",
