@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:09:56.755Z",
+  "updatedAt": "2026-11-08T23:15:44.681Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3056,10 +3056,35 @@
       "docs": "https://docs.termix.site/plugins/import-export",
       "contributes": [
         "http",
+        "operations",
         "permissions"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/download/v1.1.0/import-export-1.1.0.tmxplug",
+          "sha256": "76234befcded7902dc5de63e1e4a44012cb0bfaa4d048edf2aeeb69113aedaa3",
+          "signature": "0ZkM2TNKYplzuYaIikAi2OiyXTw5LEDMD5jfmU9X5Dmiq/F8z3HJhBl2hOq/6/OmPLEKvl9fhLoKeF1VP9C2Cg==",
+          "size": 93318,
+          "capabilities": [
+            "network:serve",
+            "hosts:read",
+            "hosts:write",
+            "hosts:export",
+            "credentials:write",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Export hosts without secrets and import an SSH config as operations",
+          "publishedAt": "2026-11-08T23:14:50.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -3080,8 +3105,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/tag/v1.0.1",
-          "notes": "### Added\n\n- Exports keep each host's color and icon with the tags",
-          "publishedAt": "2026-10-29T22:21:34.000Z"
+          "publishedAt": "2026-10-29T22:21:34.000Z",
+          "notes": "### Added\n\n- Exports keep each host's color and icon with the tags"
         },
         {
           "version": "1.0.0",
