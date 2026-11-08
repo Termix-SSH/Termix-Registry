@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:25:14.034Z",
+  "updatedAt": "2026-11-08T23:27:07.846Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3267,6 +3267,28 @@
       ],
       "versions": [
         {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.0.3/ldap-1.0.3.tmxplug",
+          "sha256": "576019d10ab11f6e7f451dcf954c00978bc88c77f918cd2a0950ac0eb2de517b",
+          "signature": "1BBgRcbpzZQHv/HeVmr7k71lNK8Mv5ph5MY23LWOzUi1jFV9RiRhIfYwiq4z/UW3jEjF6yXN0KBgYXls+GXWDg==",
+          "size": 367690,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.3",
+          "notes": "### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
+          "publishedAt": "2026-11-08T23:25:36.000Z"
+        },
+        {
           "version": "1.0.2",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.0.2/ldap-1.0.2.tmxplug",
@@ -3281,12 +3303,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.2",
-          "notes": "### Added\n\n- Default roles and group roles per LDAP directory, so new users get their custom roles at their first sign in\n\n### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:07:57.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- Default roles and group roles per LDAP directory, so new users get their custom roles at their first sign in\n\n### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -3304,11 +3326,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:37.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -3326,11 +3348,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:56:48.000Z",
-          "notes": "### Added\n\n- First release\n- Sign in against LDAP or Active Directory\n- More than one directory, each with its own login button\n- LDAPS checks the server certificate, with a CA field and a skip check switch\n- Make members of an admin group Termix admins",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Sign in against LDAP or Active Directory\n- More than one directory, each with its own login button\n- LDAPS checks the server certificate, with a CA field and a skip check switch\n- Make members of an admin group Termix admins"
         }
       ]
     },
