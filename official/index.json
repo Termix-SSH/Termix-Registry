@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:48:14.624Z",
+  "updatedAt": "2026-11-08T23:50:09.862Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3612,9 +3612,11 @@
       "docs": "https://docs.termix.site/plugins/network-topology",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
         "syncEntities",
-        "tabs"
+        "tabs",
+        "uses"
       ],
       "versions": [
         {
@@ -3630,12 +3632,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:35:47.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -3651,11 +3653,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:38.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -3671,11 +3673,34 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:41:48.000Z",
-          "notes": "### Added\n\n- First release\n- Add hosts and draw links between them\n- Live status for each host\n- Nested, colored groups\n- Import and export as JSON\n- A dashboard card for the graph",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Add hosts and draw links between them\n- Live status for each host\n- Nested, colored groups\n- Import and export as JSON\n- A dashboard card for the graph"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/download/v1.1.0/network-topology-1.1.0.tmxplug",
+          "sha256": "97e9078f5a0a7ca81dff1444a971776cc9397ac002e04d3b1816e07954bcbac0",
+          "signature": "BOuxzZSwSOSWMXo4thjFgWoVOks1/ZTEpidVF1pHQOXAqb60P2Jd6mHyNzeb0V77JhymcZ5IXGkK7Rn4YJqBAw==",
+          "size": 774827,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A homepage widget with your node and link counts\n- A read action for the saved graph, for the assistant and the CLI\n\n### Changed\n\n- The tab has the Termix page header and matches the rest of the app\n- Needs Termix 26.11.1 or newer\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The remove button in the graph toolbar has a name for screen readers",
+          "publishedAt": "2026-11-08T23:49:32.000Z"
         }
       ]
     },
