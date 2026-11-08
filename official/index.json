@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T20:36:17.852Z",
+  "updatedAt": "2026-11-08T20:39:44.070Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1321,6 +1321,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Credential-Tools",
       "icon": "KeyRound",
+      "video": "https://www.youtube.com/watch?v=R--YFT1XvTw",
       "features": [
         "Generate Ed25519, RSA and ECDSA key pairs",
         "Detect a key's type and get the public key from a private key",
@@ -1330,11 +1331,35 @@
       "docs": "https://docs.termix.site/plugins/credential-tools",
       "contributes": [
         "http",
+        "operations",
         "permissions"
       ],
-      "video": "https://www.youtube.com/watch?v=R--YFT1XvTw",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/download/v1.1.0/credential-tools-1.1.0.tmxplug",
+          "sha256": "bee8f48bcec97bddcea150645a4ca1ed64c401a8accd65e40dd2c66350728de9",
+          "signature": "seYMFL0BEYVOVab7h48dIlsnmkpNolyLvpA2Jk3Tdf7AhhVtI5mJcBQyHanyhXAT/j2QPjgSqB//hHHD8yXSAg==",
+          "size": 66418,
+          "capabilities": [
+            "network:serve",
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Add an SSH key to a host's authorized_keys through Termix actions, so one key can go to many hosts in a rollout\n- The assistant and MCP can list your SSH key names\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-08T20:38:49.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -1355,8 +1380,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Generate Ed25519, ECDSA and RSA key pairs in the credential editor\n- Get the public key from a private key, detect key types and check that a key pair matches\n- Deploy a key credential's public key to a host's authorized keys, written to the audit log",
-          "publishedAt": "2026-10-20T19:56:43.000Z"
+          "publishedAt": "2026-10-20T19:56:43.000Z",
+          "notes": "### Added\n\n- Generate Ed25519, ECDSA and RSA key pairs in the credential editor\n- Get the public key from a private key, detect key types and check that a key pair matches\n- Deploy a key credential's public key to a host's authorized keys, written to the audit log"
         }
       ]
     },
