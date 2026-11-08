@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:50:09.862Z",
+  "updatedAt": "2026-11-08T23:55:35.319Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3727,6 +3727,32 @@
       ],
       "versions": [
         {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.3/opkssh-1.0.3.tmxplug",
+          "sha256": "c139652fdec6dd004d64ea45afdf6083143864a2d887a7769ee0a6b4db0fa2da",
+          "signature": "qk87WbPZZh976b9+1/MYDBfDvoctdug5o08zz21GaDGaBTG9pNKHvKF+j3lO0ucrlMKI0M39a9Ir62GSC9EqAQ==",
+          "size": 195798,
+          "capabilities": [
+            "db:own",
+            "files:own",
+            "secrets:own",
+            "hosts:read",
+            "process:spawn",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.3",
+          "notes": "### Changed\n\n- The page you land on after signing in now matches the Termix look and follows your theme and language",
+          "publishedAt": "2026-11-08T23:54:39.000Z"
+        },
+        {
           "version": "1.0.2",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.2/opkssh-1.0.2.tmxplug",
@@ -3745,12 +3771,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Signing in never showed the browser dialog when the config had a default_provider or a single provider, since OPKSSH then skips its provider chooser",
           "publishedAt": "2026-10-18T04:31:22.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Signing in never showed the browser dialog when the config had a default_provider or a single provider, since OPKSSH then skips its provider chooser"
         },
         {
           "version": "1.0.1",
@@ -3772,11 +3798,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:40.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -3798,11 +3824,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:56:53.000Z",
-          "notes": "### Added\n\n- First release\n- Adds the OPKSSH auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates last 24 hours, so you sign in once a day\n- Uses a pinned, checksum verified `opkssh` release",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Adds the OPKSSH auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates last 24 hours, so you sign in once a day\n- Uses a pinned, checksum verified `opkssh` release"
         }
       ]
     },
