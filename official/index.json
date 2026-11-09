@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:02:25.880Z",
+  "updatedAt": "2026-11-09T01:17:45.237Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4105,6 +4105,63 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Out-Of-Band/releases/tag/v1.0.0",
           "notes": "### Added\n\n- Manage server BMCs over Redfish, IPMI over LAN and Intel AMT\n- Power on, shut down, reset, power cycle and power off\n- Sensors for temperatures, fans, voltages and power supplies with alerts\n- Hardware event log, read and clear\n- Boot once from PXE, disk, CD, USB or BIOS setup\n- Virtual media for Redfish BMCs\n- Serial over LAN console for IPMI through a relay host\n- Link a BMC to a host, or reach IPMI through a relay host\n- Dashboard card, host menu button, operations and the `out-of-band.power` service",
           "publishedAt": "2026-11-09T00:54:30.000Z"
+        }
+      ]
+    },
+    {
+      "id": "package-manager",
+      "name": "Packages",
+      "description": "See and install updates on your hosts, search, install and remove packages, and read the package history.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Package-Manager",
+      "icon": "Package",
+      "features": [
+        "See pending updates with security updates marked, and install one, some or all",
+        "Refresh the package index and see when a reboot is needed",
+        "Browse installed packages, remove them or hold them at their version",
+        "Search for packages and install them",
+        "Read the package history and the list of repositories",
+        "Works with apt, dnf, yum, zypper, pacman and apk",
+        "A dashboard card and homepage widget with pending updates on every host, a Packages card in Host Metrics and a panel beside terminals"
+      ],
+      "docs": "https://docs.termix.site/plugins/package-manager",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Package-Manager/releases/download/v1.0.0/package-manager-1.0.0.tmxplug",
+          "sha256": "f55c3a597f65dfab5459c9ae15a25de465032e06e9f28419569e09e357f3584c",
+          "signature": "3dyNXMxhtq4AMYuhc8TwldzqLXcHTi2m22HeQX/mNSJsiY7GM7tlCQDK+JqMG+ZNyw+XpuIhGGVIvu6eWAUbCA==",
+          "size": 250114,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Package-Manager/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Upgrade, install and remove packages through Termix actions, and see pending updates as a status tile\n- See pending updates with security updates marked, and install one, some or all\n- Refresh the package index and see when a reboot is needed\n- Browse installed packages, remove them or hold them at their version\n- Search for packages and install them\n- Read the package history and the list of repositories\n- Works with apt, dnf, yum, zypper, pacman and apk\n- A dashboard card with pending updates on every host and a Packages card in Host Metrics\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-09T01:16:49.000Z"
         }
       ]
     },
