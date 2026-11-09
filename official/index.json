@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:42:37.396Z",
+  "updatedAt": "2026-11-09T01:46:45.283Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4282,6 +4282,64 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Privileged-Access/releases/tag/v1.0.0",
           "notes": "### Added\n\n- First release\n- Mark a host as privileged, so SSH and remote desktop sessions to it need approved access\n- Ask for access with a reason, a ticket and the hours you need, from the Access tab or the host menu\n- Approvers decide in the Access tab or from the alert, never for their own request. A host can name the roles that may approve\n- Access ends on its own, and the user's open sessions on the host close when it ends or is revoked\n- Break glass access for emergencies, always audited and alerted\n- Requests nobody decides expire\n- History and a CSV report of every request\n- Dashboard card with requests waiting on you and your open access\n- Termix actions to ask for access, list requests to decide, and a status tile on the host page",
           "publishedAt": "2026-11-09T01:26:35.000Z"
+        }
+      ]
+    },
+    {
+      "id": "process-manager",
+      "name": "Process Manager",
+      "description": "See and control running processes, pm2 and supervisor apps on your hosts, read their logs and get alerts when they fail.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Process-Manager",
+      "icon": "Activity",
+      "features": [
+        "A live process list with a tree, sorting and a detail view",
+        "Send signals and change the priority of a process",
+        "Manage pm2 and supervisor apps",
+        "Read and follow logs from services, apps and open files",
+        "Watches that alert on a process or app going down, restarting too often or using too much CPU or memory",
+        "Restart a failed app automatically, up to three times an hour",
+        "Actions, status tiles and events for Operations, Automations, the assistant and the CLI",
+        "A Processes card in Host Metrics, a side panel on terminals and a dashboard card"
+      ],
+      "docs": "https://docs.termix.site/plugins/process-manager",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Process-Manager/releases/download/v1.0.0/process-manager-1.0.0.tmxplug",
+          "sha256": "0e53bb3d6e214f5f187b0d7e643e789e316f4a15c4acf9fbacc879c6c27d2df7",
+          "signature": "/9CACsutEy1O8A5uOZ0/c3lCIfZsg6iaxxEX6qZqmMiTgvQHHFMPj4ulgN9wqB0Kc7ZcphLvS1dT1VHTvihuAA==",
+          "size": 346208,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Process-Manager/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A live process list with a tree, sorting and a detail view\n- Send signals and change the priority of a process\n- Manage pm2 and supervisor apps\n- Read and follow logs from services, apps and open files\n- Watches that alert on a process or app going down, restarting too often or using too much CPU or memory\n- Restart a failed app automatically, up to three times an hour\n- Actions, status tiles and events for Operations, Automations, the assistant and the CLI\n- A Processes card in Host Metrics, a side panel on terminals and a dashboard card\n- A tile on the Operations Center host page\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-09T01:45:46.000Z"
         }
       ]
     },
