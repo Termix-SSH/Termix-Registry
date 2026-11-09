@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:34:53.245Z",
+  "updatedAt": "2026-11-09T01:36:55.165Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4752,12 +4752,41 @@
       "docs": "https://docs.termix.site/plugins/reverse-proxy",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
         "settings",
-        "tabs"
+        "tabs",
+        "uses"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/download/v1.2.0/reverse-proxy-1.2.0.tmxplug",
+          "sha256": "98075b1496640259b0d60030c3c04fd03df8d1e099c67262d47233fc1274495d",
+          "signature": "GVjF3cTSL8uL+onCAo05HKmWIee+LuU8p9y7bHU3gK+HH3ix0AMwb4jq4p6P8buKxhH+/3vMMK3H4Qdd9cFnDw==",
+          "size": 1150450,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "network:serve",
+            "network:outbound",
+            "secrets:own",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Web endpoint domain: one wildcard domain that lets Web Endpoint open internal web pages through Termix, with no route or DNS record per app (Plugin-Web-Endpoint #7)\n- Proxy routes across hosts in the All hosts table with their addresses, turning routes on and off through Termix actions, and failing routes as a status tile\n- Sign in to Termix right on the login page of a protected route, with password, LDAP, passkeys, two-factor codes and security keys. SSO opens in a new tab and the page continues by itself\n\n### Changed\n\n- The login page in front of a route now looks like the Termix sign in screen and follows your theme, language and branding\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The Open Termix button on the login page opened an error page instead of Termix\n- The Reverse Proxy tab shows a loading message instead of a blank screen while it loads\n- The sign in page no longer fails on PostgreSQL when the link has no valid route\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-09T01:35:51.000Z"
+        },
         {
           "version": "1.1.1",
           "api": "1",
@@ -4781,8 +4810,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.1.1",
-          "notes": "### Fixed\n\n- Redirects from an app no longer send visitors to the target's own address, like a Tailscale IP. They now point at the route's domain, and plain http redirects move to https",
-          "publishedAt": "2026-11-02T23:42:17.000Z"
+          "publishedAt": "2026-11-02T23:42:17.000Z",
+          "notes": "### Fixed\n\n- Redirects from an app no longer send visitors to the target's own address, like a Tailscale IP. They now point at the route's domain, and plain http redirects move to https"
         },
         {
           "version": "1.1.0",
@@ -4935,6 +4964,30 @@
       ],
       "versions": [
         {
+          "version": "1.1.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.1.2/secret-sources-1.1.2.tmxplug",
+          "sha256": "8142e2dff5ac3774b291b5ee96fd2beb7df14720c41041babf1b6e9a692713be",
+          "signature": "DMl8paKq27H0jXWGY6PToUsSRaUInfrW3MSTy+VgASgsnT4OrgB7EaEf7Axs7WSMqeiKFjsZxWerrTHbzo6tDQ==",
+          "size": 149185,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.1.2",
+          "notes": "### Fixed\n\n- Vault KV v1 references work with a token that can only read the v1 path",
+          "publishedAt": "2026-11-09T01:35:38.000Z"
+        },
+        {
           "version": "1.1.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.1.1/secret-sources-1.1.1.tmxplug",
@@ -4955,8 +5008,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.1.1",
-          "notes": "### Added\n\n- Test a secret reference in the sources panel. It says if the secret was found, is missing, is refused or the source cannot be reached, and never shows the secret\n\n### Fixed\n\n- Saving a new source no longer fails with error 500 on a server first set up before 26.10",
-          "publishedAt": "2026-11-01T23:04:43.000Z"
+          "publishedAt": "2026-11-01T23:04:43.000Z",
+          "notes": "### Added\n\n- Test a secret reference in the sources panel. It says if the secret was found, is missing, is refused or the source cannot be reached, and never shows the secret\n\n### Fixed\n\n- Saving a new source no longer fails with error 500 on a server first set up before 26.10"
         },
         {
           "version": "1.1.0",
