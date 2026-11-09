@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T02:03:20.866Z",
+  "updatedAt": "2026-11-09T02:05:28.875Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -6711,12 +6711,45 @@
       ],
       "docs": "https://docs.termix.site/plugins/sync",
       "contributes": [
+        "dashboardCards",
+        "operations",
         "panels",
         "permissions",
         "settings"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Sync/releases/download/v1.2.0/sync-1.2.0.tmxplug",
+          "sha256": "89352a7b1de95cf7ca204bd791765347bd4b0848e28ccbcf776aef2605fa141a",
+          "signature": "6JVev8F9WOQanhz8CvQSLX1k4TMJ7qvx9q3gHIPcck2V85urwz4qa5H7lrmUzNZsjIUnJsXI5ycGkyLdjgU2Dg==",
+          "size": 475111,
+          "capabilities": [
+            "sync:provide",
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "hosts:lock",
+            "ssh:transport",
+            "users:impersonate",
+            "network:outbound",
+            "network:serve",
+            "kv:own",
+            "secrets:own",
+            "ui:surface",
+            "operations:provide",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.10",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Sync/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Refresh a remote site through Termix actions and see unreachable sites as a status tile\n- A dashboard card with reachable sites and their hosts\n- An alert when a remote site stops answering and when it is back, with an admin setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-09T02:03:56.000Z"
+        },
         {
           "version": "1.1.0",
           "api": "1",
@@ -6743,8 +6776,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Sync/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- POST /sync/v2/ids maps many sync ids to the server's host and snippet ids in one request\n- A dot on the Sync icon shows if the desktop is connected to its server (needs Classic Layout 1.1.0)\n\n### Fixed\n\n- On the desktop, plugins like File Manager, Host Metrics and Tmux Monitor now connect through the server for hosts set to start connections on the server (needs Termix 26.10.6)\n- A lost answer to a session refresh no longer signs the desktop or phone out, the old session keeps working for five minutes\n- A row the server lost (after a restore) is sent again as new instead of retried forever\n- Linking to a Termix server that has the Sync plugin turned off says so, instead of saying there is no Termix server at that address",
-          "publishedAt": "2026-10-29T22:24:35.000Z"
+          "publishedAt": "2026-10-29T22:24:35.000Z",
+          "notes": "### Added\n\n- POST /sync/v2/ids maps many sync ids to the server's host and snippet ids in one request\n- A dot on the Sync icon shows if the desktop is connected to its server (needs Classic Layout 1.1.0)\n\n### Fixed\n\n- On the desktop, plugins like File Manager, Host Metrics and Tmux Monitor now connect through the server for hosts set to start connections on the server (needs Termix 26.10.6)\n- A lost answer to a session refresh no longer signs the desktop or phone out, the old session keeps working for five minutes\n- A row the server lost (after a restore) is sent again as new instead of retried forever\n- Linking to a Termix server that has the Sync plugin turned off says so, instead of saying there is no Termix server at that address"
         },
         {
           "version": "1.0.1",
@@ -6826,6 +6859,7 @@
       "contributes": [
         "auth",
         "dashboardCards",
+        "operations",
         "panels",
         "permissions",
         "settings",
@@ -6854,8 +6888,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Tailnet dashboard card: how many devices are online and the list, online first",
-          "publishedAt": "2026-10-22T18:02:45.000Z"
+          "publishedAt": "2026-10-22T18:02:45.000Z",
+          "notes": "### Added\n\n- Tailnet dashboard card: how many devices are online and the list, online first"
         },
         {
           "version": "1.0.2",
@@ -6931,6 +6965,35 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Add tailnet devices as hosts in a couple of clicks\n- Connect with Tailscale SSH, with no credentials stored\n- Works with Headscale\n- A Tailscale card in Host Metrics"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/download/v1.2.0/tailscale-1.2.0.tmxplug",
+          "sha256": "d446031c93d1b79590ef1ac98b9bf54acd6dceb0619a2afd871f3bc955be5537",
+          "signature": "FCKD2CLEx6AHh6V7BFoBPBGB9G3DaGeXpjr7n9pacuGFCq29r+hnO7y5doNPJWKUssswNLKXJzXbH4dv5jj1Ag==",
+          "size": 157946,
+          "capabilities": [
+            "hosts:read",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ssh:connect",
+            "credentials:use",
+            "credentials:read",
+            "ui:surface",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Connect and disconnect Tailscale on a host through Termix actions, and whether it is connected as a status tile\n- Headscale servers list their devices too: pick Headscale as the control server in settings\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-09T02:03:34.000Z"
         }
       ]
     },
@@ -7068,12 +7131,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:00:14.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -7092,11 +7155,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:12.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -7115,11 +7178,36 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T19:12:16.000Z",
-          "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/download/v1.1.0/termix-identity-1.1.0.tmxplug",
+          "sha256": "915d7bcae0ac1046cf25f877f502324d46883b35aa8ad937cdefc240bfae43f6",
+          "signature": "WmWV/xtmGb5l2LSMp0fsr7+Bon4U0lz0885PaYjK2py4ve+wBxA6vi6Xw8ZoBgcXRr+65zLIMGG3UpObY5pbCw==",
+          "size": 191863,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "credentials:use",
+            "credentials:write",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.16",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A certificate issued for a key that came from a saved login is stored on that login, so the next connection uses it\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable",
+          "publishedAt": "2026-11-09T02:03:21.000Z"
         }
       ]
     },
