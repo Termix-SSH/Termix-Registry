@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T03:03:29.233Z",
+  "updatedAt": "2026-11-09T03:09:52.180Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8155,25 +8155,93 @@
       ]
     },
     {
+      "id": "virtual-machines",
+      "name": "Virtual Machines",
+      "description": "Create and manage KVM virtual machines on your Linux hosts over SSH with libvirt.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Virtual-Machines",
+      "icon": "MonitorCog",
+      "features": [
+        "See and control every VM on your KVM hosts, or across all of them at once",
+        "Make VMs from a cloud image or an ISO, with cloud-init for the login",
+        "Change CPUs, memory, disks, network cards and the raw XML",
+        "Snapshots, clones and autostart",
+        "Storage pools, volumes, ISO downloads and virtual networks",
+        "A graphical console through Remote Desktop, and a serial console",
+        "Long jobs run on the host, so they survive a Termix restart",
+        "Alerts when a VM crashes or stops, or a pool fills up",
+        "A VM panel beside any SSH terminal, a dashboard card and host page tiles",
+        "Works with Automations, Fleets, the CLI, the assistant and MCP through Termix actions"
+      ],
+      "docs": "https://docs.termix.site/plugins/virtual-machines",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Virtual-Machines/releases/download/v1.0.0/virtual-machines-1.0.0.tmxplug",
+          "sha256": "f24d75da432baa7164cf8602a52c3890c45f061d0f9862dea8e6e03ebafad01e",
+          "signature": "YoxdaMfbjc9kF6kU4U73r4gABBoZZQbPyerPSqNri7I9ZqYa6aexmGnmANziQKjDhQkjFQtdQyizNtVwjw6UBQ==",
+          "size": 1307923,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Virtual-Machines/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- See and control KVM virtual machines on your Linux hosts over SSH with libvirt\n- New VMs from a cloud image, an ISO or an empty disk, with cloud-init for the login\n- Change CPUs, memory, disks, network cards and the raw XML\n- Snapshots, clones and autostart\n- Storage pools, volumes, downloads and virtual networks\n- A graphical console through Remote Desktop and a serial console\n- Install libvirt from Termix\n- Jobs that run on the host and survive a Termix restart\n- Alerts when a VM crashes or stops, or a storage pool fills up\n- All VMs tab, dashboard card, homepage widget, terminal panel and host page tile\n- Termix actions for Operations Center, Automations, Fleets, the CLI, the assistant and MCP",
+          "publishedAt": "2026-11-09T03:09:20.000Z"
+        }
+      ]
+    },
+    {
       "id": "wake-on-lan",
       "name": "Wake-on-LAN",
-      "description": "Wake sleeping machines by sending a Wake-on-LAN packet to their MAC address.",
+      "description": "Wake, shut down and track your machines from one power dashboard.",
       "author": "Termix",
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN",
       "icon": "Zap",
       "video": "https://www.youtube.com/watch?v=mGyiovySI5g",
       "features": [
-        "Wake a host in one click",
+        "A Power tab with every machine, its status, last seen time and a power button",
+        "Wake from the Termix server, or from any SSH host on the machine's network",
+        "Shut down over SSH, with Sleep-On-LAN or with your own command",
+        "Check status by port, ping or your own command",
+        "Find machines with a network scan and attach them to existing hosts",
+        "Wake and shut down on a schedule with cron",
+        "Turn on over the network with a SecureON password",
+        "A dashboard card and homepage widget with power buttons",
         "Wake a host before a remote desktop connection",
-        "Wake a host from an automation",
-        "A dashboard card to wake any host with a MAC address"
+        "Wake a host from an automation"
       ],
       "docs": "https://docs.termix.site/plugins/wake-on-lan",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
-        "settings"
+        "settings",
+        "tabs",
+        "uses"
       ],
       "versions": [
         {
@@ -8194,8 +8262,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Wake-on-LAN dashboard card: wake any host with a MAC address in one click",
-          "publishedAt": "2026-10-22T18:05:46.000Z"
+          "publishedAt": "2026-10-22T18:05:46.000Z",
+          "notes": "### Added\n\n- Wake-on-LAN dashboard card: wake any host with a MAC address in one click"
         },
         {
           "version": "1.0.2",
@@ -8259,6 +8327,41 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Wake a host in one click from its menu\n- Wake a host before a remote desktop connection\n- Wake a host from an automation\n- Per-host MAC address and subnet broadcast address"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/download/v1.2.0/wake-on-lan-1.2.0.tmxplug",
+          "sha256": "740bcc683324644474be73310b13031001528a4b9469e4235eafe258a429500b",
+          "signature": "3lFCQHOARw1oOTaRDMpKdsWRyhLaYCZs/clSZfr0rgbxfwmkWZWoTA3BqnJ+wkE2qbB+DfVhbZQwJZqAJPviDw==",
+          "size": 337742,
+          "capabilities": [
+            "credentials:use",
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "kv:own",
+            "network:broadcast",
+            "network:outbound",
+            "network:probe",
+            "network:serve",
+            "notify:send",
+            "operations:provide",
+            "process:spawn",
+            "secrets:own",
+            "ssh:connect",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Power tab: every machine with its status, last change, open ports and a power button\n- Send the wake packet from any SSH host on the machine's network, for when Termix is somewhere else\n- Keep a host's own address and set a separate LAN IP, so a Tailscale host needs no second entry\n- Network scan from an SSH host or the Termix server, with results matched to your hosts\n- Shut down over SSH, with Sleep-On-LAN, or with your own command\n- Status from ports, ping through an SSH host, or your own command\n- Custom wake, shutdown and check commands with `{{ DEVICE_IP }}` and `{{ DEVICE_MAC }}`\n- Commands can run over SSH, or on the Termix server once an admin allows it\n- Wake and shut down on a cron schedule, with an alert if a run fails\n- Use the BMC from the Out-of-band plugin to power on and shut down, switched on per device\n- Wake, shut down and sleep from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Power state shows as a status tile on the dashboard and host page\n- SecureON passwords, wake port 7 or 9, broadcast worked out from the LAN IP and netmask\n- Device description, a clickable link that can open after waking, and a confirm step\n- Wake all for a folder\n- Homepage widget with status and power buttons\n- Shut down button on the host row\n- Shut down, scan and server command permissions\n\n### Changed\n\n- The dashboard card shows status and shuts machines down as well as waking them\n- The Wake-on-LAN host settings now sit behind a Power switch, turned on for hosts that already have a MAC\n- Automations and Mobile wake a host with its saved method\n\n### Fixed\n\n- Wake in the desktop app sends from the server when the host connects from the server, like it does in a browser",
+          "publishedAt": "2026-11-09T03:09:36.000Z"
         }
       ]
     },
@@ -8538,6 +8641,29 @@
       ],
       "versions": [
         {
+          "version": "1.3.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/download/v1.3.0/webauthn-1.3.0.tmxplug",
+          "sha256": "38984a88ceccd573f8152928ead71a645a826ac51e64f17a85fb4725e88c7369",
+          "signature": "a8xa1o4Y4B5W9cc6YgPAtbZ3snuhH+OEhC8jXrcwz6e/IaspTMcQnXEWMnTbFyIifxaaSyinp9KQ4l+pi/NcCw==",
+          "size": 506460,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "auth:provide",
+            "settings:read-core",
+            "ui:surface",
+            "db:core-refs"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/tag/v1.3.0",
+          "notes": "### Added\n\n- An admin setting to hide the Passkeys button on the single sign-on page only, so it stays on the password page (Plugin-Login-Security #1). Needs Termix 26.11.1\n\n### Fixed\n\n- Turning off the security key step, or removing a key while it is on, now asks you to tap a key first",
+          "publishedAt": "2026-11-09T03:08:49.000Z"
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/download/v1.2.0/webauthn-1.2.0.tmxplug",
@@ -8557,8 +8683,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- An admin setting to turn off passkey sign in, which hides the Passkeys button on the sign in page. Security keys as a second factor keep working",
-          "publishedAt": "2026-10-29T22:22:28.000Z"
+          "publishedAt": "2026-10-29T22:22:28.000Z",
+          "notes": "### Added\n\n- An admin setting to turn off passkey sign in, which hides the Passkeys button on the sign in page. Security keys as a second factor keep working"
         },
         {
           "version": "1.1.0",
