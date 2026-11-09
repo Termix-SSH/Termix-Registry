@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T03:09:52.180Z",
+  "updatedAt": "2026-11-09T03:15:12.942Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8799,6 +8799,7 @@
       "docs": "https://docs.termix.site/plugins/workspaces",
       "contributes": [
         "dashboardCards",
+        "operations",
         "panels",
         "permissions",
         "settings",
@@ -8822,8 +8823,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Workspaces dashboard card: open a saved workspace or your last session in one click",
-          "publishedAt": "2026-10-22T18:10:42.000Z"
+          "publishedAt": "2026-10-22T18:10:42.000Z",
+          "notes": "### Added\n\n- Workspaces dashboard card: open a saved workspace or your last session in one click"
         },
         {
           "version": "1.0.2",
@@ -8884,6 +8885,29 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Save your tabs and split layout as a named workspace\n- Reopen it in one click\n- Recover your last session\n- Syncs between the desktop app and a Termix server"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.1.1/workspaces-1.1.1.tmxplug",
+          "sha256": "e76a7b3f859850f1f457d3bf6b093da6c87a0ec08a70fbdd65aed48c1818a700",
+          "signature": "OFQqatvm5GTp+WN7t9QMEnOKO12zJciht3VHV+tF5UVXVyg5W98zVqhpXda8RX2Tjop5yCysAbIDiToXm6EmBg==",
+          "size": 145215,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.1.1",
+          "notes": "### Added\n\n- Saved workspaces in the command palette\n- A read action that lists workspaces, for the assistant and the CLI\n\n### Changed\n\n- Settings use the Termix tile look\n- Needs Termix 26.11.1 or newer\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- A failed save no longer leaves an uncaught error behind the toast",
+          "publishedAt": "2026-11-09T03:14:11.000Z"
         }
       ]
     }
