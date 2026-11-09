@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:52:32.776Z",
+  "updatedAt": "2026-11-09T01:56:52.293Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5391,7 +5391,7 @@
     {
       "id": "session-recording",
       "name": "Session Recording",
-      "description": "Record terminal and remote desktop sessions and play them back or download them later.",
+      "description": "Record terminal and remote desktop sessions, watch them live, and keep an audited, encrypted record of who did what.",
       "author": "Termix",
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Session-Recording",
@@ -5402,12 +5402,18 @@
         "Play recordings back at any speed",
         "Download a recording as a file or plain text",
         "Old recordings are removed after a number of days you choose",
-        "A dashboard card with your latest recordings"
+        "A dashboard card with your latest recordings",
+        "Make recording required on every host or only on privileged ones",
+        "Recordings are encrypted on disk and checked for changes",
+        "Auditors see every recording, with a history of who watched each one",
+        "Watch and end anyone's live session",
+        "Alert or end a session when a typed command matches a rule"
       ],
       "docs": "https://docs.termix.site/plugins/session-recording",
       "contributes": [
         "dashboardCards",
         "hostCapability",
+        "operations",
         "permissions",
         "settings",
         "tabs"
@@ -5434,8 +5440,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.1.1",
-          "notes": "### Fixed\n\n- RDP, VNC and Telnet recordings play instead of showing a black screen\n- Remote desktop recordings fit the panel when you press play",
-          "publishedAt": "2026-11-01T23:05:02.000Z"
+          "publishedAt": "2026-11-01T23:05:02.000Z",
+          "notes": "### Fixed\n\n- RDP, VNC and Telnet recordings play instead of showing a black screen\n- Remote desktop recordings fit the panel when you press play"
         },
         {
           "version": "1.1.0",
@@ -5532,6 +5538,36 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose\n- Only admins can delete a recording"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.2.0/session-recording-1.2.0.tmxplug",
+          "sha256": "3f3e88c1556f01c6a5c0a298513fe4ae6e97c098a76f592c6668be0f61a26835",
+          "signature": "4Q+geVQ2vEq9uA5XMPTb60o9qNApYjTKOFtJBBaBPXJBbVXlT7ztleYSsNhD1EBWdlHcodx/uCMrMyfHHU9NDQ==",
+          "size": 963826,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "files:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "db:core-refs",
+            "operations:provide",
+            "secrets:own",
+            "notify:send",
+            "kv:own"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- List a host's recordings through Termix actions, so they show on the host page\n- Recording storage tile and a recordings list on the host page, open to the assistant and MCP\n- Admins can make recording required on every host or only on privileged ones. Users can't stop a required recording\n- New recordings are encrypted on disk, and each one keeps a fingerprint you can check for changes\n- Auditors, with the new Audit every session permission, see everyone's recordings and who opened each one\n- Every time a recording is watched or downloaded it goes to the audit log, and auditors can get an alert\n- Put a recording on hold so it is never deleted\n- Live tab: auditors see every open SSH and remote desktop session, watch it read only and end it\n- Rules tab: alert auditors, or end the session, when a typed or printed line matches a rule. Starter rules come turned off\n- A host setting to put the time in front of each line of a text download\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Settings use the Termix tile look\n- Admins can delete any recording, not only their own\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-09T01:56:30.000Z"
         }
       ]
     },
@@ -5710,6 +5746,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Simple-Layout",
       "icon": "PanelTop",
+      "video": "https://www.youtube.com/watch?v=ZFAPeEuqfJ0",
       "features": [
         "Top bar with tabs, search and settings",
         "Home screen with a card for each host",
@@ -5721,9 +5758,28 @@
         "layouts",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=ZFAPeEuqfJ0",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/download/v1.0.2/simple-layout-1.0.2.tmxplug",
+          "sha256": "5bb8e80004a1ebfed157394e4010785eb8c9789ff302bdf7fad6c120d829cc6f",
+          "signature": "6ZVVBJnNUWYfsEInyqIgriyJhM7XtMMESE56FQ+6O+orCbGCcv7e/oNX4bfcl7355psrdD2di5YMKKlGjQWFBQ==",
+          "size": 202230,
+          "capabilities": [
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/tag/v1.0.2",
+          "notes": "### Added\n\n- Host cards show the badges plugins add next to a host's name, such as the Operations Center attention dot\n\n### Changed\n\n- Home uses the Termix tile look, with host cards edge to edge\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them\n- A host's saved password no longer shows as placeholder text in the host form, and emptying a password, key or passphrase field keeps the saved one\n- Emptying the private key of a new host no longer marks it as saved\n- Opening a host that no longer exists shows a message instead of a new host form\n- Switching between plugin settings pages quickly no longer shows the first plugin's values",
+          "publishedAt": "2026-11-09T01:55:51.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -5741,8 +5797,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/tag/v1.0.1",
-          "notes": "### Fixed\n\n- The Hosts tab was named Manage in the top bar",
-          "publishedAt": "2026-10-22T04:22:44.000Z"
+          "publishedAt": "2026-10-22T04:22:44.000Z",
+          "notes": "### Fixed\n\n- The Hosts tab was named Manage in the top bar"
         },
         {
           "version": "1.0.0",
