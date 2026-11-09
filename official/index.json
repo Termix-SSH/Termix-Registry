@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T00:54:57.397Z",
+  "updatedAt": "2026-11-09T01:02:25.880Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4127,8 +4127,11 @@
       "docs": "https://docs.termix.site/plugins/proxmox",
       "contributes": [
         "dashboardCards",
+        "operations",
+        "permissions",
         "settings",
-        "tabs"
+        "tabs",
+        "uses"
       ],
       "versions": [
         {
@@ -4154,8 +4157,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.2.1",
-          "notes": "### Fixed\n\n- Switching browser tabs no longer shows the connection screen on Proxmox stats. A quick switch keeps the session, and after a longer one the stats stay up while they reconnect, unless the reconnect fails",
-          "publishedAt": "2026-11-01T23:02:13.000Z"
+          "publishedAt": "2026-11-01T23:02:13.000Z",
+          "notes": "### Fixed\n\n- Switching browser tabs no longer shows the connection screen on Proxmox stats. A quick switch keeps the session, and after a longer one the stats stay up while they reconnect, unless the reconnect fails"
         },
         {
           "version": "1.2.0",
@@ -4286,6 +4289,37 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Find and import VMs and LXC containers from a node\n- Keep imported hosts in sync on a schedule\n- Set up Windows guests for RDP and turn on Docker for guests by name\n- Node, guest, storage and cluster stats in their own tab"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.3.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.3.0/proxmox-1.3.0.tmxplug",
+          "sha256": "6f8b3cca5b8ee5cf0616dcde0a98d751777445383323926cc1a442f28b73a306",
+          "signature": "EDOl+2t84b7ranm5zIwH/JXntb9VCZbstkl7+G4F9084Tnor4fv54g9tZ2WSpuHj8oi53y9386GZYqEo64iECA==",
+          "size": 349456,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.3.0",
+          "notes": "### Added\n\n- Start, shut down, reboot and stop VMs and containers through Termix actions, list guests across clusters and see running guests as a status tile\n- Permission Manage Proxmox guests\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The overview uses the Termix tile look, with tiles edge to edge and lines between them instead of separate cards\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The Discover button is as tall as the node picker next to it",
+          "publishedAt": "2026-11-09T01:01:25.000Z"
         }
       ]
     },
