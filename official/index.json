@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:17:45.237Z",
+  "updatedAt": "2026-11-09T01:25:29.380Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3916,6 +3916,70 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Object-Storage/releases/tag/v1.0.0",
           "notes": "### Added\n\n- A Buckets tab to browse and manage S3-compatible object storage\n- Works with Amazon S3, MinIO, Cloudflare R2, Backblaze B2, Wasabi, DigitalOcean Spaces, Hetzner and other S3-compatible services\n- Folders, upload (large files go in parts), download with resume, preview for images and text\n- Copy, move, rename and delete for objects and whole folders\n- Temporary links to share an object\n- Create and delete buckets, and edit versioning, lifecycle rules, CORS, policy, tags, encryption and public access\n- A daily size history for every bucket and alerts when a bucket passes its limit or a login stops working\n- Actions for the assistant, rules and the CLI, and a dashboard card",
           "publishedAt": "2026-11-09T00:47:09.000Z"
+        }
+      ]
+    },
+    {
+      "id": "operations-center",
+      "name": "Operations Center",
+      "description": "Run, roll out, approve and track every plugin action across your hosts, with a page per host and tables across all of them.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Operations-Center",
+      "icon": "Activity",
+      "features": [
+        "Run any action any plugin offers, with a form, a dry run and the result",
+        "Roll an action out across many hosts with a canary, batches and a failure limit",
+        "One history of every action, who ran it, from where and what happened",
+        "Approve or reject what the assistant, MCP or a rule says needs a person",
+        "Rules for what needs approval, by risk, plugin, action, where it came from and host tag",
+        "Drift checks that watch hosts stay the way they should, with an optional fix",
+        "A page per host with every tool, status tiles and recent changes in one tab",
+        "A host page made of tiles you arrange: status, sessions, metrics, lists and one click actions",
+        "The host page beside every terminal, in the tab bar and in the host menu",
+        "A dot on the host list when a host needs attention",
+        "Tables across every host, such as all containers or services, with bulk actions",
+        "An MCP server so outside AI tools can use Termix actions with an API key",
+        "A Needs attention card on the dashboard",
+        "Status and action tiles for the dashboard from every plugin",
+        "Status tiles and one click action buttons for the homepage"
+      ],
+      "docs": "https://docs.termix.site/plugins/operations-center",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Operations-Center/releases/download/v1.0.0/operations-center-1.0.0.tmxplug",
+          "sha256": "b25f365e200ccc8eeaa54526aa9bfe39d24a5a05424d4e5f1696f5a97c79ebe9",
+          "signature": "BUzWJ2Ksk0WDhBWrH2uypqMXOgdctnhCSYSMbpnbeRU8/Cnbs4UVWlMsFLrcealChL7LbnisFMPq0iJu1JtRBQ==",
+          "size": 496196,
+          "capabilities": [
+            "db:own",
+            "hosts:read",
+            "kv:own",
+            "network:serve",
+            "notify:send",
+            "operations:approve",
+            "operations:invoke",
+            "secrets:own",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Operations-Center/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Operations tab with an overview you can arrange, a side menu with counts for approvals, failed runs, rollouts and drift, and a searchable list of every action any plugin offers with its form beside it\n- Rollouts: one action across many hosts with a canary, batches, a pause between them and a failure limit\n- History of every action with who ran it, from where and what happened, plus cancel and undo. Filter it by action, host or status\n- Approvals for actions a rule holds, showing exactly what will run\n- Approval rules by risk, plugin, action, where a run came from and host tag\n- Drift checks that run on a schedule, show which hosts drifted and can fix them\n- A page per host made of tiles you can move, resize, add and remove: status, the terminal and other sessions, lists like containers, one click actions, plugin tiles such as metrics and recent changes. Every tool opens in the same tab. Tiles can be set for all hosts or just one\n- A host page panel beside terminals, a Host page button in the tab bar and an Open host page item when you right click a tab\n- A dot on host rows while a status tile on the host is warning or failing. It can be turned off in settings\n- The host's actions in the host menu, one list per plugin\n- Host tools can open inside the host page when Classic Layout is set to do that\n- Hosts view with a card per host showing what needs a look, plus tables across every host, such as every container or service, with filters and bulk actions\n- MCP server for outside AI tools, using an API key\n- Needs attention dashboard card, and any plugin's status or action as its own dashboard tile\n- Every action in the command palette\n- Status tiles, action button and found links widgets for the homepage. Found links lists web addresses plugins know about, such as proxy routes",
+          "publishedAt": "2026-11-09T01:24:03.000Z"
         }
       ]
     },
