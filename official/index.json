@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:59:10.457Z",
+  "updatedAt": "2026-11-09T00:01:04.041Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2306,6 +2306,65 @@
       ]
     },
     {
+      "id": "firewall",
+      "name": "Firewall",
+      "description": "Manage UFW, firewalld, nftables and iptables rules on your hosts over SSH, with lockout protection.",
+      "author": "Termix",
+      "category": "Networking",
+      "repository": "https://github.com/Termix-SSH/Plugin-Firewall",
+      "icon": "BrickWall",
+      "features": [
+        "See and change firewall rules on UFW, firewalld, nftables and iptables hosts",
+        "Turn the firewall on or off and set the default policies",
+        "Install UFW, firewalld or Fail2ban when a host has none",
+        "SSH lockout check before a change that could cut off Termix",
+        "Risky changes undo themselves on the host unless you press Keep",
+        "Rule sets you can apply to many hosts or a fleet, with a drift check",
+        "Fail2ban jails, banned addresses, ban and unban",
+        "Get an alert when a firewall turns off or its rules change outside Termix",
+        "A firewall panel beside any SSH terminal",
+        "A dashboard card with the firewall state of every host"
+      ],
+      "docs": "https://docs.termix.site/plugins/firewall",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Firewall/releases/download/v1.0.0/firewall-1.0.0.tmxplug",
+          "sha256": "7199701e7d8c8dd6341121d288fc9f86e7e7bf6d1d36a56baee29d069f7119bf",
+          "signature": "QutSyb7zd85S8TCDLS2qLJuE3EpWrhaMwUY3FWr6pvgjmtoo/81nxnO/uaLwhatqKYobprYd83g9gp3W0t0oCw==",
+          "size": 446034,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Firewall/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Allow or remove a port, check a port is allowed and delete rules through Termix actions, so a port can roll out across hosts and be watched for drift in Operations Center\n- Firewall rules show in the All hosts table, and whether the firewall is on shows as a status tile\n- A Firewall tab for each host to manage UFW, firewalld, nftables and iptables over SSH\n- Add, edit and delete rules, set the default policies and firewalld zones\n- Turn the firewall on or off, and install UFW, firewalld, nftables or Fail2ban\n- An SSH lockout check before changes that could cut off Termix\n- Risky changes undo themselves on the host unless you press Keep\n- Rule sets to add the same rules to many hosts or a fleet, with a drift check\n- Fail2ban jails, banned addresses, ban and unban\n- Alerts when a firewall turns off or its rules change outside Termix\n- A firewall panel beside SSH terminals and a dashboard card for every host",
+          "publishedAt": "2026-11-08T23:59:37.000Z"
+        }
+      ]
+    },
+    {
       "id": "fleets",
       "name": "Fleets",
       "description": "Group hosts into fleets and run commands, package actions and file transfers on all of them at once.",
@@ -3754,6 +3813,56 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.1.0",
           "notes": "### Added\n\n- A homepage widget with your node and link counts\n- A read action for the saved graph, for the assistant and the CLI\n\n### Changed\n\n- The tab has the Termix page header and matches the rest of the app\n- Needs Termix 26.11.1 or newer\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The remove button in the graph toolbar has a name for screen readers",
           "publishedAt": "2026-11-08T23:49:32.000Z"
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "name": "Notes",
+      "description": "Write markdown notes for each host, folder or yourself, with commands you can copy or send to the terminal.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Notes",
+      "icon": "NotebookPen",
+      "features": [
+        "Many markdown notes per host, per folder or global",
+        "Write and preview with a small toolbar",
+        "Copy a command or send it to the open terminal",
+        "Pin notes, add tags and search all notes",
+        "A notes panel beside any SSH terminal"
+      ],
+      "docs": "https://docs.termix.site/plugins/notes",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Notes/releases/download/v1.0.0/notes-1.0.0.tmxplug",
+          "sha256": "cbf07f1428a733254224f4ed5327baecf93f0d77d34bf954699874f24b05a034",
+          "signature": "tFRSJisTgX5qwgysTzIRz6eKTJB+Chkz0ZFWcCfISIZ5LS+3QQuw0DxWFveqiPHsvy85mJhUEttQQomnwy7ADg==",
+          "size": 490415,
+          "capabilities": [
+            "hosts:read",
+            "events:core",
+            "network:serve",
+            "ui:surface",
+            "db:own",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Notes/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Markdown notes for each host, for each folder, and private notes of your own\n- A Notes tab with a list, search, pins and tags, and a Write and Preview editor with a small toolbar\n- Copy and Send to terminal buttons on code blocks\n- Clickable task lists\n- A notes panel beside any SSH terminal\n- Actions to list, read, create and add to host notes for the assistant and automations",
+          "publishedAt": "2026-11-09T00:00:10.000Z"
         }
       ]
     },
