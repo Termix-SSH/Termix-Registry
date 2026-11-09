@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:36:55.165Z",
+  "updatedAt": "2026-11-09T01:42:37.396Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5213,17 +5213,46 @@
         "Get an alert when a watched service fails, and when it is back",
         "A services panel beside any SSH terminal",
         "A dashboard card with every watched service and whether it is up",
+        "Services, Timers and Logs cards in Host Metrics",
         "Basic OpenRC support for list, start, stop and boot"
       ],
       "docs": "https://docs.termix.site/plugins/service-manager",
       "contributes": [
         "dashboardCards",
+        "operations",
         "permissions",
         "settings",
-        "tabs"
+        "tabs",
+        "uses"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/download/v1.1.2/service-manager-1.1.2.tmxplug",
+          "sha256": "a5e746ee7662c323124cbeab8253a6af720af03a3b0f5948d4f46375cc3e09a4",
+          "signature": "sszyaypMvA3KIX0O6h+Oyvo2YjaJB8LkF6z8BDmTDjTc/udhuiv/5gRVOKifG7fqbm/RgrKHVnzvP9pxTzq9Cg==",
+          "size": 440904,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/tag/v1.1.2",
+          "notes": "### Added\n\n- Services, Timers and Logs cards in Host Metrics, which replace the cards it used to ship\n- Start, stop, restart and the other service actions work from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Failed services show as a status tile on the dashboard and host page\n\n### Changed\n\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Notes at the top of the tab no longer squeeze their text to one word per line\n- The services list scrolls with the whole tab, so a note above it no longer shrinks the list on short windows\n- The back buttons in the new service form, unit details and unit editor are full size like everywhere else",
+          "publishedAt": "2026-11-09T01:41:40.000Z"
+        },
         {
           "version": "1.1.1",
           "api": "1",
@@ -5246,8 +5275,8 @@
             "termix": ">=26.10.6"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/tag/v1.1.1",
-          "notes": "### Changed\n\n- Needs Termix 26.10.6 or newer",
-          "publishedAt": "2026-10-29T22:10:56.000Z"
+          "publishedAt": "2026-10-29T22:10:56.000Z",
+          "notes": "### Changed\n\n- Needs Termix 26.10.6 or newer"
         },
         {
           "version": "1.1.0",
