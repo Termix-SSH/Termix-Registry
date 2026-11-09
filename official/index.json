@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T03:24:05.598Z",
+  "updatedAt": "2026-11-09T03:38:47.345Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8616,6 +8616,66 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.1.0",
           "publishedAt": "2026-10-22T18:10:24.000Z",
           "notes": "### Added\n\n- Web UI panel beside an SSH terminal: the host's web UI next to its shell, with a picker when it has several\n- Web UIs dashboard card: every web UI on your hosts, one click to open\n\n### Fixed\n\n- Needs Termix 26.10.3 or later, since the desktop web view it uses is not in older versions and the plugin failed to load there"
+        }
+      ]
+    },
+    {
+      "id": "web-servers",
+      "name": "Web Servers",
+      "description": "Manage nginx, Apache and Caddy on your hosts: sites, config, logs and HTTPS, with every change tested first.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Web-Servers",
+      "icon": "Earth",
+      "features": [
+        "See nginx, Apache and Caddy on a host with their version and state",
+        "List every site with its domains, ports, HTTPS and certificate expiry",
+        "Add static, reverse proxy, PHP and redirect sites from a form",
+        "Edit any config file, with a test before every save and backups to go back to",
+        "Turn sites on and off, start, stop, reload and restart the server",
+        "Get a Let's Encrypt certificate for a site with certbot",
+        "Read and follow access and error logs, with counts by status, path and client",
+        "Install nginx, Apache, Caddy or certbot",
+        "Get an alert when a web server stops",
+        "A dashboard card, a panel beside the terminal and a Web Servers card in Host Metrics"
+      ],
+      "docs": "https://docs.termix.site/plugins/web-servers",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Web-Servers/releases/download/v1.0.0/web-servers-1.0.0.tmxplug",
+          "sha256": "8e1397e973d1bd8208484c2fa0fbbc0fc0544b7e893af4170b4336651e25634e",
+          "signature": "InAMXKkAuhKotwzrZ0oRmN7nkDqbXpAc88jaDi58qXrdHt/cySBRGGWESI8M0U+uWU2roWWHYh+/f2/ghPZWAA==",
+          "size": 386323,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Servers/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- See nginx, Apache and Caddy on a host with their version and state\n- List every site with its domains, ports, HTTPS and certificate expiry\n- Add static, reverse proxy, PHP and redirect sites from a form\n- Edit any config file, with a test before every save and backups to go back to\n- Turn sites on and off, start, stop, reload and restart the server\n- Get a Let's Encrypt certificate for a site with certbot\n- Read and follow access and error logs, with counts by status, path and client\n- Install nginx, Apache, Caddy or certbot\n- Get an alert when a web server stops\n- A dashboard card, a panel beside the terminal and a Web Servers card in Host Metrics\n- Reload, restart, test and turn sites on and off through Termix actions, and see web server state as a status tile",
+          "publishedAt": "2026-11-09T03:37:49.000Z"
         }
       ]
     },
