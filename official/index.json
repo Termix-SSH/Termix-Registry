@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:46:45.283Z",
+  "updatedAt": "2026-11-09T01:52:32.776Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5560,6 +5560,7 @@
         "dashboardCards",
         "guest",
         "guestViews",
+        "operations",
         "permissions",
         "settings",
         "tabs",
@@ -5589,8 +5590,8 @@
             "ssh-terminal": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Sharing dashboard card: your live shares on every host with revoke, and your meeting rooms",
-          "publishedAt": "2026-10-22T18:09:37.000Z"
+          "publishedAt": "2026-10-22T18:09:37.000Z",
+          "notes": "### Added\n\n- Sharing dashboard card: your live shares on every host with revoke, and your meeting rooms"
         },
         {
           "version": "1.0.2",
@@ -5669,6 +5670,35 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Share terminal, RDP, VNC and Telnet sessions by link or with a Termix user\n- Read-only or read and write, with links that expire or can be revoked\n- Meeting rooms where a presenter shows a session and can hand over control\n- Guest links for people without an account"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/download/v1.2.0/session-sharing-1.2.0.tmxplug",
+          "sha256": "51297224f0fcea4f40d8d0bab3f1e244ae9f356388800fc9614d903906909a53",
+          "signature": "iNGHNvUg4kV7dfDnwczB8nGIeety9Xlk9+nBWvZAGnsNBYf14MVNNHJ3PfnN8mTOrGMT6poDVKEvK4XTS32GDw==",
+          "size": 1640376,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.11.1-0"
+          },
+          "dependencies": {
+            "ssh-terminal": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- List and revoke active session shares through Termix actions, and see how many are open as a status tile\n- Show a host's active shares on the host page\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The sharing dashboard card scrolls as one list instead of squeezing shares and rooms into two small boxes",
+          "publishedAt": "2026-11-09T01:51:32.000Z"
         }
       ]
     },
