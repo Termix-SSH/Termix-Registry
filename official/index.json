@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-08T23:55:35.319Z",
+  "updatedAt": "2026-11-08T23:59:10.457Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3590,6 +3590,59 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Login-Security/releases/tag/v1.0.0",
           "publishedAt": "2026-10-20T19:53:56.000Z",
           "notes": "### Added\n\n- Sign out after a set time without activity, in the browser and on the server\n- Limit how long a session can last\n- Turn off remember me and remembered devices\n- Require a second factor at every login or on a new device, using any installed second factor\n- People without a second factor are asked to set one up after they sign in\n- A warning in the settings when no second factor plugin is installed"
+        }
+      ]
+    },
+    {
+      "id": "network-devices",
+      "name": "Network Devices",
+      "description": "See and manage routers, switches and access points over SNMP and router APIs.",
+      "author": "Termix",
+      "category": "Networking",
+      "repository": "https://github.com/Termix-SSH/Plugin-Network-Devices",
+      "icon": "Network",
+      "features": [
+        "Works with any SNMP device, MikroTik RouterOS, OPNsense and OpenWrt",
+        "Ports with link state, speed, traffic rates, errors and PoE",
+        "Clients from DHCP, ARP, Wi-Fi and switch MAC tables",
+        "Neighbors from LLDP and MikroTik discovery",
+        "Alerts when a device or a watched port goes down",
+        "Reboot a device, turn a port off or on, and power cycle PoE"
+      ],
+      "docs": "https://docs.termix.site/plugins/network-devices",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Network-Devices/releases/download/v1.0.0/network-devices-1.0.0.tmxplug",
+          "sha256": "a960603a2284d09c8470138fc023d48e387b4257c420977106fb1aca3f890718",
+          "signature": "SWOkq6UH+bJ+qkTCLGWPezpdEnJIDXHBrygg/q2FZ6RqqE5iiIGQcKJbXl0yE+f/C3I3crrp2PkDD3yxRh6tAg==",
+          "size": 370167,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:probe",
+            "network:serve",
+            "ui:surface",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Devices/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A Network tab with devices, ports, clients and neighbors\n- Support for SNMP devices, MikroTik RouterOS, OPNsense and OpenWrt\n- Alerts when a device or a watched port goes down\n- Turn a port off or on, power cycle PoE and restart a device\n- Find SNMP devices in an address range\n- A dashboard card and actions for rules, the CLI and the assistant",
+          "publishedAt": "2026-11-08T23:58:17.000Z"
         }
       ]
     },
