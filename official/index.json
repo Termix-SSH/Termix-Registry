@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T04:57:39.941Z",
+  "updatedAt": "2026-11-09T04:59:47.994Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -693,7 +693,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Audit-Tools",
       "icon": "ClipboardList",
-      "video": "https://www.youtube.com/watch?v=bUwPFReNIvg",
+      "video": "https://www.youtube.com/watch?v=x747K5yx650",
       "features": [
         "Forward every audit entry to an HTTP collector as it happens",
         "Catch up on entries written while the collector or Termix was down",
