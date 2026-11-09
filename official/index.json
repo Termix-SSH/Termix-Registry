@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T02:05:28.875Z",
+  "updatedAt": "2026-11-09T02:08:34.333Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -7231,7 +7231,9 @@
       ],
       "docs": "https://docs.termix.site/plugins/tmux-monitor",
       "contributes": [
+        "dashboardCards",
         "hostCapability",
+        "operations",
         "permissions",
         "settings",
         "tabs",
@@ -7258,8 +7260,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Tmux panel beside an SSH terminal: see the host's sessions, attach or switch the terminal to one, jump to a window and start a new session\n- Open sessions, windows and panes side by side in a split view, across hosts, with up to four terminals\n\n### Fixed\n\n- Mouse selections stay highlighted and copied after you release the mouse while tmux mouse support is on\n- Sessions show up on Windows hosts that run native psmux and also have Git for Windows",
-          "publishedAt": "2026-10-22T18:13:07.000Z"
+          "publishedAt": "2026-10-22T18:13:07.000Z",
+          "notes": "### Added\n\n- Tmux panel beside an SSH terminal: see the host's sessions, attach or switch the terminal to one, jump to a window and start a new session\n- Open sessions, windows and panes side by side in a split view, across hosts, with up to four terminals\n\n### Fixed\n\n- Mouse selections stay highlighted and copied after you release the mouse while tmux mouse support is on\n- Sessions show up on Windows hosts that run native psmux and also have Git for Windows"
         },
         {
           "version": "1.0.4",
@@ -7375,6 +7377,32 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Every host's tmux sessions in one place, with live pane previews\n- Resource use for each session\n- Search across every pane\n- Create, rename, split and kill sessions, windows and panes\n- Attach a terminal in one click"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.2.0/tmux-monitor-1.2.0.tmxplug",
+          "sha256": "198699149bbad4f4c3a604c537358acfe39c0b216f3b69b9ee81453376926784",
+          "signature": "LG4mDglLzdDiidFMFSRfuRJd7uf5qwMH6B/8/S3drwY/UaKYHU63wARYSwxwAFaph6ADb517ZfHZBTV/DYRwDw==",
+          "size": 330069,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- tmux sessions across hosts in the All hosts table, and ending a session through Termix actions\n- Opens inside the host page, set to that host\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Empty views use the same look as the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-09T02:07:29.000Z"
         }
       ]
     },
@@ -7492,6 +7520,7 @@
         "actions",
         "dashboardCards",
         "hostCapability",
+        "operations",
         "panels",
         "permissions",
         "settings",
@@ -7603,6 +7632,35 @@
       ],
       "gated": [
         {
+          "version": "1.3.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.3.0/tunnels-1.3.0.tmxplug",
+          "sha256": "9cdb7dee817536574086ff35d5b575365b29980cf2381dd331fdb2f08b6a6d72",
+          "signature": "DR3WR4Sr4YEnlWqruZFyAwWcGndSxoYHkW8EwPhh1PzyMOLehUbn6ybveAsDu4NtqupCbyUx6E2X1lKrK5EsCg==",
+          "size": 571264,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs",
+            "desktop:local",
+            "secrets:own",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.3.0",
+          "notes": "### Added\n\n- Tunnels host page tile\n- An alert and a Termix event when a tunnel fails for good, and an event when it is back\n- Tunnels are listed as a resource for Termix actions\n- Connect and disconnect tunnels from Automations, the CLI, the phone app and the command palette through Termix actions\n- Tunnels that are down show as a status tile\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Tunnel and gateway pages use the Termix tile look, with cards edge to edge and lines between them instead of gaps\n- SSH tunnels and gateways are tabs above the search bar\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Add tunnel and the other add buttons no longer have a filled box around them\n- Desktop SOCKS5 tunnels no longer drop the first data a program sends\n- A client tunnel closes its local connection when the target closes, so the next request no longer hangs\n- Tunnels starts again on MySQL, where an index change stopped it from loading\n- The tunnel settings and edit buttons have names for screen readers",
+          "publishedAt": "2026-11-09T02:07:53.000Z"
+        },
+        {
           "version": "1.2.3",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.2.3/tunnels-1.2.3.tmxplug",
@@ -7626,8 +7684,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.2.3",
-          "notes": "### Fixed\n\n- The gateway port scan no longer forwards the tunnel's own WireGuard port. The private end now uses a fixed port instead of a random one\n- Gateway ports only catch traffic sent to the public host itself, so other machines behind it can still reach those ports on the internet\n- A gateway's page scrolls again instead of squeezing its sections to fit the window",
-          "publishedAt": "2026-11-03T01:25:05.000Z"
+          "publishedAt": "2026-11-03T01:25:05.000Z",
+          "notes": "### Fixed\n\n- The gateway port scan no longer forwards the tunnel's own WireGuard port. The private end now uses a fixed port instead of a random one\n- Gateway ports only catch traffic sent to the public host itself, so other machines behind it can still reach those ports on the internet\n- A gateway's page scrolls again instead of squeezing its sections to fit the window"
         },
         {
           "version": "1.2.2",
