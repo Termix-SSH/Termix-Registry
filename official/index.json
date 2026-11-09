@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T02:57:41.988Z",
+  "updatedAt": "2026-11-09T03:01:03.537Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -7910,6 +7910,73 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/tag/v1.0.0",
           "notes": "### Added\n\n- A UPS tab for each host that reads UPS devices through NUT, apcupsd or an SNMP card\n- Battery charge, runtime, load, input and output voltage, temperature and last self test\n- Charts for the last 24 hours, 7 days and 30 days\n- A power event log for every UPS\n- Alerts when power is lost, the battery is low or needs replacing, the UPS is overloaded, a self test fails or the UPS stops answering\n- Start a battery self test, mute the beeper and send other NUT commands, with a check before anything that can cut power\n- UPS devices show in the All hosts table, and power status, charge and runtime show as status tiles\n- A dashboard card with every UPS on your hosts, worst first\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T02:50:31.000Z"
+        }
+      ]
+    },
+    {
+      "id": "uptime",
+      "name": "Uptime",
+      "description": "Watch websites, ports, hosts and services, get alerts when they go down, and publish status pages.",
+      "author": "Termix",
+      "category": "Monitoring",
+      "repository": "https://github.com/Termix-SSH/Plugin-Uptime",
+      "icon": "HeartPulse",
+      "features": [
+        "Check websites, TCP ports, ping, DNS records and TLS certificates",
+        "Watch Termix hosts, Docker containers, systemd units and your own commands over SSH",
+        "Run any network check from one of your hosts, to reach private networks",
+        "Push monitors for cron jobs and backup scripts",
+        "Uptime numbers, response time charts and an incident history",
+        "Alerts through the Alerts plugin, on every channel you set up there",
+        "Maintenance windows that stop false alarms",
+        "Public status pages with notes",
+        "Share monitors with users and roles",
+        "Dashboard cards, a panel beside the terminal and tiles on the host page"
+      ],
+      "docs": "https://docs.termix.site/plugins/uptime",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Uptime/releases/download/v1.0.0/uptime-1.0.0.tmxplug",
+          "sha256": "f1d8c49cc7b8904f6218220bb5840c52eb6af8857171ecb62b3eb93093617741",
+          "signature": "9znWh/9/4Xx9Wq+P/CYmrc+3ACrZscb4WZvH72GzA1iCTiGDZqqmfbh48sX1SPl3JKCd5CJJFU3NJgtnmrsGBA==",
+          "size": 495812,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "network:outbound",
+            "network:probe",
+            "process:spawn",
+            "db:own",
+            "db:core-refs",
+            "files:own",
+            "secrets:own",
+            "notify:send",
+            "users:impersonate",
+            "events:core",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Uptime/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Website, TCP port, ping, DNS record and TLS certificate checks\n- Termix host, Docker container, systemd unit and command checks\n- Check from a host, to reach private networks\n- Push monitors for cron jobs and backup scripts\n- Uptime numbers, response time charts and an incident history\n- Alerts through the Alerts plugin, with reminders and certificate warnings\n- Maintenance windows, one time or weekly\n- Public status pages with notes\n- Share monitors with users and roles\n- A permission for checking private addresses\n- Dashboard cards, a panel beside the terminal and tiles on the host page\n- Actions and events for Automations, Fleets, the CLI, the phone app and the assistant",
+          "publishedAt": "2026-11-09T03:00:05.000Z"
         }
       ]
     },
