@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T03:01:03.537Z",
+  "updatedAt": "2026-11-09T03:03:29.233Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8356,6 +8356,8 @@
       "contributes": [
         "dashboardCards",
         "hostCapability",
+        "operations",
+        "permissions",
         "settings",
         "tabs"
       ],
@@ -8459,6 +8461,36 @@
       ],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.2.0/web-endpoint-1.2.0.tmxplug",
+          "sha256": "313f4c3ebd9bf6243be3a609bd5bf1a36c4fe523fe3f951df1047c16eda8e2bc",
+          "signature": "n6hk/pwnQE6HZpbSfLWuHB5xRwHU5E0OU84gUy5ocnCHRNSEVpAzPib97PW60QxUrRd5cPeM3tCm2ZLLpwhwAA==",
+          "size": 359696,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "network:serve",
+            "ui:surface",
+            "desktop:window",
+            "operations:provide",
+            "ssh:connect",
+            "kv:own",
+            "users:impersonate",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "dependencies": {
+            "tunnels": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Through Termix: open a host's web page in a new browser tab through this server, with no route to it from your browser. Full apps work, with WebSockets and cookies. Needs Reverse Proxy 1.2.0 with a web endpoint domain (#7)\n- Check that a host's web endpoints answer through Termix actions, with a status tile on the host page\n- Permission Check web endpoints\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The host editor section uses the Termix tile look\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
+          "publishedAt": "2026-11-09T03:02:25.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.1.0/web-endpoint-1.1.0.tmxplug",
@@ -8479,8 +8511,8 @@
             "tunnels": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Web UI panel beside an SSH terminal: the host's web UI next to its shell, with a picker when it has several\n- Web UIs dashboard card: every web UI on your hosts, one click to open\n\n### Fixed\n\n- Needs Termix 26.10.3 or later, since the desktop web view it uses is not in older versions and the plugin failed to load there",
-          "publishedAt": "2026-10-22T18:10:24.000Z"
+          "publishedAt": "2026-10-22T18:10:24.000Z",
+          "notes": "### Added\n\n- Web UI panel beside an SSH terminal: the host's web UI next to its shell, with a picker when it has several\n- Web UIs dashboard card: every web UI on your hosts, one click to open\n\n### Fixed\n\n- Needs Termix 26.10.3 or later, since the desktop web view it uses is not in older versions and the plugin failed to load there"
         }
       ]
     },
