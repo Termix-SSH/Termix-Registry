@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-11-04T14:09:51.210Z",
+  "updatedAt": "2026-11-09T17:43:42.341Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -469,7 +469,7 @@
         "Graceful shutdown after sustained idle CPU use or maximum uptime"
       ],
       "docs": "https://github.com/jeakob/termix-plugin-pve-power/blob/main/docs/index.md",
-      "contributes": ["permissions", "settings", "tabs"],
+      "contributes": ["mobile", "permissions", "settings", "tabs"],
       "versions": [
         {
           "version": "0.6.9",
@@ -487,13 +487,13 @@
             "users:impersonate",
             "ui:surface"
           ],
-          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.9",
-          "notes": "### Fixed\n\n- The Proxmox host list in guest setup was empty. Hosts now appear when **Proxmox Power** is enabled in their host editor; the bundled Proxmox Integration switch is no longer required. Guest setup now says this under the host field.\n\n### Changed\n\n- Both shutdown rules can be 0, so a guest can be started and stopped without automatic shutdown.",
-          "publishedAt": "2026-10-13T15:21:10.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.9",
+          "notes": "### Fixed\n\n- The Proxmox host list in guest setup was empty. Hosts now appear when **Proxmox Power** is enabled in their host editor; the bundled Proxmox Integration switch is no longer required. Guest setup now says this under the host field.\n\n### Changed\n\n- Both shutdown rules can be 0, so a guest can be started and stopped without automatic shutdown.",
+          "publishedAt": "2026-10-13T15:21:10.000Z"
         },
         {
           "version": "0.6.8",
@@ -511,13 +511,39 @@
             "users:impersonate",
             "ui:surface"
           ],
-          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.8",
-          "notes": "### Changed\n\n- Add screenshots and a usage guide to the docs.\n- Move all interface text into `locales/en.json`, ready for translation.\n- Document every API route with OpenAPI.\n- Remove an unneeded import query from the shutdown policy module.",
-          "publishedAt": "2026-10-13T14:23:37.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.8",
+          "notes": "### Changed\n\n- Add screenshots and a usage guide to the docs.\n- Move all interface text into `locales/en.json`, ready for translation.\n- Document every API route with OpenAPI.\n- Remove an unneeded import query from the shutdown policy module.",
+          "publishedAt": "2026-10-13T14:23:37.000Z"
+        }
+      ],
+      "gated": [
+        {
+          "version": "0.7.0",
+          "api": "1",
+          "url": "https://github.com/jeakob/termix-plugin-pve-power/releases/download/v0.7.0/pve-power-0.7.0.tmxplug",
+          "sha256": "49d35edb4d694facf0a0dbd928eeca5d5b83684689d647b89b12a34492225a56",
+          "signature": "BdO5ZBBLA3hBDUxtVaZEEnKdF4zUbPgeIS1rmOz/NJGCyCz6KYeReKXUjFFLBG18q/wCyZuJ/2KIl7mJX212Dg==",
+          "size": 39918,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "hosts:read",
+            "ssh:connect",
+            "credentials:use",
+            "users:impersonate",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.13",
+            "termix": ">=26.10.6"
+          },
+          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.7.0",
+          "notes": "### Added\n\n- Manage a linked guest from its SSH host page. The **PVE Power** sidebar action opens a focused view with guest status and Start, Stop, Restart, and Edit host controls. On Termix 26.11.1 or newer, the host overview can also show these controls in a movable tile.\n- Open Proxmox Power on phones and tablets with Termix Mobile 2.0. Linked hosts also have a controls view in the mobile host menu.\n\n### Changed\n\n- Show the last known guest state as soon as the host controls open, then refresh that guest from Proxmox.\n- Shorten the linked host actions to **PVE Power**, **Start PVE + SSH**, **Start PVE**, and **Stop PVE** so they fit in the sidebar.\n- Open **Start PVE + SSH** in a temporary tab and hand off to the terminal when the guest is ready, leaving the host page free of the waiting screen.\n\n### Fixed\n\n- Keep the host overview tile compatible with Termix Mobile 2.0.\n- Leave automatic shutdown off when both the idle CPU threshold and maximum uptime are set to zero.",
+          "publishedAt": "2026-11-09T17:32:53.000Z"
         }
       ]
     },
