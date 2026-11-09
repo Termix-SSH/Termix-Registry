@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:59:04.539Z",
+  "updatedAt": "2026-11-09T02:01:06.595Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -6550,12 +6550,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.2",
-          "notes": "### Added\n\n- Require the host username in the certificate, an admin setting that is on by default. Turn it off for a CA that puts other principals in the certificate and lets the server map them\n\n### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:58:10.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- Require the host username in the certificate, an admin setting that is on by default. Turn it off for a CA that puts other principals in the certificate and lets the server map them\n\n### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -6574,11 +6574,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:05.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -6597,11 +6597,36 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:57:20.000Z",
-          "notes": "### Added\n\n- First release\n- Adds the Step CA auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates are kept until they expire\n- No `step` binary needed\n- Several Termix servers can share sign in state through Redis",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Adds the Step CA auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates are kept until they expire\n- No `step` binary needed\n- Several Termix servers can share sign in state through Redis"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/download/v1.0.3/step-ca-1.0.3.tmxplug",
+          "sha256": "3e7c5694b29dacc6a5fc5a8a961da18f70e4b74152b69775fcf90d3fdf5e6074",
+          "signature": "Q0BBsFfO1tSmwPo4CsC9u2NN/Yhqpt9GEMTvEF4Hs3QDEurhhCP789GHiIs89i5gSnnbqnNfdiSL4mpodzP8Cg==",
+          "size": 715625,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.16",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.3",
+          "notes": "### Changed\n\n- The page you land on after signing in now matches the Termix look and follows your theme and language\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable",
+          "publishedAt": "2026-11-09T02:00:14.000Z"
         }
       ]
     },
