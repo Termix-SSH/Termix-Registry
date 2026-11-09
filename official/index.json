@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T02:10:35.248Z",
+  "updatedAt": "2026-11-09T02:26:12.192Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -7856,17 +7856,18 @@
     },
     {
       "id": "vault",
-      "name": "HashiCorp Vault",
-      "description": "Connect to hosts with short-lived SSH certificates signed by HashiCorp Vault.",
+      "name": "SSH Certificate Signer",
+      "description": "Connect to hosts with short-lived SSH certificates signed by HashiCorp Vault or OpenBao.",
       "author": "Termix",
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Vault",
       "icon": "KeyRound",
       "video": "https://www.youtube.com/watch?v=oEi4aI-xal0",
       "features": [
-        "Adds the Vault auth type to hosts",
-        "Sign in to Vault with OIDC when you connect",
-        "Never stores a Vault token or long-lived key",
+        "Works with HashiCorp Vault and OpenBao",
+        "Adds the Vault or OpenBao auth type to hosts",
+        "Sign in with OIDC when you connect",
+        "Never stores a token or long-lived key",
         "Reusable signer profiles you can share with everyone"
       ],
       "docs": "https://docs.termix.site/plugins/vault",
@@ -7894,12 +7895,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Vault/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:02:27.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -7918,11 +7919,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Vault/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:22.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -7941,11 +7942,36 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Vault/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:26.000Z",
-          "notes": "### Added\n\n- First release\n- Adds the Vault auth type to hosts\n- Sign in to Vault with OIDC when you connect\n- Never stores a Vault token or long-lived key\n- Reusable signer profiles you can share with everyone\n- A personal profile only reaches a private or internal Vault address when an admin allows that host",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Adds the Vault auth type to hosts\n- Sign in to Vault with OIDC when you connect\n- Never stores a Vault token or long-lived key\n- Reusable signer profiles you can share with everyone\n- A personal profile only reaches a private or internal Vault address when an admin allows that host"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Vault/releases/download/v1.1.0/vault-1.1.0.tmxplug",
+          "sha256": "c711e4abe0a6ed23cbee921ef3a555efc652b89a0d0084d1b54674f048a016b9",
+          "signature": "YuhZ+PneQubTI72kS/A5Nd1RLmA4lgGhNkvCiZ1I+KcyJ7nTrIDkA9nNOJcn0gJQv+Ft72XGOEAMZKK/zNSNBw==",
+          "size": 159854,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.16",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Vault/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- OpenBao support: pick HashiCorp Vault or OpenBao on each signer profile\n\n### Changed\n\n- Renamed to SSH Certificate Signer\n- The page you land on after signing in now matches the Termix look and follows your theme and language\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable",
+          "publishedAt": "2026-11-09T02:25:13.000Z"
         }
       ]
     },
