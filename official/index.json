@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T03:15:12.942Z",
+  "updatedAt": "2026-11-09T03:24:05.598Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8777,6 +8777,61 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Sign in with a passkey or security key instead of a password\n- Counts as a second factor when it checks your PIN or fingerprint\n- More than one passkey, including synced ones"
+        }
+      ]
+    },
+    {
+      "id": "wireguard",
+      "name": "WireGuard",
+      "description": "Install WireGuard on your hosts and manage interfaces, clients and configs from one tab.",
+      "author": "Termix",
+      "category": "Networking",
+      "repository": "https://github.com/Termix-SSH/Plugin-WireGuard",
+      "icon": "Network",
+      "features": [
+        "Install WireGuard and start, stop or restart interfaces on a host",
+        "Create server interfaces with NAT and IP forwarding set up for you",
+        "Add clients with generated keys, a free IP, a config file and a QR code",
+        "Turn clients on or off, rotate their keys and remove them",
+        "See live handshakes and traffic for every client",
+        "Edit the raw config with a check before it is saved, and read the logs",
+        "A WireGuard card in Host Metrics"
+      ],
+      "docs": "https://docs.termix.site/plugins/wireguard",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-WireGuard/releases/download/v1.0.0/wireguard-1.0.0.tmxplug",
+          "sha256": "cbf5023846758af391add6d2bdb441772a98b1728eab2c420eaa804f292f136d",
+          "signature": "2+wFJ54eZpecN3TIireAyQ+yPvRk5e43m/l5Kjs8BkpGOU9v5oCFG5EtWwXvvzrxf+J4Qdpyj/pMF3uza7v+Cg==",
+          "size": 335420,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WireGuard/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Start, stop and restart interfaces through Termix actions, list them across hosts and see interfaces that should be up but are down as a status tile\n- A WireGuard tab for each host to install and manage WireGuard over SSH\n- Create server interfaces with optional NAT, IP forwarding and a firewall port\n- Add clients with generated keys, a free IP, a config file and a QR code\n- Turn clients on or off, rotate their keys and remove them\n- Live handshake and traffic for every client\n- A config editor with a check before saving, a log viewer and service controls\n- A WireGuard card in Host Metrics\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-09T03:23:08.000Z"
         }
       ]
     },
