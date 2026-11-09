@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T00:48:02.897Z",
+  "updatedAt": "2026-11-09T00:54:57.397Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4044,6 +4044,67 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Adds the OPKSSH auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates last 24 hours, so you sign in once a day\n- Uses a pinned, checksum verified `opkssh` release"
+        }
+      ]
+    },
+    {
+      "id": "out-of-band",
+      "name": "Out-of-band",
+      "description": "Power, sensors, event logs and consoles for server BMCs over Redfish, IPMI and Intel AMT.",
+      "author": "Termix",
+      "category": "Networking",
+      "repository": "https://github.com/Termix-SSH/Plugin-Out-Of-Band",
+      "icon": "ServerCog",
+      "features": [
+        "Works with Redfish (iDRAC, iLO, Supermicro, OpenBMC), IPMI over LAN and Intel AMT",
+        "Power on, shut down, power cycle and reset a machine even when its OS is dead",
+        "Temperatures, fans, voltages and power supplies with alerts",
+        "Hardware event log, read and clear",
+        "Boot once from PXE, disk, CD, USB or BIOS setup",
+        "Mount an ISO from a web address as virtual media (Redfish)",
+        "Serial over LAN console through a relay host",
+        "Link a BMC to a Termix host, or reach it through any SSH host"
+      ],
+      "docs": "https://docs.termix.site/plugins/out-of-band",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Out-Of-Band/releases/download/v1.0.0/out-of-band-1.0.0.tmxplug",
+          "sha256": "ac18fc0f8554de638c880b9042e4c119e9c978ddee588385ab0ac6db290e18ae",
+          "signature": "p2vNDyOPtIiN29xEQVCyBNkPPFjTmTgurVpL95/nhYgwepfAj3bJ/Jnxim7aEbK7LeN5diMpZJXXqWsY18G/Bg==",
+          "size": 979111,
+          "capabilities": [
+            "credentials:use",
+            "db:own",
+            "events:core",
+            "hosts:read",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "operations:provide",
+            "process:spawn",
+            "secrets:own",
+            "ssh:connect",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Out-Of-Band/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Manage server BMCs over Redfish, IPMI over LAN and Intel AMT\n- Power on, shut down, reset, power cycle and power off\n- Sensors for temperatures, fans, voltages and power supplies with alerts\n- Hardware event log, read and clear\n- Boot once from PXE, disk, CD, USB or BIOS setup\n- Virtual media for Redfish BMCs\n- Serial over LAN console for IPMI through a relay host\n- Link a BMC to a host, or reach IPMI through a relay host\n- Dashboard card, host menu button, operations and the `out-of-band.power` service",
+          "publishedAt": "2026-11-09T00:54:30.000Z"
         }
       ]
     },
