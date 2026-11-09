@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T01:27:30.519Z",
+  "updatedAt": "2026-11-09T01:34:53.245Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -6081,8 +6081,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.5",
-          "notes": "### Changed\n\n- The Admin Group setting says that it decides admin at every sign in, including for accounts promoted in Termix or merged with an admin account",
-          "publishedAt": "2026-11-01T23:04:19.000Z"
+          "publishedAt": "2026-11-01T23:04:19.000Z",
+          "notes": "### Changed\n\n- The Admin Group setting says that it decides admin at every sign in, including for accounts promoted in Termix or merged with an admin account"
         },
         {
           "version": "1.0.4",
@@ -6198,6 +6198,31 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Sign in with any OpenID Connect provider, GitHub or Google\n- More than one provider, each with its own login button\n- Make members of an admin group Termix admins, and map groups to roles\n- Limit sign in to certain users\n- Back-channel logout"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.1.0/sso-1.1.0.tmxplug",
+          "sha256": "ce57545991a4db53f5dda3e3c8fa58bddd75ce79622fe7055091071972207f0f",
+          "signature": "YPuzL7fsvZ/qXU6b6GW8py/auK7ynB6afB/QQynTe0Y3QOl+KGaUWGi8oTYdU53mIJUQiJULLilFxBZ1sL+0Bw==",
+          "size": 284532,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.16",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Link a single sign-on account to your existing Termix account in Settings, Security, and unlink it again. An admin setting turns this off (#4)\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
+          "publishedAt": "2026-11-09T01:33:54.000Z"
         }
       ]
     },
