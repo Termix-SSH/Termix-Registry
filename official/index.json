@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T00:01:04.041Z",
+  "updatedAt": "2026-11-09T00:48:02.897Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3863,6 +3863,59 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Notes/releases/tag/v1.0.0",
           "notes": "### Added\n\n- Markdown notes for each host, for each folder, and private notes of your own\n- A Notes tab with a list, search, pins and tags, and a Write and Preview editor with a small toolbar\n- Copy and Send to terminal buttons on code blocks\n- Clickable task lists\n- A notes panel beside any SSH terminal\n- Actions to list, read, create and add to host notes for the assistant and automations",
           "publishedAt": "2026-11-09T00:00:10.000Z"
+        }
+      ]
+    },
+    {
+      "id": "object-storage",
+      "name": "Object Storage",
+      "description": "Browse and manage S3-compatible object storage buckets and files.",
+      "author": "Termix",
+      "category": "Files & Transfer",
+      "repository": "https://github.com/Termix-SSH/Plugin-Object-Storage",
+      "icon": "Package",
+      "features": [
+        "Works with Amazon S3, MinIO, Cloudflare R2, Backblaze B2, Wasabi, DigitalOcean Spaces, Hetzner and any other S3-compatible service",
+        "Browse folders and objects, upload large files in parts, download with resume and preview images and text",
+        "Copy, move, rename and delete objects and whole folders",
+        "Share an object with a temporary link",
+        "Create and delete buckets, and set versioning, lifecycle rules, CORS, policy, tags, encryption and public access",
+        "Daily size history for every bucket, with alerts when a bucket passes its limit or a login stops working"
+      ],
+      "docs": "https://docs.termix.site/plugins/object-storage",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Object-Storage/releases/download/v1.0.0/object-storage-1.0.0.tmxplug",
+          "sha256": "653ff3f4baf5494a40af90d1d64a358f7eb0b53984418f44628ccc11342aa4f3",
+          "signature": "/vpZJonrKQaNrG5hRhtxXpKiS3owjbHEkYvHxfJWQcJ/VAaPltdNJmEP6ZQMSTXVVr2dEfD9Rb2E6MWvMj37Bw==",
+          "size": 324110,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "ui:surface",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Object-Storage/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A Buckets tab to browse and manage S3-compatible object storage\n- Works with Amazon S3, MinIO, Cloudflare R2, Backblaze B2, Wasabi, DigitalOcean Spaces, Hetzner and other S3-compatible services\n- Folders, upload (large files go in parts), download with resume, preview for images and text\n- Copy, move, rename and delete for objects and whole folders\n- Temporary links to share an object\n- Create and delete buckets, and edit versioning, lifecycle rules, CORS, policy, tags, encryption and public access\n- A daily size history for every bucket and alerts when a bucket passes its limit or a login stops working\n- Actions for the assistant, rules and the CLI, and a dashboard card",
+          "publishedAt": "2026-11-09T00:47:09.000Z"
         }
       ]
     },
