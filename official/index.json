@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T02:26:12.192Z",
+  "updatedAt": "2026-11-09T02:51:27.013Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -7851,6 +7851,65 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.1.0",
           "publishedAt": "2026-10-20T19:16:29.000Z",
           "notes": "### Changed\n\n- Client tunnels on your own computer now run inside this plugin instead of the desktop app itself, so fixes to them no longer need a new desktop build\n- Needs Termix 26.10.3 or newer\n\n### Fixed\n\n- Client tunnel sign in prompts are answered through the plugin, and a prompt that has no open window to show it is refused instead of hanging"
+        }
+      ]
+    },
+    {
+      "id": "ups-manager",
+      "name": "UPS Manager",
+      "description": "Watch your UPS devices over NUT, apcupsd or SNMP, with history, alerts and self tests.",
+      "author": "Termix",
+      "category": "Monitoring",
+      "repository": "https://github.com/Termix-SSH/Plugin-UPS-Manager",
+      "icon": "BatteryCharging",
+      "features": [
+        "Read UPS devices through NUT, apcupsd or an SNMP card",
+        "Battery charge, runtime, load, voltage and temperature at a glance",
+        "Charts for the last 24 hours, 7 days and 30 days",
+        "Alerts when power is lost, the battery runs low, needs replacing or the UPS is overloaded",
+        "A power event log for every UPS",
+        "Start a battery self test, mute the beeper and send other NUT commands",
+        "A dashboard card with every UPS on your hosts"
+      ],
+      "docs": "https://docs.termix.site/plugins/ups-manager",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/download/v1.0.0/ups-manager-1.0.0.tmxplug",
+          "sha256": "b50ca4eaee3c9e060e2fed630d134c43694054d238364283d49ac7ecb23e559c",
+          "signature": "Th3qDz+ROITcq+irqlPyZ7oL1TY59M2V04HpXJ6OvypraRdrKdn2KS9Uk3fsKMwrbUFMxl99zb7oIl+P23AcDQ==",
+          "size": 282467,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "kv:own",
+            "files:own",
+            "secrets:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A UPS tab for each host that reads UPS devices through NUT, apcupsd or an SNMP card\n- Battery charge, runtime, load, input and output voltage, temperature and last self test\n- Charts for the last 24 hours, 7 days and 30 days\n- A power event log for every UPS\n- Alerts when power is lost, the battery is low or needs replacing, the UPS is overloaded, a self test fails or the UPS stops answering\n- Start a battery self test, mute the beeper and send other NUT commands, with a check before anything that can cut power\n- UPS devices show in the All hosts table, and power status, charge and runtime show as status tiles\n- A dashboard card with every UPS on your hosts, worst first\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-09T02:50:31.000Z"
         }
       ]
     },
