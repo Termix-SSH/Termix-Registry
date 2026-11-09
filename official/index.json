@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T02:51:27.013Z",
+  "updatedAt": "2026-11-09T02:57:41.988Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -7910,6 +7910,59 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/tag/v1.0.0",
           "notes": "### Added\n\n- A UPS tab for each host that reads UPS devices through NUT, apcupsd or an SNMP card\n- Battery charge, runtime, load, input and output voltage, temperature and last self test\n- Charts for the last 24 hours, 7 days and 30 days\n- A power event log for every UPS\n- Alerts when power is lost, the battery is low or needs replacing, the UPS is overloaded, a self test fails or the UPS stops answering\n- Start a battery self test, mute the beeper and send other NUT commands, with a check before anything that can cut power\n- UPS devices show in the All hosts table, and power status, charge and runtime show as status tiles\n- A dashboard card with every UPS on your hosts, worst first\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T02:50:31.000Z"
+        }
+      ]
+    },
+    {
+      "id": "user-manager",
+      "name": "Users",
+      "description": "Manage the user accounts, groups, passwords and SSH keys on your hosts.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-User-Manager",
+      "icon": "Users",
+      "features": [
+        "See every account on a host with its groups, shell and password state",
+        "Create users with a home folder, shell, groups, sudo and a password",
+        "Set passwords, lock accounts and make users pick a new password",
+        "Add and remove the SSH keys a user can log in with",
+        "Create groups and change who is in them",
+        "See who is logged in and recent logins",
+        "A Users card in Host Metrics"
+      ],
+      "docs": "https://docs.termix.site/plugins/user-manager",
+      "contributes": [
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-User-Manager/releases/download/v1.0.0/user-manager-1.0.0.tmxplug",
+          "sha256": "12da906980d2be7468a23ad7f8ef122c721ed025d7807eda565c57704084f46a",
+          "signature": "H+dRa205FKJ7lJGz6nnP6t9xoDGdhcfGSz4N2CKzLpPHAVbh8En+TGzpG2RbvWenvei6SGjHchyTcYGvwea4AQ==",
+          "size": 257009,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.15",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-User-Manager/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Lock, unlock and delete users through Termix actions, and see accounts with an empty password as a status tile\n- See every account on a host with its groups, shell and password state\n- Create users with a home folder, shell, groups, sudo and a password\n- Set passwords, lock accounts and make users pick a new password\n- Add and remove the SSH keys a user can log in with\n- Create groups and change who is in them\n- See who is logged in and recent logins\n- A Users card in Host Metrics\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
+          "publishedAt": "2026-11-09T02:56:46.000Z"
         }
       ]
     },
