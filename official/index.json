@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T15:34:14.550Z",
+  "updatedAt": "2026-11-10T15:37:19.217Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1141,7 +1141,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Classic-Layout",
       "icon": "PanelLeft",
-      "video": "https://www.youtube.com/watch?v=9lfVAAfmTx8",
+      "video": "https://www.youtube.com/watch?v=swZyCHgWpHg",
       "features": [
         "Icon rail, resizable sidebar, tab bar and right dock",
         "Dashboard, Manage and Settings screens",
