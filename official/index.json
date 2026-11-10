@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T17:04:38.760Z",
+  "updatedAt": "2026-11-10T17:07:27.712Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5855,7 +5855,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Simple-Layout",
       "icon": "PanelTop",
-      "video": "https://www.youtube.com/watch?v=ZFAPeEuqfJ0",
+      "video": "https://www.youtube.com/watch?v=O4b1uk8MFRc",
       "features": [
         "Top bar with tabs, search and settings",
         "Home screen with a card for each host",
