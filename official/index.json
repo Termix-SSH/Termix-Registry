@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T16:54:46.784Z",
+  "updatedAt": "2026-11-10T17:00:15.791Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5284,7 +5284,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Serial",
       "icon": "Usb",
-      "video": "https://www.youtube.com/watch?v=DGVwYJlFDgw",
+      "video": "https://www.youtube.com/watch?v=IJ7Wvrz-JNE",
       "features": [
         "Set the baud rate, data bits, stop bits and parity",
         "The desktop app talks to the device directly",
