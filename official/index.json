@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T17:50:36.432Z",
+  "updatedAt": "2026-11-10T17:57:46.725Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8063,7 +8063,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Vault",
       "icon": "KeyRound",
-      "video": "https://www.youtube.com/watch?v=oEi4aI-xal0",
+      "video": "https://www.youtube.com/watch?v=WtexwWc958U",
       "features": [
         "Works with HashiCorp Vault and OpenBao",
         "Adds the Vault or OpenBao auth type to hosts",
