@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T18:04:24.939Z",
+  "updatedAt": "2026-11-10T18:07:08.552Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8244,7 +8244,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN",
       "icon": "Zap",
-      "video": "https://www.youtube.com/watch?v=mGyiovySI5g",
+      "video": "https://www.youtube.com/watch?v=m_nqlN76Mew",
       "features": [
         "A Power tab with every machine, its status, last seen time and a power button",
         "Wake from the Termix server, or from any SSH host on the machine's network",
