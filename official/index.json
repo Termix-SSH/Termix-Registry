@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T15:37:19.217Z",
+  "updatedAt": "2026-11-10T15:40:24.796Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1356,7 +1356,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Cloud-Providers",
       "icon": "Cloud",
-      "video": "https://www.youtube.com/watch?v=tstYXaufj5s",
+      "video": "https://www.youtube.com/watch?v=sePFRowdO8c",
       "features": [
         "Works with AWS EC2 and Lightsail, Azure, Google Cloud, DigitalOcean, Hetzner, Linode, Vultr, Oracle Cloud, Scaleway and UpCloud",
         "Pick instances to import, or sync a whole account on a timer",
