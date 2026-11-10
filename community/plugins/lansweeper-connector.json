@@ -1,0 +1,14 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "lansweeper-connector",
+  "repository": "https://github.com/samsclub91/termix-plugin-lansweeper-connector",
+  "maintainers": [
+    "samsclub91"
+  ],
+  "versions": [
+    {
+      "version": "1.1.0",
+      "sha256": "5d7bd6f2bc786548f1688a9f61999f9a7aef9707ca442a5780c001a5cde94e0d"
+    }
+  ]
+}
