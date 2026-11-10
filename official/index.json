@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T15:57:39.474Z",
+  "updatedAt": "2026-11-10T16:00:53.445Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1780,7 +1780,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Docker",
       "icon": "Box",
-      "video": "https://www.youtube.com/watch?v=uy-FZQ9Nkak",
+      "video": "https://www.youtube.com/watch?v=CCzXPrdbGJc",
       "features": [
         "Start, stop, restart, pause and remove containers",
         "Live CPU, memory, network and disk stats",
@@ -2556,6 +2556,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=Qcq9u3bJtqA",
       "versions": [],
       "gated": [
         {
