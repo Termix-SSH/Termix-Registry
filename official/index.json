@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T18:07:08.552Z",
+  "updatedAt": "2026-11-10T18:10:09.798Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8710,7 +8710,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-WebAuthn",
       "icon": "Fingerprint",
-      "video": "https://www.youtube.com/watch?v=u8isRJFMPwE",
+      "video": "https://www.youtube.com/watch?v=ZUgaRDmyPmo",
       "features": [
         "Passkeys and security keys",
         "Counts as a second factor when it checks your PIN or fingerprint",
