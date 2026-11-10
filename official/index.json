@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T16:19:36.531Z",
+  "updatedAt": "2026-11-10T16:22:33.500Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3599,7 +3599,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Login-Security",
       "icon": "ShieldCheck",
-      "video": "https://www.youtube.com/watch?v=F9fyIuWSAeE",
+      "video": "https://www.youtube.com/watch?v=Vjmm9lucls4",
       "features": [
         "Sign out after a set time without activity, in the browser and on the server",
         "Limit how long a session can last",
