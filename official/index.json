@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T15:15:04.998Z",
+  "updatedAt": "2026-11-10T15:21:18.575Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -449,7 +449,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
       "icon": "Bell",
-      "video": "https://www.youtube.com/watch?v=0IcxxxSgZZo",
+      "video": "https://www.youtube.com/watch?v=KW3-SZ7Th_8",
       "features": [
         "One inbox for alerts from every part of Termix",
         "Popups for new alerts",
@@ -654,7 +654,7 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=7n_8wrouzxI",
+      "video": "https://www.youtube.com/watch?v=-yTxBCa-zM0",
       "versions": [],
       "gated": [
         {
