@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T16:22:33.500Z",
+  "updatedAt": "2026-11-10T16:52:04.457Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3685,6 +3685,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=E10bn0s8YfM",
       "versions": [],
       "gated": [
         {
@@ -3722,7 +3723,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Network-Topology",
       "icon": "Network",
-      "video": "https://www.youtube.com/watch?v=g_4SRBmA_hw",
+      "video": "https://www.youtube.com/watch?v=vkp2JvYcZBw",
       "features": [
         "Add hosts and draw links between them",
         "Live status for each host",
@@ -3848,6 +3849,7 @@
         "settings",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=pfTDZqNbeBw",
       "versions": [],
       "gated": [
         {
@@ -3899,6 +3901,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=nS3ZS6s0vK4",
       "versions": [],
       "gated": [
         {
@@ -3961,6 +3964,7 @@
         "settings",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=0EUwEVouWJE",
       "versions": [],
       "gated": [
         {
@@ -4000,7 +4004,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-OPKSSH",
       "icon": "ShieldCheck",
-      "video": "https://www.youtube.com/watch?v=FOkHBcaO2YU",
+      "video": "https://www.youtube.com/watch?v=cXelOy3bp9Y",
       "features": [
         "Adds the OPKSSH auth type to hosts",
         "Sign in with your identity provider in the browser",
@@ -4147,6 +4151,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=nrSv4fZd1B4",
       "versions": [],
       "gated": [
         {
@@ -4207,6 +4212,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=yG6mByG0WBg",
       "versions": [],
       "gated": [
         {
@@ -4262,6 +4268,7 @@
         "settings",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=MbGnu0TMoOI",
       "versions": [],
       "gated": [
         {
@@ -4321,6 +4328,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=9Zw3RqhiJJw",
       "versions": [],
       "gated": [
         {
@@ -4360,7 +4368,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Proxmox",
       "icon": "Server",
-      "video": "https://www.youtube.com/watch?v=FCDouJdgYRk",
+      "video": "https://www.youtube.com/watch?v=6nToeUHcdSw",
       "features": [
         "Find and import VMs and LXC containers from a node",
         "Keep imported hosts in sync on a schedule",
@@ -4575,7 +4583,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Remote-Desktop",
       "icon": "Monitor",
-      "video": "https://www.youtube.com/watch?v=enggttL3hz8",
+      "video": "https://www.youtube.com/watch?v=my2iDbtyjq0",
       "features": [
         "RDP, VNC, Apple Remote Desktop and Telnet from any browser, with nothing else to install",
         "RustDesk devices by ID through your own or the public RustDesk server, or by direct IP",
@@ -4836,7 +4844,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy",
       "icon": "Waypoints",
-      "video": "https://www.youtube.com/watch?v=yvk_JjcTKsM",
+      "video": "https://www.youtube.com/watch?v=lVRN1FTH5g4",
       "features": [
         "TCP, UDP, HTTP and HTTPS routes for each host, with status, search and filters",
         "Free Let's Encrypt certificates that renew on their own, plus self-signed and uploaded certificates",
@@ -5047,7 +5055,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Secret-Sources",
       "icon": "KeyRound",
-      "video": "https://www.youtube.com/watch?v=5b_fTbM-sz4",
+      "video": "https://www.youtube.com/watch?v=HBrwZrZMvbc",
       "features": [
         "Works with 1Password Connect, Infisical, Bitwarden Secrets Manager, HashiCorp Vault and Bitwarden or Vaultwarden through bw serve",
         "Use references like op://vault/item/field or vault://secret/app#password in a host's password or key fields",
@@ -5231,6 +5239,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=nU7OAmv72s8",
       "versions": [],
       "gated": [
         {
