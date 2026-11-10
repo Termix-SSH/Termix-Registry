@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T16:16:45.498Z",
+  "updatedAt": "2026-11-10T16:19:36.531Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3325,7 +3325,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Kubernetes",
       "icon": "ShipWheel",
-      "video": "https://www.youtube.com/watch?v=cuOnAbfsO3I",
+      "video": "https://www.youtube.com/watch?v=v59kAOaXeTo",
       "features": [
         "Browse pods, deployments, statefulsets, daemonsets, jobs and cronjobs",
         "Scale, restart, roll back and change images of workloads",
@@ -3562,6 +3562,7 @@
         "settings",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=uLpB2uLI_FY",
       "versions": [],
       "gated": [
         {
