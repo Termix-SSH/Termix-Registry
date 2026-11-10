@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T18:00:27.247Z",
+  "updatedAt": "2026-11-10T18:04:24.939Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8396,7 +8396,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Warpgate",
       "icon": "DoorOpen",
-      "video": "https://www.youtube.com/watch?v=utecf-s07ow",
+      "video": "https://www.youtube.com/watch?v=m5pBuBA-3ig",
       "features": [
         "Warpgate's browser approval shows as a sign in dialog",
         "Your saved password is sent to Warpgate for you"
@@ -8471,7 +8471,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Web-Endpoint",
       "icon": "Globe",
-      "video": "https://www.youtube.com/watch?v=1eVUCFcnlXw",
+      "video": "https://www.youtube.com/watch?v=gY6liAeScYQ",
       "features": [
         "Open a web UI in a Termix tab or its own desktop window",
         "Connect directly, or over an SSH tunnel through the host",
