@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T15:31:11.484Z",
+  "updatedAt": "2026-11-10T15:34:14.550Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1299,7 +1299,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Classic-Themes",
       "icon": "Palette",
-      "video": "https://www.youtube.com/watch?v=i3r4r3upXY8",
+      "video": "https://www.youtube.com/watch?v=lLlFMEv8uxA",
       "features": [
         "Light and dark themes",
         "Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox"
