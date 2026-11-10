@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T16:00:53.445Z",
+  "updatedAt": "2026-11-10T16:04:12.389Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2378,7 +2378,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Fleets",
       "icon": "Boxes",
-      "video": "https://www.youtube.com/watch?v=WnQLS1N6oIA",
+      "video": "https://www.youtube.com/watch?v=_TzWHSuelCI",
       "features": [
         "Group hosts by hand or with tag rules, so new hosts join on their own",
         "Run one command on every host and see each result",
