@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T16:04:12.389Z",
+  "updatedAt": "2026-11-10T16:07:16.919Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3013,7 +3013,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Host-Status",
       "icon": "Activity",
-      "video": "https://www.youtube.com/watch?v=vZPsgT9B4-U",
+      "video": "https://www.youtube.com/watch?v=QScHdY85Tcc",
       "features": [
         "An online or offline dot for every host",
         "Checks the host's port and never logs in",
