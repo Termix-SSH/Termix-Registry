@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T15:53:34.915Z",
+  "updatedAt": "2026-11-10T15:57:39.474Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2339,6 +2339,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=Qq7yX_Uejgg",
       "versions": [],
       "gated": [
         {
@@ -2594,7 +2595,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Homepage",
       "icon": "LayoutGrid",
-      "video": "https://www.youtube.com/watch?v=EX-bZzuGiZo",
+      "video": "https://www.youtube.com/watch?v=__NcKvTqC3k",
       "features": [
         "Drag, resize and arrange widgets on a grid",
         "Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal",
