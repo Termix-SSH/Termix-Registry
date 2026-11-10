@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T17:07:27.712Z",
+  "updatedAt": "2026-11-10T17:10:13.728Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5367,7 +5367,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Service-Manager",
       "icon": "ServerCog",
-      "video": "https://www.youtube.com/watch?v=uVoLykPpvWk",
+      "video": "https://www.youtube.com/watch?v=4gKQ-P0gAac",
       "features": [
         "List systemd services, sockets, targets and timers with their state",
         "Start, stop, restart, reload, enable, disable and mask units",
