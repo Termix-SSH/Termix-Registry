@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T15:43:31.736Z",
+  "updatedAt": "2026-11-10T15:53:34.915Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -165,7 +165,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-AI",
       "icon": "Sparkles",
-      "video": "https://www.youtube.com/watch?v=5usBJanMqiI",
+      "video": "https://www.youtube.com/watch?v=YgdIrZuDUO4",
       "features": [
         "Ask about your hosts, snippets, fleets, alerts, automations and more",
         "Proposes changes instead of making them, and nothing runs until you approve it",
@@ -1466,7 +1466,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Credential-Tools",
       "icon": "KeyRound",
-      "video": "https://www.youtube.com/watch?v=R--YFT1XvTw",
+      "video": "https://www.youtube.com/watch?v=apuCWgyrsvk",
       "features": [
         "Generate Ed25519, RSA and ECDSA key pairs",
         "Detect a key's type and get the public key from a private key",
@@ -1593,7 +1593,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Databases",
       "icon": "Database",
-      "video": "https://www.youtube.com/watch?v=FZ7QuMcDjKM",
+      "video": "https://www.youtube.com/watch?v=PBKfr9dDpco",
       "features": [
         "Save database logins per host with sealed passwords",
         "Browse databases, tables and views",
@@ -1738,6 +1738,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=ujcN58s2Buw",
       "versions": [],
       "gated": [
         {
