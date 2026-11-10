@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T17:19:52.884Z",
+  "updatedAt": "2026-11-10T17:23:01.731Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -6411,7 +6411,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-SSO",
       "icon": "KeyRound",
-      "video": "https://www.youtube.com/watch?v=OjUt_a8j9lI",
+      "video": "https://www.youtube.com/watch?v=lUZn6xnRBx4",
       "features": [
         "Any OpenID Connect provider, plus GitHub and Google",
         "More than one provider, each with its own login button",
