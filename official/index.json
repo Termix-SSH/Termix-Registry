@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T16:13:43.871Z",
+  "updatedAt": "2026-11-10T16:16:45.498Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2733,7 +2733,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
       "icon": "Activity",
-      "video": "https://www.youtube.com/watch?v=_psvlU-s7D4",
+      "video": "https://www.youtube.com/watch?v=CHrbuVshsBc",
       "features": [
         "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
         "History charts for each host",
@@ -3169,7 +3169,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Import-Export",
       "icon": "ArrowDownUp",
-      "video": "https://www.youtube.com/watch?v=khRjXFQK4Wk",
+      "video": "https://www.youtube.com/watch?v=AIx-FIgnEkU",
       "features": [
         "Import hosts from a Termix JSON file",
         "Import hosts from an SSH config file",
@@ -3436,7 +3436,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-LDAP",
       "icon": "Server",
-      "video": "https://www.youtube.com/watch?v=i7zpAXs2mAk",
+      "video": "https://www.youtube.com/watch?v=YHOL3xkwOLA",
       "features": [
         "Sign in against LDAP or Active Directory",
         "More than one directory, each with its own login button",
