@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T17:23:01.731Z",
+  "updatedAt": "2026-11-10T17:50:36.432Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -6133,7 +6133,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-SSH-Terminal",
       "icon": "SquareTerminal",
-      "video": "https://www.youtube.com/watch?v=htdU7pw1fiw",
+      "video": "https://www.youtube.com/watch?v=A8mSVayxS7o",
       "features": [
         "Tabs and split screen",
         "Jump hosts and host key verification",
@@ -6600,7 +6600,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
       "icon": "ShieldCheck",
-      "video": "https://www.youtube.com/watch?v=Sc4bfeCAYEo",
+      "video": "https://www.youtube.com/watch?v=wMNp26dYWtk",
       "features": [
         "Adds the Step CA auth type to hosts",
         "Sign in with your identity provider in the browser",
@@ -6777,7 +6777,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Sync",
       "icon": "RefreshCw",
-      "video": "https://www.youtube.com/watch?v=mBiGtdZxdK0",
+      "video": "https://www.youtube.com/watch?v=3CjG7dgAD9Y",
       "features": [
         "Link the desktop app to a server and keep hosts, credentials and settings in sync, with an offline copy",
         "Link several servers and accounts and switch between them, each with its own copy",
@@ -6924,7 +6924,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tailscale",
       "icon": "Network",
-      "video": "https://www.youtube.com/watch?v=EONHzTO1mFQ",
+      "video": "https://www.youtube.com/watch?v=NfibAkXDvJk",
       "features": [
         "Add tailnet devices as hosts in a couple of clicks",
         "Connect with Tailscale SSH, with no credentials stored",
@@ -7082,7 +7082,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Telemetry",
       "icon": "ChartNoAxesColumn",
-      "video": "https://www.youtube.com/watch?v=qbKqZ1bzpvQ",
+      "video": "https://www.youtube.com/watch?v=YAwp4ejbkCI",
       "features": [
         "Never sends usernames, hostnames or credentials",
         "Choose what the report includes, or turn it off",
@@ -7179,7 +7179,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Termix-Identity",
       "icon": "Fingerprint",
-      "video": "https://www.youtube.com/watch?v=2F_A99YzjNw",
+      "video": "https://www.youtube.com/watch?v=YFuUi19caK0",
       "features": [
         "Publish your public keys under a handle",
         "Add your keys to any server with one command",
@@ -7296,7 +7296,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor",
       "icon": "Layers",
-      "video": "https://www.youtube.com/watch?v=d0PwHYi1hDM",
+      "video": "https://www.youtube.com/watch?v=KbxM1W0VaYY",
       "features": [
         "Every host's tmux sessions in one place",
         "Live pane previews",
@@ -7491,7 +7491,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-TOTP",
       "icon": "ShieldCheck",
-      "video": "https://www.youtube.com/watch?v=nla4ArQGpfU",
+      "video": "https://www.youtube.com/watch?v=uatzRXnX5i8",
       "features": [
         "Works with any authenticator app",
         "Backup codes in case you lose your phone",
@@ -7581,7 +7581,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tunnels",
       "icon": "ArrowLeftRight",
-      "video": "https://www.youtube.com/watch?v=taRk5rpu0EA",
+      "video": "https://www.youtube.com/watch?v=wsNlAZA0mlw",
       "features": [
         "Local, remote and dynamic SOCKS5 forwarding",
         "Reconnects on its own when a tunnel drops",
@@ -7899,6 +7899,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=fakAHclIVc4",
       "versions": [],
       "gated": [
         {
@@ -7961,6 +7962,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=HGcw-on85C0",
       "versions": [],
       "gated": [
         {
@@ -8023,6 +8025,7 @@
         "settings",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=YgjJJy36fYM",
       "versions": [],
       "gated": [
         {
