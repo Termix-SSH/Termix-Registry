@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T17:00:15.791Z",
+  "updatedAt": "2026-11-10T17:04:38.760Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5688,7 +5688,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Session-Sharing",
       "icon": "Presentation",
-      "video": "https://www.youtube.com/watch?v=7VUOXIKlR5Q",
+      "video": "https://www.youtube.com/watch?v=fGxbNmGGeRY",
       "features": [
         "Share terminal, RDP, VNC and Telnet sessions",
         "Share by link with anyone, or with a Termix user",
