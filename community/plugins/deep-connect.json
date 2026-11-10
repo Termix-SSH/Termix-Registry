@@ -1,0 +1,14 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "deep-connect",
+  "repository": "https://github.com/samsclub91/termix-plugin-deep-connect",
+  "maintainers": [
+    "samsclub91"
+  ],
+  "versions": [
+    {
+      "version": "1.2.0",
+      "sha256": "f73da68e3248390f5cb9a804da84dbf9076a8b5b7ef85f19b3e72f54d4580ed5"
+    }
+  ]
+}
