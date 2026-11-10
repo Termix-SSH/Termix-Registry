@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T17:10:13.728Z",
+  "updatedAt": "2026-11-10T17:13:02.024Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5505,7 +5505,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Session-Recording",
       "icon": "ScrollText",
-      "video": "https://www.youtube.com/watch?v=fmYg3wqMHC0",
+      "video": "https://www.youtube.com/watch?v=R2PFOM8eiQo",
       "features": [
         "Record SSH, RDP and VNC sessions",
         "Play recordings back at any speed",
@@ -5939,7 +5939,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
       "icon": "Play",
-      "video": "https://www.youtube.com/watch?v=g2TJdWLKhJI",
+      "video": "https://www.youtube.com/watch?v=xVvfA79FqEc",
       "features": [
         "Save commands and notes in folders",
         "Run them in one or more terminals, or straight on a set of hosts",
