@@ -44,13 +44,15 @@ jobs:
         id: sync
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ github.token }}
+          # The PAT has 5000 calls an hour; the job token only 1000, which a
+          # batch of video runs used up.
+          GH_TOKEN: ${{ secrets.TERMIX_PAT || github.token }}
           TERMIX_COMMUNITY_SIGNING_KEY: ${{ secrets.TERMIX_COMMUNITY_SIGNING_KEY }}
         run: npm run sync
 
       - name: Validate
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.TERMIX_PAT || github.token }}
         run: npm run validate
 
       - name: Commit
