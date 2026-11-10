@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T18:10:09.798Z",
+  "updatedAt": "2026-11-10T18:16:13.014Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -8671,6 +8671,7 @@
         "tabs",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=ooxMjv8nK7Y",
       "versions": [],
       "gated": [
         {
@@ -8926,7 +8927,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Workspaces",
       "icon": "LayoutTemplate",
-      "video": "https://www.youtube.com/watch?v=bcvDoszTJzQ",
+      "video": "https://www.youtube.com/watch?v=NR7_w_Q6h5o",
       "features": [
         "Save your tabs and split layout as a named workspace",
         "Reopen it in one click",
