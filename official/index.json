@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-09T05:14:42.213Z",
+  "updatedAt": "2026-11-10T15:15:04.998Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -14,7 +14,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-ACME-SSL",
       "icon": "Lock",
-      "video": "https://www.youtube.com/watch?v=BPoZMmJ_OEI",
+      "video": "https://www.youtube.com/watch?v=30O4gMNtDsU",
       "features": [
         "Certificates from Let's Encrypt or any ACME directory",
         "HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed",
@@ -693,7 +693,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Audit-Tools",
       "icon": "ClipboardList",
-      "video": "https://www.youtube.com/watch?v=x747K5yx650",
+      "video": "https://www.youtube.com/watch?v=RXxwhjN3HcI",
       "features": [
         "Forward every audit entry to an HTTP collector as it happens",
         "Catch up on entries written while the collector or Termix was down",
