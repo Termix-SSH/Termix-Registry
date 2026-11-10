@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-11-10T17:49:52.892Z",
+  "updatedAt": "2026-11-10T22:04:40.554Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -176,6 +176,49 @@
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.1",
           "notes": "### Fixed\n\n- Connection and download error messages in the file window are translated instead of always shown in English.",
           "publishedAt": "2026-10-28T19:27:12.000Z"
+        }
+      ]
+    },
+    {
+      "id": "deep-connect",
+      "name": "Deep Connect",
+      "description": "Opens Termix sessions from URLs (URI → session launcher): connects saved hosts or ad-hoc addresses over SSH, RDP or VNC, with a confirm before every connect.",
+      "author": "Andrew Hancock",
+      "category": "Infrastructure",
+      "repository": "https://github.com/samsclub91/termix-plugin-deep-connect",
+      "icon": "Monitor",
+      "features": [
+        "Open a Termix session from any URL: built for Lansweeper asset action links, works from anywhere",
+        "Saved hosts connect by name or address with their own logins",
+        "Ad-hoc quick connects to addresses over SSH, RDP or VNC",
+        "On your confirm, ad-hoc links can become saved hosts in the Ad-Hoc Hosts folder with a credential attached by reference",
+        "Every connect shows a confirm dialog first; links never carry secrets"
+      ],
+      "docs": "https://github.com/samsclub91/termix-plugin-deep-connect/tree/main/docs",
+      "contributes": ["permissions", "tabs"],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/samsclub91/termix-plugin-deep-connect/releases/download/v1.2.0/deep-connect-1.2.0.tmxplug",
+          "sha256": "f73da68e3248390f5cb9a804da84dbf9076a8b5b7ef85f19b3e72f54d4580ed5",
+          "signature": "aQgEfjA4S2CMZ6oStm/F1plAJOCc/L6iyDyXo9zaNr7JhbRTHWwnK8cXGjWAknWVn7a25TlPy4yRZBgNnApxBQ==",
+          "size": 35856,
+          "capabilities": [
+            "ui:surface",
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "network:serve"
+          ],
+          "engine": {
+            "api": "^1.13",
+            "termix": ">=26.11.0-0"
+          },
+          "releaseNotesUrl": "https://github.com/samsclub91/termix-plugin-deep-connect/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Renamed from \"Lansweeper Connector\" to **Deep Connect** (plugin id `deep-connect`, repo `termix-plugin-deep-connect`): the plugin is a general URI → session launcher; Lansweeper is one consumer of it, documented in the setup guide\n- The standalone hand-off page is now `?view=deep-connect` (was `?view=lansweeper-connect`); the plain `?connect=…&type=…` links are unchanged\n- The adopt route moved to `/plugin-api/deep-connect/adopt`\n- Records already created in the Ad-Hoc Hosts folder keep working unchanged: they are ordinary saved hosts",
+          "publishedAt": "2026-11-10T20:30:58.000Z"
         }
       ]
     },
