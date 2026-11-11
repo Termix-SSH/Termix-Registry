@@ -5,6 +5,10 @@
   "maintainers": ["jaygz316"],
   "versions": [
     {
+      "version": "1.4.0",
+      "sha256": "b3176b740f58c73485ee00653e421f5d4d6db82c9bf84e9d128a43cc56d81467"
+    },
+    {
       "version": "1.0.0",
       "sha256": "68a43323b11b155d964a93447cbfe2cc63b58e14dd5a1d7dcdd0fafb76f9dbf6"
     }
