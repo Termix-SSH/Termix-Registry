@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-10T18:18:50.361Z",
+  "updatedAt": "2026-11-11T16:50:32.668Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2034,7 +2034,7 @@
       "category": "Files & Transfer",
       "repository": "https://github.com/Termix-SSH/Plugin-File-Manager",
       "icon": "FolderSearch",
-      "video": "https://www.youtube.com/watch?v=0JMZny47MiI",
+      "video": "https://www.youtube.com/watch?v=x1cqLUY2Y_g",
       "features": [
         "Browse, upload, download, rename, move and delete files, with sudo support",
         "Edit files in a built-in code editor",
