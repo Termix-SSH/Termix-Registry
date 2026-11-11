@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-11-10T22:04:40.554Z",
+  "updatedAt": "2026-11-11T12:18:53.302Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -231,18 +231,40 @@
       "repository": "https://github.com/jaygz316/termix-plugin-herdr",
       "icon": "Bot",
       "features": [
-        "Attach to herdr on any SSH host in one tap",
-        "Touch becomes mouse: tap to click, long-press to right-click, hold and drag to select or resize, swipe to scroll",
-        "A key bar with herdr's prefix key, Esc, Tab, Ctrl, Alt and arrows",
-        "A navigator with every workspace, tab, pane and agent state",
-        "A tappable map of the current tab's panes",
-        "Prompt an agent or type into a pane from a normal text box, so phone keyboards and dictation work",
-        "Split, zoom, close and create without remembering keybindings"
+        "Attach to herdr on any SSH host in one tap or from the command palette, and switch between named herdr sessions",
+        "Touch becomes mouse: tap to click, two-finger tap or long-press to right-click, hold and drag to select or resize, swipe to scroll",
+        "A key bar with herdr's prefix key, Esc, Tab, Shift, Ctrl, Alt, Backspace, arrows and quick control keys",
+        "A navigator with every workspace, git worktree, tab, pane and agent state, plus live pane output preview and copy",
+        "One-tap approval keys when an agent is waiting for input, and toast notifications when agents finish or need you",
+        "Prompt an agent, launch a new agent or type into a pane from a normal text box, so phone keyboards and dictation work",
+        "Split, resize, swap, rename, zoom, close and create workspaces or git worktrees without remembering keybindings"
       ],
       "docs": "https://github.com/jaygz316/termix-plugin-herdr/tree/main/docs",
       "contributes": ["permissions", "settings", "tabs", "uses"],
       "versions": [],
       "gated": [
+        {
+          "version": "1.4.0",
+          "api": "1",
+          "url": "https://github.com/jaygz316/termix-plugin-herdr/releases/download/v1.4.0/herdr-1.4.0.tmxplug",
+          "sha256": "b3176b740f58c73485ee00653e421f5d4d6db82c9bf84e9d128a43cc56d81467",
+          "signature": "GTDKvzJ6ROwLlStUKebHWTB3BJzF1icAFzX6RUdVSV8tFGjSRcss8ZBUIo5WZ+3jmzJgz0pFQA8YHF95WWnQBw==",
+          "size": 174703,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.11",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/jaygz316/termix-plugin-herdr/releases/tag/v1.4.0",
+          "notes": "### Added\n\n- Mouse-resizable left sidebar (`160px`–`480px`, drag below `110px` to snap into compact rail mode, drag rail edge to reopen, double-click to reset), mouse-resizable horizontal split between the Spaces and Agents lists, and mouse-resizable right Navigator inspector (`240px`–`560px`), all persisted in `localStorage`\n- Instant search / filter bar in the `herdr-app` sidebar header to filter Spaces, branches, machines and Agents in real time and press `Enter` to jump to the first match\n- Inline Quick Prompt / Command bar (`MessageSquare` button) and inline blocked-agent approval keys directly in the pane header bar above the terminal\n- Click-to-copy working directory (`cwd`) in the pane header bar, multi-tab count badges on Spaces, and one-click jump to the next waiting (`blocked` / `error`) agent from the bottom status bar",
+          "publishedAt": "2026-11-11T05:57:57.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
