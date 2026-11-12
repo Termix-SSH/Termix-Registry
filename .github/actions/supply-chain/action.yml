@@ -94,6 +94,10 @@ runs:
         REBUILD: ${{ inputs.rebuild }}
       run: |
         npm ci --ignore-scripts --no-audit --no-fund
+        # The repo's own install scripts still run, only dependencies' are off.
+        for script in preinstall install postinstall; do
+          npm run --if-present "$script"
+        done
         read -r -a allowed <<< "$REBUILD"
         for pkg in "${allowed[@]}"; do
           if [ -f "node_modules/$pkg/package.json" ]; then
