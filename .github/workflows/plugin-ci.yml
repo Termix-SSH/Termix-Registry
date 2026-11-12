@@ -53,6 +53,84 @@ jobs:
       - name: Pack
         run: npx termix-plugin pack --out release
 
+  # Boots the newest core dev branch with this plugin and calls every route
+  # and socket in the plugin's authz.json as every kind of caller. Required
+  # for Termix-SSH plugins; other repos run it once they add the file.
+  authz:
+    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    env:
+      OFFICIAL: ${{ github.repository_owner == 'Termix-SSH' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: plugin
+          persist-credentials: false
+
+      - name: Table
+        id: table
+        run: |
+          if [ -f plugin/authz.json ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          elif [ "$OFFICIAL" = "true" ]; then
+            echo "::error::authz.json is missing. Every route needs an entry, see the plugin guide."
+            exit 1
+          else
+            echo "::notice::No authz.json, so the authorization matrix is skipped."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Newest core dev branch
+        id: core
+        if: steps.table.outputs.present == 'true'
+        run: |
+          ref=$(git ls-remote --heads https://github.com/Termix-SSH/Termix 'refs/heads/dev-*' \
+            | sed 's|.*refs/heads/||' | sort -V | tail -1)
+          echo "ref=${ref:-main}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: steps.table.outputs.present == 'true'
+        with:
+          repository: Termix-SSH/Termix
+          ref: ${{ steps.core.outputs.ref }}
+          path: core
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: steps.table.outputs.present == 'true'
+        with:
+          node-version-file: core/.nvmrc
+
+      - name: Build core
+        if: steps.table.outputs.present == 'true'
+        working-directory: core
+        run: |
+          npm run ci:install
+          npm run build:backend:core
+
+      - name: Build the plugin
+        if: steps.table.outputs.present == 'true'
+        working-directory: plugin
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          if [ "$(npm pkg get scripts.build)" != "{}" ]; then
+            npm run build
+          else
+            npx termix-plugin build
+          fi
+
+      # From source: CI never downloads a .tmxplug, that counts as a download.
+      - name: Build the plugins it needs
+        if: steps.table.outputs.present == 'true'
+        run: node core/scripts/authz/stage-deps.mjs plugin deps
+
+      - name: Authorization matrix
+        if: steps.table.outputs.present == 'true'
+        run: >-
+          node core/scripts/authz/run.mjs --no-core
+          --plugin plugin --local-plugin plugin --local-plugins deps
+
   # Fails on high severity zizmor findings in the plugin's workflows. A repo
   # without its own .github/zizmor.yml gets the default below, which lets the
   # shared Termix-SSH workflows stay on a branch ref.
