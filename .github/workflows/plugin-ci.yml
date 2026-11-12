@@ -6,16 +6,19 @@ name: Plugin CI
 on:
   workflow_call:
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   check:
     runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: ".nvmrc"
           cache: npm
@@ -44,3 +47,44 @@ jobs:
 
       - name: Pack
         run: npx termix-plugin pack --out release
+
+  # Fails on high severity zizmor findings in the plugin's workflows. A repo
+  # without its own .github/zizmor.yml gets the default below, which lets the
+  # shared Termix-SSH workflows stay on a branch ref.
+  workflow-lint:
+    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Lint config
+        id: config
+        run: |
+          for file in .github/zizmor.yml .github/zizmor.yaml zizmor.yml zizmor.yaml; do
+            if [ -f "$file" ]; then
+              echo "path=$file" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          cat > "$RUNNER_TEMP/zizmor.yml" <<'YAML'
+          rules:
+            unpinned-uses:
+              config:
+                policies:
+                  "Termix-SSH/*": ref-pin
+                  "*": hash-pin
+            self-repository:
+              disable: true
+          YAML
+          echo "path=$RUNNER_TEMP/zizmor.yml" >> "$GITHUB_OUTPUT"
+
+      - uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        with:
+          version: 1.32.0
+          advanced-security: false
+          annotations: true
+          min-severity: high
+          config: ${{ steps.config.outputs.path }}

@@ -1,5 +1,7 @@
 // Checks this repo's workflows keep secrets where they belong:
-// - a secret other than GITHUB_TOKEN is only read by a job with an environment
+// - a secret other than GITHUB_TOKEN is only read by a job with an environment,
+//   or passed by name to one of this repo's reusable workflows (checked itself)
+// - no job passes secrets: inherit
 // - a job holding a signing or App key runs no npm cache, install scripts or npx
 // - a workflow with an environment job has no pull_request_target or workflow_run
 // - plugin-release.yml runs only for community plugins: it refuses official
@@ -51,7 +53,13 @@ export function checkWorkflow(name, text) {
     const where = `${name} ${id}`;
     const { secrets: passed, ...rest } = job;
     const read = secretsIn(rest);
-    if (passed && passed !== "inherit") {
+    if (passed === "inherit") {
+      problems.push(`${where}: secrets: inherit, pass each secret by name`);
+    }
+    // A call job can't have an environment. The called workflow's own jobs
+    // must, and this check covers them when the file is local.
+    const localCall = typeof job.uses === "string" && job.uses.startsWith("./");
+    if (passed && passed !== "inherit" && !localCall) {
       for (const secret of secretsIn(passed)) read.add(secret);
     }
     if (read.size && !job.environment) {

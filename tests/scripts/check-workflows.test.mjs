@@ -36,6 +36,40 @@ jobs:
   assert.ok(problems.some((p) => p.includes("runs npx")));
 });
 
+test("secrets: inherit fails", () => {
+  const text = `
+on: workflow_dispatch
+jobs:
+  release:
+    uses: ./.github/workflows/release-plugin-one.yml
+    secrets: inherit
+`;
+  assert.ok(
+    checkWorkflow("x.yml", text).some((p) => p.includes("secrets: inherit")),
+  );
+});
+
+test("secrets passed by name to a local workflow pass, to a remote one fail", () => {
+  const local = `
+on: workflow_dispatch
+jobs:
+  release:
+    uses: ./.github/workflows/release-plugin-one.yml
+    secrets:
+      CI_APP_PRIVATE_KEY: \${{ secrets.CI_APP_PRIVATE_KEY }}
+`;
+  assert.deepEqual(checkWorkflow("x.yml", local), []);
+  const remote = local.replace(
+    "./.github/workflows/release-plugin-one.yml",
+    "someone/else/.github/workflows/x.yml@main",
+  );
+  assert.ok(
+    checkWorkflow("x.yml", remote).some((p) =>
+      p.includes("without an environment"),
+    ),
+  );
+});
+
 test("a key job with an npm cache fails", () => {
   const text = `
 on: workflow_dispatch

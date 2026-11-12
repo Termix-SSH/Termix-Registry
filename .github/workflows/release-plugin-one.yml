@@ -38,9 +38,15 @@ on:
       mode:
         type: string
         required: true
+    secrets:
+      TERMIX_LLM_API_KEY:
+        required: false
+      TERMIX_PLUGIN_SIGNING_KEY:
+        required: false
+      CI_APP_PRIVATE_KEY:
+        required: false
 
-permissions:
-  contents: read
+permissions: {}
 
 concurrency:
   group: plugin-release-${{ inputs.repo }}
@@ -55,19 +61,19 @@ jobs:
       contents: read
     steps:
       # Checked out as data only. Nothing from the plugin runs in this job.
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ inputs.repo }}
           ref: ${{ inputs.sha }}
           path: plugin
           persist-credentials: false
 
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: registry
           persist-credentials: false
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: registry/.nvmrc
 
@@ -86,7 +92,7 @@ jobs:
           out: plugin/${{ steps.locales.outputs.dir }}/translated
           api-key: ${{ secrets.TERMIX_LLM_API_KEY }}
 
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ steps.locales.outputs.dir != '' }}
         with:
           name: translations-${{ inputs.id }}
@@ -106,7 +112,7 @@ jobs:
       base: ${{ steps.version.outputs.base }}
       locales: ${{ steps.version.outputs.locales }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ inputs.repo }}
           ref: ${{ inputs.sha }}
@@ -114,13 +120,13 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: registry
           persist-credentials: false
 
       # No npm cache here: this job runs the plugin's dependencies.
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: plugin/.nvmrc
 
@@ -137,7 +143,7 @@ jobs:
           BRANCH: ${{ inputs.branch }}
         run: node ../registry/scripts/release/prepare.mjs --channel "$CHANNEL" --mode "$MODE" --branch "$BRANCH"
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         if: ${{ needs.translate.result == 'success' && steps.version.outputs.locales != '' }}
         continue-on-error: true
         with:
@@ -220,7 +226,7 @@ jobs:
           fi
           ls -R ../out
 
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: release-${{ inputs.id }}
           path: out
@@ -250,12 +256,12 @@ jobs:
     steps:
       # Only this repo's code runs here, with no npm cache and no install
       # scripts, because this job holds the signing key.
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: registry
           persist-credentials: false
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: registry/.nvmrc
 
@@ -263,7 +269,7 @@ jobs:
         working-directory: registry
         run: npm ci --ignore-scripts
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: release-${{ inputs.id }}
           path: out
@@ -277,7 +283,7 @@ jobs:
       - name: App token (dry run)
         id: app-read
         if: ${{ inputs.mode == 'dry-run' }}
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           client-id: ${{ vars.CI_APP_CLIENT_ID }}
           private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
@@ -288,7 +294,7 @@ jobs:
       - name: App token
         id: app
         if: ${{ inputs.mode != 'dry-run' }}
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           client-id: ${{ vars.CI_APP_CLIENT_ID }}
           private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
@@ -305,7 +311,7 @@ jobs:
           gh api "repos/$REPO/commits/$SHA" -q .sha > /dev/null
           echo "Dry run of $ID $VERSION ($CHANNEL) from $BRANCH: built, signed and checked against keys/official.pub. Nothing pushed." >> "$GITHUB_STEP_SUMMARY"
 
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         if: ${{ inputs.mode != 'dry-run' }}
         with:
           repository: ${{ inputs.repo }}
@@ -313,10 +319,12 @@ jobs:
           path: plugin
           fetch-depth: 0
           token: ${{ steps.app.outputs.token }}
+          # The merge, tag and release steps push with it.
+          persist-credentials: true
 
       - name: Build provenance
         if: ${{ inputs.mode != 'dry-run' }}
-        uses: actions/attest-build-provenance@v4
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
           subject-path: out/*.tmxplug
 
@@ -394,10 +402,10 @@ jobs:
           files=("out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig")
           if gh release view "$TAG" --repo "$REPO" > /dev/null 2>&1; then
             gh release upload "$TAG" "${files[@]}" --repo "$REPO" --clobber
-            gh release edit "$TAG" --repo "$REPO" --notes-file out/RELEASE_NOTES.md $PRERELEASE
+            gh release edit "$TAG" --repo "$REPO" --notes-file out/RELEASE_NOTES.md ${PRERELEASE:+"$PRERELEASE"}
           else
             gh release create "$TAG" "${files[@]}" --repo "$REPO" \
-              --title "$TAG" --target "$TARGET" --notes-file out/RELEASE_NOTES.md $PRERELEASE
+              --title "$TAG" --target "$TARGET" --notes-file out/RELEASE_NOTES.md ${PRERELEASE:+"$PRERELEASE"}
           fi
 
       - name: Clean up after a stable release

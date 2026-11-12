@@ -5,24 +5,28 @@ on:
     paths:
       - "community/plugins/**"
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   check:
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
     steps:
       # The checks run from the base branch and only read the PR's files as
       # data, so a PR can't change what checks it.
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.base.sha }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Fetch the PR
-        run: git fetch --no-tags origin "refs/pull/${{ github.event.pull_request.number }}/head"
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: git fetch --no-tags origin "refs/pull/$PR_NUMBER/head"
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: ".nvmrc"
           cache: npm
