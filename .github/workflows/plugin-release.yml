@@ -69,7 +69,11 @@ jobs:
           node-version-file: ".nvmrc"
           cache: npm
 
-      - run: npm ci
+      - name: Lockfile lint and install
+        uses: Termix-SSH/Termix-Registry/.github/actions/supply-chain@main
+        with:
+          osv: "false"
+          install: "true"
 
       - name: Resolve the version
         id: version

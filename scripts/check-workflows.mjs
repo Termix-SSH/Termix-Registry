@@ -2,7 +2,8 @@
 // - a secret other than GITHUB_TOKEN is only read by a job with an environment,
 //   or passed by name to one of this repo's reusable workflows (checked itself)
 // - no job passes secrets: inherit
-// - a job holding a signing or App key runs no npm cache, install scripts or npx
+// - every npm ci or npm install runs with --ignore-scripts
+// - a job holding a signing or App key runs no npm cache or npx
 // - a workflow with an environment job has no pull_request_target or workflow_run
 // - plugin-release.yml runs only for community plugins: it refuses official
 //   repos first thing and reads only the author's own optional secrets
@@ -80,13 +81,20 @@ export function checkWorkflow(name, text) {
         if (step.with?.cache) problems.push(`${label}: uses a cache`);
         const run = String(step.run ?? "");
         for (const line of run.split("\n")) {
-          if (
-            /\bnpm (ci|install|i)\b/.test(line) &&
-            !/--ignore-scripts/.test(line)
-          ) {
-            problems.push(`${label}: npm install without --ignore-scripts`);
-          }
           if (/\bnpx\b/.test(line)) problems.push(`${label}: runs npx`);
+        }
+      }
+    }
+    // Every install runs with scripts off. Native modules that need theirs
+    // get an npm rebuild of just that package.
+    for (const [index, step] of (job.steps ?? []).entries()) {
+      const label = `${where} step ${step.name ?? step.uses ?? index + 1}`;
+      for (const line of String(step.run ?? "").split("\n")) {
+        if (
+          /\bnpm (ci|install|i)\b/.test(line) &&
+          !/--ignore-scripts/.test(line)
+        ) {
+          problems.push(`${label}: npm install without --ignore-scripts`);
         }
       }
     }

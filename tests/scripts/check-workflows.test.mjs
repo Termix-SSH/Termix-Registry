@@ -155,3 +155,20 @@ jobs:
 `;
   assert.deepEqual(checkWorkflow("plugin-release.yml", text), []);
 });
+
+test("an npm ci with install scripts fails in any job", () => {
+  const text = `
+on: pull_request
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm ci
+`;
+  const problems = checkWorkflow("ci.yml", text);
+  assert.ok(problems.some((p) => p.includes("npm install without")));
+  assert.deepEqual(
+    checkWorkflow("ci.yml", text.replace("npm ci", "npm ci --ignore-scripts")),
+    [],
+  );
+});

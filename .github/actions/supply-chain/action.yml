@@ -1,0 +1,102 @@
+name: Supply chain checks
+description: >-
+  Lints package-lock.json (npm registry only, https, sha512 integrity), fails
+  on known vulnerabilities that have a fix, then optionally installs with
+  install scripts off except for an allowlist of native modules.
+
+inputs:
+  directory:
+    description: Folder holding package.json and package-lock.json
+    default: "."
+  aliases:
+    description: >-
+      npm aliases the lockfile may hold, space separated, like
+      "string-width-cjs:string-width"
+    default: ""
+  osv:
+    description: Scan the lockfile with osv-scanner
+    default: "true"
+  install:
+    description: Run npm ci --ignore-scripts after the checks
+    default: "false"
+  rebuild:
+    description: >-
+      Packages whose install scripts still run after npm ci, space separated.
+      Ones that are not installed are skipped.
+    default: better-sqlite3 node-pty @serialport/bindings-cpp
+
+runs:
+  using: composite
+  steps:
+    - name: Install lockfile-lint
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: npm ci --ignore-scripts --no-audit --no-fund --loglevel=error
+
+    - name: Lint the lockfile
+      shell: bash
+      working-directory: ${{ inputs.directory }}
+      env:
+        TOOLS: ${{ github.action_path }}
+        ALIASES: ${{ inputs.aliases }}
+      run: |
+        args=(--path package-lock.json --type npm --allowed-hosts npm --validate-https
+          --validate-integrity-strict --validate-package-names --empty-hostname false
+          --format plain)
+        read -r -a aliases <<< "$ALIASES"
+        if [ "${#aliases[@]}" -gt 0 ]; then
+          args+=(--allowed-package-name-aliases "${aliases[@]}")
+        fi
+        node "$TOOLS/node_modules/lockfile-lint/bin/lockfile-lint.js" "${args[@]}"
+
+    - name: Scan for known vulnerabilities
+      if: ${{ inputs.osv == 'true' }}
+      shell: bash
+      working-directory: ${{ inputs.directory }}
+      env:
+        TOOLS: ${{ github.action_path }}
+        OSV_VERSION: v2.7.0
+      run: |
+        case "$RUNNER_OS-$RUNNER_ARCH" in
+          Linux-X64)
+            asset=osv-scanner_linux_amd64
+            sum=160c6253e2922e9e0a6a9771c5c4c40a4b3c6090b34a3cdd5e80c96cc2e4218b ;;
+          Linux-ARM64)
+            asset=osv-scanner_linux_arm64
+            sum=4061ef4c021ed3c47f203b818f337e351336cc5cd67c0274fc36bd1dfc728dd7 ;;
+          *)
+            echo "::error::osv-scanner runs on Linux runners only"
+            exit 1 ;;
+        esac
+        bin="$RUNNER_TEMP/osv-scanner"
+        curl -fsSL --retry 3 -o "$bin" \
+          "https://github.com/google/osv-scanner/releases/download/$OSV_VERSION/$asset"
+        echo "$sum  $bin" | sha256sum -c --quiet -
+        chmod +x "$bin"
+
+        # Exit 1 means it found something, the gate decides if that fails.
+        # An osv-scanner.toml next to the lockfile can ignore one with a reason.
+        status=0
+        "$bin" scan source --lockfile package-lock.json --format json \
+          --output-file "$RUNNER_TEMP/osv.json" || status=$?
+        if [ "$status" -gt 1 ]; then
+          echo "::error::osv-scanner exited with $status"
+          exit "$status"
+        fi
+        node "$TOOLS/osv-gate.mjs" "$RUNNER_TEMP/osv.json"
+
+    - name: Install dependencies
+      if: ${{ inputs.install == 'true' }}
+      shell: bash
+      working-directory: ${{ inputs.directory }}
+      env:
+        HUSKY: "0"
+        REBUILD: ${{ inputs.rebuild }}
+      run: |
+        npm ci --ignore-scripts --no-audit --no-fund
+        read -r -a allowed <<< "$REBUILD"
+        for pkg in "${allowed[@]}"; do
+          if [ -f "node_modules/$pkg/package.json" ]; then
+            npm rebuild "$pkg"
+          fi
+        done

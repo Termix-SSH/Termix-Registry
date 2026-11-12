@@ -150,11 +150,25 @@ jobs:
           name: translations-${{ inputs.id }}
           path: plugin/${{ steps.version.outputs.locales }}/translated
 
-      - name: Install
+      # main gets the dev tree as is, so a change made only on main (like a
+      # Dependabot update) would be dropped by this release.
+      - name: Changes on main missing here
         working-directory: plugin
-        env:
-          HUSKY: "0"
-        run: npm ci
+        run: |
+          git fetch --no-tags --quiet origin main
+          base=$(git merge-base HEAD FETCH_HEAD)
+          git diff --name-only "$base" FETCH_HEAD | while read -r file; do
+            if ! git diff --quiet HEAD FETCH_HEAD -- "$file"; then
+              echo "::warning file=$file::changed on main but not on this branch, the release drops it"
+            fi
+          done
+
+      - name: Lockfile lint and install
+        uses: ./registry/.github/actions/supply-chain
+        with:
+          directory: plugin
+          osv: "false"
+          install: "true"
 
       - name: Test
         working-directory: plugin

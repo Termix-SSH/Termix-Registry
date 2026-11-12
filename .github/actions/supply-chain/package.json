@@ -1,0 +1,8 @@
+{
+  "name": "termix-supply-chain-action",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "lockfile-lint": "5.1.0"
+  }
+}

@@ -23,7 +23,12 @@ jobs:
           node-version-file: ".nvmrc"
           cache: npm
 
-      - run: npm ci
+      # Lockfile lint and known vulnerabilities first, then npm ci with
+      # install scripts off except for a few native modules.
+      - name: Supply chain checks and install
+        uses: Termix-SSH/Termix-Registry/.github/actions/supply-chain@main
+        with:
+          install: "true"
 
       - name: Test
         run: npx termix-plugin test
