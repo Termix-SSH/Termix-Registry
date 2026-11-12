@@ -2,9 +2,7 @@
   "$schema": "../../community-submission-schema.json",
   "id": "termix-vscode",
   "repository": "https://github.com/Tech-Innovators-Dev/termix-vscode",
-  "maintainers": [
-    "techinnovators-dev"
-  ],
+  "maintainers": ["techinnovators-dev"],
   "versions": [
     {
       "version": "1.1.1",
