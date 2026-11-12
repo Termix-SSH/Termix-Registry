@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T11:26:44.692Z",
+  "updatedAt": "2026-11-12T11:49:44.723Z",
   "plugins": {
     "command-editor": {
       "downloads": 60,
@@ -10,10 +10,10 @@
       }
     },
     "container-files": {
-      "downloads": 194,
+      "downloads": 196,
       "versions": {
         "1.0.5": {
-          "downloads": 72
+          "downloads": 74
         },
         "1.0.4": {
           "downloads": 10
@@ -33,10 +33,10 @@
       }
     },
     "deep-connect": {
-      "downloads": 32,
+      "downloads": 34,
       "versions": {
         "1.2.0": {
-          "downloads": 10
+          "downloads": 12
         },
         "1.1.0": {
           "downloads": 4
@@ -62,16 +62,16 @@
       }
     },
     "herdr": {
-      "downloads": 66,
+      "downloads": 74,
       "versions": {
         "1.4.0": {
-          "downloads": 3
+          "downloads": 10
         },
         "1.1.0": {
           "downloads": 2
         },
         "1.0.0": {
-          "downloads": 61
+          "downloads": 62
         }
       }
     },
@@ -90,10 +90,10 @@
       }
     },
     "host-icons": {
-      "downloads": 270,
+      "downloads": 275,
       "versions": {
         "0.6.0": {
-          "downloads": 141
+          "downloads": 146
         },
         "0.5.0": {
           "downloads": 41
@@ -121,10 +121,10 @@
       }
     },
     "pve-power": {
-      "downloads": 174,
+      "downloads": 175,
       "versions": {
         "0.7.0": {
-          "downloads": 31
+          "downloads": 32
         },
         "0.6.9": {
           "downloads": 119
@@ -141,10 +141,10 @@
       }
     },
     "termix-vscode": {
-      "downloads": 95,
+      "downloads": 98,
       "versions": {
         "1.1.1": {
-          "downloads": 92
+          "downloads": 95
         },
         "1.1.0": {
           "downloads": 3
