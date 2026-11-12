@@ -28,7 +28,6 @@ const { version, base } = resolveVersion({
   channel: values.channel,
   mode: values.mode,
   branch: values.branch,
-  manifestVersion: manifest.version,
   tags: git("tag", "-l", "v*").filter(Boolean),
 });
 const prev =

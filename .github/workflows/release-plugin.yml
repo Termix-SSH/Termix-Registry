@@ -4,6 +4,10 @@ name: Release Plugin
 # comma list. Each plugin releases from its only dev-X.Y.Z branch (or the
 # branch you name when releasing one plugin).
 #
+# Releases are immutable. Each one is made as a draft, gets its files, then
+# is published. A version that already has a release can't be run again:
+# bump the version on the dev branch.
+#
 # The signing key, the Termix CI App key and the LLM key live only in this
 # repo's environments. Plugin repos hold no secrets. One approval of the
 # release environment covers every plugin in the run.
@@ -24,13 +28,12 @@ on:
           - stable
           - beta
       mode:
-        description: "release, overwrite (stable only) or dry-run"
+        description: "release or dry-run"
         required: true
         default: release
         type: choice
         options:
           - release
-          - overwrite
           - dry-run
       ref:
         description: "Branch to release from (one plugin only, optional)"
@@ -64,8 +67,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PLUGINS: ${{ inputs.plugins }}
           REF: ${{ inputs.ref }}
-          MODE: ${{ inputs.mode }}
-        run: node scripts/release/plan.mjs --plugins "$PLUGINS" --ref "$REF" --mode "$MODE"
+        run: node scripts/release/plan.mjs --plugins "$PLUGINS" --ref "$REF"
 
   release:
     needs: plan

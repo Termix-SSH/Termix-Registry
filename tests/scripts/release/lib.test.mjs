@@ -55,14 +55,12 @@ test("pickBranch uses the only dev branch", () => {
     () => pickBranch({ branches: ["main"], mode: "release" }),
     /no dev/,
   );
-  assert.equal(pickBranch({ branches: ["main"], mode: "overwrite" }), "main");
 });
 
 test("resolveVersion follows the release rules", () => {
   const base = {
     mode: "release",
     branch: "dev-1.2.0",
-    manifestVersion: "1.1.0",
   };
   assert.deepEqual(
     resolveVersion({ ...base, channel: "stable", tags: ["v1.1.0"] }),
@@ -88,15 +86,15 @@ test("resolveVersion follows the release rules", () => {
       resolveVersion({ ...base, branch: "main", channel: "stable", tags: [] }),
     /dev-X\.Y\.Z/,
   );
-  assert.equal(
-    resolveVersion({ ...base, mode: "overwrite", channel: "stable", tags: [] })
-      .version,
-    "1.1.0",
-  );
   assert.throws(
     () =>
-      resolveVersion({ ...base, mode: "overwrite", channel: "beta", tags: [] }),
-    /overwrite/,
+      resolveVersion({
+        ...base,
+        mode: "overwrite",
+        channel: "stable",
+        tags: [],
+      }),
+    /mode must be/,
   );
   assert.throws(
     () => resolveVersion({ ...base, mode: "go", channel: "stable", tags: [] }),

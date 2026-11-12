@@ -11,8 +11,11 @@ name: Release one plugin
 #   branch and this version's beta releases (their tags stay).
 # beta: stamps X.Y.Z-beta.N into the build only, commits translations to the
 #   dev branch, tags it and publishes a prerelease.
-# overwrite: releases the manifest version again from the branch commit.
 # dry-run: builds and signs, nothing is pushed or published.
+#
+# Releases are immutable. The release is made as a draft, gets the .tmxplug
+# and its signature, then is published, which creates the tag. A version that
+# already has a published release or a tag is refused: bump the version.
 
 on:
   workflow_call:
@@ -54,7 +57,6 @@ concurrency:
 
 jobs:
   translate:
-    if: ${{ inputs.mode != 'overwrite' }}
     runs-on: blacksmith-2vcpu-ubuntu-2404
     environment: llm
     permissions:
@@ -317,6 +319,28 @@ jobs:
           permission-contents: write
           permission-workflows: write
 
+      - name: Check the version is free
+        env:
+          GH_TOKEN: ${{ steps.app-read.outputs.token || steps.app.outputs.token }}
+        run: |
+          rows=$(gh api --paginate "repos/$REPO/releases?per_page=100" \
+            --jq '.[] | select(.tag_name == env.TAG) | "\(.id) \(.draft)"')
+          while read -r rid draft; do
+            [ -n "$rid" ] || continue
+            if [ "$draft" != "true" ]; then
+              echo "::error::$TAG is already released and a release can't change. Bump the version on $BRANCH and run again."
+              exit 1
+            fi
+            echo "Found an old draft of $TAG (release $rid) from a run that stopped. Deleting it."
+            if [ "$MODE" != "dry-run" ]; then
+              gh api -X DELETE "repos/$REPO/releases/$rid"
+            fi
+          done <<< "$rows"
+          if gh api "repos/$REPO/git/ref/tags/$TAG" > /dev/null 2>&1; then
+            echo "::error::The tag $TAG already exists. A tag can't be reused. Bump the version on $BRANCH and run again."
+            exit 1
+          fi
+
       - name: Dry run summary
         if: ${{ inputs.mode == 'dry-run' }}
         env:
@@ -397,30 +421,39 @@ jobs:
           git push origin "HEAD:refs/heads/$BRANCH"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
-      - name: Tag
-        if: ${{ inputs.mode != 'dry-run' }}
-        working-directory: plugin
-        env:
-          TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || inputs.sha }}
-        run: |
-          git tag -f "$TAG" "$TARGET"
-          git push -f origin "refs/tags/$TAG"
-
-      - name: GitHub release
+      - name: Publish the release
         if: ${{ inputs.mode != 'dry-run' }}
         env:
           GH_TOKEN: ${{ steps.app.outputs.token }}
           TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || inputs.sha }}
-          PRERELEASE: ${{ inputs.channel == 'beta' && '--prerelease' || '' }}
+          PRERELEASE: ${{ inputs.channel == 'beta' && 'true' || 'false' }}
         run: |
-          files=("out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig")
-          if gh release view "$TAG" --repo "$REPO" > /dev/null 2>&1; then
-            gh release upload "$TAG" "${files[@]}" --repo "$REPO" --clobber
-            gh release edit "$TAG" --repo "$REPO" --notes-file out/RELEASE_NOTES.md ${PRERELEASE:+"$PRERELEASE"}
-          else
-            gh release create "$TAG" "${files[@]}" --repo "$REPO" \
-              --title "$TAG" --target "$TARGET" --notes-file out/RELEASE_NOTES.md ${PRERELEASE:+"$PRERELEASE"}
+          # Draft first, so nobody sees it before both files are on it.
+          gh release create "$TAG" "out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig" \
+            --repo "$REPO" --draft --title "$TAG" --target "$TARGET" --notes-file out/RELEASE_NOTES.md
+
+          rid=$(gh api --paginate "repos/$REPO/releases?per_page=100" \
+            --jq '.[] | select(.tag_name == env.TAG and .draft) | .id' | head -1)
+          [ -n "$rid" ] || { echo "No draft found for $TAG."; exit 1; }
+
+          count=$(gh api "repos/$REPO/releases/$rid" --jq '.assets | length')
+          if [ "$count" != "2" ]; then
+            echo "The draft has $count files, expected 2. Not publishing."
+            gh api -X DELETE "repos/$REPO/releases/$rid"
+            exit 1
           fi
+
+          # Publishing creates the tag at the final commit.
+          gh api -X PATCH "repos/$REPO/releases/$rid" \
+            -F draft=false -F prerelease="$PRERELEASE" -f target_commitish="$TARGET" > /dev/null
+
+          state=$(gh api "repos/$REPO/releases/$rid" --jq '"\(.draft) \(.immutable)"')
+          echo "Published $TAG (draft immutable): $state"
+          case "$state" in
+            "false true") ;;
+            "false"*) echo "::warning::$TAG is published but not immutable. Turn on immutable releases for $REPO." ;;
+            *) echo "$TAG did not publish."; exit 1 ;;
+          esac
 
       - name: Clean up after a stable release
         if: ${{ inputs.mode == 'release' && inputs.channel == 'stable' }}

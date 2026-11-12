@@ -36,9 +36,9 @@ export function pickRepos(input, repositories) {
 
 /**
  * The branch a release runs from: the one asked for, else the plugin's only
- * dev-X.Y.Z branch. Overwrite falls back to main.
+ * dev-X.Y.Z branch.
  */
-export function pickBranch({ branches, requested, mode }) {
+export function pickBranch({ branches, requested }) {
   if (requested) {
     if (!branches.includes(requested)) {
       throw new Error(`branch ${requested} does not exist`);
@@ -47,7 +47,6 @@ export function pickBranch({ branches, requested, mode }) {
   }
   const dev = branches.filter((name) => DEV_BRANCH.test(name));
   if (dev.length === 1) return dev[0];
-  if (dev.length === 0 && mode === "overwrite") return "main";
   if (dev.length === 0) throw new Error("no dev-X.Y.Z branch to release");
   throw new Error(`more than one dev branch (${dev.join(", ")}), pick one`);
 }
@@ -56,26 +55,12 @@ export function pickBranch({ branches, requested, mode }) {
  * The version to release, same rules as the old per repo workflow.
  * tags are the plugin's git tag names.
  */
-export function resolveVersion({
-  channel,
-  mode,
-  branch,
-  manifestVersion,
-  tags,
-}) {
+export function resolveVersion({ channel, mode, branch, tags }) {
   if (!["stable", "beta"].includes(channel)) {
     throw new Error("channel must be stable or beta");
   }
-  if (!["release", "overwrite", "dry-run"].includes(mode)) {
-    throw new Error("mode must be release, overwrite or dry-run");
-  }
-  if (mode === "overwrite") {
-    if (channel === "beta") {
-      throw new Error(
-        "overwrite re-releases a stable version, run it with channel stable",
-      );
-    }
-    return { version: manifestVersion, base: manifestVersion };
+  if (!["release", "dry-run"].includes(mode)) {
+    throw new Error("mode must be release or dry-run");
   }
   const base = DEV_BRANCH.exec(branch)?.[1];
   if (!base)
@@ -92,7 +77,7 @@ export function resolveVersion({
   }
   if (tags.includes(`v${base}`)) {
     throw new Error(
-      `v${base} is already released. Bump the dev branch or use mode overwrite.`,
+      `v${base} is already released and releases can't change. Bump the version on the dev branch.`,
     );
   }
   return { version: base, base };

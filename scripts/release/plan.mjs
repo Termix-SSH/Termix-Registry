@@ -11,7 +11,6 @@ const { values } = parseArgs({
   options: {
     plugins: { type: "string" },
     ref: { type: "string", default: "" },
-    mode: { type: "string", default: "release" },
   },
 });
 
@@ -39,7 +38,6 @@ for (const repo of repos) {
   const branch = pickBranch({
     branches: await branchesOf(repo),
     requested: values.ref,
-    mode: values.mode,
   });
   const commit = await github(
     `/repos/${repo}/commits/${encodeURIComponent(branch)}`,

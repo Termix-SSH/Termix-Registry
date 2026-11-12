@@ -42,7 +42,7 @@ The full guide is at [docs.termix.site/develop/community-registry](https://docs.
 
 Every version is reviewed. Release the new version, then open a PR that adds it to the top of `versions`. Only a listed maintainer can open it. The reviewer sees what changed since your last listed version, and any new capabilities.
 
-A version that was listed can't be swapped for another file. If you overwrite a release after it was reviewed, it drops out of the registry until you submit it again under a new version.
+A version that was listed can't be swapped for another file. Releases are immutable, so a fix always ships as a new version.
 
 ## What reviewers check
 

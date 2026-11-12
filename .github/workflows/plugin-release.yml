@@ -8,9 +8,11 @@ name: Plugin Release
 # beta: stamps X.Y.Z-beta.N into the build only, tags the dev commit and
 #   publishes a GitHub prerelease. The registry lists it under prereleases,
 #   so only plugins on the beta channel are offered it.
-# overwrite: releases the manifest version again from the current commit,
-#   replacing its files. Works from any branch.
 # dry-run: everything up to pack, nothing is pushed or published.
+#
+# Releases are immutable once published. The release is made as a draft with
+# its files, then published, which creates the tag. A version that already
+# has a release or tag is refused: bump the version.
 #
 # This is for community plugins. They need no secrets: the release gets
 # GitHub build provenance, and the job summary shows what to put in a
@@ -80,32 +82,26 @@ jobs:
         env:
           CHANNEL: ${{ inputs.channel }}
           MODE: ${{ inputs.mode }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           case "$CHANNEL" in stable|beta) ;; *) echo "channel must be stable or beta"; exit 1 ;; esac
-          case "$MODE" in release|overwrite|dry-run) ;; *) echo "mode must be release, overwrite or dry-run"; exit 1 ;; esac
+          case "$MODE" in release|dry-run) ;; *) echo "mode must be release or dry-run"; exit 1 ;; esac
 
-          if [ "$MODE" = "overwrite" ]; then
-            if [ "$CHANNEL" = "beta" ]; then
-              echo "overwrite re-releases a stable version, run it with channel stable"
-              exit 1
-            fi
-            version=$(node -p "require('./manifest.json').version")
+          base=$(printf '%s' "$GITHUB_REF_NAME" | sed -nE 's/^dev-([0-9]+\.[0-9]+\.[0-9]+)$/\1/p')
+          if [ -z "$base" ]; then
+            echo "Run this from a dev-X.Y.Z branch (got $GITHUB_REF_NAME)."
+            exit 1
+          fi
+          if [ "$CHANNEL" = "beta" ]; then
+            last=$(git tag -l "v$base-beta.*" | sed -E "s/^v$base-beta\.//" | grep -E '^[0-9]+$' | sort -n | tail -1)
+            version="$base-beta.$(( ${last:-0} + 1 ))"
           else
-            base=$(printf '%s' "$GITHUB_REF_NAME" | sed -nE 's/^dev-([0-9]+\.[0-9]+\.[0-9]+)$/\1/p')
-            if [ -z "$base" ]; then
-              echo "Run this from a dev-X.Y.Z branch (got $GITHUB_REF_NAME)."
-              exit 1
-            fi
-            if [ "$CHANNEL" = "beta" ]; then
-              last=$(git tag -l "v$base-beta.*" | sed -E "s/^v$base-beta\.//" | grep -E '^[0-9]+$' | sort -n | tail -1)
-              version="$base-beta.$(( ${last:-0} + 1 ))"
-            else
-              version="$base"
-              if git rev-parse -q --verify "refs/tags/v$version" > /dev/null; then
-                echo "v$version is already released. Bump the dev branch or use mode overwrite."
-                exit 1
-              fi
-            fi
+            version="$base"
+          fi
+          if git rev-parse -q --verify "refs/tags/v$version" > /dev/null \
+            || gh release view "v$version" > /dev/null 2>&1; then
+            echo "v$version is already released and a release can't change. Bump the version on the dev branch."
+            exit 1
           fi
 
           prev=$(git tag -l 'v*' --sort=-v:refname --merged HEAD | grep -vx "v$version" | head -1)
@@ -297,34 +293,28 @@ jobs:
           git push origin "HEAD:$GITHUB_REF_NAME"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
-      - name: Tag
-        if: ${{ inputs.mode != 'dry-run' }}
-        env:
-          TAG: ${{ steps.version.outputs.tag }}
-          TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || github.sha }}
-        run: |
-          git tag -f "$TAG" "$TARGET"
-          git push -f origin "refs/tags/$TAG"
-
-      - name: GitHub release
+      - name: Publish the release
         if: ${{ inputs.mode != 'dry-run' }}
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.version.outputs.tag }}
           TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || github.sha }}
-          PRERELEASE: ${{ inputs.channel == 'beta' && '--prerelease' || '' }}
+          PRERELEASE: ${{ inputs.channel == 'beta' && 'true' || 'false' }}
         run: |
           files=(release/*.tmxplug)
           if compgen -G "release/*.tmxplug.sig" > /dev/null; then
             files+=(release/*.tmxplug.sig)
           fi
-          if gh release view "$TAG" > /dev/null 2>&1; then
-            gh release upload "$TAG" "${files[@]}" --clobber
-            gh release edit "$TAG" --notes-file RELEASE_NOTES.md ${PRERELEASE:+"$PRERELEASE"}
-          else
-            gh release create "$TAG" "${files[@]}" \
-              --title "$TAG" --target "$TARGET" --notes-file RELEASE_NOTES.md ${PRERELEASE:+"$PRERELEASE"}
-          fi
+          # Draft first, so nobody sees it before every file is on it.
+          gh release create "$TAG" "${files[@]}" \
+            --draft --title "$TAG" --target "$TARGET" --notes-file RELEASE_NOTES.md
+          rid=$(gh api --paginate "repos/$GITHUB_REPOSITORY/releases?per_page=100" \
+            --jq '.[] | select(.tag_name == env.TAG and .draft) | .id' | head -1)
+          [ -n "$rid" ] || { echo "No draft found for $TAG."; exit 1; }
+          # Publishing creates the tag at the final commit.
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$rid" \
+            -F draft=false -F prerelease="$PRERELEASE" -f target_commitish="$TARGET" > /dev/null
+          echo "Published $TAG."
 
       - name: Clean up after a stable release
         if: ${{ inputs.mode == 'release' && inputs.channel == 'stable' }}

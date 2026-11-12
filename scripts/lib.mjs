@@ -265,7 +265,7 @@ export function versionEntry({
       : {}),
     releaseNotesUrl: release.html_url,
     ...(notes ? { notes: notes.slice(0, 20_000) } : {}),
-    // The asset's upload time, so an overwritten release gets its new date.
+    // The asset upload time, which is the release date.
     publishedAt: new Date(
       artifact.updated_at ?? release.published_at ?? Date.now(),
     ).toISOString(),
