@@ -1,0 +1,100 @@
+name: Release Plugin
+
+# Releases official plugins. Run by hand from main with one plugin id or a
+# comma list. Each plugin releases from its only dev-X.Y.Z branch (or the
+# branch you name when releasing one plugin).
+#
+# The signing key, the Termix CI App key and the LLM key live only in this
+# repo's environments. Plugin repos hold no secrets. One approval of the
+# release environment covers every plugin in the run.
+
+on:
+  workflow_dispatch:
+    inputs:
+      plugins:
+        description: "Plugin ids, comma separated (ssh-terminal, docker)"
+        required: true
+        type: string
+      channel:
+        description: "Stable release or beta"
+        required: true
+        default: stable
+        type: choice
+        options:
+          - stable
+          - beta
+      mode:
+        description: "release, overwrite (stable only) or dry-run"
+        required: true
+        default: release
+        type: choice
+        options:
+          - release
+          - overwrite
+          - dry-run
+      ref:
+        description: "Branch to release from (one plugin only, optional)"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+
+      - run: npm ci --ignore-scripts
+
+      - name: Pick plugins and commits
+        id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PLUGINS: ${{ inputs.plugins }}
+          REF: ${{ inputs.ref }}
+          MODE: ${{ inputs.mode }}
+        run: node scripts/release/plan.mjs --plugins "$PLUGINS" --ref "$REF" --mode "$MODE"
+
+  release:
+    needs: plan
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    uses: ./.github/workflows/release-plugin-one.yml
+    with:
+      id: ${{ matrix.id }}
+      repo: ${{ matrix.repo }}
+      name: ${{ matrix.name }}
+      branch: ${{ matrix.branch }}
+      sha: ${{ matrix.sha }}
+      channel: ${{ inputs.channel }}
+      mode: ${{ inputs.mode }}
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    secrets: inherit
+
+  # Starts the index sync once, after every plugin of the run.
+  sync:
+    needs: release
+    if: ${{ always() && inputs.mode != 'dry-run' && needs.release.result != 'skipped' }}
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      actions: write
+    steps:
+      - name: Start the registry sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run sync.yml --repo "$GITHUB_REPOSITORY" --ref main

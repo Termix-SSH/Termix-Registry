@@ -12,14 +12,16 @@ name: Plugin Release
 #   replacing its files. Works from any branch.
 # dry-run: everything up to pack, nothing is pushed or published.
 #
-# Official plugins are translated before the build with the Termix LLM
-# server (translate/ in this repo). Stable folds the new translations into the
-# release commit; beta commits them to the dev branch. Overwrite skips it.
+# This is for community plugins. They need no secrets: the release gets
+# GitHub build provenance, and the job summary shows what to put in a
+# community registry submission. Their release.yml must grant id-token: write
+# and attestations: write for that. Optional secrets in the plugin's own repo:
+# TERMIX_PAT to push workflow file changes to main, TERMIX_PLUGIN_SIGNING_KEY
+# to also sign with the author's own key.
 #
-# Plugins outside Termix-SSH need no secrets. Their release is not signed,
-# it gets GitHub build provenance instead, and the job summary shows what to
-# put in a community registry submission. Their release.yml must grant
-# id-token: write and attestations: write for that.
+# Official Termix-SSH plugins are released from this repo's Release Plugin
+# workflow (release-plugin.yml), which keeps the signing key out of plugin
+# repos. This workflow refuses them.
 
 on:
   workflow_call:
@@ -31,11 +33,9 @@ on:
         type: string
         default: release
     secrets:
-      TERMIX_PLUGIN_SIGNING_KEY:
-        required: false
       TERMIX_PAT:
         required: false
-      TERMIX_LLM_API_KEY:
+      TERMIX_PLUGIN_SIGNING_KEY:
         required: false
 
 # No permissions block on purpose: the job keeps what the caller grants, so
@@ -47,11 +47,16 @@ concurrency:
 
 jobs:
   release:
-    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     env:
-      OFFICIAL: ${{ github.repository_owner == 'Termix-SSH' }}
       HAS_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY != '' }}
     steps:
+      - name: Official plugins release from Termix-Registry
+        if: ${{ github.repository_owner == 'Termix-SSH' }}
+        run: |
+          echo "Official plugins are released from Termix-SSH/Termix-Registry with the Release Plugin workflow."
+          exit 1
+
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
@@ -167,14 +172,6 @@ jobs:
           dir=$(node -p "require('./manifest.json').locales || 'locales'")
           if [ -f "$dir/en.json" ]; then echo "dir=$dir" >> "$GITHUB_OUTPUT"; fi
 
-      - name: Translate
-        if: ${{ env.OFFICIAL == 'true' && inputs.mode != 'overwrite' && steps.locales.outputs.dir != '' }}
-        uses: Termix-SSH/Termix-Registry/translate@main
-        with:
-          source: ${{ steps.locales.outputs.dir }}/en.json
-          out: ${{ steps.locales.outputs.dir }}/translated
-          api-key: ${{ secrets.TERMIX_LLM_API_KEY }}
-
       - name: Test
         run: npx termix-plugin test
 
@@ -198,15 +195,14 @@ jobs:
       - name: Pack
         run: npx termix-plugin pack --out release
 
-      - name: Sign
-        # Official plugins must be signed, so a missing key fails here.
-        if: ${{ inputs.mode != 'dry-run' && (env.OFFICIAL == 'true' || env.HAS_SIGNING_KEY == 'true') }}
+      - name: Sign with the author's key
+        if: ${{ inputs.mode != 'dry-run' && env.HAS_SIGNING_KEY == 'true' }}
         env:
           TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
         run: npx termix-plugin sign release/*.tmxplug
 
       - name: Build provenance
-        if: ${{ inputs.mode != 'dry-run' && env.OFFICIAL != 'true' }}
+        if: ${{ inputs.mode != 'dry-run' }}
         uses: actions/attest-build-provenance@v4
         with:
           subject-path: release/*.tmxplug
@@ -249,13 +245,8 @@ jobs:
           # lockfile-only commit into an empty one and fail it.
           HUSKY: "0"
         run: |
-          if [ "$OFFICIAL" = "true" ]; then
-            git config user.name "LukeGus"
-            git config user.email "bugattiguy527@gmail.com"
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add manifest.json package.json package-lock.json
           if [ -n "$LOCALES" ]; then git add "$LOCALES"; fi
           if ! git diff --cached --quiet; then
@@ -290,13 +281,8 @@ jobs:
             echo "No translation changes"
             exit 0
           fi
-          if [ "$OFFICIAL" = "true" ]; then
-            git config user.name "LukeGus"
-            git config user.email "bugattiguy527@gmail.com"
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore: update translations"
           git push origin "HEAD:$GITHUB_REF_NAME"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -343,17 +329,8 @@ jobs:
             done
           git push origin --delete "$GITHUB_REF_NAME" || true
 
-      - name: Tell the registry
-        if: ${{ inputs.mode != 'dry-run' && env.OFFICIAL == 'true' }}
-        env:
-          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
-        run: |
-          gh api repos/Termix-SSH/Termix-Registry/dispatches \
-            -f event_type=plugin-released \
-            -f "client_payload[repository]=$GITHUB_REPOSITORY"
-
       - name: Community registry submission
-        if: ${{ inputs.mode != 'dry-run' && env.OFFICIAL != 'true' }}
+        if: ${{ inputs.mode != 'dry-run' }}
         env:
           VERSION: ${{ steps.version.outputs.version }}
         run: |

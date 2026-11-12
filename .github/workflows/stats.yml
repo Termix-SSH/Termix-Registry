@@ -15,17 +15,29 @@ concurrency:
 jobs:
   stats:
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: sync
     steps:
+      # Main is protected, so the push goes through the Termix CI App.
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: Termix-Registry
+          permission-contents: write
+
       - uses: actions/checkout@v7
         with:
           ref: main
+          token: ${{ steps.app.outputs.token }}
 
       - uses: actions/setup-node@v7
         with:
           node-version-file: ".nvmrc"
-          cache: npm
 
-      - run: npm ci
+      - run: npm ci --ignore-scripts
 
       # A plugin whose releases cannot be read keeps the rest committed.
       - name: Count downloads

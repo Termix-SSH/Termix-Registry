@@ -26,5 +26,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: npm run validate
 
-      - name: Test the translator
+      - name: Tests (translator, release scripts, workflow secrets)
         run: npm test

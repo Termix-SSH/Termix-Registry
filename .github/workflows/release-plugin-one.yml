@@ -1,0 +1,414 @@
+name: Release one plugin
+
+# Called by release-plugin.yml for each plugin. Three jobs so the plugin's own
+# code never runs next to a secret:
+#   translate  LLM key, runs only this repo's translator on the plugin's en.json
+#   build      no secrets, runs the plugin's npm ci, tests, build and pack
+#   publish    signing key and App key, runs only this repo's code
+#
+# stable: commits the stamped version and translations to the dev branch,
+#   squashes it into main, tags vX.Y.Z there, releases it, deletes the dev
+#   branch and this version's beta releases (their tags stay).
+# beta: stamps X.Y.Z-beta.N into the build only, commits translations to the
+#   dev branch, tags it and publishes a prerelease.
+# overwrite: releases the manifest version again from the branch commit.
+# dry-run: builds and signs, nothing is pushed or published.
+
+on:
+  workflow_call:
+    inputs:
+      id:
+        type: string
+        required: true
+      repo:
+        type: string
+        required: true
+      name:
+        type: string
+        required: true
+      branch:
+        type: string
+        required: true
+      sha:
+        type: string
+        required: true
+      channel:
+        type: string
+        required: true
+      mode:
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: plugin-release-${{ inputs.repo }}
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    if: ${{ inputs.mode != 'overwrite' }}
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: llm
+    permissions:
+      contents: read
+    steps:
+      # Checked out as data only. Nothing from the plugin runs in this job.
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          path: plugin
+          persist-credentials: false
+
+      - uses: actions/checkout@v7
+        with:
+          path: registry
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: registry/.nvmrc
+
+      - name: Find locales
+        id: locales
+        working-directory: plugin
+        run: |
+          dir=$(node -e 'process.stdout.write(JSON.parse(require("fs").readFileSync("manifest.json","utf8")).locales || "locales")')
+          if [ -f "$dir/en.json" ]; then echo "dir=$dir" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Translate
+        if: ${{ steps.locales.outputs.dir != '' }}
+        uses: ./registry/translate
+        with:
+          source: plugin/${{ steps.locales.outputs.dir }}/en.json
+          out: plugin/${{ steps.locales.outputs.dir }}/translated
+          api-key: ${{ secrets.TERMIX_LLM_API_KEY }}
+
+      - uses: actions/upload-artifact@v7
+        if: ${{ steps.locales.outputs.dir != '' }}
+        with:
+          name: translations-${{ inputs.id }}
+          path: plugin/${{ steps.locales.outputs.dir }}/translated
+          if-no-files-found: ignore
+          retention-days: 7
+
+  build:
+    needs: translate
+    if: ${{ always() && (needs.translate.result == 'success' || needs.translate.result == 'skipped') }}
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      tag: ${{ steps.version.outputs.tag }}
+      base: ${{ steps.version.outputs.base }}
+      locales: ${{ steps.version.outputs.locales }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          path: plugin
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/checkout@v7
+        with:
+          path: registry
+          persist-credentials: false
+
+      # No npm cache here: this job runs the plugin's dependencies.
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: plugin/.nvmrc
+
+      - name: Registry tools
+        working-directory: registry
+        run: npm ci --ignore-scripts
+
+      - name: Resolve and stamp the version
+        id: version
+        working-directory: plugin
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          MODE: ${{ inputs.mode }}
+          BRANCH: ${{ inputs.branch }}
+        run: node ../registry/scripts/release/prepare.mjs --channel "$CHANNEL" --mode "$MODE" --branch "$BRANCH"
+
+      - uses: actions/download-artifact@v8
+        if: ${{ needs.translate.result == 'success' && steps.version.outputs.locales != '' }}
+        continue-on-error: true
+        with:
+          name: translations-${{ inputs.id }}
+          path: plugin/${{ steps.version.outputs.locales }}/translated
+
+      - name: Install
+        working-directory: plugin
+        env:
+          HUSKY: "0"
+        run: npm ci
+
+      - name: Test
+        working-directory: plugin
+        run: npx termix-plugin test
+
+      - name: Type-check
+        working-directory: plugin
+        run: npm run typecheck --if-present
+
+      - name: Build
+        working-directory: plugin
+        run: |
+          if [ "$(npm pkg get scripts.build)" != "{}" ]; then
+            npm run build
+          else
+            npx termix-plugin build
+          fi
+
+      - name: Validate
+        working-directory: plugin
+        run: npx termix-plugin validate
+
+      - name: Pack
+        working-directory: plugin
+        run: npx termix-plugin pack --out release
+
+      - name: Release notes
+        working-directory: plugin
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          REPO: ${{ inputs.repo }}
+          VERSION: ${{ steps.version.outputs.version }}
+          PREV: ${{ steps.version.outputs.prev }}
+        run: |
+          if [ "$CHANNEL" = "beta" ]; then
+            {
+              echo "> [!WARNING]"
+              echo "> This is a beta. It can have bugs. In Termix, open this plugin and press Back to stable to go back."
+              echo
+              echo "Found a bug or have feedback? [Send beta feedback](https://github.com/$REPO/issues/new?template=beta_feedback.yml&plugin-version=$VERSION)."
+              echo
+              echo "### Changes"
+              echo
+              if [ -n "$PREV" ]; then
+                git log --no-merges --format='- %s' "$PREV..HEAD" -- . ':!package-lock.json' | head -100
+              else
+                echo "- First release"
+              fi
+            } > RELEASE_NOTES.md
+          elif [ -f CHANGELOG.md ]; then
+            npx termix-plugin changelog --version "$VERSION" > RELEASE_NOTES.md
+          else
+            echo "No CHANGELOG.md, so this release has no notes." > RELEASE_NOTES.md
+          fi
+          cat RELEASE_NOTES.md
+
+      - name: Collect the release files
+        working-directory: plugin
+        env:
+          LOCALES: ${{ steps.version.outputs.locales }}
+        run: |
+          mkdir -p ../out/files
+          cp release/*.tmxplug RELEASE_NOTES.md ../out/
+          cp manifest.json package.json ../out/files/
+          [ -f package-lock.json ] && cp package-lock.json ../out/files/
+          if [ -n "$LOCALES" ] && [ -d "$LOCALES/translated" ]; then
+            mkdir -p ../out/files/translated
+            cp -R "$LOCALES/translated/." ../out/files/translated/
+          fi
+          ls -R ../out
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-${{ inputs.id }}
+          path: out
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    needs: build
+    if: ${{ always() && needs.build.result == 'success' }}
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    env:
+      ID: ${{ inputs.id }}
+      REPO: ${{ inputs.repo }}
+      BRANCH: ${{ inputs.branch }}
+      SHA: ${{ inputs.sha }}
+      CHANNEL: ${{ inputs.channel }}
+      MODE: ${{ inputs.mode }}
+      VERSION: ${{ needs.build.outputs.version }}
+      TAG: ${{ needs.build.outputs.tag }}
+      BASE: ${{ needs.build.outputs.base }}
+      LOCALES: ${{ needs.build.outputs.locales }}
+    steps:
+      # Only this repo's code runs here, with no npm cache and no install
+      # scripts, because this job holds the signing key.
+      - uses: actions/checkout@v7
+        with:
+          path: registry
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: registry/.nvmrc
+
+      - name: Registry tools
+        working-directory: registry
+        run: npm ci --ignore-scripts
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-${{ inputs.id }}
+          path: out
+
+      - name: Sign
+        env:
+          TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
+        run: node registry/scripts/release/sign.mjs "out/$ID-$VERSION.tmxplug" --id "$ID" --version "$VERSION"
+
+      # A dry run gets a read only token, which still proves the App works.
+      - name: App token (dry run)
+        id: app-read
+        if: ${{ inputs.mode == 'dry-run' }}
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: ${{ inputs.name }}
+          permission-contents: read
+
+      - name: App token
+        id: app
+        if: ${{ inputs.mode != 'dry-run' }}
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: ${{ inputs.name }}
+          permission-contents: write
+          permission-workflows: write
+
+      - name: Dry run summary
+        if: ${{ inputs.mode == 'dry-run' }}
+        env:
+          GH_TOKEN: ${{ steps.app-read.outputs.token }}
+        run: |
+          gh api "repos/$REPO/commits/$SHA" -q .sha > /dev/null
+          echo "Dry run of $ID $VERSION ($CHANNEL) from $BRANCH: built, signed and checked against keys/official.pub. Nothing pushed." >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/checkout@v7
+        if: ${{ inputs.mode != 'dry-run' }}
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          path: plugin
+          fetch-depth: 0
+          token: ${{ steps.app.outputs.token }}
+
+      - name: Build provenance
+        if: ${{ inputs.mode != 'dry-run' }}
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: out/*.tmxplug
+
+      - name: Apply the stamped files
+        if: ${{ inputs.mode != 'dry-run' }}
+        working-directory: plugin
+        run: |
+          cp ../out/files/manifest.json ../out/files/package.json .
+          [ -f ../out/files/package-lock.json ] && cp ../out/files/package-lock.json .
+          if [ -n "$LOCALES" ] && [ -d ../out/files/translated ]; then
+            mkdir -p "$LOCALES/translated"
+            cp -R ../out/files/translated/. "$LOCALES/translated/"
+          fi
+          git config user.name "LukeGus"
+          git config user.email "bugattiguy527@gmail.com"
+
+      - name: Commit the version and merge into main
+        id: merge
+        if: ${{ inputs.mode == 'release' && inputs.channel == 'stable' }}
+        working-directory: plugin
+        run: |
+          git add manifest.json package.json
+          [ -f package-lock.json ] && git add package-lock.json
+          if [ -n "$LOCALES" ]; then git add "$LOCALES"; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: release $VERSION"
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+
+          # main only ever takes dev branches, so it gets the dev tree as one commit.
+          dev_sha=$(git rev-parse HEAD)
+          git fetch origin main
+          git checkout -B main origin/main
+          git read-tree -u --reset "$dev_sha"
+          if git diff --cached --quiet; then
+            echo "main already matches $BRANCH"
+          else
+            git commit -m "feat: release $VERSION"
+          fi
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # Only the locales are committed. The stamped version and beta changelog
+      # stay out of git.
+      - name: Commit translations (beta)
+        id: translations
+        if: ${{ inputs.mode == 'release' && inputs.channel == 'beta' && needs.build.outputs.locales != '' }}
+        working-directory: plugin
+        run: |
+          git add "$LOCALES"
+          if git diff --cached --quiet; then
+            echo "No translation changes"
+            exit 0
+          fi
+          git commit -m "chore: update translations"
+          git push origin "HEAD:refs/heads/$BRANCH"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Tag
+        if: ${{ inputs.mode != 'dry-run' }}
+        working-directory: plugin
+        env:
+          TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || inputs.sha }}
+        run: |
+          git tag -f "$TAG" "$TARGET"
+          git push -f origin "refs/tags/$TAG"
+
+      - name: GitHub release
+        if: ${{ inputs.mode != 'dry-run' }}
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || inputs.sha }}
+          PRERELEASE: ${{ inputs.channel == 'beta' && '--prerelease' || '' }}
+        run: |
+          files=("out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig")
+          if gh release view "$TAG" --repo "$REPO" > /dev/null 2>&1; then
+            gh release upload "$TAG" "${files[@]}" --repo "$REPO" --clobber
+            gh release edit "$TAG" --repo "$REPO" --notes-file out/RELEASE_NOTES.md $PRERELEASE
+          else
+            gh release create "$TAG" "${files[@]}" --repo "$REPO" \
+              --title "$TAG" --target "$TARGET" --notes-file out/RELEASE_NOTES.md $PRERELEASE
+          fi
+
+      - name: Clean up after a stable release
+        if: ${{ inputs.mode == 'release' && inputs.channel == 'stable' }}
+        working-directory: plugin
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+        run: |
+          gh release list --repo "$REPO" --limit 200 --json tagName -q '.[].tagName' \
+            | grep -F "v$BASE-beta." | while read -r BETA; do
+              echo "Deleting release $BETA"
+              gh release delete "$BETA" --repo "$REPO" --yes || true
+            done
+          git push origin --delete "$BRANCH" || true

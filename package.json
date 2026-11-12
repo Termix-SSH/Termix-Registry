@@ -8,10 +8,11 @@
     "sync": "node scripts/sync.mjs",
     "check:submission": "node scripts/check-submission.mjs",
     "stats": "node scripts/stats.mjs",
-    "test": "node --test \"translate/*.test.mjs\"",
+    "test": "node --test \"translate/*.test.mjs\" \"tests/**/*.test.mjs\"",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky || true"
+    "prepare": "husky || true",
+    "check:workflows": "node scripts/check-workflows.mjs"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
@@ -20,7 +21,8 @@
     "ajv-formats": "^3.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
-    "prettier": "^3.9.9"
+    "prettier": "^3.9.9",
+    "yaml": "^2.9.1"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs,json,css,md}": [

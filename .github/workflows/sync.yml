@@ -24,19 +24,32 @@ concurrency:
 jobs:
   sync:
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: sync
     steps:
+      # Main is protected, so the push goes through the Termix CI App.
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: Termix-Registry,Docs
+          permission-contents: write
+
       # A queued run must start from the index the last run pushed, not the
       # commit it was triggered on.
       - uses: actions/checkout@v7
         with:
           ref: main
+          token: ${{ steps.app.outputs.token }}
 
       - uses: actions/setup-node@v7
         with:
           node-version-file: ".nvmrc"
-          cache: npm
 
-      - run: npm ci
+      # No cache and no install scripts in a job that holds a signing key.
+      - run: npm ci --ignore-scripts
 
       # A release that fails its checks is left out and fails the run at
       # the end, but the rest of the index still gets committed.
@@ -44,15 +57,15 @@ jobs:
         id: sync
         continue-on-error: true
         env:
-          # The PAT has 5000 calls an hour; the job token only 1000, which a
-          # batch of video runs used up.
-          GH_TOKEN: ${{ secrets.TERMIX_PAT || github.token }}
+          # The App token has 5000 calls an hour; the job token only 1000,
+          # which a batch of video runs used up.
+          GH_TOKEN: ${{ steps.app.outputs.token }}
           TERMIX_COMMUNITY_SIGNING_KEY: ${{ secrets.TERMIX_COMMUNITY_SIGNING_KEY }}
         run: npm run sync
 
       - name: Validate
         env:
-          GH_TOKEN: ${{ secrets.TERMIX_PAT || github.token }}
+          GH_TOKEN: ${{ steps.app.outputs.token }}
         run: npm run validate
 
       - name: Commit
@@ -75,12 +88,8 @@ jobs:
       - name: Tell the docs site
         if: steps.commit.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
+          GH_TOKEN: ${{ steps.app.outputs.token }}
         run: |
-          if [ -z "$GH_TOKEN" ]; then
-            echo "No TERMIX_PAT, skipping the docs rebuild."
-            exit 0
-          fi
           gh api repos/Termix-SSH/Docs/dispatches -f event_type=registry-updated
 
       - name: Report releases that were left out

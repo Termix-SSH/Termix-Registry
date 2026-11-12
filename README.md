@@ -21,7 +21,7 @@
 
 This is the plugin registry for [Termix](https://github.com/Termix-SSH/Termix), self-hosted, plugin-based server management. It has two lists:
 
-- `official/index.json`: the official Termix plugins, each built and signed from its own `Plugin-<Name>` repo. Termix reads it to show the plugins you can install from the Plugins tab.
+- `official/index.json`: the official Termix plugins. Each is built from its own `Plugin-<Name>` repo and released and signed by this repo. Termix reads it to show the plugins you can install from the Plugins tab.
 - `community/index.json`: plugins made by anyone and reviewed by a person before they are listed. Admins turn it on in Termix under Plugins, Registries.
 
 Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template). You can also host your own registry and add it to Termix by its URL. See [host your own registry](https://docs.termix.site/develop/registries#host-your-own-registry).
@@ -31,6 +31,12 @@ Want to build your own plugin? Start from the [plugin template](https://github.c
 ## Submit a plugin
 
 The community registry is open for submissions. Release your plugin with the template's Release workflow, then open a pull request that adds `community/plugins/<id>.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps and what reviewers check.
+
+<br />
+
+## Releasing official plugins
+
+Maintainers run the Release Plugin workflow here with one plugin id or a comma list. Each plugin is built from its only `dev-X.Y.Z` branch with no secrets, then a person approves the `release` environment and the run signs it, merges the branch into `main`, tags and releases it. The signing key and the CI App key live only in this repo's environments, so plugin repos hold no secrets.
 
 <br />
 
