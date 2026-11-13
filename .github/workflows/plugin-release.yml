@@ -40,8 +40,7 @@ on:
       TERMIX_PLUGIN_SIGNING_KEY:
         required: false
 
-# No permissions block on purpose: the job keeps what the caller grants, so
-# community plugins can add the ones build provenance needs.
+permissions: {}
 
 concurrency:
   group: plugin-release-${{ github.repository }}
@@ -50,6 +49,11 @@ concurrency:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # The caller grants these too. Provenance needs the last two.
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
     env:
       HAS_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY != '' }}
     steps:
