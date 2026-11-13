@@ -4,6 +4,8 @@ name: Release one plugin
 # code never runs next to a secret:
 #   translate  LLM key, runs only this repo's translator on the plugin's en.json
 #   build      no secrets, runs the plugin's npm ci, tests, build and pack
+#   gate       no secrets, release-gate.yml on the same commit: zizmor,
+#              osv-scanner, GHSA regression tests, authorization matrix
 #   publish    signing keys and App key, runs only this repo's code
 #   reproduce  rebuilds the release from its tag on another runner, no
 #              secrets, and records it once the file matches (sync waits)
@@ -254,9 +256,19 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  gate:
+    uses: ./.github/workflows/release-gate.yml
+    permissions:
+      contents: read
+    with:
+      repo: ${{ inputs.repo }}
+      sha: ${{ inputs.sha }}
+      branch: ${{ inputs.branch }}
+      kind: plugin
+
   publish:
-    needs: build
-    if: ${{ always() && needs.build.result == 'success' }}
+    needs: [build, gate]
+    if: ${{ always() && needs.build.result == 'success' && needs.gate.result == 'success' }}
     runs-on: blacksmith-2vcpu-ubuntu-2404
     environment: release
     permissions:
@@ -289,6 +301,25 @@ jobs:
       - name: Registry tools
         working-directory: registry
         run: npm ci --ignore-scripts
+
+      # Part of the release gate. Only the App can read another repo's alerts.
+      - name: App token (code scanning)
+        id: app-scan
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: ${{ inputs.name }}
+          permission-security-events: read
+
+      - name: New CodeQL alerts
+        env:
+          GH_TOKEN: ${{ steps.app-scan.outputs.token }}
+        run: |
+          refs=(--ref main)
+          if [ "$BRANCH" != "main" ]; then refs+=(--ref "$BRANCH"); fi
+          node registry/scripts/release-gate/gate.mjs code-scanning --repo "$REPO" "${refs[@]}"
 
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:

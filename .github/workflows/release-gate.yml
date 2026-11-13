@@ -1,0 +1,301 @@
+name: Release gate
+
+# Called by core's Release and by Release Plugin before anything is pushed,
+# built for users or published. Every job runs on the exact commit being
+# released and must pass:
+#   workflow-lint  zizmor, high findings fail
+#   supply-chain   lockfile lint and osv-scanner
+#   ghsa-tests     every GHSA-xxxx-xxxx-xxxx.test.* file, none skipped
+#   authz          the authorization matrix
+#   code-scanning  no open high or critical CodeQL alert newer than the
+#                  baseline in scripts/release-gate/lib.mjs (only when the
+#                  caller's token can read the repo's alerts; Release Plugin
+#                  checks it in its publish job with the App instead)
+# No job here holds a secret.
+
+on:
+  workflow_call:
+    inputs:
+      repo:
+        description: owner/name of the repo being released
+        type: string
+        required: true
+      sha:
+        description: Commit being released
+        type: string
+        required: true
+      kind:
+        description: core or plugin
+        type: string
+        required: true
+      branch:
+        description: Branch the commit is on, for its CodeQL analysis
+        type: string
+        default: ""
+      code-scanning:
+        description: Check CodeQL alerts with the caller's token
+        type: boolean
+        default: false
+      aliases:
+        description: npm aliases the lockfile may hold (see the supply chain action)
+        type: string
+        default: ""
+
+permissions: {}
+
+jobs:
+  workflow-lint:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          persist-credentials: false
+
+      - name: Lint config
+        id: config
+        run: |
+          for file in .github/zizmor.yml .github/zizmor.yaml zizmor.yml zizmor.yaml; do
+            if [ -f "$file" ]; then
+              echo "path=$file" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          cat > "$RUNNER_TEMP/zizmor.yml" <<'YAML'
+          rules:
+            unpinned-uses:
+              config:
+                policies:
+                  "Termix-SSH/*": ref-pin
+                  "*": hash-pin
+            self-repository:
+              disable: true
+          YAML
+          echo "path=$RUNNER_TEMP/zizmor.yml" >> "$GITHUB_OUTPUT"
+
+      - uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        with:
+          version: 1.32.0
+          advanced-security: false
+          annotations: true
+          min-severity: high
+          config: ${{ steps.config.outputs.path }}
+
+  supply-chain:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Lockfile lint and osv-scanner
+        uses: Termix-SSH/Termix-Registry/.github/actions/supply-chain@main
+        with:
+          aliases: ${{ inputs.aliases }}
+
+  ghsa-tests:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
+    env:
+      KIND: ${{ inputs.kind }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          path: repo
+          persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Termix-SSH/Termix-Registry
+          ref: main
+          path: registry
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: repo/.nvmrc
+
+      - name: Find the tests
+        id: list
+        run: |
+          node registry/scripts/release-gate/gate.mjs ghsa-list --dir repo --out "$RUNNER_TEMP/ghsa.txt"
+          if [ -s "$RUNNER_TEMP/ghsa.txt" ]; then
+            echo "any=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "any=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install (core)
+        if: ${{ steps.list.outputs.any == 'true' && inputs.kind == 'core' }}
+        working-directory: repo
+        run: |
+          npm run ci:install
+          npm run build:sdk
+
+      - name: Install (plugin)
+        if: ${{ steps.list.outputs.any == 'true' && inputs.kind == 'plugin' }}
+        uses: Termix-SSH/Termix-Registry/.github/actions/supply-chain@main
+        with:
+          directory: repo
+          osv: "false"
+          install: "true"
+
+      - name: Run the tests
+        if: ${{ steps.list.outputs.any == 'true' }}
+        working-directory: repo
+        run: |
+          report="$RUNNER_TEMP/ghsa-report.json"
+          status=0
+          if [ "$KIND" = "core" ]; then
+            npx vitest run GHSA- --reporter=default --reporter=json --outputFile.json="$report" || status=$?
+          else
+            npx termix-plugin test GHSA- --reporter=default --reporter=json --outputFile.json="$report" || status=$?
+          fi
+          node ../registry/scripts/release-gate/gate.mjs ghsa-report --dir . --report "$report"
+          exit "$status"
+
+  authz:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    env:
+      NODE_OPTIONS: "--max-old-space-size=4096"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          path: ${{ inputs.kind == 'core' && 'core' || 'plugin' }}
+          persist-credentials: false
+
+      - name: Table
+        if: ${{ inputs.kind == 'plugin' }}
+        run: |
+          if [ ! -f plugin/authz.json ]; then
+            echo "::error::authz.json is missing. Every route needs an entry."
+            exit 1
+          fi
+
+      - name: Newest core dev branch
+        id: core
+        if: ${{ inputs.kind == 'plugin' }}
+        run: |
+          ref=$(git ls-remote --heads https://github.com/Termix-SSH/Termix 'refs/heads/dev-*' \
+            | sed 's|.*refs/heads/||' | sort -V | tail -1)
+          echo "ref=${ref:-main}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: ${{ inputs.kind == 'plugin' }}
+        with:
+          repository: Termix-SSH/Termix
+          ref: ${{ steps.core.outputs.ref }}
+          path: core
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: core/.nvmrc
+
+      # Core runs with every bundled plugin, like the PR check.
+      - name: Core matrix
+        if: ${{ inputs.kind == 'core' }}
+        working-directory: core
+        env:
+          TERMIX_PLUGIN_PROFILE: full
+        run: |
+          npm run ci:install
+          npm run build:backend
+          npm run test:authz
+
+      - name: Build core
+        if: ${{ inputs.kind == 'plugin' }}
+        working-directory: core
+        run: |
+          npm run ci:install
+          npm run build:backend:core
+
+      - name: Build the plugin
+        if: ${{ inputs.kind == 'plugin' }}
+        working-directory: plugin
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          if [ "$(npm pkg get scripts.build)" != "{}" ]; then
+            npm run build
+          else
+            npx termix-plugin build
+          fi
+
+      - name: Build the plugins it needs
+        if: ${{ inputs.kind == 'plugin' }}
+        run: node core/scripts/authz/stage-deps.mjs plugin deps
+
+      - name: Plugin matrix
+        if: ${{ inputs.kind == 'plugin' }}
+        run: >-
+          node core/scripts/authz/run.mjs --no-core
+          --plugin plugin --local-plugin plugin --local-plugins deps
+
+  code-scanning:
+    if: ${{ inputs.code-scanning }}
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
+      security-events: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Termix-SSH/Termix-Registry
+          ref: main
+          path: registry
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: registry/.nvmrc
+
+      - name: New CodeQL alerts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ inputs.repo }}
+          BRANCH: ${{ inputs.branch }}
+        run: |
+          refs=(--ref main)
+          if [ -n "$BRANCH" ] && [ "$BRANCH" != "main" ]; then refs+=(--ref "$BRANCH"); fi
+          node registry/scripts/release-gate/gate.mjs code-scanning --repo "$REPO" "${refs[@]}"
+
+  # One result for callers to need.
+  passed:
+    needs: [workflow-lint, supply-chain, ghsa-tests, authz, code-scanning]
+    if: ${{ always() }}
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions: {}
+    env:
+      RESULTS: ${{ toJSON(needs) }}
+      WANT_SCAN: ${{ inputs.code-scanning }}
+    steps:
+      - name: Every check passed
+        run: |
+          bad=$(jq -r 'to_entries[]
+            | select(.value.result != "success")
+            | select(.key != "code-scanning" or env.WANT_SCAN == "true" or .value.result != "skipped")
+            | "\(.key) \(.value.result)"' <<< "$RESULTS")
+          if [ -n "$bad" ]; then
+            while read -r line; do echo "::error::Release gate: $line"; done <<< "$bad"
+            exit 1
+          fi
+          echo "Release gate passed."

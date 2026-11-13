@@ -39,6 +39,8 @@ The community registry is open for submissions. Release your plugin with the tem
 
 Maintainers run the Release Plugin workflow here with one plugin id or a comma list. Each plugin is built from its only `dev-X.Y.Z` branch with no secrets, then a person approves the `release` environment and the run signs it, merges the branch into `main`, tags and releases it. The signing key and the CI App key live only in this repo's environments, so plugin repos hold no secrets.
 
+Before anything is signed, the release gate (`release-gate.yml`) runs on the same commit: zizmor on the workflows, osv-scanner on the lockfile, every `GHSA-*.test.*` regression test (none may be skipped), the authorization matrix, and a check for new high or critical CodeQL alerts. If one fails, nothing is published. Core's Release uses the same gate.
+
 Once published, the release is built again from its tag on a separate machine with no keys. The index lists it only when that rebuild gives the same file, byte for byte.
 
 <br />
