@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13T04:30:31.371Z",
+  "updatedAt": "2026-11-13T04:38:45.975Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -62,7 +62,13 @@
           },
           "releaseNotesUrl": "https://github.com/ShadyNabil8/termix-plugin-command-editor/releases/tag/v1.0.0",
           "notes": "### Added\n\n- Edit the command at the prompt in a floating editor over any SSH terminal\n- Open it with Ctrl+Shift+X, the terminal toolbar, the command palette or a key of your own\n- Insert the edited command back at the prompt, or run it\n- Multi-line commands go in as one paste\n- Settings for the key, how the line is cleared, font size and line wrapping\n- Uses the prompt access of newer SSH Terminal versions: the local terminal, the exact cursor line, no opening inside full-screen programs, and a warning when a shell would run a multi-line paste line by line",
-          "publishedAt": "2026-10-30T14:57:00.000Z"
+          "publishedAt": "2026-10-30T14:57:00.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "PeubdpEtuE46zOHdSTMYlVD5dW36MjMM5XBkGjdB/I42Pfj2DybhCASaObjlvG8HxHxxrbwOL9m/SOaYXj55Bw=="
+            }
+          ]
         }
       ]
     },
@@ -111,7 +117,13 @@
           },
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.5",
           "notes": "### Fixed\n\n- Document and window listeners (pane focus, pointer tracking, window focus, page unload) are now attached when the plugin is enabled and removed when it is disabled, instead of at module load.\n- The temporary copy made by Copy is removed, and its exit handler detached, when the plugin is disabled.",
-          "publishedAt": "2026-11-03T17:07:14.000Z"
+          "publishedAt": "2026-11-03T17:07:14.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "syxO/GGm2iv5rJKfiGtEYNQPL2Npe5UX3o6RWlRr+JDXNBDtLDAx5y6ekjaDpAiR1AGryB8I6ri4D9L5n6AqAw=="
+            }
+          ]
         },
         {
           "version": "1.0.4",
@@ -134,7 +146,13 @@
           },
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.4",
           "notes": "### Changed\n\n- The package scripts `pack` and `format` were added, and unused code was removed.\n\n### Fixed\n\n- The Russian translation is now loaded: it was shipped where Termix does not look for it, so the plugin stayed in English. The plugin name and description are translated too.\n- A host without docker or podman shows its message once and waits for you to retry, instead of reconnecting over and over.\n- A failed check for docker or podman (for example when the SSH command could not run) is shown as a connection error, not as \"neither docker nor podman was found\".\n- When cancelling a transfer fails, you now see a message instead of nothing happening.\n- Every local desktop route is described in the API docs, and a test checks that each translation key the interface uses exists in English and Russian.\n- Remaining English error texts in the interface are translated.",
-          "publishedAt": "2026-11-03T16:34:24.000Z"
+          "publishedAt": "2026-11-03T16:34:24.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "okwl96dZ6UO1qLyT7Zvkk8DGKpi6l+ZbT+vvKCuqhAtGPJbsby3Yvvro+5XfxmfQ8lf4pH/5ZuNyc9iHVm1JAw=="
+            }
+          ]
         },
         {
           "version": "1.0.3",
@@ -157,7 +175,13 @@
           },
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.3",
           "notes": "### Added\n\n- Container Files is shown only on hosts where you turn it on in the host settings (SSH section), in the same places as the Docker plugin's button.\n- The first connection to a host asks you to confirm its SSH host key (and a changed key asks again) with the usual fingerprint dialog, instead of failing at once. Declining is not retried. Works for direct and server connections.\n\n### Changed\n\n- The file manager follows Plugin-File-Manager 1.1.3: fixed row height in the list, a loading spinner for an empty folder and selection highlight in the editor.\n\n### Fixed\n\n- Going back from a container closes its panes, so opening another container no longer brings the old ones back.",
-          "publishedAt": "2026-11-02T19:25:57.000Z"
+          "publishedAt": "2026-11-02T19:25:57.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "wwj4EJ9w3qPUDHQQ4yg/s+Wj8XbNhW438REzh2V7OlgWf8t/33UO/x2kQo2N+7ImMQIt12moGx8FzhH7tjYbAg=="
+            }
+          ]
         },
         {
           "version": "1.0.2",
@@ -180,7 +204,13 @@
           },
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.2",
           "notes": "### Added\n\n- Mounts: mount points are drawn as a blue folder icon with RW or RO lettered inside it in the file list, grid and folder tree, and show where they point (host path, volume or tmpfs). A compact Mounts window lists every mount on one row with its type, destination, source and access, and opens its path (the window then closes). The RW and RO letters are large enough to read at the medium grid size.\n- Add files and folders to an existing archive: use \"Add to archive...\" in the context menu or drop them on an archive file or on an open archive window. Works with zip, 7z, tar, .tar.gz, .tar.bz2, .tar.xz and .tar.zst; the archive is replaced only when the update is complete, with progress and Cancel as for compress. When the container cannot do it (BusyBox tar, or no zip, 7z, gzip, bzip2, xz or zstd), the reason is shown up front, including a \"not allowed\" cursor and a hint while dragging over the archive.\n- Delete entries from inside an archive: select them in the open archive window and use Delete in the context menu or the Delete key, then confirm. Works with zip, 7z and the tar family; the archive is rewritten on a copy and replaced only when it is complete (mode and owner kept), with progress and Cancel. Needs GNU tar for tar archives; a rar or single compressed file, an empty result and a missing tool are refused up front with the reason.\n- More archive types are recognised: 7z, rar (browse and extract only), tar.zst and tzst, zip aliases (jar, war, apk, whl, epub and others) and single compressed files (.gz, .bz2, .xz, .zst, extract only). Each needs its tool in the container (7z, 7zz, 7za or 7zr; unrar, 7-Zip or bsdtar for rar; zstd; unzip or bsdtar for zip), and when it is missing the message says so, for example \"7z is not installed in this container\".\n- Dialog keyboard: in every plugin dialog with buttons (confirmations, compress, extract, symlink, permissions, path picker, mounts, conflicts) the button Enter will press is highlighted, the arrow keys move the selection between buttons, and Escape closes the window. Text fields, selects and the editor keep their own keys.\n- Clipboard: files copied in Windows Explorer or Finder paste into the active container pane with Ctrl/Cmd+V, with the usual upload progress and conflict questions. In the browser this is files only. In Termix Desktop on Windows, Ctrl+V reads the Explorer clipboard through a local PowerShell and uploads files and folders alike, for hosts connected directly or via the server, and also on a non-Latin keyboard layout. Copy in a container pane also puts the items on the Windows clipboard for Explorer (up to 512 MB, downloaded to a temporary folder that is removed when the app closes). A step that fails shows a message with the reason (for example PowerShell missing, timed out or reporting an error) instead of doing nothing.\n- Desktop: copy, cut and paste between the local files pane and container panes with the context menu, toolbar and Ctrl/Cmd+C, X and V. Cut items are dimmed and the originals are removed only after a successful paste. The most recent Copy or Cut always wins, whichever pane or Explorer it came from, and Copy in the local pane also puts the files on the Windows clipboard. The shortcuts work on any keyboard layout.\n- Opening a video, audio, image or PDF shows download progress (size, percent) with a Cancel button.\n\n### Changed\n\n- The number of files transferred at once follows the Concurrent transfers setting.\n- Error messages and notices that were always shown in English are translated.\n- Extracting an archive (all of it or chosen entries) into a folder that already has some of its files asks in the same conflict window as copying between panes: replace, skip or keep both for each item or for all, instead of one overwrite-everything confirm. With an older plugin on the server the old confirm is kept.\n\n### Fixed\n\n- Extracting with conflict choices never overwrites a name you did not choose to replace (a cut-off archive listing falls back to the plain overwrite question), refuses a rename onto another extracted name, and a failure midway lists the items already placed.\n- After a Cut from the local pane is pasted, the Windows clipboard no longer lists the moved files; files that vanished since the copy are skipped with a message naming them.\n\n- Hosts set to start connections from the server now connect from the server in the desktop app, including the container console and transfers with the local pane.\n- Closing a preview stops its download right away, without an error message, and no longer keeps the file in memory.\n- Opening many files at once no longer exhausts the SSH channels of a host: each connection holds at most 6 open, the rest wait their turn, and a refused channel is retried once.\n- Browsing inside an archive is faster: the archive is read once and reused for folders and entries.\n- A server whose plugin is older than the app now says so (update it) instead of showing a raw error.\n- Toggling hidden files in the local pane also reloads collapsed folders of the tree.\n- A copy between containers cancelled while its channels were opening now stops both sides.\n- Escape during a rubber-band selection drag cancels it and restores the previous selection.\n- The Mounts window closes with a Close button instead of Cancel.\n- Keys pressed in a confirmation or another dialog no longer reach the file list behind it: Enter on a confirmation (or on a dialog button) used to open the selected file as well. A confirmation now takes the focus as soon as it appears and answers every key itself.\n\n### Removed\n\n- Unused code and the jszip and motion dependencies, which makes the package smaller.",
-          "publishedAt": "2026-10-29T22:54:44.000Z"
+          "publishedAt": "2026-10-29T22:54:44.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "53e84Qg5PvxBUhxzlasGLSVI2BW3lL/Q7uHNWiDaf58hXc8ViZbihguzjVzyyW0pUfE1K2jxbEmoBgzJEkgKBA=="
+            }
+          ]
         },
         {
           "version": "1.0.1",
@@ -203,7 +233,13 @@
           },
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.0.1",
           "notes": "### Fixed\n\n- Connection and download error messages in the file window are translated instead of always shown in English.",
-          "publishedAt": "2026-10-28T19:27:12.000Z"
+          "publishedAt": "2026-10-28T19:27:12.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "rb/2wo40Kpo8q3O29/MMcWrHnyieR3qbHZGWgJWLqkmilchvfx1GvYzPL43NUhxqZ+wx/3MccwyJCNghcuaIBg=="
+            }
+          ]
         }
       ]
     },
@@ -249,7 +285,13 @@
           },
           "releaseNotesUrl": "https://github.com/samsclub91/termix-plugin-deep-connect/releases/tag/v1.2.0",
           "notes": "### Changed\n\n- Renamed from \"Lansweeper Connector\" to **Deep Connect** (plugin id `deep-connect`, repo `termix-plugin-deep-connect`): the plugin is a general URI → session launcher; Lansweeper is one consumer of it, documented in the setup guide\n- The standalone hand-off page is now `?view=deep-connect` (was `?view=lansweeper-connect`); the plain `?connect=…&type=…` links are unchanged\n- The adopt route moved to `/plugin-api/deep-connect/adopt`\n- Records already created in the Ad-Hoc Hosts folder keep working unchanged: they are ordinary saved hosts",
-          "publishedAt": "2026-11-10T20:30:58.000Z"
+          "publishedAt": "2026-11-10T20:30:58.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "r96sicY4lW2uw7VQO8AoOF2nh98hjctarnBIUR5fSY4COYN3IoJYT66ufXLh/GgspFG6kv1lCPmRZSJvfeuOAQ=="
+            }
+          ]
         }
       ]
     },
@@ -299,7 +341,13 @@
           },
           "releaseNotesUrl": "https://github.com/jaygz316/termix-plugin-herdr/releases/tag/v1.4.0",
           "notes": "### Added\n\n- Mouse-resizable left sidebar (`160px`–`480px`, drag below `110px` to snap into compact rail mode, drag rail edge to reopen, double-click to reset), mouse-resizable horizontal split between the Spaces and Agents lists, and mouse-resizable right Navigator inspector (`240px`–`560px`), all persisted in `localStorage`\n- Instant search / filter bar in the `herdr-app` sidebar header to filter Spaces, branches, machines and Agents in real time and press `Enter` to jump to the first match\n- Inline Quick Prompt / Command bar (`MessageSquare` button) and inline blocked-agent approval keys directly in the pane header bar above the terminal\n- Click-to-copy working directory (`cwd`) in the pane header bar, multi-tab count badges on Spaces, and one-click jump to the next waiting (`blocked` / `error`) agent from the bottom status bar",
-          "publishedAt": "2026-11-11T05:57:57.000Z"
+          "publishedAt": "2026-11-11T05:57:57.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "AmePFDP89NiOJDBUg46YIC3CW0KKk56Y1FguDdhosz41Ac0gDrTS+oxvocL800FJ+yV5rtbAJafhEaGHyDK/DA=="
+            }
+          ]
         },
         {
           "version": "1.0.0",
@@ -321,7 +369,13 @@
           },
           "releaseNotesUrl": "https://github.com/jaygz316/termix-plugin-herdr/releases/tag/v1.0.0",
           "notes": "### Added\n\n- A Herdr tab that attaches to herdr on a host inside Termix's SSH terminal\n- Touch as mouse: tap to click, long press to right click, long press and drag to drag, swipe to scroll\n- A key bar with herdr's prefix, Ctrl, Alt, Esc, Tab, arrows and herdr actions\n- A navigator with workspaces, tabs, agents waiting, a map of the current tab's panes and a text box that sends to the focused pane\n- Open in Herdr on host rows and in the SSH terminal's toolbar\n- Host settings for the herdr binary and session, and user settings for touch, long press, prefix key and the key bar",
-          "publishedAt": "2026-10-28T04:55:06.000Z"
+          "publishedAt": "2026-10-28T04:55:06.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "i/GCA5AV6S1b2Ns3ZNnfICfkqXobuC2hVUx9d0KZtiFmFNEHIOh4zngGT8yA3+8cVV3lqUA3DFgOQXsiqUaUBQ=="
+            }
+          ]
         }
       ]
     },
@@ -363,7 +417,13 @@
           },
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/tag/v1.0.2",
           "notes": "### Fixed\n\n- Fixed the SOURCE badge for hosts without SSH (RDP and others) and for shared hosts.",
-          "publishedAt": "2026-11-04T13:46:39.000Z"
+          "publishedAt": "2026-11-04T13:46:39.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "Ff8FAWMaPIFqShRSFqMVg0jbyinjfB8JEP6jbax9tIr/g43n7gIldan3Yg1QCJtF2c6ydorjrmkmA13meJTzCQ=="
+            }
+          ]
         },
         {
           "version": "1.0.1",
@@ -381,7 +441,13 @@
           },
           "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/tag/v1.0.1",
           "notes": "### Fixed\n\n- Replaced long dashes in a source comment, documentation and the empty-value placeholder with plain hyphens, as the registry rules require.",
-          "publishedAt": "2026-11-03T10:26:14.000Z"
+          "publishedAt": "2026-11-03T10:26:14.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "YEKxrnu43tH4ZO5KEXmMFQn1E2C7gI+wnacs22OZqLejB58eoAw/XhqcX5dIx2UJqWGQbDrldMog4+4ebIx2Cg=="
+            }
+          ]
         }
       ]
     },
@@ -427,7 +493,13 @@
           },
           "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.5.0",
           "notes": "### Added\n\n- A Priority order line with an info icon at the top of the plugin's settings. Hover it, focus it with the keyboard, or click or tap it to read a short memo of the order: the host's own icon, color and badge, then the folder, user and server defaults, then rules\n- Rules can give a corner badge (None, Dot or one or two characters, with a badge color). Without Priority a badge rule fills in only a host that has no badge, and needs a host with an icon; with Priority it replaces the host's badge. Rules saved before keep working with no badge\n- Rules can match host names by a regular expression, such as `^(db|pg)-` for every name that starts with db- or pg-. A pattern that is not valid is marked red and the rule stays off until it is fixed\n- Manage uploaded icons opens in its own dialog, from the Manage button of the Uploaded chip and from a new Manage uploaded icons button in the plugin's settings (shown to users who may upload or manage icons). It has Upload on top, a search by name when there are more than 8 icons, and a list that scrolls inside the dialog, with one compact row per icon you may change (preview, name, rename and delete) in Termix's own layout\n\n### Changed\n\n- The rules table has one Look column instead of Icon, Color and Badge. Its button shows the rule's icon, color and badge together as the Hosts list draws them (a dashed square stands for the host's own icon when the rule gives none) and opens a dialog like Change icon to edit them. Save writes the look into the rule; Escape or the close button discards it\n- The Change icon dialog has no Use default buttons any more, so it looks like the host editor. It saves only the fields you changed; to send a field back to its folder, user or server default, use Use default in the host editor\n- Manage uploaded icons saves every name you changed when you press Done, press Escape or close the dialog (one request per icon). An empty or too long name is marked and keeps the dialog open; a refused rename shows a message and keeps the failed rows\n- The host editor's Host Icons section follows the Change icon dialog: a picker of the same fixed height, the preview row below it, a compact color row, and the badge as an animated Badge button; the badge color field opens and closes with it. Each setting is still its own field, so each keeps its own Use default\n- The icon picker is now one list instead of tabs: a search box, the chips All, Icons, Brands, Text and Uploaded, and one scrolling area. All starts with the icons used on your hosts and in your rules, and a search of 1 to 4 characters offers that text as a Frame, Plate or Plain icon. In the Text chip the search box still searches (it filters the text icons in use), and the label is its own field above the three styles; a search that fits as a label fills an empty one. The list has a fixed height, so changing chip no longer resizes the picker. The Upload and Manage controls sit at the top of the Uploaded chip\n- The Change icon dialog is more compact: the picker, then the live preview, the icon color, a Badge button that shows the badge (Badge: None, Dot, P) and opens its settings below the color with a short animation, and Save in the bottom right corner. The long hints and the Cancel button are gone (Escape or the close button still close it)\n- No icon is now the first tile of the picker, and the hint under the color picker is gone\n- The picker shows icons at the size the Hosts list draws them, for your icon position and size, so at 150% the picker shows them at 150% too\n- Uploading an icon no longer asks whether it is monochrome: an uploaded icon keeps the colors of its file, and a color chosen for the host paints it. Icons uploaded as monochrome before keep the theme color",
-          "publishedAt": "2026-10-29T13:25:53.000Z"
+          "publishedAt": "2026-10-29T13:25:53.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "ERK2ehpbSRATdqbiqzZsLVLSgaEaiC9J9di7uC+1tilXGi47iBL6styWfaQLk4vba8IIwigQ9h2cYkLdGL9cAQ=="
+            }
+          ]
         },
         {
           "version": "0.4.0",
@@ -447,7 +519,13 @@
           },
           "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.4.0",
           "notes": "### Added\n\n- A corner badge on the icon with one or two characters or a dot, in its own color, such as R1 on a database replica or a dot on a host that needs attention. It has its own default per folder, user and server, so a folder can give all its hosts a badge while every host keeps its own icon\n\n### Changed\n\n- The option for no color now says what it does for the chosen icon, such as Own colors for a multicolor uploaded icon, and shows a preview of the icon without a color\n- Monochrome icon is now off by default when uploading an SVG, so an uploaded icon keeps the colors of its file unless you turn it on\n\n### Fixed\n\n- The 10 MB limit of the uploaded icon library now counts bytes on SQLite and PostgreSQL, not characters\n- Uploads at the same time can no longer push the icon library past its limit of 500 icons or 10 MB",
-          "publishedAt": "2026-10-28T21:40:14.000Z"
+          "publishedAt": "2026-10-28T21:40:14.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "v+EqS92NN5LaI9tDvgUnYAHGtCDXExBVXbgJrDJsrDi7IcrYjCMgx23Y7lfedNpI1xIDxLe+EWaTQHfyOWCQCA=="
+            }
+          ]
         },
         {
           "version": "0.3.0",
@@ -467,7 +545,13 @@
           },
           "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.3.0",
           "notes": "Updating asks an admin to approve two new capabilities, database and routes, which the shared icon library needs.\n\n### Added\n\n- Text icons: a label of up to 4 characters, such as DB or K8S, drawn as a frame, a plate or plain text, in the icon color, with the text icons already used on hosts or in rules one click away\n- Upload your own SVG or PNG icons in the Uploaded tab of the picker. The library is shared, so every user sees the same icon on a shared host. A chosen icon color paints an uploaded icon, and a Monochrome option draws it in the theme color when no color is chosen\n- Permissions Upload icons (add icons, rename or delete your own) and Manage uploaded icons (rename or delete anyone’s)\n- Uploaded icons work in automatic icon rules\n- Icons you upload sync to a linked desktop, so your hosts keep their icons offline\n\n### Changed\n\n- The MySQL logo is now the dolphin symbol\n- Logos that are mostly lettering and unreadable when small (Cisco, VMware, macOS, iOS, Netgear, ASUS, Synology, QNAP, .NET, Plex, NetBSD and JFrog) are no longer offered in the picker. Hosts that already use them keep them",
-          "publishedAt": "2026-10-28T17:15:47.000Z"
+          "publishedAt": "2026-10-28T17:15:47.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "6me+WxvFm4ZRwUU56QcH7hD0gedTIb/4NKUl1wkoXP/HwEI3ANFUagZrxV6IrJz+kAw+levhyvX0BYQdom2JCg=="
+            }
+          ]
         },
         {
           "version": "0.2.0",
@@ -485,7 +569,13 @@
           },
           "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.2.0",
           "notes": "First release.\n\n### Added\n\n- An Icon and an Icon color field in the host editor, with a searchable picker of general icons and an Icons and Brands switch\n- Brand logos to pick from: operating systems and Linux distributions, clouds, containers, databases, network gear and more, colored by the icon color like the other icons\n- Icon and color defaults for a folder, a user or the whole server\n- The icon in the Hosts list: large and left of the host, or small before or after the name, picked per user under Icon position, indenting only hosts that have an icon unless the user lines up all names\n- Icon size, from 50% to 150%\n- Change icon in the host context menu and in the command palette, where Use default hands the icon or the color back to the folder, user or server default\n- Automatic icons: rules that give hosts an icon or a color by tag or by name, in a table you can reorder by dragging, with suggestions from your tags. A rule fills in what a host has not got, or with Priority on replaces the host's own icon\n- Russian translation",
-          "publishedAt": "2026-10-27T11:56:42.000Z"
+          "publishedAt": "2026-10-27T11:56:42.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "6PdMK+Vex/EAcSgXVSISqA+8w60d6cPZhmbGL68dlz80yal5kkR4XsU4i6GNZLLyDZmRosdySp6igyoRkpb0DA=="
+            }
+          ]
         }
       ],
       "gated": [
@@ -507,7 +597,13 @@
           },
           "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.6.0",
           "notes": "### Added\n\n- Folder icon size setting: folder icons in the Hosts list from 75% to 200% (Classic Layout)\n- Icons uploaded by other people sync to the Termix desktop app, so shared hosts show the same icons there\n\n### Changed\n\n- Needs Termix 26.10.6 or newer\n\n### Fixed\n\n- An icon another user uploaded and gave to a shared host shows without a page reload, instead of the fallback icon\n- The Change icon dialog stays open while it is saving\n- The Badge section opens for a host's badge that loads late\n- Focus rings in the Badge section are no longer cut off",
-          "publishedAt": "2026-10-30T07:32:13.000Z"
+          "publishedAt": "2026-10-30T07:32:13.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "zODyMEi+8ZStOy/l+7hyiXk752WKQjqU5o6iPbGzmUI8Y36Y5n8llSE2LYqWVQBrLb4dNT6Ps2yb4jcuLP6RDg=="
+            }
+          ]
         }
       ]
     },
@@ -559,7 +655,13 @@
           },
           "releaseNotesUrl": "https://github.com/P3RF3CTION/termix-plugin-netbird/releases/tag/v1.2.0",
           "notes": "### Added\n\n- The panel names the NetBird user and role behind the credential. With the role \"user\" NetBird lists only that user's own peers; the panel now says so instead of showing a short or empty list without a reason\n- In the \"own sign-in, else service token\" mode, a personal access token or SSO session that NetBird rejects falls back to the service token, with a notice\n- Filters for online peers and for a NetBird group\n- Badges for an expired peer login, a peer waiting for approval and peers running the NetBird SSH server\n- A notice when your own access token is saved but the sign-in mode ignores it\n\n### Fixed\n\n- A personal or service token pasted with the scheme (\"Token nbp_...\", \"Bearer ...\"), in quotes or with a line break was sent as is and NetBird answered 401. Tokens are now cleaned before use\n- A valid token that may not list peers (NetBird answers 403, for example when regular users are blocked) is reported as such instead of as a generic API error",
-          "publishedAt": "2026-10-28T15:32:23.000Z"
+          "publishedAt": "2026-10-28T15:32:23.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "T2qs7PzV1y79Mp6HsFByOqn6lSIELj4SE9EK440TOBk8d2PHgkyTEs+D69qxMlvFJy18Tuhg1Cs14USOGWAxDQ=="
+            }
+          ]
         },
         {
           "version": "1.1.0",
@@ -584,7 +686,13 @@
           },
           "releaseNotesUrl": "https://github.com/P3RF3CTION/termix-plugin-netbird/releases/tag/v1.1.0",
           "notes": "### Added\n\n- Single sign-on with any OpenID Connect provider NetBird trusts (authorization code flow with PKCE, refresh tokens): NetBird's built-in IdP, Keycloak, Zitadel, Authentik, Entra ID, Auth0 and others. Each user then sees NetBird with their own NetBird permissions\n- Own NetBird access token per user as a second way to sign in\n- Sign-in modes: service token for everyone (default, the 1.0 behaviour), own sign-in only, or own sign-in with the service token as fallback\n- Bulk import: select peers (or all shown) and add them as hosts in one step, with folder, username, SSH port, a saved login and optional tags from the NetBird groups. Peers that already exist as a host are skipped\n- Peer details: NetBird version, system, public address and location, login expiry, approval state, NetBird SSH server, DNS names and reachable peers\n- Access explanation per peer: which rule allows each checked port, rules between the two peers on other ports, and matching rules that are switched off. Extra ports to check in the settings\n- New permission **Import NetBird peers as hosts**\n\n### Changed\n\n- Needs Termix 26.10.3 or newer (plugin API 1.8 for host folders)\n- New capabilities `hosts:read`, `hosts:write`, `credentials:use`, `kv:own` and `secrets:own` for the import and the sign-in\n- If the NetBird account may not read policies, the panel lists peers and says why reachability is not checked, instead of failing",
-          "publishedAt": "2026-10-23T05:29:14.000Z"
+          "publishedAt": "2026-10-23T05:29:14.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "Foq77Usbe+51fREh/hqcnat5TnBYk4VOYaQmeqgKVq+BwPy3QCmDqUKITbsqSBLoO7aB7mvZ8e5zCsUlzdrECQ=="
+            }
+          ]
         }
       ]
     },
@@ -631,7 +739,13 @@
           },
           "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.9",
           "notes": "### Fixed\n\n- The Proxmox host list in guest setup was empty. Hosts now appear when **Proxmox Power** is enabled in their host editor; the bundled Proxmox Integration switch is no longer required. Guest setup now says this under the host field.\n\n### Changed\n\n- Both shutdown rules can be 0, so a guest can be started and stopped without automatic shutdown.",
-          "publishedAt": "2026-10-13T15:21:10.000Z"
+          "publishedAt": "2026-10-13T15:21:10.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "tHExyQmxBCKIU8KRhF2daTeKtD1GKM9WjYB4VPqO8D2TXAXEjIIt5+1p6iYl+bYe3+UIYVtNiD08GM9R86e9Ag=="
+            }
+          ]
         },
         {
           "version": "0.6.8",
@@ -655,7 +769,13 @@
           },
           "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.8",
           "notes": "### Changed\n\n- Add screenshots and a usage guide to the docs.\n- Move all interface text into `locales/en.json`, ready for translation.\n- Document every API route with OpenAPI.\n- Remove an unneeded import query from the shutdown policy module.",
-          "publishedAt": "2026-10-13T14:23:37.000Z"
+          "publishedAt": "2026-10-13T14:23:37.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "nwc1yxxjjbSYOGi+jF0h9mPwzQaYwsnfyeWmL15luuw8/56WNZGbQTsBbWwV/jJPtBDYAvTGfpCUgaxFFXLwDw=="
+            }
+          ]
         }
       ],
       "gated": [
@@ -681,7 +801,13 @@
           },
           "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.7.0",
           "notes": "### Added\n\n- Manage a linked guest from its SSH host page. The **PVE Power** sidebar action opens a focused view with guest status and Start, Stop, Restart, and Edit host controls. On Termix 26.11.1 or newer, the host overview can also show these controls in a movable tile.\n- Open Proxmox Power on phones and tablets with Termix Mobile 2.0. Linked hosts also have a controls view in the mobile host menu.\n\n### Changed\n\n- Show the last known guest state as soon as the host controls open, then refresh that guest from Proxmox.\n- Shorten the linked host actions to **PVE Power**, **Start PVE + SSH**, **Start PVE**, and **Stop PVE** so they fit in the sidebar.\n- Open **Start PVE + SSH** in a temporary tab and hand off to the terminal when the guest is ready, leaving the host page free of the waiting screen.\n\n### Fixed\n\n- Keep the host overview tile compatible with Termix Mobile 2.0.\n- Leave automatic shutdown off when both the idle CPU threshold and maximum uptime are set to zero.",
-          "publishedAt": "2026-11-09T17:32:53.000Z"
+          "publishedAt": "2026-11-09T17:32:53.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "jGYxeW3oTDxboZnuuOcHpbi3XULw3VPId8xtH1Zon8L0iYkNecoixef6Wv4DuqEkio89AbCKhzOwdklCqKkQCg=="
+            }
+          ]
         }
       ]
     },
@@ -724,7 +850,13 @@
           },
           "releaseNotesUrl": "https://github.com/Tech-Innovators-Dev/termix-vscode/releases/tag/v1.1.1",
           "notes": "### Changed\n\n- The \"code-server is not installed\" screen links to the install guide instead of showing an install command.",
-          "publishedAt": "2026-10-28T06:59:03.000Z"
+          "publishedAt": "2026-10-28T06:59:03.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "wioauaZD/zprwhgGMkL1gCTK5SmzPM60y0gUc4ajfSUSe9PKV23JrbNq3zdCfF0pzi0BcEebGWlDYzN8xyMcBQ=="
+            }
+          ]
         }
       ]
     }
