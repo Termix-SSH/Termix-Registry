@@ -304,7 +304,7 @@ test("certPayload and nextRevocations build what the root signs", () => {
   );
 });
 
-test("sshKeygen avoids Windows' own ssh-keygen, which refuses keys on exFAT sticks", () => {
+test("sshKeygen avoids Windows' own ssh-keygen, which refuses keys on exFAT drives", () => {
   const yes = () => true;
   const no = () => false;
   assert.equal(

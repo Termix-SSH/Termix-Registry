@@ -3,9 +3,9 @@
 // signature against trust/<tier>/root.pub and moves the result into place:
 // certificates into certs.json, a revocation list into revocations.json.
 //
-//   npm run trust:sign -- --key D:\termix-official-root-a
+//   npm run trust:sign -- --key <root key file>
 //
-// The key file never leaves the stick: ssh-keygen reads it there.
+// ssh-keygen reads the key file where it is; no copy is made.
 
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
@@ -34,7 +34,7 @@ export const pendingDir = (base = root) => path.join(base, "trust", "pending");
 const GIT_SSH_KEYGEN = "C:/Program Files/Git/usr/bin/ssh-keygen.exe";
 
 /**
- * Windows' own ssh-keygen refuses a key on a USB stick formatted exFAT or
+ * Windows' own ssh-keygen refuses a key on a drive formatted exFAT or
  * FAT (those keep no file permissions), so on Windows the one from Git for
  * Windows is used when it is there. TERMIX_SSH_KEYGEN picks another.
  */
