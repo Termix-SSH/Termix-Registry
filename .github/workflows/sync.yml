@@ -65,6 +65,7 @@ jobs:
           # which a batch of video runs used up.
           GH_TOKEN: ${{ steps.app.outputs.token }}
           TERMIX_COMMUNITY_SIGNING_KEY: ${{ secrets.TERMIX_COMMUNITY_SIGNING_KEY }}
+          TERMIX_COMMUNITY_ONLINE_KEY: ${{ secrets.TERMIX_COMMUNITY_ONLINE_KEY }}
         run: npm run sync
 
       - name: Validate
@@ -82,6 +83,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add official/index.json community/index.json
+          git add official/signatures.json community/signatures.json 2>/dev/null || true
           git commit -m "chore: sync plugin releases"
           git pull --rebase origin main
           git push

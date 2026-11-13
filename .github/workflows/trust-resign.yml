@@ -1,0 +1,80 @@
+name: Resign plugin releases
+
+# Signs every listed release with the tier's root certified online key (over
+# the sha256 the index holds, nothing is downloaded), commits the signatures
+# and starts the sync. Run it once after a new online key is certified.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: "Which registry"
+        required: true
+        type: choice
+        options:
+          - official
+          - community
+
+permissions: {}
+
+concurrency:
+  group: registry-sync
+  cancel-in-progress: false
+
+jobs:
+  resign:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    # The official key sits behind the release approval, the community one
+    # with the sync job that signs new community releases.
+    environment: ${{ inputs.tier == 'official' && 'release' || 'sync' }}
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: Termix-Registry
+          permission-contents: write
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          token: ${{ steps.app.outputs.token }}
+          # The commit step pushes with it.
+          persist-credentials: true
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: ".nvmrc"
+
+      # No cache and no install scripts in a job that holds a signing key.
+      - run: npm ci --ignore-scripts
+
+      - name: Sign
+        env:
+          TIER: ${{ inputs.tier }}
+          TERMIX_PLUGIN_ONLINE_KEY: ${{ inputs.tier == 'official' && secrets.TERMIX_PLUGIN_ONLINE_KEY || '' }}
+          TERMIX_COMMUNITY_ONLINE_KEY: ${{ inputs.tier == 'community' && secrets.TERMIX_COMMUNITY_ONLINE_KEY || '' }}
+        run: node scripts/trust/resign.mjs --tier "$TIER"
+
+      - name: Commit
+        env:
+          TIER: ${{ inputs.tier }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then
+            echo "Every release already has a signature from this key."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$TIER/signatures.json"
+          git commit -m "chore: sign $TIER releases with the current key"
+          git pull --rebase origin main
+          git push
+          gh workflow run sync.yml --repo "$GITHUB_REPOSITORY" --ref main

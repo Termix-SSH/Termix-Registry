@@ -22,6 +22,19 @@
       "type": "string",
       "pattern": "^[A-Za-z0-9+/]{43}=$"
     },
+    "certs": {
+      "description": "Online key certificates signed by this registry's offline root. Termix checks them against the root keys built into it.",
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["signed", "signatures"],
+        "properties": {
+          "signed": { "type": "object" },
+          "signatures": { "type": "array" }
+        }
+      }
+    },
     "updatedAt": { "type": "string", "format": "date-time" },
     "plugins": {
       "type": "array",
@@ -106,12 +119,12 @@
     "version": {
       "type": "object",
       "additionalProperties": false,
+      "anyOf": [{ "required": ["signature"] }, { "required": ["signatures"] }],
       "required": [
         "version",
         "api",
         "url",
         "sha256",
-        "signature",
         "size",
         "capabilities",
         "releaseNotesUrl",
@@ -134,9 +147,23 @@
         },
         "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
         "signature": {
-          "description": "Base64 Ed25519 signature over the raw sha256 of the .tmxplug.",
+          "description": "Pre-chain base64 Ed25519 signature over the raw sha256 of the .tmxplug, for Termix versions from before the root chain. Written until 2027-05-01.",
           "type": "string",
           "pattern": "^[A-Za-z0-9+/]{86}==$"
+        },
+        "signatures": {
+          "description": "Signatures over the raw sha256 by online keys listed in certs.",
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["keyId", "sig"],
+            "properties": {
+              "keyId": { "type": "string", "pattern": "^[0-9a-f]{16}$" },
+              "sig": { "type": "string", "pattern": "^[A-Za-z0-9+/]{86}==$" }
+            }
+          }
         },
         "size": { "type": "integer", "minimum": 1 },
         "capabilities": {

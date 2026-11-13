@@ -1,0 +1,169 @@
+name: Reproduce plugin build
+
+# Rebuilds an official plugin release from its tag on a fresh GitHub hosted
+# runner, a different machine from the one that built it, with no secrets,
+# and checks the .tmxplug is byte for byte the published one. Only then is
+# the release recorded in official/reproduced/, and sync lists a release
+# published after the check started only once it is recorded there.
+#
+# Release Plugin runs this after each release. Run it by hand to check an
+# older release (repo Termix-SSH/Plugin-Docker, tag v1.2.0).
+
+on:
+  workflow_call:
+    inputs:
+      repo:
+        type: string
+        required: true
+      tag:
+        type: string
+        required: true
+      record:
+        description: "Record an official release once it matches"
+        type: boolean
+        default: true
+    secrets:
+      CI_APP_PRIVATE_KEY:
+        required: false
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "Plugin repo (Termix-SSH/Plugin-Docker)"
+        required: true
+        type: string
+      tag:
+        description: "Release tag (v1.2.0)"
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      id: ${{ steps.compare.outputs.id }}
+      version: ${{ steps.compare.outputs.version }}
+      sha256: ${{ steps.compare.outputs.sha256 }}
+    steps:
+      # Same folder layout as the release build, so nothing path based can
+      # differ between the two.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.tag }}
+          path: plugin
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Termix-SSH/Termix-Registry
+          ref: main
+          path: registry
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: plugin/.nvmrc
+
+      - name: Registry tools
+        working-directory: registry
+        run: npm ci --ignore-scripts
+
+      - name: Stamp the version like the release did
+        working-directory: plugin
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          VERSION="${TAG#v}"
+          CHANNEL=stable
+          case "$VERSION" in *-*) CHANNEL=beta ;; esac
+          node ../registry/scripts/release/prepare.mjs --channel "$CHANNEL" --version "$VERSION"
+
+      - name: Lockfile lint and install
+        uses: ./registry/.github/actions/supply-chain
+        with:
+          directory: plugin
+          osv: "false"
+          install: "true"
+
+      - name: Build
+        working-directory: plugin
+        run: |
+          if [ "$(npm pkg get scripts.build)" != "{}" ]; then
+            npm run build
+          else
+            npx termix-plugin build
+          fi
+
+      - name: Pack
+        working-directory: plugin
+        run: npx termix-plugin pack --out release
+
+      # The published sha256 comes from the API digest, so nothing is
+      # downloaded and the download count stays honest.
+      - name: Compare with the release
+        id: compare
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ inputs.repo }}
+          TAG: ${{ inputs.tag }}
+        run: node registry/scripts/release/reproduce-check.mjs --repo "$REPO" --tag "$TAG" --dir plugin/release
+
+  record:
+    needs: rebuild
+    if: ${{ inputs.record != false }}
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: sync
+    permissions:
+      contents: read
+    concurrency:
+      group: registry-reproduced
+      cancel-in-progress: false
+    steps:
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: Termix-Registry
+          permission-contents: write
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Termix-SSH/Termix-Registry
+          ref: main
+          token: ${{ steps.app.outputs.token }}
+          # The commit step pushes with it.
+          persist-credentials: true
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Record
+        env:
+          ID: ${{ needs.rebuild.outputs.id }}
+          VERSION: ${{ needs.rebuild.outputs.version }}
+          SHA256: ${{ needs.rebuild.outputs.sha256 }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          node scripts/release/reproduce-check.mjs --record --id "$ID" --version "$VERSION" --sha256 "$SHA256" --run "$RUN_URL"
+          if git diff --quiet; then
+            echo "Already recorded."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add official/reproduced
+          git commit -m "chore: record reproducible build of $ID $VERSION"
+          for _ in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

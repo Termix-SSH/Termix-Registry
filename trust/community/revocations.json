@@ -1,0 +1,17 @@
+{
+  "signed": {
+    "type": "termix-revocations",
+    "tier": "community",
+    "version": 1,
+    "issued": "2026-11-13T03:51:33Z",
+    "keys": [],
+    "plugins": [],
+    "versions": []
+  },
+  "signatures": [
+    {
+      "keyId": "SHA256:SF4INojl+/wyBBec06AfBx6Y5QC+Rl8H0r+WfCrVeuI",
+      "sig": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgQ3TWka/fNjxHVyGdOTkaB72Q++\nNqefsZdWbXxs21ps0AAAALdGVybWl4LXJvb3QAAAAAAAAABnNoYTUxMgAAAFMAAAALc3No\nLWVkMjU1MTkAAABA0rpxBCkhxX33qtXcLa2SD09Zgav4Haz2+VxX3kmQnlZ1xue0OPiIFj\nwbFfe8Y9kAjdyPw/PEgr0lvOsTpI5KBw==\n-----END SSH SIGNATURE-----\n"
+    }
+  ]
+}

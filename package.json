@@ -12,7 +12,11 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky || true",
-    "check:workflows": "node scripts/check-workflows.mjs"
+    "check:workflows": "node scripts/check-workflows.mjs",
+    "trust:check": "node scripts/trust/check.mjs",
+    "trust:sign": "node scripts/trust/sign.mjs",
+    "trust:revoke": "node scripts/trust/revoke.mjs",
+    "trust:new-key": "node scripts/trust/make-online-key.mjs"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",

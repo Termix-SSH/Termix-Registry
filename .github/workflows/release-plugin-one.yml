@@ -4,7 +4,9 @@ name: Release one plugin
 # code never runs next to a secret:
 #   translate  LLM key, runs only this repo's translator on the plugin's en.json
 #   build      no secrets, runs the plugin's npm ci, tests, build and pack
-#   publish    signing key and App key, runs only this repo's code
+#   publish    signing keys and App key, runs only this repo's code
+#   reproduce  rebuilds the release from its tag on another runner, no
+#              secrets, and records it once the file matches (sync waits)
 #
 # stable: commits the stamped version and translations to the dev branch,
 #   squashes it into main, tags vX.Y.Z there, releases it, deletes the dev
@@ -14,7 +16,8 @@ name: Release one plugin
 # dry-run: builds and signs, nothing is pushed or published.
 #
 # Releases are immutable. The release is made as a draft, gets the .tmxplug
-# and its signature, then is published, which creates the tag. A version that
+# and its signatures (.sig from the root certified online key, .legacy.sig
+# from the old key until 2027-05-01), then is published, which creates the tag. A version that
 # already has a published release or a tag is refused: bump the version.
 
 on:
@@ -45,6 +48,8 @@ on:
       TERMIX_LLM_API_KEY:
         required: false
       TERMIX_PLUGIN_SIGNING_KEY:
+        required: false
+      TERMIX_PLUGIN_ONLINE_KEY:
         required: false
       CI_APP_PRIVATE_KEY:
         required: false
@@ -293,6 +298,7 @@ jobs:
       - name: Sign
         env:
           TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
+          TERMIX_PLUGIN_ONLINE_KEY: ${{ secrets.TERMIX_PLUGIN_ONLINE_KEY }}
         run: node registry/scripts/release/sign.mjs "out/$ID-$VERSION.tmxplug" --id "$ID" --version "$VERSION"
 
       # A dry run gets a read only token, which still proves the App works.
@@ -347,7 +353,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-read.outputs.token }}
         run: |
           gh api "repos/$REPO/commits/$SHA" -q .sha > /dev/null
-          echo "Dry run of $ID $VERSION ($CHANNEL) from $BRANCH: built, signed and checked against keys/official.pub. Nothing pushed." >> "$GITHUB_STEP_SUMMARY"
+          echo "Dry run of $ID $VERSION ($CHANNEL) from $BRANCH: built, signed and checked against its root certificate and keys/official.pub. Nothing pushed." >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         if: ${{ inputs.mode != 'dry-run' }}
@@ -428,8 +434,12 @@ jobs:
           TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || inputs.sha }}
           PRERELEASE: ${{ inputs.channel == 'beta' && 'true' || 'false' }}
         run: |
-          # Draft first, so nobody sees it before both files are on it.
-          gh release create "$TAG" "out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig" \
+          # Draft first, so nobody sees it before every file is on it.
+          FILES=("out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig")
+          if [ -f "out/$ID-$VERSION.tmxplug.legacy.sig" ]; then
+            FILES+=("out/$ID-$VERSION.tmxplug.legacy.sig")
+          fi
+          gh release create "$TAG" "${FILES[@]}" \
             --repo "$REPO" --draft --title "$TAG" --target "$TARGET" --notes-file out/RELEASE_NOTES.md
 
           rid=$(gh api --paginate "repos/$REPO/releases?per_page=100" \
@@ -437,8 +447,8 @@ jobs:
           [ -n "$rid" ] || { echo "No draft found for $TAG."; exit 1; }
 
           count=$(gh api "repos/$REPO/releases/$rid" --jq '.assets | length')
-          if [ "$count" != "2" ]; then
-            echo "The draft has $count files, expected 2. Not publishing."
+          if [ "$count" != "${#FILES[@]}" ]; then
+            echo "The draft has $count files, expected ${#FILES[@]}. Not publishing."
             gh api -X DELETE "repos/$REPO/releases/$rid"
             exit 1
           fi
@@ -467,3 +477,15 @@ jobs:
               gh release delete "$BETA" --repo "$REPO" --yes || true
             done
           git push origin --delete "$BRANCH" || true
+
+  reproduce:
+    needs: [build, publish]
+    if: ${{ always() && needs.publish.result == 'success' && inputs.mode == 'release' }}
+    uses: ./.github/workflows/reproduce.yml
+    with:
+      repo: ${{ inputs.repo }}
+      tag: ${{ needs.build.outputs.tag }}
+    permissions:
+      contents: read
+    secrets:
+      CI_APP_PRIVATE_KEY: ${{ secrets.CI_APP_PRIVATE_KEY }}

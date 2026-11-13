@@ -12,6 +12,8 @@ jobs:
     runs-on: blacksmith-2vcpu-ubuntu-2404
     permissions:
       contents: read
+    outputs:
+      rebuilds: ${{ steps.check.outputs.rebuilds }}
     steps:
       # The checks run from the base branch and only read the PR's files as
       # data, so a PR can't change what checks it.
@@ -34,9 +36,27 @@ jobs:
       - run: npm ci --ignore-scripts
 
       - name: Check the submission
+        id: check
         env:
           GH_TOKEN: ${{ github.token }}
           BASE_REF: ${{ github.event.pull_request.base.sha }}
           HEAD_REF: FETCH_HEAD
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: npm run check:submission
+
+  # Each new version must rebuild from its tag to the same file. From main,
+  # so a PR can't change the check.
+  reproduce:
+    needs: check
+    if: ${{ needs.check.outputs.rebuilds != '' && needs.check.outputs.rebuilds != '[]' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.check.outputs.rebuilds) }}
+    uses: Termix-SSH/Termix-Registry/.github/workflows/reproduce.yml@main
+    with:
+      repo: ${{ matrix.repo }}
+      tag: ${{ matrix.tag }}
+      record: false
+    permissions:
+      contents: read

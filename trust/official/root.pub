@@ -1,0 +1,3 @@
+# Termix official root keys. Either one signs. Kept offline on USB sticks ROOT-A and ROOT-B.
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE6F2K/vrxL3/nimnv5I3MqvNeGMwZFPmMGQatJnblCG termix official root a
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEpzjNZkl3hv0mG3hOBRBM+rPbrr79HWGl9kDmXpg6EL termix official root b

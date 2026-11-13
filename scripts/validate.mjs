@@ -13,8 +13,11 @@
  * - no plugin id is in two registries
  * - publicKey, when set, is the key in keys/<registry>.pub
  *
- * Signatures are checked against keys/<registry>.pub. That only catches mistakes
- * early; the Termix server trusts only the keys compiled into it.
+ * - certs, when set, are the root signed certificates in trust/<registry>/
+ *
+ * Signatures are checked against keys/<registry>.pub (pre-chain) and the
+ * registry's certificates (chain). That only catches mistakes early; the
+ * Termix server trusts only the root keys compiled into it.
  */
 
 import crypto from "node:crypto";
@@ -29,13 +32,13 @@ import {
   compareVersions,
   findReleaseAsset,
   isPrerelease,
-  isSigned,
   keysFor,
   loadKeys,
   needsNewerCore,
   readSubmissions,
   root,
 } from "./lib.mjs";
+import { indexCerts, releaseSigned } from "./trust/index-chain.mjs";
 
 const offline = process.argv.includes("--offline");
 
@@ -65,7 +68,7 @@ function findIndexes() {
     .filter((file) => fs.existsSync(file));
 }
 
-async function checkArtifact(where, version, keys, problems) {
+async function checkArtifact(where, version, keys, certs, problems) {
   // Through the API first, so validating does not add to the download count.
   const asset = await findReleaseAsset(version.url);
   const sha = assetSha256(asset);
@@ -79,8 +82,8 @@ async function checkArtifact(where, version, keys, problems) {
       problems.push(`${where}: sha256 does not match the file`);
       return;
     }
-    if (!isSigned(Buffer.from(sha, "hex"), version.signature, keys)) {
-      problems.push(`${where}: signature does not match the registry key`);
+    if (!releaseSigned(version, keys, certs)) {
+      problems.push(`${where}: signature does not match the registry keys`);
     }
     return;
   }
@@ -101,9 +104,8 @@ async function checkArtifact(where, version, keys, problems) {
     problems.push(`${where}: sha256 does not match the file`);
     return;
   }
-  const signed = isSigned(digest, version.signature, keys);
-  if (!signed) {
-    problems.push(`${where}: signature does not match the registry key`);
+  if (!releaseSigned(version, keys, certs)) {
+    problems.push(`${where}: signature does not match the registry keys`);
   }
 }
 
@@ -194,6 +196,12 @@ async function main() {
       }
     }
     const keys = keysFor(allKeys, index.registry);
+    const certs = indexCerts(index.registry);
+    if (JSON.stringify(index.certs ?? []) !== JSON.stringify(certs)) {
+      problems.push(
+        `${rel}: certs are not the valid ones in trust/${index.registry}/`,
+      );
+    }
     if (index.publicKey && !keys.some((k) => k.publicKey === index.publicKey)) {
       problems.push(
         `${rel}: publicKey is not the key in keys/${index.registry}.pub`,
@@ -268,6 +276,7 @@ async function main() {
           `${rel}: ${plugin.id}@${version.version}`,
           version,
           keys,
+          certs,
           problems,
         );
       }

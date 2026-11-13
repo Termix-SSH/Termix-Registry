@@ -1,0 +1,36 @@
+[
+  {
+    "signed": {
+      "type": "termix-key-cert",
+      "tier": "official",
+      "role": "plugins",
+      "keyId": "a7b173b2ec703171",
+      "publicKey": "KdPX9V9fpW8zKHeJrExnkiZowgDXdJGslYP3AGsoQDo=",
+      "notBefore": "2026-11-13T00:00:00Z",
+      "expires": "2027-11-13T00:00:00Z"
+    },
+    "signatures": [
+      {
+        "keyId": "SHA256:a549NEiGOOvwpBvYPZno6/bgGsdTarnF+ExL9UmPQRk",
+        "sig": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgToXYr++vEvf+eKae/kjcyq814Y\nzBkU+YwZBq0mduUIYAAAALdGVybWl4LXJvb3QAAAAAAAAABnNoYTUxMgAAAFMAAAALc3No\nLWVkMjU1MTkAAABAZYp2v6X2SD1Wz1lSsWo+KbQhsKPQmFxZJpT6XwBFhJCddcSRJrtpGE\ntNwXMSkGqfss3qnhFNQqtiIdVKsE3GAw==\n-----END SSH SIGNATURE-----\n"
+      }
+    ]
+  },
+  {
+    "signed": {
+      "type": "termix-key-cert",
+      "tier": "official",
+      "role": "releases",
+      "keyId": "32d69dee6f70f650",
+      "publicKey": "nupj1lB0TQFxqPGcdqlQoUdZ6ykcgaZ0d1X8N7qGvvQ=",
+      "notBefore": "2026-11-13T00:00:00Z",
+      "expires": "2027-11-13T00:00:00Z"
+    },
+    "signatures": [
+      {
+        "keyId": "SHA256:a549NEiGOOvwpBvYPZno6/bgGsdTarnF+ExL9UmPQRk",
+        "sig": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgToXYr++vEvf+eKae/kjcyq814Y\nzBkU+YwZBq0mduUIYAAAALdGVybWl4LXJvb3QAAAAAAAAABnNoYTUxMgAAAFMAAAALc3No\nLWVkMjU1MTkAAABAixvsFv/AKjUI6YHa5EwGYqVCbHaTzrcU7iX5M7n6NXCjOVhUttPj3N\nE+MCi22uJHr9sdk7DuodZ+Nbpq/K6MCg==\n-----END SSH SIGNATURE-----\n"
+      }
+    ]
+  }
+]

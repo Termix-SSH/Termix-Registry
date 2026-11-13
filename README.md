@@ -38,6 +38,14 @@ The community registry is open for submissions. Release your plugin with the tem
 
 Maintainers run the Release Plugin workflow here with one plugin id or a comma list. Each plugin is built from its only `dev-X.Y.Z` branch with no secrets, then a person approves the `release` environment and the run signs it, merges the branch into `main`, tags and releases it. The signing key and the CI App key live only in this repo's environments, so plugin repos hold no secrets.
 
+Once published, the release is built again from its tag on a separate machine with no keys. The index lists it only when that rebuild gives the same file, byte for byte.
+
+<br />
+
+## Signing keys
+
+Termix trusts only offline root keys, two per registry, kept in `trust/<registry>/root.pub`. They sign the certificates of the online keys the workflows use (`trust/<registry>/certs.json`, one year each) and the revocation lists (`trust/<registry>/revocations.json`). The [Signing keys](https://docs.termix.site/install/signing-keys) page covers how it works, the yearly renewal and what to do if a key leaks. The `trust:new-key`, `trust:revoke`, `trust:sign` and `trust:check` npm scripts do the work.
+
 <br />
 
 ## Sponsors

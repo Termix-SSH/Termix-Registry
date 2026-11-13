@@ -4,7 +4,26 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-11-11T12:18:53.302Z",
+  "certs": [
+    {
+      "signed": {
+        "type": "termix-key-cert",
+        "tier": "community",
+        "role": "plugins",
+        "keyId": "89d5fca007e3704a",
+        "publicKey": "nuF1ZOInuE3DiqGeJX48/w1k0dpnB1F+40rYUVVp3kg=",
+        "notBefore": "2026-11-13T00:00:00Z",
+        "expires": "2027-11-13T00:00:00Z"
+      },
+      "signatures": [
+        {
+          "keyId": "SHA256:SF4INojl+/wyBBec06AfBx6Y5QC+Rl8H0r+WfCrVeuI",
+          "sig": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgQ3TWka/fNjxHVyGdOTkaB72Q++\nNqefsZdWbXxs21ps0AAAALdGVybWl4LXJvb3QAAAAAAAAABnNoYTUxMgAAAFMAAAALc3No\nLWVkMjU1MTkAAABA4TKx/Ra5ms72+iWZNKTa6ER3e4i/JBsAf1y74wMWgkncsIBOu/bbNS\nx2WGcMbIp/BIwP4myI2bL8oWHKsbHwCQ==\n-----END SSH SIGNATURE-----\n"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13T04:30:31.371Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -22,7 +41,10 @@
         "Works over SSH with no setup on the server"
       ],
       "docs": "https://github.com/ShadyNabil8/termix-plugin-command-editor/tree/main/docs",
-      "contributes": ["keybindingActions", "settings"],
+      "contributes": [
+        "keybindingActions",
+        "settings"
+      ],
       "versions": [
         {
           "version": "1.0.0",
@@ -31,7 +53,9 @@
           "sha256": "1d253b3d3dc29f292478b2b67b3df65dca4f3a3c09528c01849ca3c1706ba5bb",
           "signature": "byzr0C10p2sGnmi/lBm2BSypHddfnUesWxf7kwGMw+rYIrfWs+i/mhjXFkrT2GCDe/KLB8xYLtbFfU8rZHf+BQ==",
           "size": 653731,
-          "capabilities": ["ui:surface"],
+          "capabilities": [
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
@@ -59,7 +83,11 @@
         "Works with stopped and minimal containers where the engine allows it"
       ],
       "docs": "https://github.com/Reydan46/termix-plugin-container-files/tree/main/docs",
-      "contributes": ["permissions", "settings", "tabs"],
+      "contributes": [
+        "permissions",
+        "settings",
+        "tabs"
+      ],
       "versions": [],
       "gated": [
         {
@@ -195,7 +223,10 @@
         "Every connect shows a confirm dialog first; links never carry secrets"
       ],
       "docs": "https://github.com/samsclub91/termix-plugin-deep-connect/tree/main/docs",
-      "contributes": ["permissions", "tabs"],
+      "contributes": [
+        "permissions",
+        "tabs"
+      ],
       "versions": [],
       "gated": [
         {
@@ -240,7 +271,12 @@
         "Split, resize, swap, rename, zoom, close and create workspaces or git worktrees without remembering keybindings"
       ],
       "docs": "https://github.com/jaygz316/termix-plugin-herdr/tree/main/docs",
-      "contributes": ["permissions", "settings", "tabs", "uses"],
+      "contributes": [
+        "permissions",
+        "settings",
+        "tabs",
+        "uses"
+      ],
       "versions": [],
       "gated": [
         {
@@ -306,7 +342,9 @@
         "Read-only badges with viewport-aware store subscriptions"
       ],
       "docs": "https://github.com/Reydan46/termix-plugin-host-auth-badges/tree/main/docs",
-      "contributes": ["settings"],
+      "contributes": [
+        "settings"
+      ],
       "versions": [],
       "gated": [
         {
@@ -316,7 +354,9 @@
           "sha256": "16bf16cfeea8becd10c46807f03310af915e70a793699c18ee3c4f7d86c41149",
           "signature": "nWBFQv8uVmtvqJaB0tN4Fwl1Ia9F8SgwS8WBclpdLzbblPQ5O8+A6Qf38zMCoE9exOY8svr89L/WmRMB2rfTDw==",
           "size": 80535,
-          "capabilities": ["ui:surface"],
+          "capabilities": [
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.13",
             "termix": ">=26.10.6"
@@ -332,7 +372,9 @@
           "sha256": "54e74b09bcd736c834dc9dac9df67b7619dc98620d6d6a6c5d3de63a1a0036c4",
           "signature": "SXetRp5Y1aoisBx7uckVuFwgtS51XfbCzlObjM6U0nPbCwpkTNbSJXI5FRWJWRsA+DHiTE/D17Vq/yhI7c2nDw==",
           "size": 78491,
-          "capabilities": ["ui:surface"],
+          "capabilities": [
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.13",
             "termix": ">=26.10.6"
@@ -361,7 +403,11 @@
         "Automatic icons for hosts by tag, name or regular expression"
       ],
       "docs": "https://github.com/ZarenOFF/termix-plugin-host-icons/tree/main/docs",
-      "contributes": ["permissions", "settings", "syncEntities"],
+      "contributes": [
+        "permissions",
+        "settings",
+        "syncEntities"
+      ],
       "versions": [
         {
           "version": "0.5.0",
@@ -370,7 +416,11 @@
           "sha256": "7ddd6cb9f65f3c8ab8b8555ff7a5374b46124d6b3517b0f92e836d738f11aa12",
           "signature": "Un/ldsL1AfzAhutjbvZg4yV0NvVo2SNoQSU0qlbs3FqF5lBHv2kEJN2c3rfDrfL0RYlP8JR5Gm6B2DGBxYT1Aw==",
           "size": 405622,
-          "capabilities": ["db:own", "network:serve", "ui:surface"],
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
@@ -386,7 +436,11 @@
           "sha256": "28b0bea5cca78096b2edda92243f2f0c94d30c4ff0ca176302614155bf77c3c4",
           "signature": "KE87VYrqBJz1FpUG10HEJSNa0s9CTfJrtuSvtBLfkahnjvLae7RysxHMDRBoO10ypiD5vrQv4w5GerYeqRl7CQ==",
           "size": 383756,
-          "capabilities": ["db:own", "network:serve", "ui:surface"],
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
@@ -402,7 +456,11 @@
           "sha256": "cf393db45e39231841ef93fd15393df93fecae6139aeeaeb0322d04537b06431",
           "signature": "iTtpTYXx6XFIWXQ0mn0Gn2kM5+7tKn9kWSpupe0CNpdUnMs0CHrLtBscnTLom+hVemvvRp4G2ztF8OYP5+TpCg==",
           "size": 371408,
-          "capabilities": ["db:own", "network:serve", "ui:surface"],
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
@@ -418,7 +476,9 @@
           "sha256": "9c9e2984575f4a1c5f95eb5596cede91bae7da66024ede685d36c04049f36e73",
           "signature": "sDU6/GdQNy1651BfpgL+CIUmA4cpxN6Zi0YTbINdiVSpOOQFIYOStzTQJRKcGfOFHmW/393QzQR1+bEaIMHuBQ==",
           "size": 244867,
-          "capabilities": ["ui:surface"],
+          "capabilities": [
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
@@ -436,7 +496,11 @@
           "sha256": "8672d7d8173f9dc8160b4281d4dd30f88ffeb374f8f01d3ee64384a1e47121b6",
           "signature": "oKqNGgOKjw/0F3lta1CTUp9YxYyb2wARFeZ9ao4VvgijkvNB3rH8v5UGBfKynLht8WIaVDocQkRqdkP4wp7cBg==",
           "size": 412685,
-          "capabilities": ["db:own", "network:serve", "ui:surface"],
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
           "engine": {
             "api": "^1.13",
             "termix": ">=26.10.6"
@@ -465,7 +529,11 @@
         "Works with NetBird Cloud and self-hosted management servers"
       ],
       "docs": "https://github.com/P3RF3CTION/termix-plugin-netbird/tree/main/docs",
-      "contributes": ["panels", "permissions", "settings"],
+      "contributes": [
+        "panels",
+        "permissions",
+        "settings"
+      ],
       "versions": [],
       "gated": [
         {
@@ -534,7 +602,12 @@
         "Graceful shutdown after sustained idle CPU use or maximum uptime"
       ],
       "docs": "https://github.com/jeakob/termix-plugin-pve-power/blob/main/docs/index.md",
-      "contributes": ["mobile", "permissions", "settings", "tabs"],
+      "contributes": [
+        "mobile",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
       "versions": [
         {
           "version": "0.6.9",
@@ -626,7 +699,11 @@
         "Per-host code-server path and default workspace"
       ],
       "docs": "https://github.com/Tech-Innovators-Dev/termix-vscode/tree/main/docs",
-      "contributes": ["permissions", "settings", "tabs"],
+      "contributes": [
+        "permissions",
+        "settings",
+        "tabs"
+      ],
       "versions": [
         {
           "version": "1.1.1",

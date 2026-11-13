@@ -149,13 +149,16 @@ jobs:
           PREV: ${{ steps.version.outputs.prev }}
         run: |
           [ -f CHANGELOG.md ] || exit 0
+          # Translations are committed after the build, so a rebuild from the
+          # tag would list that commit too.
+          locales=$(node -p "require('./manifest.json').locales || 'locales'")
           {
             echo "## $VERSION"
             echo
             echo "### Changed"
             echo
             if [ -n "$PREV" ]; then
-              git log --no-merges --format='- %s' "$PREV..HEAD" -- . ':!package-lock.json' | head -100
+              git log --no-merges --format='- %s' "$PREV..HEAD" -- . ':!package-lock.json' ":!$locales/translated" | head -100
             fi
             echo "- Beta build"
             echo

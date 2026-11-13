@@ -91,6 +91,7 @@ jobs:
     secrets:
       TERMIX_LLM_API_KEY: ${{ secrets.TERMIX_LLM_API_KEY }}
       TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
+      TERMIX_PLUGIN_ONLINE_KEY: ${{ secrets.TERMIX_PLUGIN_ONLINE_KEY }}
       CI_APP_PRIVATE_KEY: ${{ secrets.CI_APP_PRIVATE_KEY }}
 
   # Starts the index sync once, after every plugin of the run.

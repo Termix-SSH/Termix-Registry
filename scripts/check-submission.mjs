@@ -157,7 +157,7 @@ function officialIds() {
   return new Set((index?.plugins ?? []).map((plugin) => plugin.id));
 }
 
-async function checkFile(file, problems, lines) {
+async function checkFile(file, problems, lines, rebuilds = []) {
   const name = path.basename(file);
   const head = parse(readAt(headRef, file));
   const base = parse(readAt(baseRef, file));
@@ -242,6 +242,7 @@ async function checkFile(file, problems, lines) {
   }
 
   for (const pin of fresh) {
+    rebuilds.push({ repo, tag: `v${pin.version}` });
     const where = `${head.id}@${pin.version}`;
     let found;
     try {
@@ -313,12 +314,13 @@ async function main() {
   const problems = [];
   const lines = ["## Community submission check", ""];
   const files = changedFiles();
+  const rebuilds = [];
   if (files.length === 0) {
     lines.push("This PR changes no submissions.");
   }
   for (const file of files) {
     try {
-      await checkFile(file, problems, lines);
+      await checkFile(file, problems, lines, rebuilds);
     } catch (error) {
       problems.push(`${file}: ${error.message}`);
     }
@@ -328,7 +330,14 @@ async function main() {
     lines.push("### Problems", "", ...problems.map((p) => `- ${p}`), "");
   } else if (files.length > 0) {
     lines.push(
-      "All checks passed. The Termix bot posts an AI security review on the PR, and a maintainer still reviews the source before merging.",
+      "All checks passed. Each new version is rebuilt from its tag next, and must give the same file. The Termix bot posts an AI security review on the PR, and a maintainer still reviews the source before merging.",
+    );
+  }
+  // The reproducible build check rebuilds each new pinned version.
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(
+      process.env.GITHUB_OUTPUT,
+      `rebuilds=${JSON.stringify(rebuilds.filter((r) => r.repo))}\n`,
     );
   }
   const summary = `${lines.join("\n")}\n`;

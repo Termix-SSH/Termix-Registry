@@ -29,6 +29,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: npm run validate
 
+      - name: Root keys, certificates and revocation lists
+        run: npm run trust:check
+
       - name: Tests (translator, release scripts, workflow secrets)
         run: npm test
 

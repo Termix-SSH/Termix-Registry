@@ -1,6 +1,9 @@
 // Run inside a plugin checkout: picks the version, stamps it into the
 // manifest, package and lock, and adds a beta changelog section. Writes
 // version, tag, prev, base and locales to GITHUB_OUTPUT.
+//
+// --version X skips picking: the reproducible build check uses it to stamp a
+// rebuild from the release tag exactly like the release did.
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import process from "node:process";
@@ -17,6 +20,7 @@ const { values } = parseArgs({
     channel: { type: "string", default: "stable" },
     mode: { type: "string", default: "release" },
     branch: { type: "string" },
+    version: { type: "string" },
   },
 });
 
@@ -24,12 +28,15 @@ const git = (...args) =>
   execFileSync("git", args, { encoding: "utf8" }).trim().split("\n");
 
 const manifest = JSON.parse(fs.readFileSync("manifest.json", "utf8"));
-const { version, base } = resolveVersion({
-  channel: values.channel,
-  mode: values.mode,
-  branch: values.branch,
-  tags: git("tag", "-l", "v*").filter(Boolean),
-});
+const localesDir = manifest.locales || "locales";
+const { version, base } = values.version
+  ? { version: values.version, base: values.version.split("-")[0] }
+  : resolveVersion({
+      channel: values.channel,
+      mode: values.mode,
+      branch: values.branch,
+      tags: git("tag", "-l", "v*").filter(Boolean),
+    });
 const prev =
   git("tag", "-l", "v*", "--sort=-v:refname", "--merged", "HEAD").find(
     (tag) => tag && tag !== `v${version}`,
@@ -63,6 +70,9 @@ if (values.channel === "beta" && fs.existsSync("CHANGELOG.md")) {
         "--",
         ".",
         ":!package-lock.json",
+        // The release commits translations after the build, so leave them
+        // out or a rebuild from the tag would list that commit too.
+        `:!${localesDir}/translated`,
       )
         .filter(Boolean)
         .slice(0, 100)
@@ -83,7 +93,6 @@ if (values.channel === "beta" && fs.existsSync("CHANGELOG.md")) {
   );
 }
 
-const localesDir = manifest.locales || "locales";
 const locales = fs.existsSync(`${localesDir}/en.json`) ? localesDir : "";
 
 const out = process.env.GITHUB_OUTPUT;

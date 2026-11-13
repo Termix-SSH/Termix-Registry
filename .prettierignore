@@ -6,3 +6,7 @@ package-lock.json
 
 official/index.json
 official/stats.json
+community/index.json
+official/signatures.json
+community/signatures.json
+official/reproduced

@@ -1,0 +1,19 @@
+[
+  {
+    "signed": {
+      "type": "termix-key-cert",
+      "tier": "community",
+      "role": "plugins",
+      "keyId": "89d5fca007e3704a",
+      "publicKey": "nuF1ZOInuE3DiqGeJX48/w1k0dpnB1F+40rYUVVp3kg=",
+      "notBefore": "2026-11-13T00:00:00Z",
+      "expires": "2027-11-13T00:00:00Z"
+    },
+    "signatures": [
+      {
+        "keyId": "SHA256:SF4INojl+/wyBBec06AfBx6Y5QC+Rl8H0r+WfCrVeuI",
+        "sig": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgQ3TWka/fNjxHVyGdOTkaB72Q++\nNqefsZdWbXxs21ps0AAAALdGVybWl4LXJvb3QAAAAAAAAABnNoYTUxMgAAAFMAAAALc3No\nLWVkMjU1MTkAAABA4TKx/Ra5ms72+iWZNKTa6ER3e4i/JBsAf1y74wMWgkncsIBOu/bbNS\nx2WGcMbIp/BIwP4myI2bL8oWHKsbHwCQ==\n-----END SSH SIGNATURE-----\n"
+      }
+    ]
+  }
+]

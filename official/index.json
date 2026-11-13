@@ -4,7 +4,26 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-11-11T16:50:32.668Z",
+  "certs": [
+    {
+      "signed": {
+        "type": "termix-key-cert",
+        "tier": "official",
+        "role": "plugins",
+        "keyId": "a7b173b2ec703171",
+        "publicKey": "KdPX9V9fpW8zKHeJrExnkiZowgDXdJGslYP3AGsoQDo=",
+        "notBefore": "2026-11-13T00:00:00Z",
+        "expires": "2027-11-13T00:00:00Z"
+      },
+      "signatures": [
+        {
+          "keyId": "SHA256:a549NEiGOOvwpBvYPZno6/bgGsdTarnF+ExL9UmPQRk",
+          "sig": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgToXYr++vEvf+eKae/kjcyq814Y\nzBkU+YwZBq0mduUIYAAAALdGVybWl4LXJvb3QAAAAAAAAABnNoYTUxMgAAAFMAAAALc3No\nLWVkMjU1MTkAAABAZYp2v6X2SD1Wz1lSsWo+KbQhsKPQmFxZJpT6XwBFhJCddcSRJrtpGE\ntNwXMSkGqfss3qnhFNQqtiIdVKsE3GAw==\n-----END SSH SIGNATURE-----\n"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13T04:31:09.930Z",
   "plugins": [
     {
       "id": "acme-ssl",
