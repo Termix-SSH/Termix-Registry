@@ -1,1 +1,200 @@
-{}
+{
+  "command-editor@1.0.0": {
+    "sha256": "1d253b3d3dc29f292478b2b67b3df65dca4f3a3c09528c01849ca3c1706ba5bb",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "PeubdpEtuE46zOHdSTMYlVD5dW36MjMM5XBkGjdB/I42Pfj2DybhCASaObjlvG8HxHxxrbwOL9m/SOaYXj55Bw=="
+      }
+    ]
+  },
+  "container-files@1.0.1": {
+    "sha256": "7d230d86b7a1e5a9ec47397225987f8a0bcb14836766373fafe9e2467e93ad5e",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "rb/2wo40Kpo8q3O29/MMcWrHnyieR3qbHZGWgJWLqkmilchvfx1GvYzPL43NUhxqZ+wx/3MccwyJCNghcuaIBg=="
+      }
+    ]
+  },
+  "container-files@1.0.2": {
+    "sha256": "f392260cd9d5366bf5dcdfaa974f0c9d6af536d3ad9c9229bfe158f16c2d36c8",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "53e84Qg5PvxBUhxzlasGLSVI2BW3lL/Q7uHNWiDaf58hXc8ViZbihguzjVzyyW0pUfE1K2jxbEmoBgzJEkgKBA=="
+      }
+    ]
+  },
+  "container-files@1.0.3": {
+    "sha256": "b6b5854449b0a0019444324df104a1df7c3b844f5b2cfe874dce2c4b0dfa7ce7",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "wwj4EJ9w3qPUDHQQ4yg/s+Wj8XbNhW438REzh2V7OlgWf8t/33UO/x2kQo2N+7ImMQIt12moGx8FzhH7tjYbAg=="
+      }
+    ]
+  },
+  "container-files@1.0.4": {
+    "sha256": "a35138a705c8ac4cc3349ff8184511125b3ca000acb785f286dd4dc7a67aeef5",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "okwl96dZ6UO1qLyT7Zvkk8DGKpi6l+ZbT+vvKCuqhAtGPJbsby3Yvvro+5XfxmfQ8lf4pH/5ZuNyc9iHVm1JAw=="
+      }
+    ]
+  },
+  "container-files@1.0.5": {
+    "sha256": "c6918d51ce5229a06c385e6f64961b1bce6ba422dd8a7ea96efb9d6ef08ba2ce",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "syxO/GGm2iv5rJKfiGtEYNQPL2Npe5UX3o6RWlRr+JDXNBDtLDAx5y6ekjaDpAiR1AGryB8I6ri4D9L5n6AqAw=="
+      }
+    ]
+  },
+  "deep-connect@1.2.0": {
+    "sha256": "f73da68e3248390f5cb9a804da84dbf9076a8b5b7ef85f19b3e72f54d4580ed5",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "r96sicY4lW2uw7VQO8AoOF2nh98hjctarnBIUR5fSY4COYN3IoJYT66ufXLh/GgspFG6kv1lCPmRZSJvfeuOAQ=="
+      }
+    ]
+  },
+  "herdr@1.0.0": {
+    "sha256": "68a43323b11b155d964a93447cbfe2cc63b58e14dd5a1d7dcdd0fafb76f9dbf6",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "i/GCA5AV6S1b2Ns3ZNnfICfkqXobuC2hVUx9d0KZtiFmFNEHIOh4zngGT8yA3+8cVV3lqUA3DFgOQXsiqUaUBQ=="
+      }
+    ]
+  },
+  "herdr@1.4.0": {
+    "sha256": "b3176b740f58c73485ee00653e421f5d4d6db82c9bf84e9d128a43cc56d81467",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "AmePFDP89NiOJDBUg46YIC3CW0KKk56Y1FguDdhosz41Ac0gDrTS+oxvocL800FJ+yV5rtbAJafhEaGHyDK/DA=="
+      }
+    ]
+  },
+  "host-auth-badges@1.0.1": {
+    "sha256": "54e74b09bcd736c834dc9dac9df67b7619dc98620d6d6a6c5d3de63a1a0036c4",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "YEKxrnu43tH4ZO5KEXmMFQn1E2C7gI+wnacs22OZqLejB58eoAw/XhqcX5dIx2UJqWGQbDrldMog4+4ebIx2Cg=="
+      }
+    ]
+  },
+  "host-auth-badges@1.0.2": {
+    "sha256": "16bf16cfeea8becd10c46807f03310af915e70a793699c18ee3c4f7d86c41149",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "Ff8FAWMaPIFqShRSFqMVg0jbyinjfB8JEP6jbax9tIr/g43n7gIldan3Yg1QCJtF2c6ydorjrmkmA13meJTzCQ=="
+      }
+    ]
+  },
+  "host-icons@0.2.0": {
+    "sha256": "9c9e2984575f4a1c5f95eb5596cede91bae7da66024ede685d36c04049f36e73",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "6PdMK+Vex/EAcSgXVSISqA+8w60d6cPZhmbGL68dlz80yal5kkR4XsU4i6GNZLLyDZmRosdySp6igyoRkpb0DA=="
+      }
+    ]
+  },
+  "host-icons@0.3.0": {
+    "sha256": "cf393db45e39231841ef93fd15393df93fecae6139aeeaeb0322d04537b06431",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "6me+WxvFm4ZRwUU56QcH7hD0gedTIb/4NKUl1wkoXP/HwEI3ANFUagZrxV6IrJz+kAw+levhyvX0BYQdom2JCg=="
+      }
+    ]
+  },
+  "host-icons@0.4.0": {
+    "sha256": "28b0bea5cca78096b2edda92243f2f0c94d30c4ff0ca176302614155bf77c3c4",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "v+EqS92NN5LaI9tDvgUnYAHGtCDXExBVXbgJrDJsrDi7IcrYjCMgx23Y7lfedNpI1xIDxLe+EWaTQHfyOWCQCA=="
+      }
+    ]
+  },
+  "host-icons@0.5.0": {
+    "sha256": "7ddd6cb9f65f3c8ab8b8555ff7a5374b46124d6b3517b0f92e836d738f11aa12",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "ERK2ehpbSRATdqbiqzZsLVLSgaEaiC9J9di7uC+1tilXGi47iBL6styWfaQLk4vba8IIwigQ9h2cYkLdGL9cAQ=="
+      }
+    ]
+  },
+  "host-icons@0.6.0": {
+    "sha256": "8672d7d8173f9dc8160b4281d4dd30f88ffeb374f8f01d3ee64384a1e47121b6",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "zODyMEi+8ZStOy/l+7hyiXk752WKQjqU5o6iPbGzmUI8Y36Y5n8llSE2LYqWVQBrLb4dNT6Ps2yb4jcuLP6RDg=="
+      }
+    ]
+  },
+  "netbird@1.1.0": {
+    "sha256": "018789f9a455fb8334b2a803d77c4f2b78d3eb9536c8bd04345aa259e66d1f95",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "Foq77Usbe+51fREh/hqcnat5TnBYk4VOYaQmeqgKVq+BwPy3QCmDqUKITbsqSBLoO7aB7mvZ8e5zCsUlzdrECQ=="
+      }
+    ]
+  },
+  "netbird@1.2.0": {
+    "sha256": "11754338d21a291f7014fda9a0bc93550dd3e3e07a1c63284ce572a10ee586e4",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "T2qs7PzV1y79Mp6HsFByOqn6lSIELj4SE9EK440TOBk8d2PHgkyTEs+D69qxMlvFJy18Tuhg1Cs14USOGWAxDQ=="
+      }
+    ]
+  },
+  "pve-power@0.6.8": {
+    "sha256": "91e26e7264bfce30858bfbb73de12af2c879589e7e0626e4701e27a0f43d82b2",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "nwc1yxxjjbSYOGi+jF0h9mPwzQaYwsnfyeWmL15luuw8/56WNZGbQTsBbWwV/jJPtBDYAvTGfpCUgaxFFXLwDw=="
+      }
+    ]
+  },
+  "pve-power@0.6.9": {
+    "sha256": "8f38a232fa187909e27c2e78e9a473c4eabb1ff4d5570441d01e952397c25171",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "tHExyQmxBCKIU8KRhF2daTeKtD1GKM9WjYB4VPqO8D2TXAXEjIIt5+1p6iYl+bYe3+UIYVtNiD08GM9R86e9Ag=="
+      }
+    ]
+  },
+  "pve-power@0.7.0": {
+    "sha256": "49d35edb4d694facf0a0dbd928eeca5d5b83684689d647b89b12a34492225a56",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "jGYxeW3oTDxboZnuuOcHpbi3XULw3VPId8xtH1Zon8L0iYkNecoixef6Wv4DuqEkio89AbCKhzOwdklCqKkQCg=="
+      }
+    ]
+  },
+  "termix-vscode@1.1.1": {
+    "sha256": "7c755e8bb0d1c8f50eb1ad91b80ee2589dce2e3b1f24d98883a4fa448ef747ad",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "wioauaZD/zprwhgGMkL1gCTK5SmzPM60y0gUc4ajfSUSe9PKV23JrbNq3zdCfF0pzi0BcEebGWlDYzN8xyMcBQ=="
+      }
+    ]
+  }
+}
