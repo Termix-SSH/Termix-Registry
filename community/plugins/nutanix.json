@@ -1,0 +1,14 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "nutanix",
+  "repository": "https://github.com/erviker/termix-plugin-nutanix",
+  "maintainers": [
+    "erviker"
+  ],
+  "versions": [
+    {
+      "version": "1.0.0",
+      "sha256": "6af5d2fce89a5e56187ec6beeb26e5d5d8191568226ae9bb27f5f1365d94d90c"
+    }
+  ]
+}
