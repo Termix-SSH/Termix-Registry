@@ -32,11 +32,11 @@ import {
 const CORE_ROOTS = {
   official: [
     "SHA256:a549NEiGOOvwpBvYPZno6/bgGsdTarnF+ExL9UmPQRk",
-    "SHA256:CtQKKIHB6UaIt2pSOAXwAPpkczI1Bqbual66doeqeoc",
+    "SHA256:S+HvYPCSflLUwrHvR7fnQpoJxZo/wruJkRlc2wvjvkg",
   ],
   community: [
     "SHA256:SF4INojl+/wyBBec06AfBx6Y5QC+Rl8H0r+WfCrVeuI",
-    "SHA256:XVcMEf9p+KYrPeK96DWNM1MBibXS+1IMc9eSlzcq8bw",
+    "SHA256:2RxCdFuBj1JFUgRRRSokfbTjzqFbihUr9JRQOB1SJK0",
   ],
 };
 
