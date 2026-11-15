@@ -7,6 +7,8 @@ name: Release gate
 #   supply-chain   lockfile lint and osv-scanner
 #   ghsa-tests     every GHSA-xxxx-xxxx-xxxx.test.* file, none skipped
 #   authz          the authorization matrix
+#   hostile        core only: plugins built to attack the sandbox, on the
+#                  Docker image, must fail at every attack (scripts/hostile)
 #   code-scanning  no open high or critical CodeQL alert newer than the
 #                  baseline in scripts/release-gate/lib.mjs (only when the
 #                  caller's token can read the repo's alerts; Release Plugin
@@ -250,6 +252,70 @@ jobs:
           node core/scripts/authz/run.mjs --no-core
           --plugin plugin --local-plugin plugin --local-plugins deps
 
+  hostile:
+    if: ${{ inputs.kind == 'core' }}
+    runs-on: blacksmith-8vcpu-ubuntu-2404
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    env:
+      NODE_OPTIONS: "--max-old-space-size=4096"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.sha }}
+          path: core
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: core/.nvmrc
+
+      - name: Build every plugin and stage the fixtures
+        working-directory: core
+        run: |
+          npm run ci:install
+          npm run build:sdk
+          node scripts/budgets/stage-plugins.mjs "$RUNNER_TEMP/plugins" --jobs 6
+          node scripts/build-plugins.cjs --profile none --local "$RUNNER_TEMP/plugins"
+          node scripts/hostile/run.mjs --stage dist/plugins --local-plugins "$RUNNER_TEMP/plugins"
+
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      # The launcher setup with the firewall on: each plugin its own user.
+      - name: Build and start the image
+        working-directory: core
+        run: |
+          docker buildx build --load --provenance=false --sbom=false \
+            --build-arg PLUGIN_PROFILE=none -t termix-hostile -f docker/Dockerfile .
+          canary="$(openssl rand -hex 12)"
+          echo "HOSTILE_ENV_CANARY=$canary" >> "$GITHUB_ENV"
+          docker run -d --name termix -p 8080:8080 \
+            -e TERMIX_HOSTILE_CANARY="$canary" \
+            -e "TERMIX_PLUGIN_ALWAYS_ON=hostile-victim,hostile-backend,hostile-frame,hostile-crash" \
+            -v "$PWD/dist/plugins:/app/dist/plugins:ro" -v hostile-data:/app/data \
+            --security-opt no-new-privileges:true --tmpfs /tmp \
+            --cap-drop ALL --cap-add CHOWN --cap-add DAC_OVERRIDE --cap-add FOWNER \
+            --cap-add SETUID --cap-add SETGID --cap-add NET_ADMIN \
+            termix-hostile
+          for _ in $(seq 1 120); do
+            if curl -fsS http://localhost:8080/health > /dev/null; then exit 0; fi
+            sleep 2
+          done
+          docker logs termix 2>&1 | tail -100
+          exit 1
+
+      - name: Run the attacks
+        working-directory: core
+        run: |
+          npx playwright install --with-deps chromium
+          node scripts/hostile/run.mjs --url http://localhost:8080 --container termix --core-port 30001
+
+      - name: Server log
+        if: failure()
+        run: docker logs termix 2>&1 | tail -300
+
   code-scanning:
     if: ${{ inputs.code-scanning }}
     runs-on: blacksmith-2vcpu-ubuntu-2404
@@ -280,19 +346,21 @@ jobs:
 
   # One result for callers to need.
   passed:
-    needs: [workflow-lint, supply-chain, ghsa-tests, authz, code-scanning]
+    needs: [workflow-lint, supply-chain, ghsa-tests, authz, hostile, code-scanning]
     if: ${{ always() }}
     runs-on: blacksmith-2vcpu-ubuntu-2404
     permissions: {}
     env:
       RESULTS: ${{ toJSON(needs) }}
       WANT_SCAN: ${{ inputs.code-scanning }}
+      KIND: ${{ inputs.kind }}
     steps:
       - name: Every check passed
         run: |
           bad=$(jq -r 'to_entries[]
             | select(.value.result != "success")
             | select(.key != "code-scanning" or env.WANT_SCAN == "true" or .value.result != "skipped")
+            | select(.key != "hostile" or env.KIND == "core" or .value.result != "skipped")
             | "\(.key) \(.value.result)"' <<< "$RESULTS")
           if [ -n "$bad" ]; then
             while read -r line; do echo "::error::Release gate: $line"; done <<< "$bad"
