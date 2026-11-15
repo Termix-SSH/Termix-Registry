@@ -1,0 +1,104 @@
+name: Dependabot to dev
+
+# Dependabot opens PRs against main, but work lands on dev-* branches first.
+# This copies each Dependabot PR onto the newest dev branch, merges the copy
+# once its checks pass and closes the original. Repos without a dev branch get
+# green Dependabot PRs merged as they are. The Triage-Bot dispatches it when
+# Dependabot opens a PR; the hourly run merges what turned green since.
+
+on:
+  repository_dispatch:
+    types: [dependabot-dev]
+  workflow_dispatch:
+    inputs:
+      repos:
+        description: Comma list of repo names, empty for every repo with open Dependabot PRs
+        required: false
+        default: ""
+  schedule:
+    - cron: "47 * * * *"
+
+permissions: {}
+
+jobs:
+  list:
+    runs-on: ubuntu-24.04
+    permissions: {}
+    outputs:
+      repos: ${{ steps.list.outputs.repos }}
+    steps:
+      - name: Repos with open Dependabot PRs
+        id: list
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_REPOS: ${{ inputs.repos }}
+          PAYLOAD_REPO: ${{ github.event.client_payload.repo }}
+        run: |
+          wanted="${INPUT_REPOS:-$PAYLOAD_REPO}"
+          if [ -n "$wanted" ]; then
+            repos=$(printf '%s' "$wanted" | tr ',' '\n' | grep -E '^[A-Za-z0-9._-]+$' | jq -Rnc '[inputs]')
+          else
+            repos=$(gh search prs --owner Termix-SSH --author app/dependabot --state open --visibility public \
+              --limit 1000 --json repository --jq '[.[].repository.name] | unique')
+          fi
+          echo "repos=$repos" >> "$GITHUB_OUTPUT"
+          echo "$repos"
+
+  move:
+    needs: list
+    if: needs.list.outputs.repos != '[]' && needs.list.outputs.repos != ''
+    runs-on: ubuntu-24.04
+    # Holds the Termix CI App key, which may push past the dev branch rules.
+    environment: sync
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        repo: ${{ fromJSON(needs.list.outputs.repos) }}
+    concurrency:
+      group: dependabot-dev-${{ matrix.repo }}
+      cancel-in-progress: false
+    steps:
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: ${{ matrix.repo }}
+          permission-contents: write
+          permission-pull-requests: write
+          permission-workflows: write
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: registry
+          persist-credentials: false
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Termix-SSH/${{ matrix.repo }}
+          path: target
+          token: ${{ steps.app.outputs.token }}
+          # The job pushes the mirror branches with it.
+          persist-credentials: true
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: registry/.nvmrc
+
+      - name: Install
+        working-directory: registry
+        run: npm ci --ignore-scripts --omit=dev
+
+      # Lockfiles are made with --ignore-scripts, so no package code runs here.
+      - name: Move Dependabot PRs to dev
+        env:
+          REPO: ${{ matrix.repo }}
+          TARGET_DIR: ${{ github.workspace }}/target
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          READ_TOKEN: ${{ github.token }}
+        run: node registry/scripts/dependabot-dev/run.mjs
