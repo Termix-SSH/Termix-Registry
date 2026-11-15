@@ -129,7 +129,18 @@ jobs:
         if: steps.table.outputs.present == 'true'
         run: >-
           node core/scripts/authz/run.mjs --no-core
-          --plugin plugin --local-plugin plugin --local-plugins deps
+          --plugin plugin --local-plugin plugin --local-plugins deps --keep
+
+      # A plugin that fails to start only says why in the server log.
+      - name: Server log
+        if: failure() && steps.table.outputs.present == 'true'
+        run: |
+          for log in "${RUNNER_TEMP:-/tmp}"/termix-authz-*/server.log /tmp/termix-authz-*/server.log; do
+            [ -f "$log" ] || continue
+            echo "::group::$log"
+            grep -E "ERROR|WARN|crash|exited" "$log" | tail -n 200
+            echo "::endgroup::"
+          done
 
   # Fails on high severity zizmor findings in the plugin's workflows. A repo
   # without its own .github/zizmor.yml gets the default below, which lets the
