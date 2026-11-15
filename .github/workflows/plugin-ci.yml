@@ -10,7 +10,7 @@ permissions: {}
 
 jobs:
   check:
-    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:
@@ -57,7 +57,7 @@ jobs:
   # and socket in the plugin's authz.json as every kind of caller. Required
   # for Termix-SSH plugins; other repos run it once they add the file.
   authz:
-    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     env:
@@ -135,7 +135,7 @@ jobs:
   # without its own .github/zizmor.yml gets the default below, which lets the
   # shared Termix-SSH workflows stay on a branch ref.
   workflow-lint:
-    runs-on: ${{ github.repository_owner == 'Termix-SSH' && 'blacksmith-2vcpu-ubuntu-2404' || 'ubuntu-latest' }}
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:

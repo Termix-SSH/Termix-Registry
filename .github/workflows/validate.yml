@@ -9,7 +9,7 @@ permissions: {}
 
 jobs:
   validate:
-    runs-on: blacksmith-2vcpu-ubuntu-2404
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:
@@ -37,7 +37,7 @@ jobs:
 
   supply-chain:
     name: Supply chain
-    runs-on: blacksmith-2vcpu-ubuntu-2404
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:
