@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13T04:36:32.776Z",
+  "updatedAt": "2026-11-15T19:42:31.340Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5532,6 +5532,41 @@
       ],
       "gated": [
         {
+          "version": "1.4.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.4.1/remote-desktop-1.4.1.tmxplug",
+          "sha256": "db14cae8ea3063bbb2ca1bf8d406d72276644e544c4b05969e846056411367ae",
+          "signature": "fqieB3lflqEyLQAkmz92nnayb2Dka3lSrysHy33VfEa39474VD2RlVvp1jDuzusRTfVTTjlsI5/DZdZP8J5UBA==",
+          "size": 4695862,
+          "capabilities": [
+            "hosts:read",
+            "credentials:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "desktop:local",
+            "ui:surface",
+            "users:impersonate",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.11.1-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.4.1",
+          "notes": "### Fixed\n\n- RDP sessions to Windows no longer drop with \"rfx progressive decode failed\" when the screen shows a wallpaper, the Start menu or images\n- Updated Rust crates in the built in engine to releases with security fixes",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.4.1/remote-desktop-1.4.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-15T19:35:38.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "Ooj+fkY7g7OYMmdcs+Ro2ibVx/xCOKQMnfRrPWGHQ5a5iEdYd6PZu2IJ5eZ9LN5l2EnqMwBLLrdsK7tr/xQPBg=="
+            }
+          ]
+        },
+        {
           "version": "1.4.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.4.0/remote-desktop-1.4.0.tmxplug",
@@ -5554,8 +5589,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.4.0",
-          "notes": "### Added\n\n- Kerberos sign in for RDP with a KDC address per host, for accounts in the Protected Users group\n- RDP server redirection, so GNOME Remote Login on Ubuntu connects to the user session\n- Check from the server that a host's RDP, VNC and Telnet ports answer, through Termix actions and as a status tile on the host page\n- A dashboard card with your open remote sessions, and a host's open sessions on the host page\n- Other plugins can show a VNC display that only an SSH host can reach, such as a VM console\n- Intel AMT machines, through AMT's built-in VNC (see the docs for setup)\n- Moonlight streaming from Sunshine PCs through your own Moonlight Web server, with pairing and app choice in the host editor\n- RustDesk hosts, by ID through the public or your own RustDesk server or by direct IP, with password and 2FA logins, clipboard, audio and monitor switching\n- When an admin makes recording required, every session is recorded with the whole screen and keys, the Record button can't stop it, and VNC uses the built-in engine so it can be recorded\n- When a host needs approved access, the connect screen says so and offers a Request access button\n- Admins can let Session Recording list, watch and end everyone's remote sessions with the new Watch everyone's remote desktop sessions permission\n- A host switch to turn off reconnecting an RDP session on its own, so an idle tab does not kick out a session opened elsewhere\n- A host switch to keep the RDP screen size from when you connected instead of following the window\n- A Verify button when a host needs a second factor before connecting\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The remote desktop toolbar uses the darker page color\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Other features could end a remote session or get a viewer link to it without owning it\n- Pasting with Ctrl or Command still held no longer lets go of that key on the remote side\n- Ctrl+V right after copying pastes the new text in an RDP session instead of the one copied before it\n- The desktop app connects to RDP servers whose certificate is only made for encryption, like many Windows ones, when Ignore certificate errors is on\n- The Korean Han/Eng and Hanja keys work on every tap with keyboards that never send a key release\n- RDP servers that need the graphics pipeline, like GNOME Remote Desktop, connect with the built-in engine\n- RDP sound plays after the first click in the session, and people who join a shared session hear it too\n- An idle RDP session is no longer reconnected after you switch browser tabs and come back\n- The RDP drive file panel shows an error instead of loading forever when a folder can't be listed\n- The session toolbar moves buttons into More before they run off the edge, so the last one is no longer cut off",
           "publishedAt": "2026-11-09T01:56:56.000Z",
+          "notes": "### Added\n\n- Kerberos sign in for RDP with a KDC address per host, for accounts in the Protected Users group\n- RDP server redirection, so GNOME Remote Login on Ubuntu connects to the user session\n- Check from the server that a host's RDP, VNC and Telnet ports answer, through Termix actions and as a status tile on the host page\n- A dashboard card with your open remote sessions, and a host's open sessions on the host page\n- Other plugins can show a VNC display that only an SSH host can reach, such as a VM console\n- Intel AMT machines, through AMT's built-in VNC (see the docs for setup)\n- Moonlight streaming from Sunshine PCs through your own Moonlight Web server, with pairing and app choice in the host editor\n- RustDesk hosts, by ID through the public or your own RustDesk server or by direct IP, with password and 2FA logins, clipboard, audio and monitor switching\n- When an admin makes recording required, every session is recorded with the whole screen and keys, the Record button can't stop it, and VNC uses the built-in engine so it can be recorded\n- When a host needs approved access, the connect screen says so and offers a Request access button\n- Admins can let Session Recording list, watch and end everyone's remote sessions with the new Watch everyone's remote desktop sessions permission\n- A host switch to turn off reconnecting an RDP session on its own, so an idle tab does not kick out a session opened elsewhere\n- A host switch to keep the RDP screen size from when you connected instead of following the window\n- A Verify button when a host needs a second factor before connecting\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The remote desktop toolbar uses the darker page color\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Other features could end a remote session or get a viewer link to it without owning it\n- Pasting with Ctrl or Command still held no longer lets go of that key on the remote side\n- Ctrl+V right after copying pastes the new text in an RDP session instead of the one copied before it\n- The desktop app connects to RDP servers whose certificate is only made for encryption, like many Windows ones, when Ignore certificate errors is on\n- The Korean Han/Eng and Hanja keys work on every tap with keyboards that never send a key release\n- RDP servers that need the graphics pipeline, like GNOME Remote Desktop, connect with the built-in engine\n- RDP sound plays after the first click in the session, and people who join a shared session hear it too\n- An idle RDP session is no longer reconnected after you switch browser tabs and come back\n- The RDP drive file panel shows an error instead of loading forever when a folder can't be listed\n- The session toolbar moves buttons into More before they run off the edge, so the last one is no longer cut off",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",

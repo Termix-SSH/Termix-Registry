@@ -1250,6 +1250,15 @@
       }
     ]
   },
+  "remote-desktop@1.4.1": {
+    "sha256": "db14cae8ea3063bbb2ca1bf8d406d72276644e544c4b05969e846056411367ae",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "Ooj+fkY7g7OYMmdcs+Ro2ibVx/xCOKQMnfRrPWGHQ5a5iEdYd6PZu2IJ5eZ9LN5l2EnqMwBLLrdsK7tr/xQPBg=="
+      }
+    ]
+  },
   "reverse-proxy@1.0.0": {
     "sha256": "2854f69d1c09661d137d958bb5851f79c6567e3451ed9ceb09427dcf766320da",
     "signatures": [
