@@ -192,7 +192,20 @@
           "type": "string",
           "maxLength": 20000
         },
-        "publishedAt": { "type": "string", "format": "date-time" }
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "provenance": {
+          "description": "The release's Sigstore build provenance bundle, which Termix checks at download.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url"],
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://.*\\.tmxplug\\.sigstore\\.json$"
+            }
+          }
+        }
       }
     }
   }

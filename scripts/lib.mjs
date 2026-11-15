@@ -242,6 +242,29 @@ export function inspectArtifact(buffer, release, artifact) {
 }
 
 /** One entry of an index's versions or prereleases list. */
+/**
+ * Whether a Sigstore bundle's in-toto statement names this file and digest.
+ * Termix checks the signature itself at download; sync only lists a bundle
+ * that is about the file.
+ */
+export function bundleDescribes(bundleText, fileName, sha256Hex) {
+  try {
+    const bundle = JSON.parse(bundleText);
+    const envelope = bundle?.dsseEnvelope;
+    if (envelope?.payloadType !== "application/vnd.in-toto+json") return false;
+    const statement = JSON.parse(
+      Buffer.from(envelope.payload, "base64").toString("utf8"),
+    );
+    return (statement.subject ?? []).some(
+      (subject) =>
+        subject?.digest?.sha256?.toLowerCase() === sha256Hex &&
+        path.basename(String(subject.name ?? "")) === fileName,
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function versionEntry({
   manifest,
   notes,
@@ -250,6 +273,7 @@ export function versionEntry({
   buffer,
   digest,
   signature,
+  provenance,
 }) {
   return {
     version: manifest.version,
@@ -265,6 +289,7 @@ export function versionEntry({
       : {}),
     releaseNotesUrl: release.html_url,
     ...(notes ? { notes: notes.slice(0, 20_000) } : {}),
+    ...(provenance ? { provenance } : {}),
     // The asset upload time, which is the release date.
     publishedAt: new Date(
       artifact.updated_at ?? release.published_at ?? Date.now(),
@@ -332,6 +357,20 @@ export function contributesOf(manifest) {
  * The newest Termix that lists registry releases without checking
  * engine.termix. A release it can't run goes in gated, a list it never reads.
  */
+/**
+ * Why a manifest's plugin API range can't run on current Termix, or null.
+ * Termix 26.11.2 and later only run plugin API 2 in plugin processes.
+ */
+export function apiProblem(range) {
+  if (!range || semver.validRange(range) === null) {
+    return "engine.api is not a semver range";
+  }
+  if (!semver.intersects(range, ">=2.0.0-0", { includePrerelease: true })) {
+    return `engine.api ${range} is plugin API 1, which Termix no longer runs. Move the plugin to API 2 first`;
+  }
+  return null;
+}
+
 export const LAST_UNCHECKED_CORE = "26.10.2";
 
 export function needsNewerCore(entry) {

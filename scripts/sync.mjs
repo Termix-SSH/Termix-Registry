@@ -65,6 +65,7 @@ import {
   signDigest,
   splitChannels,
   versionEntry,
+  bundleDescribes,
 } from "./lib.mjs";
 import {
   attachChain,
@@ -194,6 +195,13 @@ async function readRelease(repo, release, keys, certs, store, problems) {
     problems.push(`${where}: ${inspected}`);
     return null;
   }
+  const provenance = await readProvenance(
+    release,
+    artifact,
+    digest.toString("hex"),
+    where,
+    problems,
+  );
   if (chainOk) {
     storeSignature(
       store,
@@ -215,8 +223,23 @@ async function readRelease(repo, release, keys, certs, store, problems) {
       buffer,
       digest,
       signature: legacyOk ? legacy : "",
+      provenance,
     }),
   };
+}
+
+/** The release's provenance bundle link, when it describes the file. */
+async function readProvenance(release, artifact, sha256Hex, where, problems) {
+  const asset = release.assets.find(
+    (entry) => entry.name === `${artifact.name}.sigstore.json`,
+  );
+  if (!asset) return undefined;
+  const text = (await download(asset.browser_download_url)).toString("utf8");
+  if (!bundleDescribes(text, artifact.name, sha256Hex)) {
+    problems.push(`${where}: the provenance bundle is for another file`);
+    return undefined;
+  }
+  return { url: asset.browser_download_url };
 }
 
 /** Keeps the listed copy of an unchanged version, with fresh notes. */
@@ -478,6 +501,7 @@ async function readPinned({
       buffer,
       digest,
       signature,
+      provenance: await readProvenance(release, artifact, hex, where, problems),
     }),
   };
 }

@@ -398,10 +398,18 @@ jobs:
           persist-credentials: true
 
       - name: Build provenance
+        id: provenance
         if: ${{ inputs.mode != 'dry-run' }}
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
           subject-path: out/*.tmxplug
+
+      # Termix checks this bundle at download and keeps it with the plugin.
+      - name: Keep the provenance bundle
+        if: ${{ inputs.mode != 'dry-run' }}
+        env:
+          BUNDLE: ${{ steps.provenance.outputs.bundle-path }}
+        run: cp "$BUNDLE" "out/$ID-$VERSION.tmxplug.sigstore.json"
 
       - name: Apply the stamped files
         if: ${{ inputs.mode != 'dry-run' }}
@@ -466,7 +474,7 @@ jobs:
           PRERELEASE: ${{ inputs.channel == 'beta' && 'true' || 'false' }}
         run: |
           # Draft first, so nobody sees it before every file is on it.
-          FILES=("out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig")
+          FILES=("out/$ID-$VERSION.tmxplug" "out/$ID-$VERSION.tmxplug.sig" "out/$ID-$VERSION.tmxplug.sigstore.json")
           if [ -f "out/$ID-$VERSION.tmxplug.legacy.sig" ]; then
             FILES+=("out/$ID-$VERSION.tmxplug.legacy.sig")
           fi

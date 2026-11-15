@@ -19,6 +19,7 @@ import path from "node:path";
 import process from "node:process";
 import Ajv2020 from "ajv/dist/2020.js";
 import {
+  apiProblem,
   compareVersions,
   download,
   github,
@@ -264,8 +265,12 @@ async function checkFile(file, problems, lines, rebuilds = []) {
     ) {
       fail(`${pin.version}: the manifest repository is ${manifest.repository}`);
     }
-    if (!manifest.engine?.api)
+    if (!manifest.engine?.api) {
       fail(`${pin.version}: manifest has no engine.api`);
+    } else {
+      const problem = apiProblem(manifest.engine.api);
+      if (problem) fail(`${pin.version}: ${problem}`);
+    }
 
     const provenance = verifyProvenance(
       repo,
