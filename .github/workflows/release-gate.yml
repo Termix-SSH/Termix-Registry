@@ -193,10 +193,20 @@ jobs:
             exit 1
           fi
 
+      # A plugin API 1 release (a fix for cores before 26.11.2) runs against the
+      # last core that still loads API 1 plugins, since newer cores refuse them.
       - name: Newest core dev branch
         id: core
         if: ${{ inputs.kind == 'plugin' }}
+        env:
+          API1_CORE: 610bc689d95ed3e1bf9328f92aebbea70702bfc1
         run: |
+          api=$(node -p 'require("./plugin/manifest.json").engine.api')
+          if [[ "$api" =~ ^[~^]?1(\.|$) ]]; then
+            echo "::notice::plugin API $api, checking against core $API1_CORE"
+            echo "ref=$API1_CORE" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           ref=$(git ls-remote --heads https://github.com/Termix-SSH/Termix 'refs/heads/dev-*' \
             | sed 's|.*refs/heads/||' | sort -V | tail -1)
           echo "ref=${ref:-main}" >> "$GITHUB_OUTPUT"
