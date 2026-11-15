@@ -6,6 +6,7 @@ import { test } from "node:test";
 import {
   checkVitestReport,
   findGhsaTests,
+  labVerdict,
   skipMarkers,
   triageAlerts,
 } from "../../../scripts/release-gate/lib.mjs";
@@ -133,5 +134,37 @@ test("only new high and critical alerts block", () => {
   assert.deepEqual(
     backlog.map((a) => a.number),
     [1],
+  );
+});
+
+test("lab verdict: newest finished Lab run decides", () => {
+  const run = (conclusion, completed_at, over = {}) => ({
+    name: "Lab",
+    status: "completed",
+    conclusion,
+    completed_at,
+    ...over,
+  });
+  assert.equal(labVerdict([]).block, false);
+  assert.match(labVerdict([]).warn, /not tested/);
+  assert.equal(
+    labVerdict([run("failure", "2026-11-20T01:00:00Z")]).block,
+    true,
+  );
+  assert.equal(
+    labVerdict([
+      run("failure", "2026-11-20T01:00:00Z"),
+      run("success", "2026-11-20T02:00:00Z"),
+    ]).block,
+    false,
+  );
+  assert.match(
+    labVerdict([run("neutral", "2026-11-20T01:00:00Z")]).warn,
+    /neutral/,
+  );
+  assert.equal(
+    labVerdict([run("failure", "2026-11-20T01:00:00Z", { name: "Other" })])
+      .block,
+    false,
   );
 });

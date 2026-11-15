@@ -13,6 +13,8 @@ name: Release gate
 #                  baseline in scripts/release-gate/lib.mjs (only when the
 #                  caller's token can read the repo's alerts; Release Plugin
 #                  checks it in its publish job with the App instead)
+#   lab            the argus lab's "Lab" check on this commit: red fails,
+#                  none or unfinished only warns
 # No job here holds a secret.
 
 on:
@@ -354,9 +356,32 @@ jobs:
           if [ -n "$BRANCH" ] && [ "$BRANCH" != "main" ]; then refs+=(--ref "$BRANCH"); fi
           node registry/scripts/release-gate/gate.mjs code-scanning --repo "$REPO" "${refs[@]}"
 
+  lab:
+    runs-on: ubuntu-24.04
+    permissions:
+      checks: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Termix-SSH/Termix-Registry
+          ref: main
+          path: registry
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: registry/.nvmrc
+
+      - name: Lab result on this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ inputs.repo }}
+          SHA: ${{ inputs.sha }}
+        run: node registry/scripts/release-gate/gate.mjs lab --repo "$REPO" --sha "$SHA"
+
   # One result for callers to need.
   passed:
-    needs: [workflow-lint, supply-chain, ghsa-tests, authz, hostile, code-scanning]
+    needs: [workflow-lint, supply-chain, ghsa-tests, authz, hostile, code-scanning, lab]
     if: ${{ always() }}
     runs-on: blacksmith-2vcpu-ubuntu-2404
     permissions: {}

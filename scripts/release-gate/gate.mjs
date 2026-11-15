@@ -2,6 +2,7 @@
 //   ghsa-list --dir <repo>                 list GHSA regression tests, refuse skipped ones
 //   ghsa-report --dir <repo> --report <f>  check the vitest JSON report of that run
 //   code-scanning --repo <o/r> [--ref <branch>]...  refuse new high or critical CodeQL alerts
+//   lab --repo <o/r> --sha <sha>           refuse a red argus lab run, warn when there is none
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
@@ -10,6 +11,7 @@ import {
   checkVitestReport,
   describeAlert,
   findGhsaTests,
+  labVerdict,
   skipMarkers,
   triageAlerts,
 } from "./lib.mjs";
@@ -135,14 +137,39 @@ async function codeScanning(opts) {
     console.log(`No new high or critical CodeQL alerts in ${opts.repo}.`);
 }
 
+async function lab(opts) {
+  const token = process.env.GH_TOKEN;
+  if (!token) return fail("GH_TOKEN is not set.");
+  const url = `https://api.github.com/repos/${opts.repo}/commits/${opts.sha}/check-runs?check_name=Lab&per_page=100`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+  if (!res.ok) {
+    console.log(`::warning::Could not read lab checks (${res.status}).`);
+    return;
+  }
+  const verdict = labVerdict((await res.json()).check_runs ?? []);
+  if (verdict.block) fail(verdict.message);
+  else if (verdict.warn) console.log(`::warning::${verdict.warn}`);
+  else console.log(verdict.ok);
+}
+
 const [command, ...rest] = process.argv.slice(2);
 const opts = args(rest);
 if (command === "ghsa-list") ghsaList(opts);
 else if (command === "ghsa-report") ghsaReport(opts);
 else if (command === "code-scanning") {
   await codeScanning(opts).catch((err) => fail(err.message));
+} else if (command === "lab") {
+  await lab(opts).catch((err) =>
+    console.log(`::warning::Lab check failed: ${err.message}`),
+  );
 } else {
   fail(
-    `Unknown command ${command ?? ""}. Use ghsa-list, ghsa-report or code-scanning.`,
+    `Unknown command ${command ?? ""}. Use ghsa-list, ghsa-report, code-scanning or lab.`,
   );
 }

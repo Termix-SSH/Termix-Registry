@@ -262,6 +262,7 @@ jobs:
     permissions:
       contents: read
       security-events: read
+      checks: read
     with:
       repo: ${{ inputs.repo }}
       sha: ${{ inputs.sha }}

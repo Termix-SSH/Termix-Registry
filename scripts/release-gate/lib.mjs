@@ -104,3 +104,32 @@ export function describeAlert(a) {
   const where = loc?.path ? `${loc.path}:${loc.start_line ?? 0}` : "repository";
   return `#${a.number} ${a.rule?.security_severity_level} ${a.rule?.id} at ${where} (${a.html_url})`;
 }
+
+/**
+ * Reads the argus lab's "Lab" check runs on the release commit. A red run
+ * blocks; no run, or one that is not finished or green, only warns, since the
+ * lab can lag behind a release.
+ */
+export function labVerdict(checkRuns) {
+  const lab = checkRuns
+    .filter((c) => c.name === "Lab" && c.status === "completed")
+    .sort((a, b) =>
+      String(b.completed_at).localeCompare(String(a.completed_at)),
+    )[0];
+  if (!lab)
+    return { block: false, warn: "The lab has not tested this commit." };
+  if (lab.conclusion === "failure") {
+    return {
+      block: true,
+      message:
+        `The lab run on this commit is red: ${lab.output?.title ?? ""} ${lab.html_url ?? ""}`.trim(),
+    };
+  }
+  if (lab.conclusion !== "success") {
+    return {
+      block: false,
+      warn: `The lab run on this commit ended ${lab.conclusion}.`,
+    };
+  }
+  return { block: false, ok: `The lab run on this commit is green.` };
+}
