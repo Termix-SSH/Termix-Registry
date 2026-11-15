@@ -157,13 +157,14 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           node scripts/release/reproduce-check.mjs --record --id "$ID" --version "$VERSION" --sha256 "$SHA256" --run "$RUN_URL"
-          if git diff --quiet; then
+          # A plugin's first record is a new file, which plain git diff misses.
+          git add official/reproduced
+          if git diff --cached --quiet; then
             echo "Already recorded."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add official/reproduced
           git commit -m "chore: record reproducible build of $ID $VERSION"
           for _ in 1 2 3; do
             git pull --rebase origin main && git push && exit 0
