@@ -258,8 +258,10 @@ jobs:
 
   gate:
     uses: ./.github/workflows/release-gate.yml
+    # The gate's CodeQL job asks for security-events even when it is skipped.
     permissions:
       contents: read
+      security-events: read
     with:
       repo: ${{ inputs.repo }}
       sha: ${{ inputs.sha }}

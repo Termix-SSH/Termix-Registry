@@ -87,6 +87,7 @@ jobs:
       contents: read
       id-token: write
       attestations: write
+      security-events: read
     # The values come from the environments of the jobs that read them.
     secrets:
       TERMIX_LLM_API_KEY: ${{ secrets.TERMIX_LLM_API_KEY }}
