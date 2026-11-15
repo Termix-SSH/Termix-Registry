@@ -156,6 +156,25 @@ jobs:
   assert.deepEqual(checkWorkflow("plugin-release.yml", text), []);
 });
 
+test("plugin-release.yml uses no cache", () => {
+  const text = `
+on:
+  workflow_call:
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - if: \${{ github.repository_owner == 'Termix-SSH' }}
+        run: exit 1
+      - uses: actions/setup-node@v7
+        with:
+          cache: npm
+`;
+  assert.deepEqual(checkWorkflow("plugin-release.yml", text), [
+    "plugin-release.yml release step actions/setup-node@v7: uses a cache",
+  ]);
+});
+
 test("an npm ci with install scripts fails in any job", () => {
   const text = `
 on: pull_request

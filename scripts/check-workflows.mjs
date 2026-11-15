@@ -6,7 +6,8 @@
 // - a job holding a signing or App key runs no npm cache or npx
 // - a workflow with an environment job has no pull_request_target or workflow_run
 // - plugin-release.yml runs only for community plugins: it refuses official
-//   repos first thing and reads only the author's own optional secrets
+//   repos first thing, reads only the author's own optional secrets and uses
+//   no cache
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
@@ -121,6 +122,13 @@ function checkCommunity(doc) {
     }
   }
   for (const [id, job] of Object.entries(doc.jobs ?? {})) {
+    // It pushes and signs, so a cache another run wrote must not reach it.
+    for (const [index, step] of (job.steps ?? []).entries()) {
+      if (step.with?.cache) {
+        const label = step.name ?? step.uses ?? index + 1;
+        problems.push(`${COMMUNITY} ${id} step ${label}: uses a cache`);
+      }
+    }
     const first = job.steps?.[0];
     if (
       !first ||
