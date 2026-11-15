@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "incus",
+  "repository": "https://github.com/deconstructionalism/termix-plugin-incus",
+  "maintainers": ["deconstructionalism"],
+  "versions": [
+    {
+      "version": "0.2.0",
+      "sha256": "d75c38bd69075fd43cd38e8c56dff650793101e0e15b0de36ab68260036bf8fd"
+    }
+  ]
+}
