@@ -2,7 +2,8 @@ name: Sync
 
 on:
   repository_dispatch:
-    types: [plugin-released]
+    # overview-video comes from the Videos repo, whose token can't reach Docs.
+    types: [plugin-released, overview-video]
   # A merged community submission lists right away.
   push:
     branches: [main]
@@ -90,9 +91,10 @@ jobs:
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       # The docs site pulls each plugin's docs from its release, so it
-      # rebuilds whenever the index changes.
+      # rebuilds whenever the index changes, or when a new core overview
+      # video is out.
       - name: Tell the docs site
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.commit.outputs.changed == 'true' || github.event.action == 'overview-video'
         env:
           GH_TOKEN: ${{ steps.app.outputs.token }}
         run: |
