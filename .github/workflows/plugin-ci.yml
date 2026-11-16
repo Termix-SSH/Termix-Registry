@@ -71,7 +71,17 @@ jobs:
       - name: Table
         id: table
         run: |
-          if [ -f plugin/authz.json ]; then
+          # The matrix runs on cores that only load plugin API 2, so an API 1
+          # build (a main branch before its API 2 release) can't be checked.
+          api=$(node -p "require('./plugin/manifest.json').engine?.api ?? ''")
+          if ! printf '%s' "$api" | node -e "
+            const r = require('fs').readFileSync(0, 'utf8');
+            const majors = [...r.matchAll(/(\d+)\.\d/g)].map((m) => Number(m[1]));
+            process.exit(r.includes('>') || majors.some((m) => m >= 2) ? 0 : 1);
+          "; then
+            echo "::notice::engine.api $api is plugin API 1, which no core with the matrix runs. Skipped."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          elif [ -f plugin/authz.json ]; then
             echo "present=true" >> "$GITHUB_OUTPUT"
           elif [ "$OFFICIAL" = "true" ]; then
             echo "::error::authz.json is missing. Every route needs an entry, see the plugin guide."
