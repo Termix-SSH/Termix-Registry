@@ -45,6 +45,7 @@
     "Termix-SSH/Plugin-Remote-Desktop",
     "Termix-SSH/Plugin-Reverse-Proxy",
     "Termix-SSH/Plugin-Samba",
+    "Termix-SSH/Plugin-SCIM",
     "Termix-SSH/Plugin-Secret-Sources",
     "Termix-SSH/Plugin-Security-Center",
     "Termix-SSH/Plugin-Serial",
