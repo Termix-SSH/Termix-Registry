@@ -22,6 +22,7 @@ import {
   mirrorBranch,
   mirrorNote,
   newestDev,
+  readNote,
   specChanges,
 } from "./lib.mjs";
 
@@ -224,8 +225,43 @@ function mirrorBody(pr, dev) {
   ].join("\n");
 }
 
+/** Closes mirror PRs whose Dependabot PR is gone (closed, merged or replaced). */
+function closeOrphans(prs) {
+  const open = new Set(prs.map((p) => p.number));
+  const mirrors = read([
+    "pr",
+    "list",
+    "-R",
+    full,
+    "--state",
+    "open",
+    "--limit",
+    "100",
+    "--json",
+    "number,body,headRefName",
+  ]).filter((p) => p.headRefName.startsWith("deps/"));
+  for (const m of mirrors) {
+    const note = readNote(m.body);
+    if (!note || open.has(note.number)) continue;
+    console.log(
+      `  mirror #${m.number}: Dependabot PR #${note.number} is closed`,
+    );
+    gh([
+      "pr",
+      "close",
+      String(m.number),
+      "-R",
+      full,
+      "--delete-branch",
+      "--comment",
+      `Dependabot closed #${note.number}, so this copy is not needed.`,
+    ]);
+  }
+}
+
 function main() {
   const prs = listDependabot().sort((a, b) => a.number - b.number);
+  closeOrphans(prs);
   if (!prs.length) return console.log(`${repo}: no Dependabot PRs`);
   const heads = git("ls-remote", "--heads", "origin")
     .split("\n")
