@@ -33,6 +33,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           INPUT_REPOS: ${{ inputs.repos }}
           PAYLOAD_REPO: ${{ github.event.client_payload.repo }}
+          # Repos whose Dependabot PRs wait for a person. Mobile: Expo and
+          # React Native majors move with npx expo install --fix.
+          SKIP: Mobile
         run: |
           wanted="${INPUT_REPOS:-$PAYLOAD_REPO}"
           if [ -n "$wanted" ]; then
@@ -41,6 +44,7 @@ jobs:
             repos=$(gh search prs --owner Termix-SSH --author app/dependabot --state open --visibility public \
               --limit 1000 --json repository --jq '[.[].repository.name] | unique')
           fi
+          repos=$(printf '%s' "$repos" | jq -c --arg skip "$SKIP" '($skip | split(",")) as $s | map(select(. as $r | $s | index($r) | not))')
           echo "repos=$repos" >> "$GITHUB_OUTPUT"
           echo "$repos"
 
