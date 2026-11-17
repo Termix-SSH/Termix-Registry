@@ -188,6 +188,15 @@
       }
     ]
   },
+  "pve-power@0.8.2": {
+    "sha256": "af29e7047bdf9c3f48455410a4d5683a1587c037ebf898f19b122d800126df23",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "f5FUNEsiwanuFgmYKV8QvKC0SlsA7+xW0Sb40jb6lAQtwRkesGWhuHisWPV0EIO7vTT/E1n8MXr0mCcYzm6nCQ=="
+      }
+    ]
+  },
   "termix-vscode@1.1.1": {
     "sha256": "7c755e8bb0d1c8f50eb1ad91b80ee2589dce2e3b1f24d98883a4fa448ef747ad",
     "signatures": [

@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13T04:38:45.975Z",
+  "updatedAt": "2026-11-17T03:25:52.034Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -779,6 +779,39 @@
         }
       ],
       "gated": [
+        {
+          "version": "0.8.2",
+          "api": "2",
+          "url": "https://github.com/jeakob/termix-plugin-pve-power/releases/download/v0.8.2/pve-power-0.8.2.tmxplug",
+          "sha256": "af29e7047bdf9c3f48455410a4d5683a1587c037ebf898f19b122d800126df23",
+          "signature": "xmlwYMiMxXEX+yGDx6gMuloNUh/Az234ZH4EAsGtac5x2vo0B6x8a36P3p5M0mCeBKiQKpqjhJT9VRfxjQ3xDA==",
+          "size": 42865,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "hosts:read",
+            "ssh:connect",
+            "credentials:use",
+            "users:impersonate",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.1",
+            "termix": ">=26.11.1"
+          },
+          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.8.2",
+          "notes": "### Changed\n\n- Needs Termix 26.11.1 or later instead of 26.11.2. The plugin only uses plugin API 2.1, so it now asks for that.",
+          "provenance": {
+            "url": "https://github.com/jeakob/termix-plugin-pve-power/releases/download/v0.8.2/pve-power-0.8.2.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-16T10:50:47.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "f5FUNEsiwanuFgmYKV8QvKC0SlsA7+xW0Sb40jb6lAQtwRkesGWhuHisWPV0EIO7vTT/E1n8MXr0mCcYzm6nCQ=="
+            }
+          ]
+        },
         {
           "version": "0.7.0",
           "api": "1",
