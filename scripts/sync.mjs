@@ -573,6 +573,13 @@ async function reviewedPlugins(
         });
         if (entry) found.push(entry);
       } catch (error) {
+        // The author removed the release: nothing to list, but not our failure.
+        if (error.status === 404) {
+          console.log(
+            `::warning::${submission.id}@${pin.version}: the release is gone from ${repo}, skipped`,
+          );
+          continue;
+        }
         problems.push(`${submission.id}@${pin.version}: ${error.message}`);
       }
     }

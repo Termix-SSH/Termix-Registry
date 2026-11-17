@@ -141,7 +141,11 @@ export async function github(url) {
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
   });
-  if (!response.ok) throw new Error(`${url}: ${response.status}`);
+  if (!response.ok) {
+    const error = new Error(`${url}: ${response.status}`);
+    error.status = response.status;
+    throw error;
+  }
   return response.json();
 }
 
