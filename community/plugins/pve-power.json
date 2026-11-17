@@ -5,6 +5,10 @@
   "maintainers": ["jeakob"],
   "versions": [
     {
+      "version": "0.8.2",
+      "sha256": "af29e7047bdf9c3f48455410a4d5683a1587c037ebf898f19b122d800126df23"
+    },
+    {
       "version": "0.7.0",
       "sha256": "49d35edb4d694facf0a0dbd928eeca5d5b83684689d647b89b12a34492225a56"
     },
