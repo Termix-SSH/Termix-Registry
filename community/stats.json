@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-11-16T12:02:11.327Z",
+  "updatedAt": "2026-11-17T12:26:41.048Z",
   "plugins": {
     "command-editor": {
-      "downloads": 65,
+      "downloads": 66,
       "versions": {
         "1.0.0": {
-          "downloads": 65
+          "downloads": 66
         }
       }
     },
     "container-files": {
-      "downloads": 213,
+      "downloads": 217,
       "versions": {
         "1.0.5": {
-          "downloads": 91
+          "downloads": 95
         },
         "1.0.4": {
           "downloads": 10
@@ -62,10 +62,10 @@
       }
     },
     "herdr": {
-      "downloads": 87,
+      "downloads": 89,
       "versions": {
         "1.4.0": {
-          "downloads": 23
+          "downloads": 25
         },
         "1.1.0": {
           "downloads": 2
@@ -90,10 +90,10 @@
       }
     },
     "host-icons": {
-      "downloads": 299,
+      "downloads": 302,
       "versions": {
         "0.6.0": {
-          "downloads": 169
+          "downloads": 172
         },
         "0.5.0": {
           "downloads": 42
@@ -110,10 +110,10 @@
       }
     },
     "netbird": {
-      "downloads": 90,
+      "downloads": 93,
       "versions": {
         "1.2.0": {
-          "downloads": 72
+          "downloads": 75
         },
         "1.1.0": {
           "downloads": 18
@@ -121,10 +121,10 @@
       }
     },
     "pve-power": {
-      "downloads": 219,
+      "downloads": 227,
       "versions": {
         "0.8.2": {
-          "downloads": 4
+          "downloads": 5
         },
         "0.8.1": {
           "downloads": 4
@@ -133,13 +133,13 @@
           "downloads": 4
         },
         "0.7.0": {
-          "downloads": 64
+          "downloads": 69
         },
         "0.6.9": {
-          "downloads": 119
+          "downloads": 120
         },
         "0.6.8": {
-          "downloads": 14
+          "downloads": 15
         },
         "0.6.7": {
           "downloads": 7
@@ -150,10 +150,10 @@
       }
     },
     "termix-vscode": {
-      "downloads": 112,
+      "downloads": 113,
       "versions": {
         "1.1.1": {
-          "downloads": 109
+          "downloads": 110
         },
         "1.1.0": {
           "downloads": 3
