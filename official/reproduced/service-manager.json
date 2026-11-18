@@ -1,0 +1,10 @@
+{
+  "id": "service-manager",
+  "versions": {
+    "1.1.3": {
+      "sha256": "f8343798c01edeaad53bf3fe81c82a67932160723b49490b79369ff76e6c1e98",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:52:39.325Z"
+    }
+  }
+}
