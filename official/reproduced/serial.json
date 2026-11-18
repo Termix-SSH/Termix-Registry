@@ -1,0 +1,10 @@
+{
+  "id": "serial",
+  "versions": {
+    "1.1.0": {
+      "sha256": "d6f989299f39ab1fbf6d91d001e03488705dbd5188f2af2b6a0ef4ced331b59b",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261028684",
+      "at": "2026-11-18T09:24:35.818Z"
+    }
+  }
+}
