@@ -1,0 +1,10 @@
+{
+  "id": "wake-on-lan",
+  "versions": {
+    "1.3.0": {
+      "sha256": "89be7a9105715d945298235f3ee4f3d27e08e76bd1bd2da58533ef48ce277994",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44262055403",
+      "at": "2026-11-18T08:26:16.159Z"
+    }
+  }
+}
