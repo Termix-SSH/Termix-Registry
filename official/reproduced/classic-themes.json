@@ -1,0 +1,10 @@
+{
+  "id": "classic-themes",
+  "versions": {
+    "1.1.0": {
+      "sha256": "aa68bb0d7bae9478c437e530f52c701b5a644769d9213ccea205fddd13707d6e",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44268097070",
+      "at": "2026-11-18T09:24:32.287Z"
+    }
+  }
+}
