@@ -1,0 +1,10 @@
+{
+  "id": "totp",
+  "versions": {
+    "1.1.0": {
+      "sha256": "3f71d8d1b7a64ed9d9321c8cb1b526aa0113a2bd5cb199fe9a6d63274cb02df4",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:40:53.961Z"
+    }
+  }
+}
