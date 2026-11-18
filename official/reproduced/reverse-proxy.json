@@ -1,0 +1,10 @@
+{
+  "id": "reverse-proxy",
+  "versions": {
+    "1.2.1": {
+      "sha256": "0f3553f8274f8751da5db730fcf53437eb619b3ef092eaedc692f528ac31fa83",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:58:35.302Z"
+    }
+  }
+}
