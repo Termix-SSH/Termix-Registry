@@ -1,0 +1,10 @@
+{
+  "id": "ai",
+  "versions": {
+    "1.4.1": {
+      "sha256": "d1ed9e6d9be3ec3dc7527e5fc5a0fc9e842dd23957a5f1bed43772bc12f1f5b5",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:50:22.513Z"
+    }
+  }
+}
