@@ -1,0 +1,10 @@
+{
+  "id": "web-endpoint",
+  "versions": {
+    "1.2.1": {
+      "sha256": "d8e439c4086b38043fee122719f737fc5a935bfaea4cef1956c8a67e8dc36b4f",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44262172508",
+      "at": "2026-11-18T08:26:25.117Z"
+    }
+  }
+}
