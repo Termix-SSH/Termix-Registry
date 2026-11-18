@@ -1,0 +1,10 @@
+{
+  "id": "workspaces",
+  "versions": {
+    "1.2.0": {
+      "sha256": "260b1d30c0171462bfa005a58dff5af581cd7ea210d8601bee4a80515310b959",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44262344624",
+      "at": "2026-11-18T08:26:46.776Z"
+    }
+  }
+}
