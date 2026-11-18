@@ -1,0 +1,10 @@
+{
+  "id": "sso",
+  "versions": {
+    "1.2.0": {
+      "sha256": "34b7d355c8f8ac6154f4dd661931a93ab2ede3ecfcd1b0b7f9a91878fff63821",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:53:02.881Z"
+    }
+  }
+}
