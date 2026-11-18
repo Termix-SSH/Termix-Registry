@@ -1,0 +1,10 @@
+{
+  "id": "dns",
+  "versions": {
+    "1.1.0": {
+      "sha256": "27b928fc78cae09aa5c24b468db20b5fd9436715da529293e9381e1df5400672",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44260657043",
+      "at": "2026-11-18T07:40:51.774Z"
+    }
+  }
+}
