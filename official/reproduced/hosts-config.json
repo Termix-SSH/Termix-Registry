@@ -1,0 +1,10 @@
+{
+  "id": "hosts-config",
+  "versions": {
+    "1.2.0": {
+      "sha256": "941b87f9638cbcb257f772a2c53d959b39c3d9a33320609869cd885f8f7ca566",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44268216943",
+      "at": "2026-11-18T09:26:27.291Z"
+    }
+  }
+}
