@@ -1,0 +1,10 @@
+{
+  "id": "privileged-access",
+  "versions": {
+    "1.0.1": {
+      "sha256": "df13c177bfdbfd31585e80e068452ab68820d031a1306fd3f2bc5f3a64143851",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:58:55.092Z"
+    }
+  }
+}
