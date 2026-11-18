@@ -1,0 +1,10 @@
+{
+  "id": "tmux-monitor",
+  "versions": {
+    "1.3.0": {
+      "sha256": "1a3d8b8a434d9a86d6d0ced4311fb69881231cbad4295050669bf8cbd862f2d5",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:57:47.342Z"
+    }
+  }
+}
