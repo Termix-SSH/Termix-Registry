@@ -484,8 +484,14 @@ jobs:
           gh release create "$TAG" "${FILES[@]}" \
             --repo "$REPO" --draft --title "$TAG" --target "$TARGET" --notes-file out/RELEASE_NOTES.md
 
-          rid=$(gh api --paginate "repos/$REPO/releases?per_page=100" \
-            --jq '.[] | select(.tag_name == env.TAG and .draft) | .id' | head -1)
+          # The release list can lag behind a new draft, so look a few times.
+          rid=""
+          for _ in 1 2 3 4 5 6 7 8 9 10; do
+            rid=$(gh api --paginate "repos/$REPO/releases?per_page=100" \
+              --jq '.[] | select(.tag_name == env.TAG and .draft) | .id' | head -1)
+            [ -n "$rid" ] && break
+            sleep 6
+          done
           [ -n "$rid" ] || { echo "No draft found for $TAG."; exit 1; }
 
           count=$(gh api "repos/$REPO/releases/$rid" --jq '.assets | length')
