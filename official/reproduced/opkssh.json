@@ -1,0 +1,10 @@
+{
+  "id": "opkssh",
+  "versions": {
+    "1.0.4": {
+      "sha256": "acd0ee2b0382d4c7042dfc802e94f2a1bc91d0a43cc7b23aa8fbab08ff8edf20",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:45:45.257Z"
+    }
+  }
+}
