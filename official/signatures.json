@@ -764,6 +764,15 @@
       }
     ]
   },
+  "file-manager@1.2.2": {
+    "sha256": "fa787d2a7b8cd4f96c8fef8f1e9ebe95f88a4ff43eb45a5709f799ab16276d59",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "Fgt0NkovRnH9HrEg576td98V7r6KsuAaz9U3h8jR5vcZDG75SWa8fAiSvBKovxVRuwnMd0HdYc2wClFoNioIBw=="
+      }
+    ]
+  },
   "firewall@1.0.0": {
     "sha256": "7199701e7d8c8dd6341121d288fc9f86e7e7bf6d1d36a56baee29d069f7119bf",
     "signatures": [
