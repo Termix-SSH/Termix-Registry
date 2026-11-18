@@ -1,0 +1,10 @@
+{
+  "id": "firewall",
+  "versions": {
+    "1.1.0": {
+      "sha256": "707789ee001cd6bed1d0c0db150cd6f9183fce983f64903f90add1f8e1404942",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44260835102",
+      "at": "2026-11-18T07:42:11.701Z"
+    }
+  }
+}
