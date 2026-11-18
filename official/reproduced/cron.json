@@ -1,0 +1,10 @@
+{
+  "id": "cron",
+  "versions": {
+    "1.1.0": {
+      "sha256": "f9aaf4a49aad24210ea6fceb620797e60e081fdea538cf6998bd9d3da05a28fa",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:59:57.264Z"
+    }
+  }
+}
