@@ -1,0 +1,10 @@
+{
+  "id": "host-metrics",
+  "versions": {
+    "1.4.1": {
+      "sha256": "4cdfe00e2d3990ec5048ae90e8b24d966139126ea18d8c3925aa924fccbf33ed",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44260951292",
+      "at": "2026-11-18T08:24:27.907Z"
+    }
+  }
+}
