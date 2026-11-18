@@ -4,7 +4,8 @@ name: Dependabot to dev
 # This copies each Dependabot PR onto the newest dev branch, merges the copy
 # once its checks pass and closes the original. Repos without a dev branch get
 # green Dependabot PRs merged as they are. The Triage-Bot dispatches it when
-# Dependabot opens a PR; the hourly run merges what turned green since.
+# Dependabot opens a PR, when a copy should be green, after a copy merges and
+# every hour, since GitHub often skips the cron below.
 
 on:
   repository_dispatch:
