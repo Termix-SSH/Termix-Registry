@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18T06:46:40.092Z",
+  "updatedAt": "2026-11-18T07:44:43.536Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -173,6 +173,41 @@
       ],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.2.1/acme-ssl-1.2.1.tmxplug",
+          "sha256": "6138a4e795ebde0a66078a7b44463af04506e11186db144f74dcc44bddee26c0",
+          "signature": "P7Nn7mOeI4izR7PBchoGocIeb5HAN3aWsghZIesG4yz4AYWuz5dLEHHZkD3eBO7nJRpjjT9PzYwgsIX+6m4LAg==",
+          "size": 833021,
+          "capabilities": [
+            "system:tls",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "ui:surface",
+            "operations:provide",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.2.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n\n### Fixed\n\n- Updated node-forge and follow-redirects to releases with security fixes",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.2.1/acme-ssl-1.2.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:20.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "LBwMYk5BZ5F6jIg8D5fQNGHme7HBsNtDQg293iAad6aXN11tGKvaWV5FeSPzjT55HBTnWUq5hsPED7pAax4UAw=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.2.0/acme-ssl-1.2.0.tmxplug",
@@ -195,8 +230,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- A DNS plugin challenge type that answers the DNS challenge at any provider the DNS plugin supports\n- How long the HTTPS certificate has left shows as a status tile, with Request a certificate now as its fix through Termix actions\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-08T19:54:28.000Z",
+          "notes": "### Added\n\n- A DNS plugin challenge type that answers the DNS challenge at any provider the DNS plugin supports\n- How long the HTTPS certificate has left shows as a status tile, with Request a certificate now as its fix through Termix actions\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -499,6 +534,49 @@
       ],
       "gated": [
         {
+          "version": "1.4.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.4.1/ai-1.4.1.tmxplug",
+          "sha256": "d1ed9e6d9be3ec3dc7527e5fc5a0fc9e842dd23957a5f1bed43772bc12f1f5b5",
+          "signature": "F3wr+y1pOv6woPhQ30IcusG8I+7GjEV21//LxS9Fn7Q3DOJfTa1T2TXLh5fgpWbsd9Yd9lk0ooMGRVJLwYLMCA==",
+          "size": 3477042,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "notify:send",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "users:read",
+            "events:core",
+            "process:spawn",
+            "operations:invoke",
+            "network:sockets",
+            "files:own"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.4.1",
+          "notes": "### Changed\n\n- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)\n- The assistant beside a terminal fills the box the terminal gives it, so it shows in the right place when it draws in its own frame (needs Termix 26.11.2)\n- Form fields use the same background as the rest of Termix\n\n### Fixed\n\n- Save as preset button now matches the Save button size\n- Termix CLI tool calls now work in the desktop app, where they run in a worker thread",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.4.1/ai-1.4.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:49.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "ZZulWlGqy8tPfQcZMhpf88qUDMSzdXN7E4USl2BNSN43SMdKw8j1LZQpoTbCKblEDrfuwydRAnC43L/Ln7fECQ=="
+            }
+          ]
+        },
+        {
           "version": "1.4.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.4.0/ai-1.4.0.tmxplug",
@@ -527,8 +605,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.4.0",
-          "notes": "### Added\n\n- The assistant can find and run actions other plugins offer, such as restarting a container or service or waking a machine. Changes wait for your approval in Operations by default\n- Read only commands for drive and array health: smartctl, nvme, mdadm, btrfs, lvs, vgs and pvs\n- A Failing drive task preset: when Storage Health finds a failing or worn drive or a degraded pool or array, the assistant reads SMART and array state and reports what to do\n- A homepage widget with recent auto-ops tasks and plans waiting for approval\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Buttons next to fields in the assets and exposure settings are as tall as the fields",
           "publishedAt": "2026-11-08T19:56:11.000Z",
+          "notes": "### Added\n\n- The assistant can find and run actions other plugins offer, such as restarting a container or service or waking a machine. Changes wait for your approval in Operations by default\n- Read only commands for drive and array health: smartctl, nvme, mdadm, btrfs, lvs, vgs and pvs\n- A Failing drive task preset: when Storage Health finds a failing or worn drive or a degraded pool or array, the assistant reads SMART and array state and reports what to do\n- A homepage widget with recent auto-ops tasks and plans waiting for approval\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Buttons next to fields in the assets and exposure settings are as tall as the fields",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -728,6 +806,44 @@
       ],
       "gated": [
         {
+          "version": "1.3.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.3.1/alerts-1.3.1.tmxplug",
+          "sha256": "4fcf8efb1034e93bba4e1dc5bb02e4c687d50802f07f0d05ad57b5a1840ded2c",
+          "signature": "lU12UjpoUAgfYhMd7yt6bNIw9udzBopIzssz1cobKaQX03NfMb/bLjCPktuwLaolOn8Jgox3Olt1SE0aY5k1CQ==",
+          "size": 628318,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface",
+            "operations:provide",
+            "notify:send",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.3.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The settings button in Alerts opens the Alerts page in Settings\n\n### Fixed\n\n- Updated nodemailer to a release with security fixes\n- Saved channel tokens, webhook URLs and header values stay on the server. Editing a channel shows them as saved, and leaving them empty keeps them",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.3.1/alerts-1.3.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:42:16.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "RKHnqk7HvWd7p9ALh1e5J1w9fLxk8mkA8wUHba/R4eEM5RXBGifoJGfJiZ/Nriz548Lf3LzE/+bw6h/k0Ht1Bw=="
+            }
+          ]
+        },
+        {
           "version": "1.3.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.3.0/alerts-1.3.0.tmxplug",
@@ -752,8 +868,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- Send yourself an alert through Termix actions, so rules, rollouts and the CLI can notify you, and see unread alerts as a status tile\n- Open Alerts from the command palette\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The Alerts tab has the Termix page header and fills the width of the tab\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "publishedAt": "2026-11-08T19:54:49.000Z",
+          "notes": "### Added\n\n- Send yourself an alert through Termix actions, so rules, rollouts and the CLI can notify you, and see unread alerts as a status tile\n- Open Alerts from the command palette\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The Alerts tab has the Termix page header and fills the width of the tab\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -837,15 +953,50 @@
         "Forward every audit entry to an HTTP collector as it happens",
         "Catch up on entries written while the collector or Termix was down",
         "Export the audit log as CSV or NDJSON with the same filters as the viewer",
-        "Spreadsheet formula guard on CSV export"
+        "Spreadsheet formula guard on CSV export",
+        "Check the audit log's hash chain, download its newest hash to keep elsewhere and compare it later",
+        "Forwarded and exported entries carry their chain hash"
       ],
       "docs": "https://docs.termix.site/plugins/audit-tools",
       "contributes": [
         "permissions",
-        "settings"
+        "settings",
+        "tabs"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/download/v1.2.0/audit-tools-1.2.0.tmxplug",
+          "sha256": "b9d6239a1783e00bd3e18941becfe9b4bd34034995b0d84e226dab25c3e78735",
+          "signature": "4QlkMmepNemAQCcZmfMzimZ+aPGiaxws+/jg19L51XqcPWgynApbcyNu/tQv+O3aYfAohxA/lwuPMh5KmXfeDQ==",
+          "size": 101465,
+          "capabilities": [
+            "audit:read",
+            "network:outbound",
+            "network:serve",
+            "kv:own",
+            "ui:surface",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Audit log check: see whether the audit log's hash chain holds, check it now, download its newest hash to keep somewhere else and paste it back later to compare\n- Forwarded entries and NDJSON and CSV exports carry each entry's chain hash, so your SIEM keeps its own copy of the head\n\n### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Needs Termix 26.11.2 or newer\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/download/v1.2.0/audit-tools-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:02:12.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "5o6ncqe2P28SqYDbjEWVbfcNic31IjB5/5vUOneJSLcvca4lu53n8K7x8c1LWjL9KnwA5v/2tvfGlxqvknwiBg=="
+            }
+          ]
+        },
         {
           "version": "1.1.0",
           "api": "1",
@@ -866,8 +1017,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Alert admins when forwarding to the collector fails and when it recovers",
           "publishedAt": "2026-11-08T19:57:05.000Z",
+          "notes": "### Added\n\n- Alert admins when forwarding to the collector fails and when it recovers",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1213,6 +1364,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Backups",
       "icon": "DatabaseBackup",
+      "video": "https://www.youtube.com/watch?v=oDIKs4fBEKo",
       "features": [
         "Encrypted, deduplicated backups with restic, installed for you when a host has none",
         "Store backups in S3 compatible storage, a restic REST server, any rclone remote or a folder on the host",
@@ -1234,9 +1386,44 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=oDIKs4fBEKo",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Backups/releases/download/v1.1.0/backups-1.1.0.tmxplug",
+          "sha256": "76efde1a6d2e63d13582c456ebc22f1214fd1d3195d026689dfe3487d8ffb085",
+          "signature": "25cOkkYFyl6564LlBlhnwFfcIRSINjtpbRqeoaD9bmXT4jfj6EMLVDz1+EMmragZH6NG20Rk+CqAImydNDGPDw==",
+          "size": 582984,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "secrets:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Backups/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Extra restic options for a job, added to restic backup, like `--exclude-caches` or `--limit-upload 2048`\n- Remove stale locks from a repository with a button next to Check, when a run that died left one behind\n\n### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n\n### Fixed\n\n- Very long repository paths and addresses no longer keep the server busy for a long time",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Backups/releases/download/v1.1.0/backups-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:59.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "FJO5iRd6g5kvIsWVZm6ShdkK3PSNKnVSl5mZr086PfKRHsoD979g3GXbNLQCypLVs7AKXe4SLg8SOcPwL7sWAQ=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -1261,8 +1448,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Backups/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Back up folders, MySQL, MariaDB, PostgreSQL and SQLite databases, and Docker volumes and stacks with restic\n- Store backups in S3 compatible storage, a restic REST server, any rclone remote or a folder on the host\n- Install restic on a host from the Backups tab\n- Run jobs daily, weekly or on a custom cron, with commands before and after\n- Remove old snapshots after each backup with a keep policy per job\n- Watch a run live, stop it and read its log\n- Browse snapshots, download a file or a folder, and restore to the same host or another one\n- Alerts for failed backups and for jobs with no good backup for too long\n- A warning when a backup goes to a folder on a host whose storage Storage Health reports as failing\n- A dashboard card with every backup job, or one job per tile\n- Termix actions to list jobs and snapshots, and to start or stop a backup",
           "publishedAt": "2026-11-08T21:15:16.000Z",
+          "notes": "### Added\n\n- Back up folders, MySQL, MariaDB, PostgreSQL and SQLite databases, and Docker volumes and stacks with restic\n- Store backups in S3 compatible storage, a restic REST server, any rclone remote or a folder on the host\n- Install restic on a host from the Backups tab\n- Run jobs daily, weekly or on a custom cron, with commands before and after\n- Remove old snapshots after each backup with a keep policy per job\n- Watch a run live, stop it and read its log\n- Browse snapshots, download a file or a folder, and restore to the same host or another one\n- Alerts for failed backups and for jobs with no good backup for too long\n- A warning when a backup goes to a folder on a host whose storage Storage Health reports as failing\n- A dashboard card with every backup job, or one job per tile\n- Termix actions to list jobs and snapshots, and to start or stop a backup",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1280,6 +1467,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Certificates",
       "icon": "ShieldCheck",
+      "video": "https://www.youtube.com/watch?v=CzDnC9AGPvY",
       "features": [
         "See every certbot and acme.sh certificate on a host with its days left",
         "Issue certificates with the standalone, web root or DNS challenge",
@@ -1300,9 +1488,44 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=CzDnC9AGPvY",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Certificates/releases/download/v1.1.0/certificates-1.1.0.tmxplug",
+          "sha256": "3c55e4318c8f9bd3613ac84c8a007592c932144e95a5970f859e5b2c53ac5be7",
+          "signature": "xz7IGTiiJDu6l07k1SO6WfeOioW3wroMO2OCL0qk/1lks4qzwk+JuwWwRsdPZMUYFDv/mVxPrNTZQu+fK/PFDQ==",
+          "size": 304665,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Certificates/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Certificates/releases/download/v1.1.0/certificates-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:53.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "fywCH0TIlbhvptYnHyHnQ9t3kmX0dk/Nj1t1hj82sPywQeT1ZVZyqFQw5xhvRQqImzv+fA2604rJxPCc4qPbDA=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -1327,8 +1550,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Certificates/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Renew and revoke through Termix actions, and see expiring certificates as a status tile\n- See every certbot and acme.sh certificate on a host with its days left\n- Issue certificates with the standalone, web root or DNS challenge\n- Renew one or all certificates, with a dry run for certbot\n- Revoke or stop managing a certificate\n- Read any certificate file, or check what a server sends over TLS\n- See how automatic renewal is set up\n- Get an alert before a certificate expires\n- A dashboard card with the certificates that expire next and a Certificates card in Host Metrics",
           "publishedAt": "2026-11-08T20:58:56.000Z",
+          "notes": "### Added\n\n- Renew and revoke through Termix actions, and see expiring certificates as a status tile\n- See every certbot and acme.sh certificate on a host with its days left\n- Issue certificates with the standalone, web root or DNS challenge\n- Renew one or all certificates, with a dry run for certbot\n- Revoke or stop managing a certificate\n- Read any certificate file, or check what a server sends over TLS\n- See how automatic renewal is set up\n- Get an alert before a certificate expires\n- A dashboard card with the certificates that expire next and a Certificates card in Host Metrics",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1358,10 +1581,42 @@
         "layouts",
         "permissions",
         "settings",
-        "tabs"
+        "tabs",
+        "uiPresets"
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.3",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.1.3/classic-layout-1.1.3.tmxplug",
+          "sha256": "06f34e3f0905e25862e2722300134a8ec276c25009da064e897cc9b547828737",
+          "signature": "KNQyss4Hi9P6TayaiCjXDYtezr+8Gtagxt43YuqGyfJP8JYCuBwbrOcNqFes0fp6xTznATHTE4S63JC0Orl/CQ==",
+          "size": 2338996,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.6.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.1.3",
+          "notes": "### Added\n\n- All apps at the bottom of the rail: in Simple and Balanced the rail keeps the core panels and the apps you pin, and every other app is one click away there. Pin, unpin or open an app's settings from it or with a right click\n- Interface defaults in Settings: admins pick the look and the rail apps people start with, for everyone or per role, and can lock them\n- Add host form setting in Settings, Host list: start the add host form short or with every option\n- Settings lists the apps on your rail first, then the other apps\n- Desktop app: a Close to tray switch in Settings, Interface. Turn it off to quit Termix when you close the window\n- Admin settings, General: a switch to trust new host keys without a prompt, for plugins and schedules that connect with nobody to ask\n- New API keys: pick read only, actions, run actions or full access, and an expiry or never. Left as is, a key is read only and works for 90 days\n- Making someone an admin or turning off password login says when the change waits for the other admins\n- Users can be turned off and back on from the user page, and new SSO accounts can wait for approval. The user list filters by active, turned off and waiting\n- Invite links: make a link with a role, an expiry and a number of uses, even with sign up off\n- Access review page: every host, folder and credential share in one list, with filters and CSV export, also on each user's page\n- Display name and email for each account, set by the user or an admin\n- Admin settings, Accounts and access: turn off admins opening every user's hosts, and approve new SSO accounts\n- People with a helpdesk or auditor role see the users, sessions, access review and audit log pages they are allowed to use\n- Edit host in a tab's right click menu\n- A Theme button at the bottom of the rail switches between themes without opening Settings\n\n### Changed\n\n- Picking a section in the host editor jumps straight to it instead of scrolling down the whole form\n- Form fields in settings, the host editor and the credential editor are a shade darker than the page, like every other field\n- The add host form starts with the address, login, folder and tags. More options shows the rest\n- The host menu starts with three ways to open the host. Other tools are under More tools, and less used actions under More\n- Host and credential panels put search, sort, filter and add on one row. Refresh, import and list settings moved to the menu next to add\n- The tab bar's right dock, full screen and hide buttons are in one View menu\n- A tab's close button is easier to hit: a bigger hover box and a click area that reaches into the tab's edge\n- The dashboard's links and command palette tip moved to a Help menu, and a new dashboard starts with the stats strip, the host list and recent activity\n- The tile picker groups plugin tiles by app\n- Plugin sections in the host editor show their own heading once instead of twice\n- Host list and credential list settings moved to their own pages in Settings. The settings button next to Add host now opens that page\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The branding API takes a PNG or JPEG logo. The settings page turns a WebP into a PNG before sending, so WebP logos still work there\n- Needs Termix 26.11.2 or newer\n- Usage bars and health badges other plugins add to dashboard host rows are drawn from plain values, with no frame per host, so a long host list loads faster (needs Termix 26.11.2)\n- The host editor jumps to a section without scrolling when the system asks for reduced motion\n- Form fields in the host editor, settings and admin pages all use one background, and the Tags box is as tall as the Folder picker beside it\n- The simple host editor shows the common settings plugins pick, like a protocol's login right after you switch it on, plus notes and pin. Everything else stays under Advanced\n\n### Fixed\n\n- Add host opens the form right away instead of waiting for the host list to load\n- Host editor: the section list on the left shows the settings of plugins that load after it opens, and jumps to a section once you switch its protocol on\n- Quick Connect says it is loading while plugins start, instead of saying nothing can connect\n- Switching the dashboard to the homepage shows a loading spinner instead of a blank page\n- Host rows show status dots other plugins add, like the site status of a host mirrored from another Termix\n- The built-in admin and user roles can have their permissions edited\n- Long tab titles are cut short on phones instead of pushing the buttons off the tab\n- No double line between the tab list and split view while plugin buttons in the tab bar load",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.1.3/classic-layout-1.1.3.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:09:23.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "RmKglfDW3VBq1gIphLLg1h6T7XE/UVqCJUMnSse8WFNb4FC66xw9rouMns3YS6MVhlf1NfCxD3ZkSOuFolsQCw=="
+            }
+          ]
+        },
         {
           "version": "1.1.2",
           "api": "1",
@@ -1381,8 +1636,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.1.2",
-          "notes": "### Added\n\n- Pick what a click on a host opens, such as the terminal, Docker or the host page. Set a default in Customize sidebar and change it for one host from its menu\n- Host tools can open inside the host page instead of their own tab, set in Customize sidebar. Their own tab stays the default\n- Only the host page, in the same setting, takes the connect buttons off host rows so a click on a host opens its page\n- Pick which buttons show on one host's row from its menu. Customize sidebar keeps the default for every host\n- The host menu lists the host's actions, when Operations Center is on\n- API keys can be limited to reading or running actions\n- The dashboard is a grid of tiles you can move and resize freely, with as many columns as you like. Your old layout moves over on its own\n- Until you arrange it, the dashboard fills the screen down to the bottom\n- The dashboard's add list has a search, filters and groups, and can add a plugin's status or action as its own tile, like Operations Center's\n- A setup step to pick how host rows work, connect buttons, buttons plus a host page button, or only the host page, when a plugin offers a host page\n- The dashboard layout is saved with your account, so it follows you to every browser. A layout saved in this browser moves over on its own\n- A dashboard you never arranged puts Needs attention first, when Operations Center is on\n- Admin setting to stop anyone saving passwords and keys, with a note in the host and credential editors (Termix #1753)\n- Desktop app: keep a credential on this device only and use it as your login for a shared host or folder (Termix #1749)\n\n### Changed\n\n- Settings, the host and login editors and the dashboard use the shared tile look, with lines between sections instead of separate boxes\n- Keybindings settings use one list with a line between rows instead of separate boxes\n- The SSL certificate status is a plain row instead of a box\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Closing the command palette puts focus back on the terminal, so you can keep typing\n- Folder host counts now include sub-hosts, so a folder no longer shows more online hosts than it has\n- A host's status tooltip no longer covers its right click menu\n- The session timeout box in admin settings is as tall as its Save button\n- Recent activity in quick search opens the host you used, not another host with the same or its old name\n- A compact host row with the address and tags turned off fits on one line, with its buttons next to the name\n- The Manage tab shows the list or the editor, not both squeezed together, when the tab is narrow, like beside the sidebar on a tablet\n- The clear buttons in the folder and parent host pickers have a name and work from the keyboard\n- Protocol switches in the host editor have names for screen readers\n- Folders in the Manage tab start open even when the list loads after the tab opens\n- Picking another credential or defaults level while one is loading in the Manage tab no longer opens the first one\n- Dashboard host status and recent activity rows open with Enter or Space\n- Leaving the keybinding field without pressing a key stops recording\n- Clearing recent activity on the dashboard says so when it fails\n- Tab bar, keybinding and accent color buttons have names for screen readers",
           "publishedAt": "2026-11-08T20:39:56.000Z",
+          "notes": "### Added\n\n- Pick what a click on a host opens, such as the terminal, Docker or the host page. Set a default in Customize sidebar and change it for one host from its menu\n- Host tools can open inside the host page instead of their own tab, set in Customize sidebar. Their own tab stays the default\n- Only the host page, in the same setting, takes the connect buttons off host rows so a click on a host opens its page\n- Pick which buttons show on one host's row from its menu. Customize sidebar keeps the default for every host\n- The host menu lists the host's actions, when Operations Center is on\n- API keys can be limited to reading or running actions\n- The dashboard is a grid of tiles you can move and resize freely, with as many columns as you like. Your old layout moves over on its own\n- Until you arrange it, the dashboard fills the screen down to the bottom\n- The dashboard's add list has a search, filters and groups, and can add a plugin's status or action as its own tile, like Operations Center's\n- A setup step to pick how host rows work, connect buttons, buttons plus a host page button, or only the host page, when a plugin offers a host page\n- The dashboard layout is saved with your account, so it follows you to every browser. A layout saved in this browser moves over on its own\n- A dashboard you never arranged puts Needs attention first, when Operations Center is on\n- Admin setting to stop anyone saving passwords and keys, with a note in the host and credential editors (Termix #1753)\n- Desktop app: keep a credential on this device only and use it as your login for a shared host or folder (Termix #1749)\n\n### Changed\n\n- Settings, the host and login editors and the dashboard use the shared tile look, with lines between sections instead of separate boxes\n- Keybindings settings use one list with a line between rows instead of separate boxes\n- The SSL certificate status is a plain row instead of a box\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Closing the command palette puts focus back on the terminal, so you can keep typing\n- Folder host counts now include sub-hosts, so a folder no longer shows more online hosts than it has\n- A host's status tooltip no longer covers its right click menu\n- The session timeout box in admin settings is as tall as its Save button\n- Recent activity in quick search opens the host you used, not another host with the same or its old name\n- A compact host row with the address and tags turned off fits on one line, with its buttons next to the name\n- The Manage tab shows the list or the editor, not both squeezed together, when the tab is narrow, like beside the sidebar on a tablet\n- The clear buttons in the folder and parent host pickers have a name and work from the keyboard\n- Protocol switches in the host editor have names for screen readers\n- Folders in the Manage tab start open even when the list loads after the tab opens\n- Picking another credential or defaults level while one is loading in the Manage tab no longer opens the first one\n- Dashboard host status and recent activity rows open with Enter or Space\n- Leaving the keybinding field without pressing a key stops recording\n- Clearing recent activity on the dashboard says so when it fails\n- Tab bar, keybinding and accent color buttons have names for screen readers",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1753,6 +2008,39 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/download/v1.2.0/credential-tools-1.2.0.tmxplug",
+          "sha256": "55edf364be65eebde0d34efbe5a4202cfc6e1ed3c423ce43ede01838ace3be29",
+          "signature": "IM57VE9yhwZ83mhOmrevVfXmIj9h924Im7jeDk0fTlXzL3JGSC645KytPXpjjkdQ7k0m780Ywus5fqLHpg9/AA==",
+          "size": 66388,
+          "capabilities": [
+            "network:serve",
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Form fields use the same background as the rest of Termix",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/download/v1.2.0/credential-tools-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:44.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "GJEs7KtSCAixConQvIg9Bii422WYuFi/xdCdHjDfJO0AIvx38LNDZYEx1Ld+Di1ed3zSWnRYKoEUOdE0WoALCA=="
+            }
+          ]
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/download/v1.1.0/credential-tools-1.1.0.tmxplug",
@@ -1773,8 +2061,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Add an SSH key to a host's authorized_keys through Termix actions, so one key can go to many hosts in a rollout\n- The assistant and MCP can list your SSH key names\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-08T20:38:49.000Z",
+          "notes": "### Added\n\n- Add an SSH key to a host's authorized_keys through Termix actions, so one key can go to many hosts in a rollout\n- The assistant and MCP can list your SSH key names\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1821,6 +2109,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Cron",
       "icon": "Clock",
+      "video": "https://www.youtube.com/watch?v=tYra9rt8_YA",
       "features": [
         "List, add, change and delete cron jobs on a host",
         "A schedule helper with a plain summary and the next run times",
@@ -1838,9 +2127,41 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=tYra9rt8_YA",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Cron/releases/download/v1.1.0/cron-1.1.0.tmxplug",
+          "sha256": "f9aaf4a49aad24210ea6fceb620797e60e081fdea538cf6998bd9d3da05a28fa",
+          "signature": "I0hb+D0xNTPcMqcDMH2PbA8ScL+q22XRpeen5qbL6OfgKLUQ7nk1XcPWvbQ2ikyhgRafskzsU87HHy+Y4Rr5Dw==",
+          "size": 261157,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cron/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Cron/releases/download/v1.1.0/cron-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:30:15.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "1sbunkSDOl2Q5aVDp1Ei4bnOBHjNX04o7XXqp1I50BgcdVaAiSyRNML/SxTBQLjMAT/vJgErT6BlG9mqq2CaDg=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -1863,8 +2184,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cron/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Turn on, turn off, run and delete jobs through Termix actions\n- List, add, change and delete cron jobs on a host\n- A schedule helper with a plain summary and the next run times\n- Turn jobs off without losing them, and run any job now\n- Edit another user's crontab, or the whole crontab as text\n- See /etc/crontab, /etc/cron.d and the hourly to monthly scripts\n- Read the cron log\n- A Cron card in Host Metrics",
           "publishedAt": "2026-11-08T21:12:37.000Z",
+          "notes": "### Added\n\n- Turn on, turn off, run and delete jobs through Termix actions\n- List, add, change and delete cron jobs on a host\n- A schedule helper with a plain summary and the next run times\n- Turn jobs off without losing them, and run any job now\n- Edit another user's crontab, or the whole crontab as text\n- See /etc/crontab, /etc/cron.d and the hourly to monthly scripts\n- Read the cron log\n- A Cron card in Host Metrics",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1903,6 +2224,40 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.3.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Databases/releases/download/v1.3.0/databases-1.3.0.tmxplug",
+          "sha256": "dd544f3d2cea62078acceb038567b6048fdd5a979e28505be8065cfa5bcc6323",
+          "signature": "/yT355j4hM0HK0EJcKN5UqqJznm7+zJCXJc1MW1McYN+9ZmVI/QG6BGPrLew5GuGK1Y7u2uA1o0WtX9sz9q+Cw==",
+          "size": 278047,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "db:own",
+            "secrets:own",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Databases/releases/tag/v1.3.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Databases/releases/download/v1.3.0/databases-1.3.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:44.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "vi95sYyJmzE0s8fN0xMSE433pg3ImrJHZgJYBI2YDOwe87RP9y5ea7vBXeFH8OfThblAA62OkbIe2lHmjwUTAg=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Databases/releases/download/v1.2.0/databases-1.2.0.tmxplug",
@@ -1924,8 +2279,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Databases/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- See saved database logins across hosts and check that one still works through Termix actions\n- Other plugins, like Backups, can use the saved logins of a host\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The table structure view now shows a loading message instead of a blank space while it loads",
           "publishedAt": "2026-11-08T21:28:13.000Z",
+          "notes": "### Added\n\n- See saved database logins across hosts and check that one still works through Termix actions\n- Other plugins, like Backups, can use the saved logins of a host\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The table structure view now shows a loading message instead of a blank space while it loads",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -2033,8 +2388,9 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-DNS",
       "icon": "Globe",
+      "video": "https://www.youtube.com/watch?v=ujcN58s2Buw",
       "features": [
-        "Works with Cloudflare, Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun and Gandi",
+        "Works with Cloudflare, Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun, Gandi and Spaceship",
         "Add, change and delete records in one place across all your providers",
         "Domain list with expiry dates, auto renew, transfer lock and name servers, plus alerts before a domain expires",
         "Watch any domain by name, even ones you did not register through a connected provider",
@@ -2051,9 +2407,46 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=ujcN58s2Buw",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-DNS/releases/download/v1.1.0/dns-1.1.0.tmxplug",
+          "sha256": "27b928fc78cae09aa5c24b468db20b5fd9436715da529293e9381e1df5400672",
+          "signature": "vyEuVi0Nq+kTftKQAuihVnw8NzVhNMWnvPSFVOMq8g39IE8aALDQZ0aqQ5auuuwNhFuUD1alLA5Lrwu0ZI4aBw==",
+          "size": 419967,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:probe",
+            "network:serve",
+            "ui:surface",
+            "hosts:read",
+            "users:impersonate",
+            "events:core",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-DNS/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Spaceship as a provider, with DNS records and the domain list\n\n### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-DNS/releases/download/v1.1.0/dns-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:40:47.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "BdzBBKryt8kqse2obquzUkR5iE7wQ/zL8TOSQ4uyf+4hEnTyyxBKcO8i5Fn1F9jPKBsXyq6afSRNawpwqLcDCg=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -2080,8 +2473,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-DNS/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A DNS tab to manage records at Cloudflare, Amazon Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun and Gandi\n- A domain list with expiry dates, auto renew, transfer lock and name servers from Route 53, Namecheap, GoDaddy, Porkbun and Gandi\n- Watch any domain by name through RDAP\n- Alerts when a domain is about to expire\n- Links that keep a record pointed at a host or at this server's public address\n- Health checks for name servers, DNSSEC, mail records and broken CNAMEs, and a check against public resolvers\n- Zone copies before each change, with compare and restore, and an alert when a zone changes outside Termix\n- BIND zone file import and export\n- A dns.records service for other plugins, and actions for the assistant, rules and the CLI\n- A dashboard card with domains close to expiry",
           "publishedAt": "2026-11-08T21:20:45.000Z",
+          "notes": "### Added\n\n- A DNS tab to manage records at Cloudflare, Amazon Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun and Gandi\n- A domain list with expiry dates, auto renew, transfer lock and name servers from Route 53, Namecheap, GoDaddy, Porkbun and Gandi\n- Watch any domain by name through RDAP\n- Alerts when a domain is about to expire\n- Links that keep a record pointed at a host or at this server's public address\n- Health checks for name servers, DNSSEC, mail records and broken CNAMEs, and a check against public resolvers\n- Zone copies before each change, with compare and restore, and an alert when a zone changes outside Termix\n- BIND zone file import and export\n- A dns.records service for other plugins, and actions for the assistant, rules and the CLI\n- A dashboard card with domains close to expiry",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -2215,6 +2608,42 @@
       ],
       "gated": [
         {
+          "version": "1.3.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.3.1/docker-1.3.1.tmxplug",
+          "sha256": "33ee9f0b36ab9dea9cf9d3b588212a31eea77f71236cdb976ecbbd82a32b4035",
+          "signature": "9bMHaX88+x6PFhMcFc3PBONPMoOnkMDyMEWDqjwZkH9tltIsoEFhfVxm6MXF/Y3Vlf2XmoplkH9D0qQ+H5KRCw==",
+          "size": 1211795,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.3.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n- Form fields use the same background as the rest of Termix\n\n### Fixed\n\n- Says to open a terminal and trust the host when its key is not trusted yet, instead of a plain error (Termix 26.11.2)\n- Compose editor Save and Save and deploy buttons now match and sit in the footer\n- Opening a container console on a shared host you have no login for says so, instead of saying the host is not on the sync server",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.3.1/docker-1.3.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:30:21.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "k5HVVhpC9vKT5/kga+1wz67+tmjBmm7kBYQ/Uqf9J8foEcBhkObORikKJBsGmj+627imDSYdBZpTXWFmNN9rDA=="
+            }
+          ]
+        },
+        {
           "version": "1.3.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.3.0/docker-1.3.0.tmxplug",
@@ -2238,8 +2667,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- Containers can be listed, started, stopped, restarted, paused and removed from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Unhealthy containers show as a status tile on the dashboard and host page\n- A container counts tile on the host page and a Docker entry in the host command palette\n- Optional alerts for unhealthy, restarting or failed containers, set per host\n\n### Changed\n\n- Starting, stopping, restarting, pausing or removing a container now needs edit access to the host, not just connect\n- Container changes now show in run history\n- Needs Termix 26.11.1 or newer\n- Containers, stacks and stats use the Termix tile look, with cards edge to edge and lines between them instead of gaps\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-08T21:28:17.000Z",
+          "notes": "### Added\n\n- Containers can be listed, started, stopped, restarted, paused and removed from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Unhealthy containers show as a status tile on the dashboard and host page\n- A container counts tile on the host page and a Docker entry in the host command palette\n- Optional alerts for unhealthy, restarting or failed containers, set per host\n\n### Changed\n\n- Starting, stopping, restarting, pausing or removing a container now needs edit access to the host, not just connect\n- Container changes now show in run history\n- Needs Termix 26.11.1 or newer\n- Containers, stacks and stats use the Termix tile look, with cards edge to edge and lines between them instead of gaps\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -2745,6 +3174,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Firewall",
       "icon": "BrickWall",
+      "video": "https://www.youtube.com/watch?v=Qq7yX_Uejgg",
       "features": [
         "See and change firewall rules on UFW, firewalld, nftables and iptables hosts",
         "Turn the firewall on or off and set the default policies",
@@ -2766,9 +3196,43 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=Qq7yX_Uejgg",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Firewall/releases/download/v1.1.0/firewall-1.1.0.tmxplug",
+          "sha256": "707789ee001cd6bed1d0c0db150cd6f9183fce983f64903f90add1f8e1404942",
+          "signature": "kHS/3cBlEqDq509OTnqfdnR1SmxAwC/VmCQtUEO1pMgj6q26kYrwydJfzmEFm+/Vp5VpVE81OV8Co4+fWuS6Bg==",
+          "size": 446918,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Firewall/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Firewall/releases/download/v1.1.0/firewall-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:44:42.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "ugMxK46NE0Su3B2hHEapVlIJFXZ4evF1rlUhVrTI0ZT3jRiMXgvkWxXVy/V8RqMHNKiGq1FmytQaT4CgJvVgCg=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -2792,8 +3256,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Firewall/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Allow or remove a port, check a port is allowed and delete rules through Termix actions, so a port can roll out across hosts and be watched for drift in Operations Center\n- Firewall rules show in the All hosts table, and whether the firewall is on shows as a status tile\n- A Firewall tab for each host to manage UFW, firewalld, nftables and iptables over SSH\n- Add, edit and delete rules, set the default policies and firewalld zones\n- Turn the firewall on or off, and install UFW, firewalld, nftables or Fail2ban\n- An SSH lockout check before changes that could cut off Termix\n- Risky changes undo themselves on the host unless you press Keep\n- Rule sets to add the same rules to many hosts or a fleet, with a drift check\n- Fail2ban jails, banned addresses, ban and unban\n- Alerts when a firewall turns off or its rules change outside Termix\n- A firewall panel beside SSH terminals and a dashboard card for every host",
           "publishedAt": "2026-11-08T23:59:37.000Z",
+          "notes": "### Added\n\n- Allow or remove a port, check a port is allowed and delete rules through Termix actions, so a port can roll out across hosts and be watched for drift in Operations Center\n- Firewall rules show in the All hosts table, and whether the firewall is on shows as a status tile\n- A Firewall tab for each host to manage UFW, firewalld, nftables and iptables over SSH\n- Add, edit and delete rules, set the default policies and firewalld zones\n- Turn the firewall on or off, and install UFW, firewalld, nftables or Fail2ban\n- An SSH lockout check before changes that could cut off Termix\n- Risky changes undo themselves on the host unless you press Keep\n- Rule sets to add the same rules to many hosts or a fleet, with a drift check\n- Fail2ban jails, banned addresses, ban and unban\n- Alerts when a firewall turns off or its rules change outside Termix\n- A firewall panel beside SSH terminals and a dashboard card for every host",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -2959,6 +3423,41 @@
       ],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.2.1/fleets-1.2.1.tmxplug",
+          "sha256": "b848ec0ad7e9eb2613a5334584823a2f42918b5b3bbbf37b4cb0f398a37789b5",
+          "signature": "8mJbhroP8Qrx/idV150BYH52Px8tjDXvt6ZXHhAXp0qvlIiA3dT7LBKda8n9TROSUQZq7zow8+MQTgLIr6yoDA==",
+          "size": 508890,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.2.1",
+          "notes": "### Changed\n\n- The fleets panel puts search, its buttons and the add button on one row on Termix 26.11.2 and later\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The settings button in the Fleets panel opens the Fleets page in Settings\n\n### Fixed\n\n- Fleet commands keep filling $HOST, $USER and $INPUT values when Snippets runs in its own process",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.2.1/fleets-1.2.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:30:23.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "49PfvGDnAq6VECgftHfStqYjwGI0I8iey6ae1/Ei1z7bc58ZuLHO0Sw2wnuo07Z7AwpeH6dYCnrbG++DWh2TDQ=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.2.0/fleets-1.2.0.tmxplug",
@@ -2981,8 +3480,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Run a command as a Termix action, so it can roll out across hosts from Operations Center and Automations with a result per host in run history\n- A Fleets dashboard card with each fleet and its host count, and a list action for the assistant and the CLI\n- Fleets and their hosts sync to linked desktop apps (#5)\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Settings and the inventory use the Termix tile look\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-08T21:32:58.000Z",
+          "notes": "### Added\n\n- Run a command as a Termix action, so it can roll out across hosts from Operations Center and Automations with a result per host in run history\n- A Fleets dashboard card with each fleet and its host count, and a list action for the assistant and the CLI\n- Fleets and their hosts sync to linked desktop apps (#5)\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Settings and the inventory use the Termix tile look\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -3583,6 +4082,41 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/download/v1.2.0/host-status-1.2.0.tmxplug",
+          "sha256": "0d16e0bb696938982b9e902b4e9aaabfd5c996ae4f3e89b6bce961f4ea5f069e",
+          "signature": "yvM7q3yxyiGOiCcUKV/tMSt33FlYbFjgJ8mRuKtLRCbMcgj8pmpXyvWzPzVqF9rJHhbOA437lp+/2tgoYIFhDg==",
+          "size": 45201,
+          "capabilities": [
+            "hosts:read",
+            "hosts:status-provide",
+            "network:probe",
+            "network:serve",
+            "ssh:connect",
+            "events:core",
+            "users:impersonate",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.4.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/download/v1.2.0/host-status-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:36.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "vpeCXCVRHRl7kh8jVQQ/0DRE0OuvAbEMWffNaLAM+jYbCXFHCEXOwMj84yw/ficOboX2lcj6eGG64FlNpzFeDQ=="
+            }
+          ]
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/download/v1.1.0/host-status-1.1.0.tmxplug",
@@ -3605,8 +4139,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Check whether a host is online through Termix actions, with an Online tile on the host page and in the All hosts table\n- Permission Check host status\n- An alert when a checked host goes offline and when it is back, with an admin setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-08T23:01:30.000Z",
+          "notes": "### Added\n\n- Check whether a host is online through Termix actions, with an Online tile on the host page and in the All hosts table\n- Permission Check host status\n- An alert when a checked host goes offline and when it is back, with an admin setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -3986,6 +4520,42 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.1.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/download/v1.1.1/kubernetes-1.1.1.tmxplug",
+          "sha256": "c2be13b837639ec34954813c8eae814674a4bb49ce88feeefeb692db77992f56",
+          "signature": "EHEc/3WETn0S+T24fODdaNwgn3a4oZVtpmDL47DfX1OoBa3DRgOmKaeCe1yjewP/F3KycjCyLvy7RoPrxj+IBQ==",
+          "size": 1280606,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/tag/v1.1.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n\n### Fixed\n\n- Says to open a terminal and trust the host when its key is not trusted yet, instead of a plain error (Termix 26.11.2)\n- Opening a console on a shared host you have no login for says so, instead of saying the host is not on the sync server (needs Termix 26.11.2)",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/download/v1.1.1/kubernetes-1.1.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:20.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "sm0v5PyDgjptdz04O4BFkEWdV8ogRZkaxnh0KWVgaB1GH48LHaCC3QWSMiTifslnwzBOSKoD1CSvXuTn7ShxDg=="
+            }
+          ]
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/download/v1.1.0/kubernetes-1.1.0.tmxplug",
@@ -4009,8 +4579,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Cluster health tile on the host page and a Kubernetes entry in the host command palette\n- Optional alerts for nodes that are not ready and failing pods, set per host\n- Pods and workloads can be listed, restarted, scaled and deleted from Automations, the CLI, the phone app and the command palette through Termix actions\n- Failing pods show as a status tile on the dashboard and host page\n\n### Changed\n\n- Changing a cluster now needs edit access to the host, not just connect\n- Needs Termix 26.11.1 or newer\n- Resources, Helm, details and pod metrics use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-08T23:24:21.000Z",
+          "notes": "### Added\n\n- Cluster health tile on the host page and a Kubernetes entry in the host command palette\n- Optional alerts for nodes that are not ready and failing pods, set per host\n- Pods and workloads can be listed, restarted, scaled and deleted from Automations, the CLI, the phone app and the command palette through Termix actions\n- Failing pods show as a status tile on the dashboard and host page\n\n### Changed\n\n- Changing a cluster now needs edit access to the host, not just connect\n- Needs Termix 26.11.1 or newer\n- Resources, Helm, details and pod metrics use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -4121,8 +4691,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.3",
-          "notes": "### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "publishedAt": "2026-11-08T23:25:36.000Z",
+          "notes": "### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -4211,6 +4781,40 @@
             {
               "keyId": "a7b173b2ec703171",
               "sig": "qAo9JVKeYpOZPksNSxsFOrks9yE7h1n2xBBKQeF2mSS6/zSkb64EGCdhap0+v1Ljc5gjN9NcI63Kp+xp8/dNDw=="
+            }
+          ]
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.1.0/ldap-1.1.0.tmxplug",
+          "sha256": "f457c1c176bbd08cc7e8106738ddb6bddfd87bb4210096c895b689e716bcbf75",
+          "signature": "+8c0L8dSGbNya7dIn+Zz4ImU3oPF9t5kyUB0PVWbxdNktD3tFrXI5+KZBj7d1DeyVo2suRrJ/2OyNU5VfE2kAg==",
+          "size": 365732,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.8.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- On Termix 26.11.2 and later the sign in form is drawn by Termix itself, and the settings screen runs in a sandboxed frame",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.1.0/ldap-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:50.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "y6r0n0aFmgmHZXf06HgNezdUnpteDJFiXbIy3rfI4jt5CFGSveWVOUvXr2zGQjD8LdfT/FMeGyoKsniMrUqICQ=="
             }
           ]
         }
@@ -4558,6 +5162,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Notes",
       "icon": "NotebookPen",
+      "video": "https://www.youtube.com/watch?v=pfTDZqNbeBw",
       "features": [
         "Many markdown notes per host, per folder or global",
         "Write and preview with a small toolbar",
@@ -4573,9 +5178,40 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=pfTDZqNbeBw",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Notes/releases/download/v1.1.0/notes-1.1.0.tmxplug",
+          "sha256": "a22ca82be87cec6da48558544e091ab55fc0326faeb0fcbde52bee6d64f98f43",
+          "signature": "803npBlrw8+W1pEHgCnbVC5sUDiJm6o9LcetBltPRS3yuLcgvaHRHkkD000117zKDXgu6Z3IEmz0TjIYCjskDQ==",
+          "size": 491058,
+          "capabilities": [
+            "hosts:read",
+            "events:core",
+            "network:serve",
+            "ui:surface",
+            "db:own",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Notes/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Notes/releases/download/v1.1.0/notes-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:51.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "4ZJGQlRBFE1HdWhExmWnD9aDdIO9xwVOicL7oyg0RDAiCSgxLJaETcpXoXP0UiyrfoNHevu2XEbRq5QSb0ANAw=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -4596,8 +5232,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Notes/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Markdown notes for each host, for each folder, and private notes of your own\n- A Notes tab with a list, search, pins and tags, and a Write and Preview editor with a small toolbar\n- Copy and Send to terminal buttons on code blocks\n- Clickable task lists\n- A notes panel beside any SSH terminal\n- Actions to list, read, create and add to host notes for the assistant and automations",
           "publishedAt": "2026-11-09T00:00:10.000Z",
+          "notes": "### Added\n\n- Markdown notes for each host, for each folder, and private notes of your own\n- A Notes tab with a list, search, pins and tags, and a Write and Preview editor with a small toolbar\n- Copy and Send to terminal buttons on code blocks\n- Clickable task lists\n- A notes panel beside any SSH terminal\n- Actions to list, read, create and add to host notes for the assistant and automations",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -4675,6 +5311,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Operations-Center",
       "icon": "Activity",
+      "video": "https://www.youtube.com/watch?v=0EUwEVouWJE",
       "features": [
         "Run any action any plugin offers, with a form, a dry run and the result",
         "Roll an action out across many hosts with a canary, batches and a failure limit",
@@ -4700,9 +5337,44 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=0EUwEVouWJE",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Operations-Center/releases/download/v1.1.0/operations-center-1.1.0.tmxplug",
+          "sha256": "857d64960273e84536ac27815d805f0ae6b428e08484b8f5850ab147f34a467b",
+          "signature": "HFxteoyh0SAEQI6fes4LaUtQzNn7AG+WXsNsAFQRjQz9ZpL/RWSpbVkl5Y9B1Il9D4p0z8A5pDJuyotyoT/RDA==",
+          "size": 507345,
+          "capabilities": [
+            "db:own",
+            "hosts:read",
+            "kv:own",
+            "network:serve",
+            "notify:send",
+            "operations:approve",
+            "operations:invoke",
+            "secrets:own",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^2.7.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Operations-Center/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Session tiles on the host page overview, like a remote desktop, wait for you to click Connect instead of connecting when the page opens. The full size view still connects right away\n- The host page overview scrolls with Termix, so tiles from other plugins like the terminal move with the page instead of trailing behind it (needs Termix 26.11.2)\n- Status tiles on the dashboard share one request and ask only for their own signal, and check again every 2 seconds while hosts are still answering\n- Needs attention shows each part as soon as it loads instead of waiting for the slowest one\n- The host page shows one loading screen until its tiles, including ones from other plugins, have loaded, instead of filling in piece by piece (needs Termix 26.11.2)\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Host page tiles from other plugins draw in their own frames over the page, and the tab bar button finds the host of the tab you are on (needs Termix 26.11.2)\n\n### Fixed\n\n- Status tiles say they are loading instead of \"No hosts report this\" while hosts are still coming in",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Operations-Center/releases/download/v1.1.0/operations-center-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:47:09.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "kW1clm8JNDm4eFmFxknS2KU1DYMCGc1tw9fQ9KkI2DzTuxPZ9oDiiE4fEcpEeV1o3HfgpyuF+QhGxknNiCL3Cw=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -4727,8 +5399,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Operations-Center/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Operations tab with an overview you can arrange, a side menu with counts for approvals, failed runs, rollouts and drift, and a searchable list of every action any plugin offers with its form beside it\n- Rollouts: one action across many hosts with a canary, batches, a pause between them and a failure limit\n- History of every action with who ran it, from where and what happened, plus cancel and undo. Filter it by action, host or status\n- Approvals for actions a rule holds, showing exactly what will run\n- Approval rules by risk, plugin, action, where a run came from and host tag\n- Drift checks that run on a schedule, show which hosts drifted and can fix them\n- A page per host made of tiles you can move, resize, add and remove: status, the terminal and other sessions, lists like containers, one click actions, plugin tiles such as metrics and recent changes. Every tool opens in the same tab. Tiles can be set for all hosts or just one\n- A host page panel beside terminals, a Host page button in the tab bar and an Open host page item when you right click a tab\n- A dot on host rows while a status tile on the host is warning or failing. It can be turned off in settings\n- The host's actions in the host menu, one list per plugin\n- Host tools can open inside the host page when Classic Layout is set to do that\n- Hosts view with a card per host showing what needs a look, plus tables across every host, such as every container or service, with filters and bulk actions\n- MCP server for outside AI tools, using an API key\n- Needs attention dashboard card, and any plugin's status or action as its own dashboard tile\n- Every action in the command palette\n- Status tiles, action button and found links widgets for the homepage. Found links lists web addresses plugins know about, such as proxy routes",
           "publishedAt": "2026-11-09T01:24:03.000Z",
+          "notes": "### Added\n\n- Operations tab with an overview you can arrange, a side menu with counts for approvals, failed runs, rollouts and drift, and a searchable list of every action any plugin offers with its form beside it\n- Rollouts: one action across many hosts with a canary, batches, a pause between them and a failure limit\n- History of every action with who ran it, from where and what happened, plus cancel and undo. Filter it by action, host or status\n- Approvals for actions a rule holds, showing exactly what will run\n- Approval rules by risk, plugin, action, where a run came from and host tag\n- Drift checks that run on a schedule, show which hosts drifted and can fix them\n- A page per host made of tiles you can move, resize, add and remove: status, the terminal and other sessions, lists like containers, one click actions, plugin tiles such as metrics and recent changes. Every tool opens in the same tab. Tiles can be set for all hosts or just one\n- A host page panel beside terminals, a Host page button in the tab bar and an Open host page item when you right click a tab\n- A dot on host rows while a status tile on the host is warning or failing. It can be turned off in settings\n- The host's actions in the host menu, one list per plugin\n- Host tools can open inside the host page when Classic Layout is set to do that\n- Hosts view with a card per host showing what needs a look, plus tables across every host, such as every container or service, with filters and bulk actions\n- MCP server for outside AI tools, using an API key\n- Needs attention dashboard card, and any plugin's status or action as its own dashboard tile\n- Every action in the command palette\n- Status tiles, action button and found links widgets for the homepage. Found links lists web addresses plugins know about, such as proxy routes",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -4783,8 +5455,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- The page you land on after signing in now matches the Termix look and follows your theme and language",
           "publishedAt": "2026-11-08T23:54:39.000Z",
+          "notes": "### Changed\n\n- The page you land on after signing in now matches the Termix look and follows your theme and language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -4888,6 +5560,44 @@
             }
           ]
         }
+      ],
+      "gated": [
+        {
+          "version": "1.0.4",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.4/opkssh-1.0.4.tmxplug",
+          "sha256": "acd0ee2b0382d4c7042dfc802e94f2a1bc91d0a43cc7b23aa8fbab08ff8edf20",
+          "signature": "jjHktXzkApfExlGD7cdgDafvMbeqiHgMLQd0xundF+m/QyPHO8Am4NgQclIJ0XIHeAOD+z64IXiJkjNdjJneAQ==",
+          "size": 202630,
+          "capabilities": [
+            "db:own",
+            "files:own",
+            "secrets:own",
+            "hosts:read",
+            "process:spawn",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.4",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Your Termix login cookies are no longer passed to the OPKSSH sign in page\n- Its screens run in a sandboxed frame on Termix 26.11.2 and later\n- Terminals load its sign in part only for hosts that use it or go through a jump host, so they open faster and use less memory\n\n### Fixed\n\n- Pins opkssh 0.19.2 instead of 0.16.0, which brings security fixes in the libraries it is built with",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.4/opkssh-1.0.4.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:44.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "Wvx6E5ozcY971R9V2cOMy9RbbhUmwJeTvH6riXupA/q6D4n4409pLDlPedQdcVdfGV8JTWCwHkCzKV2gzzBPDw=="
+            }
+          ]
+        }
       ]
     },
     {
@@ -4898,6 +5608,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Out-Of-Band",
       "icon": "ServerCog",
+      "video": "https://www.youtube.com/watch?v=nrSv4fZd1B4",
       "features": [
         "Works with Redfish (iDRAC, iLO, Supermicro, OpenBMC), IPMI over LAN and Intel AMT",
         "Power on, shut down, power cycle and reset a machine even when its OS is dead",
@@ -4917,9 +5628,47 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=nrSv4fZd1B4",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Out-Of-Band/releases/download/v1.1.0/out-of-band-1.1.0.tmxplug",
+          "sha256": "d09f0c5eb7d1fc3c6896ef242406838a40d6cd27c3728730df445ccd36b5607d",
+          "signature": "le3LhChtpD3Rd5cOYMJFIn42sh6+P3zhSy2yS+Oi6nxJOv/nBIbEgecIWA7QP9aGZGQwBcG2yA67XcG1wzeBBQ==",
+          "size": 981910,
+          "capabilities": [
+            "credentials:use",
+            "db:own",
+            "events:core",
+            "hosts:read",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "operations:provide",
+            "process:spawn",
+            "secrets:own",
+            "ssh:connect",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Out-Of-Band/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n- Its page part no longer keeps running in the background just to refresh the device list, which saves memory in the browser",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Out-Of-Band/releases/download/v1.1.0/out-of-band-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:49.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "P7KqcoYG6z63HOod+XfO0xevIiXOQPh2Ij7XVidXpFNK/CZ9zUbjdsr0GULra+IjUX+oXnepIthTkpHTeJNBDA=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -4947,8 +5696,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Out-Of-Band/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Manage server BMCs over Redfish, IPMI over LAN and Intel AMT\n- Power on, shut down, reset, power cycle and power off\n- Sensors for temperatures, fans, voltages and power supplies with alerts\n- Hardware event log, read and clear\n- Boot once from PXE, disk, CD, USB or BIOS setup\n- Virtual media for Redfish BMCs\n- Serial over LAN console for IPMI through a relay host\n- Link a BMC to a host, or reach IPMI through a relay host\n- Dashboard card, host menu button, operations and the `out-of-band.power` service",
           "publishedAt": "2026-11-09T00:54:30.000Z",
+          "notes": "### Added\n\n- Manage server BMCs over Redfish, IPMI over LAN and Intel AMT\n- Power on, shut down, reset, power cycle and power off\n- Sensors for temperatures, fans, voltages and power supplies with alerts\n- Hardware event log, read and clear\n- Boot once from PXE, disk, CD, USB or BIOS setup\n- Virtual media for Redfish BMCs\n- Serial over LAN console for IPMI through a relay host\n- Link a BMC to a host, or reach IPMI through a relay host\n- Dashboard card, host menu button, operations and the `out-of-band.power` service",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -5030,6 +5779,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Privileged-Access",
       "icon": "KeyRound",
+      "video": "https://www.youtube.com/watch?v=MbGnu0TMoOI",
       "features": [
         "Mark hosts as privileged, so SSH and remote desktop need approved access",
         "Ask for access with a reason, a ticket and how many hours you need",
@@ -5046,9 +5796,44 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=MbGnu0TMoOI",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Privileged-Access/releases/download/v1.0.1/privileged-access-1.0.1.tmxplug",
+          "sha256": "df13c177bfdbfd31585e80e068452ab68820d031a1306fd3f2bc5f3a64143851",
+          "signature": "mWs6zllYq2BH3cOP5LHh8Anzmo7axIF/EL6rTG9T5YhiPe3Oidt5qIb6s7oFeFaDE9Poi0gl2kTUuKRE1DiaBg==",
+          "size": 174358,
+          "capabilities": [
+            "hosts:read",
+            "hosts:connect-policy",
+            "db:own",
+            "db:core-refs",
+            "network:serve",
+            "ui:surface",
+            "notify:send",
+            "operations:provide",
+            "users:impersonate",
+            "events:core"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Privileged-Access/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n\n### Fixed\n\n- The API docs list the path parameters and answers of every route",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Privileged-Access/releases/download/v1.0.1/privileged-access-1.0.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:15.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "hMId6nKLacftPF/FE9cJRDAV15xXIeJXcahlR7xvzb6fgBZ6aeHxdSkN1hYwxFJwjy8ldIXoXKMo2EGqwIwCDQ=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -5074,8 +5859,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Privileged-Access/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- First release\n- Mark a host as privileged, so SSH and remote desktop sessions to it need approved access\n- Ask for access with a reason, a ticket and the hours you need, from the Access tab or the host menu\n- Approvers decide in the Access tab or from the alert, never for their own request. A host can name the roles that may approve\n- Access ends on its own, and the user's open sessions on the host close when it ends or is revoked\n- Break glass access for emergencies, always audited and alerted\n- Requests nobody decides expire\n- History and a CSV report of every request\n- Dashboard card with requests waiting on you and your open access\n- Termix actions to ask for access, list requests to decide, and a status tile on the host page",
           "publishedAt": "2026-11-09T01:26:35.000Z",
+          "notes": "### Added\n\n- First release\n- Mark a host as privileged, so SSH and remote desktop sessions to it need approved access\n- Ask for access with a reason, a ticket and the hours you need, from the Access tab or the host menu\n- Approvers decide in the Access tab or from the alert, never for their own request. A host can name the roles that may approve\n- Access ends on its own, and the user's open sessions on the host close when it ends or is revoked\n- Break glass access for emergencies, always audited and alerted\n- Requests nobody decides expire\n- History and a CSV report of every request\n- Dashboard card with requests waiting on you and your open access\n- Termix actions to ask for access, list requests to decide, and a status tile on the host page",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -5093,6 +5878,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Process-Manager",
       "icon": "Activity",
+      "video": "https://www.youtube.com/watch?v=9Zw3RqhiJJw",
       "features": [
         "A live process list with a tree, sorting and a detail view",
         "Send signals and change the priority of a process",
@@ -5112,9 +5898,44 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=9Zw3RqhiJJw",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Process-Manager/releases/download/v1.1.0/process-manager-1.1.0.tmxplug",
+          "sha256": "80b9c59f9649ed02b4e2c0e206cbd05a8b0e4a42ae9ec47eae458e3040ee6e76",
+          "signature": "qsOKMAQHqfcv/3eqBHTBGt5t4LJWn5cjOfTGrozKrLCGluW6BeXC8vmpyGQwhsej08quUjM7TPLxJoDfYfp0DQ==",
+          "size": 347057,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Process-Manager/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Process-Manager/releases/download/v1.1.0/process-manager-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:39:03.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "HVynQE8gSPIXnBRQPA/gcREDCDktAmWIxYp4gZdVrVmjfQbC9Bih3CrW7QLXOPPPmFdEnZChSBg+PSddktE6Ag=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -5139,8 +5960,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Process-Manager/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A live process list with a tree, sorting and a detail view\n- Send signals and change the priority of a process\n- Manage pm2 and supervisor apps\n- Read and follow logs from services, apps and open files\n- Watches that alert on a process or app going down, restarting too often or using too much CPU or memory\n- Restart a failed app automatically, up to three times an hour\n- Actions, status tiles and events for Operations, Automations, the assistant and the CLI\n- A Processes card in Host Metrics, a side panel on terminals and a dashboard card\n- A tile on the Operations Center host page\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T01:45:46.000Z",
+          "notes": "### Added\n\n- A live process list with a tree, sorting and a detail view\n- Send signals and change the priority of a process\n- Manage pm2 and supervisor apps\n- Read and follow logs from services, apps and open files\n- Watches that alert on a process or app going down, restarting too often or using too much CPU or memory\n- Restart a failed app automatically, up to three times an hour\n- Actions, status tiles and events for Operations, Automations, the assistant and the CLI\n- A Processes card in Host Metrics, a side panel on terminals and a dashboard card\n- A tile on the Operations Center host page\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -5603,6 +6424,43 @@
       ],
       "gated": [
         {
+          "version": "1.4.2",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.4.2/remote-desktop-1.4.2.tmxplug",
+          "sha256": "1adf63a11c3eebab6375cc6c7cb74124c9a7210879314f3649320e84823430cb",
+          "signature": "scKX8NiwbXuufBaCGgrbl0hrHowc4z+TzLjYXkndI5jtmcRgWb/uhsNEnlWyH+EEcQN3VFq2oeiJRISkh0HtCw==",
+          "size": 4772638,
+          "capabilities": [
+            "hosts:read",
+            "credentials:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "desktop:local",
+            "ui:surface",
+            "users:impersonate",
+            "operations:provide",
+            "network:sockets",
+            "files:own"
+          ],
+          "engine": {
+            "api": "^2.3.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.4.2",
+          "notes": "### Added\n\n- Two finger pan for VNC and Apple Remote Desktop on phones, and a Show keyboard button on touch devices\n- RustDesk direct IP: an Allow unencrypted sessions switch for older RustDesk versions that never start a secure session. Off by default\n\n### Changed\n\n- Runs in its own process with only the access it needs (plugin API 2.3, needs Termix 26.11.2)\n- The RDP drive folder and recordings live in the plugin's own data folder (`/app/data/plugin-data/remote-desktop`). Files in the old `/app/data/rdp-drive` stay there; copy them over if you still need them\n- Session Recording takes its own copy of a finished recording\n- Kerberos KDC requests run in a worker thread instead of a separate process, so they work in desktop builds that can't start Node\n- A Moonlight stream shows inside the tab only when it runs through Termix. A stream on another address opens in its own window, since plugin views can't show other sites (needs Termix 26.11.2)\n- Built-in engine frames are about four times smaller, so RDP over a slower link feels quicker\n- Form fields use the same background as the rest of Termix\n- The simple host editor shows each enabled protocol's connection and login. Display, performance and the rest are under Advanced\n\n### Fixed\n\n- Korean Han/Eng and Hanja keys keep working on Windows, where the keyboard driver marks every press after the first as a repeat\n- Keypad digits type in RDP sessions when Num Lock is on\n- The Windows key and its shortcuts reach a focused remote session\n- GNOME Remote Login works with the built-in engine: it follows the login screen into the user's session\n- A remote display at 100% zoom no longer resizes in a loop\n- A DOMAIN\\user login with an empty domain field signs in",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.4.2/remote-desktop-1.4.2.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:54:25.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "OAlyTsRJBVCfT8+ORhnOM3zJtP7ENjqLwKwcZR0K2gtT55XQltfaIr00grCoes0RE0AF3a+83YCbdwvC1yAvBQ=="
+            }
+          ]
+        },
+        {
           "version": "1.4.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.4.1/remote-desktop-1.4.1.tmxplug",
@@ -5625,11 +6483,11 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.4.1",
-          "notes": "### Fixed\n\n- RDP sessions to Windows no longer drop with \"rfx progressive decode failed\" when the screen shows a wallpaper, the Start menu or images\n- Updated Rust crates in the built in engine to releases with security fixes",
           "provenance": {
             "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.4.1/remote-desktop-1.4.1.tmxplug.sigstore.json"
           },
           "publishedAt": "2026-11-15T19:35:38.000Z",
+          "notes": "### Fixed\n\n- RDP sessions to Windows no longer drop with \"rfx progressive decode failed\" when the screen shows a wallpaper, the Start menu or images\n- Updated Rust crates in the built in engine to releases with security fixes",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -5824,6 +6682,43 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/download/v1.2.1/reverse-proxy-1.2.1.tmxplug",
+          "sha256": "0f3553f8274f8751da5db730fcf53437eb619b3ef092eaedc692f528ac31fa83",
+          "signature": "Jj7Ctm4XA1xTyGtVSLBtJKMQbqTEAUDq3bY18wvxHdW7y7DzlzccW5Q0gEQrDfS7R3lofAAIr3B3dpoyKzeEAA==",
+          "size": 1175291,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "network:serve",
+            "network:outbound",
+            "network:sockets",
+            "secrets:own",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.2.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later. It asks for the new Open its own network connections permission, which its listeners need\n\n### Fixed\n\n- Updated node-forge and follow-redirects to releases with security fixes\n- After signing in to a route, the browser always stays on that route's site",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/download/v1.2.1/reverse-proxy-1.2.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:14.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "mmAZGukbLgxoYqp+irZbrlkuszKO60GcsKNePT5aIZ1jI1bQzXlzHxR373fZ7tupWTpAvR8uDB41zFj8+k17CQ=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/download/v1.2.0/reverse-proxy-1.2.0.tmxplug",
@@ -5847,8 +6742,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Web endpoint domain: one wildcard domain that lets Web Endpoint open internal web pages through Termix, with no route or DNS record per app (Plugin-Web-Endpoint #7)\n- Proxy routes across hosts in the All hosts table with their addresses, turning routes on and off through Termix actions, and failing routes as a status tile\n- Sign in to Termix right on the login page of a protected route, with password, LDAP, passkeys, two-factor codes and security keys. SSO opens in a new tab and the page continues by itself\n\n### Changed\n\n- The login page in front of a route now looks like the Termix sign in screen and follows your theme, language and branding\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The Open Termix button on the login page opened an error page instead of Termix\n- The Reverse Proxy tab shows a loading message instead of a blank screen while it loads\n- The sign in page no longer fails on PostgreSQL when the link has no valid route\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T01:35:51.000Z",
+          "notes": "### Added\n\n- Web endpoint domain: one wildcard domain that lets Web Endpoint open internal web pages through Termix, with no route or DNS record per app (Plugin-Web-Endpoint #7)\n- Proxy routes across hosts in the All hosts table with their addresses, turning routes on and off through Termix actions, and failing routes as a status tile\n- Sign in to Termix right on the login page of a protected route, with password, LDAP, passkeys, two-factor codes and security keys. SSO opens in a new tab and the page continues by itself\n\n### Changed\n\n- The login page in front of a route now looks like the Termix sign in screen and follows your theme, language and branding\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The Open Termix button on the login page opened an error page instead of Termix\n- The Reverse Proxy tab shows a loading message instead of a blank screen while it loads\n- The sign in page no longer fails on PostgreSQL when the link has no valid route\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -5982,6 +6877,38 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Samba/releases/download/v1.1.0/samba-1.1.0.tmxplug",
+          "sha256": "0f230f23801e25272cf8c3ec31e2106db5071242d3e416af62d5d89d0c216748",
+          "signature": "fy+bWOfdbcVkHGEZUaeuNIIgBH1kyTovnpMRRhNTxZkSfHHaxwxAqgreGrCbhLom1QKF1WE3Doa09Xn/sh+gCQ==",
+          "size": 323914,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Samba/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Samba/releases/download/v1.1.0/samba-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:30:19.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "RYlVmg8TMXaT3jO5LoTXjbh0MRYHhsk3LBW2jaDgkSUmK0IXJBMXbsntng8NKWUt2EpJM1DmrEndX6uUHca/DA=="
+            }
+          ]
+        },
+        {
           "version": "1.0.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Samba/releases/download/v1.0.1/samba-1.0.1.tmxplug",
@@ -6002,8 +6929,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Samba/releases/tag/v1.0.1",
-          "notes": "### Added\n\n- Start, stop, restart and reload Samba through Termix actions, list shares across hosts and see whether Samba runs as a status tile\n- Dashboard card with Samba state, shares and sessions on every host\n- Shares panel beside SSH terminals\n\n### Fixed\n\n- Notes at the top of the tab no longer squeeze their text to one word per line\n- Every view in the tab shows a loading message instead of a blank screen while it loads\n- The Back button in a group's members stays pinned at the bottom\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-08T19:51:59.000Z",
+          "notes": "### Added\n\n- Start, stop, restart and reload Samba through Termix actions, list shares across hosts and see whether Samba runs as a status tile\n- Dashboard card with Samba state, shares and sessions on every host\n- Shares panel beside SSH terminals\n\n### Fixed\n\n- Notes at the top of the tab no longer squeeze their text to one word per line\n- Every view in the tab shows a loading message instead of a blank screen while it loads\n- The Back button in a group's members stays pinned at the bottom\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -6083,8 +7010,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.1.2",
-          "notes": "### Fixed\n\n- Vault KV v1 references work with a token that can only read the v1 path",
           "publishedAt": "2026-11-09T01:35:38.000Z",
+          "notes": "### Fixed\n\n- Vault KV v1 references work with a token that can only read the v1 path",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -6242,6 +7169,41 @@
             }
           ]
         }
+      ],
+      "gated": [
+        {
+          "version": "1.1.3",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.1.3/secret-sources-1.1.3.tmxplug",
+          "sha256": "ab0b4102b0ec1c301036c5d734e36cc5b502c18648ab3dc0b96848874611ea12",
+          "signature": "QzNq9zu9tV18jforLVvQDJMZh6/phDL3pnbiMlWHZ+VmXYoIddyO7yAOlHYFaufOP5JrntIiY8vzRjOPtaEdAg==",
+          "size": 149440,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.1.3",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n\n### Fixed\n\n- The API docs list the path parameters and answers of every route",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.1.3/secret-sources-1.1.3.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:44.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "y/UADEXZBNxW37pE1fUxZU+B+TMWbiA09UfktOHUCjwVInkimcrB1iv+hUBzIHfUoyyVqOeEKNMLdxQapHIKBA=="
+            }
+          ]
+        }
       ]
     },
     {
@@ -6252,6 +7214,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Security-Center",
       "icon": "ShieldCheck",
+      "video": "https://www.youtube.com/watch?v=nU7OAmv72s8",
       "features": [
         "Inventory of authorized keys, host keys and private keys on every host",
         "Findings for weak or old keys, unprotected private keys, loose permissions and risky sshd settings",
@@ -6270,9 +7233,49 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=nU7OAmv72s8",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Security-Center/releases/download/v1.1.0/security-center-1.1.0.tmxplug",
+          "sha256": "5d4b6493bd0f6362eb06e153c15a6ea54396509a414b74d812851cbc9f795f45",
+          "signature": "VB6hxHx6xDeeZplL/UtRffWgRICUDuoqRMHlPc2MDFVS5xW6jUlL7WYP12Rg1VEh9KBF5RhYFM0ZKwXlVl1hAg==",
+          "size": 353201,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "credentials:write",
+            "ssh:connect",
+            "network:serve",
+            "network:outbound",
+            "db:own",
+            "kv:own",
+            "files:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Security-Center/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Security-Center/releases/download/v1.1.0/security-center-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:13.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "NYU407Dx5/1SRi8Z96WQZ8ZS4yhXc/JouVtRJyEATR5YwFENJrxu9tbmSCy1d1+2VTik87XkrySTlFnQf9KvDA=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -6302,8 +7305,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Security-Center/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A Security tab for each host that audits SSH keys and scans packages for known vulnerabilities over SSH\n- Inventory of authorized keys, host keys and private keys, with type, size, fingerprint and options\n- Findings for DSA and small RSA keys, keys without a passphrase, loose permissions, unknown keys and risky sshd settings, with a score for each host\n- Rotate the login key Termix uses for a host, with a login check before the old key is removed\n- Remove a key from a host by fingerprint, and make new host keys\n- Vulnerability scan with OSV for Debian, Ubuntu, Alpine, Rocky Linux and AlmaLinux, with severity, fixed versions and the CISA known exploited flag\n- Ignore an advisory for a host\n- Alerts for new critical findings, critical vulnerabilities with a fix and known exploited vulnerabilities\n- A dashboard card, signals and events for Operations and Automations\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T02:02:12.000Z",
+          "notes": "### Added\n\n- A Security tab for each host that audits SSH keys and scans packages for known vulnerabilities over SSH\n- Inventory of authorized keys, host keys and private keys, with type, size, fingerprint and options\n- Findings for DSA and small RSA keys, keys without a passphrase, loose permissions, unknown keys and risky sshd settings, with a score for each host\n- Rotate the login key Termix uses for a host, with a login check before the old key is removed\n- Remove a key from a host by fingerprint, and make new host keys\n- Vulnerability scan with OSV for Debian, Ubuntu, Alpine, Rocky Linux and AlmaLinux, with severity, fixed versions and the CISA known exploited flag\n- Ignore an advisory for a host\n- Alerts for new critical findings, critical vulnerabilities with a fix and known exploited vulnerabilities\n- A dashboard card, signals and events for Operations and Automations\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -6450,6 +7453,41 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.1.3",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/download/v1.1.3/service-manager-1.1.3.tmxplug",
+          "sha256": "f8343798c01edeaad53bf3fe81c82a67932160723b49490b79369ff76e6c1e98",
+          "signature": "c1fgkp/aSVSVcxtj8GvCFo7Uu3ADD9B3D3lB8kKT/HAQ/6JSvu1lcDydBMSbI/RiJy9o1WIHBi5F2FGA18oEDg==",
+          "size": 441573,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/tag/v1.1.3",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n\n### Fixed\n\n- Unit editor Verify button now matches the Save button size",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/download/v1.1.3/service-manager-1.1.3.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:30:19.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "yFf+C+OcknOJ3WKtU/nEew5R9ZKhVQeW1+xZx1eTeE7s7C2hRYpoWtKoPpgbakwMyerJjvlrx6RJ+ZSpU8/+Dg=="
+            }
+          ]
+        },
+        {
           "version": "1.1.2",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/download/v1.1.2/service-manager-1.1.2.tmxplug",
@@ -6472,8 +7510,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/tag/v1.1.2",
-          "notes": "### Added\n\n- Services, Timers and Logs cards in Host Metrics, which replace the cards it used to ship\n- Start, stop, restart and the other service actions work from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Failed services show as a status tile on the dashboard and host page\n\n### Changed\n\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Notes at the top of the tab no longer squeeze their text to one word per line\n- The services list scrolls with the whole tab, so a note above it no longer shrinks the list on short windows\n- The back buttons in the new service form, unit details and unit editor are full size like everywhere else",
           "publishedAt": "2026-11-09T01:41:40.000Z",
+          "notes": "### Added\n\n- Services, Timers and Logs cards in Host Metrics, which replace the cards it used to ship\n- Start, stop, restart and the other service actions work from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Failed services show as a status tile on the dashboard and host page\n\n### Changed\n\n- Pages use the Termix tile look, with lines between sections instead of separate boxes\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Notes at the top of the tab no longer squeeze their text to one word per line\n- The services list scrolls with the whole tab, so a note above it no longer shrinks the list on short windows\n- The back buttons in the new service form, unit details and unit editor are full size like everywhere else",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -6604,7 +7642,8 @@
         "operations",
         "permissions",
         "settings",
-        "tabs"
+        "tabs",
+        "uses"
       ],
       "versions": [
         {
@@ -6760,6 +7799,43 @@
       ],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.2.1/session-recording-1.2.1.tmxplug",
+          "sha256": "a4081f1ac4187a4f2b5d3c4781b1d379fb5df81a52f8c7ef9f588b5175f0a4d9",
+          "signature": "z7D5rTo0vPBXParELenAqNQHOJFh5N/3XAHsIX5krkz2diIx/SbS8UusaRHNe5K+QFsr7fT0sRv+OhrjBgAjCQ==",
+          "size": 963611,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "files:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "db:core-refs",
+            "operations:provide",
+            "secrets:own",
+            "notify:send",
+            "kv:own"
+          ],
+          "engine": {
+            "api": "^2.7.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.2.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Remote desktop recordings play in Remote Desktop's own frame (needs Termix 26.11.2)\n- The settings button in the Session Logs panel opens the Session Recording page in Settings\n\n### Fixed\n\n- The API docs list the path parameters and answers of every route",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.2.1/session-recording-1.2.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:49.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "GxSKTOV69pBr+tblmIYEjLoGpDZl3CY9bQKwX4DPW4xqrhROOMnGn5OrGyn1llMZbzbB2swz515z0047b/iiCQ=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.2.0/session-recording-1.2.0.tmxplug",
@@ -6784,8 +7860,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- List a host's recordings through Termix actions, so they show on the host page\n- Recording storage tile and a recordings list on the host page, open to the assistant and MCP\n- Admins can make recording required on every host or only on privileged ones. Users can't stop a required recording\n- New recordings are encrypted on disk, and each one keeps a fingerprint you can check for changes\n- Auditors, with the new Audit every session permission, see everyone's recordings and who opened each one\n- Every time a recording is watched or downloaded it goes to the audit log, and auditors can get an alert\n- Put a recording on hold so it is never deleted\n- Live tab: auditors see every open SSH and remote desktop session, watch it read only and end it\n- Rules tab: alert auditors, or end the session, when a typed or printed line matches a rule. Starter rules come turned off\n- A host setting to put the time in front of each line of a text download\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Settings use the Termix tile look\n- Admins can delete any recording, not only their own\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-09T01:56:30.000Z",
+          "notes": "### Added\n\n- List a host's recordings through Termix actions, so they show on the host page\n- Recording storage tile and a recordings list on the host page, open to the assistant and MCP\n- Admins can make recording required on every host or only on privileged ones. Users can't stop a required recording\n- New recordings are encrypted on disk, and each one keeps a fingerprint you can check for changes\n- Auditors, with the new Audit every session permission, see everyone's recordings and who opened each one\n- Every time a recording is watched or downloaded it goes to the audit log, and auditors can get an alert\n- Put a recording on hold so it is never deleted\n- Live tab: auditors see every open SSH and remote desktop session, watch it read only and end it\n- Rules tab: alert auditors, or end the session, when a typed or printed line matches a rule. Starter rules come turned off\n- A host setting to put the time in front of each line of a text download\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Settings use the Termix tile look\n- Admins can delete any recording, not only their own\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -7857,6 +8933,39 @@
       ],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.2.0/sso-1.2.0.tmxplug",
+          "sha256": "34b7d355c8f8ac6154f4dd661931a93ab2ede3ecfcd1b0b7f9a91878fff63821",
+          "signature": "PDLxMp4JGstXN4PDtTCRV57vmewrl05tbtcRAQ8xuWngFNwOf4LXioyjOKTw2oV2HxBFFRkFrCa6IVZdlvlGAA==",
+          "size": 283838,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "network:outbound"
+          ],
+          "engine": {
+            "api": "^2.8.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- On Termix 26.11.2 and later the sign in buttons are drawn by Termix itself, and the settings screens run in a sandboxed frame\n- Linking an account opens the provider in a new tab, and the linked accounts list shows the result when you come back",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.2.0/sso-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:51.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "9hy5wwz/RM7K5sx/HaylZNtokeuRQWylWb1ARc/DTvGIyEXUfB0yjFQ+cnwhbJtgN2MQS4dThm1Pqf/BcvbpCA=="
+            }
+          ]
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.1.0/sso-1.1.0.tmxplug",
@@ -7876,8 +8985,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Link a single sign-on account to your existing Termix account in Settings, Security, and unlink it again. An admin setting turns this off (#4)\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "publishedAt": "2026-11-09T01:33:54.000Z",
+          "notes": "### Added\n\n- Link a single sign-on account to your existing Termix account in Settings, Security, and unlink it again. An admin setting turns this off (#4)\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -7999,6 +9108,39 @@
       ],
       "gated": [
         {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/download/v1.1.0/step-ca-1.1.0.tmxplug",
+          "sha256": "e17a1924983f369e342112d55ad8f93b40bcbd7ecb8d3a41cfc0745506590475",
+          "signature": "9/kGLIRujxlkmxiaRPw7/47GpbPibnLjYNzPynLEb55JsFrnImiX2G/zQRpQcIdGzdMRjjUDCww56SJBnoYjDw==",
+          "size": 134838,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "kv:own"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Several Termix servers share sign in state through their shared database, so Redis is no longer needed\n- Terminals load its sign in part only for hosts that use it or go through a jump host, so they open faster and use less memory",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/download/v1.1.0/step-ca-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:47.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "nQtTnf/i77bum0Yba+Wh3xebLfrVesf1RD8D8ViUksEKD/30bUu2o7nbLwdGz9nhLzmlLTHhr4gR23KCyZQpDw=="
+            }
+          ]
+        },
+        {
           "version": "1.0.3",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/download/v1.0.3/step-ca-1.0.3.tmxplug",
@@ -8018,8 +9160,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- The page you land on after signing in now matches the Termix look and follows your theme and language\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable",
           "publishedAt": "2026-11-09T02:00:14.000Z",
+          "notes": "### Changed\n\n- The page you land on after signing in now matches the Termix look and follows your theme and language\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8037,6 +9179,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Storage-Health",
       "icon": "HardDrive",
+      "video": "https://www.youtube.com/watch?v=M9sktdi3dkw",
       "features": [
         "SMART and NVMe health, temperature, wear and bad sectors for every drive",
         "ZFS pools, mdadm arrays, btrfs filesystems and LVM thin pools",
@@ -8055,9 +9198,45 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=M9sktdi3dkw",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Storage-Health/releases/download/v1.1.0/storage-health-1.1.0.tmxplug",
+          "sha256": "1cefa70ab3fab7c25eeb199b3ff33c21b604824da910cec27165a6e861567d41",
+          "signature": "qdHlqXA3UJhJRhYqZXuWJ3e3EGrgIlRZ5+2ee232+65HSE5PBpTTGe1H5VtW+49XP6OtzYCyZp+SwkeQnM83Bw==",
+          "size": 268965,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "kv:own",
+            "files:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Storage-Health/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Storage-Health/releases/download/v1.1.0/storage-health-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:57.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "OJFkEcw4iW7CSdrK2OinTfiXhqQuTA0Hxs0IdIjQGJKyDzWWQNp8gbDtfDsZsRYsnL5onEczDSKPmAb78v0cDA=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -8083,8 +9262,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Storage-Health/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A Storage tab for each host that reads drive, pool and array health over SSH\n- SMART and NVMe health, temperature, wear, power on time and bad sector counts\n- ZFS pools, mdadm arrays, btrfs filesystems and LVM thin pools\n- Charts for the last 24 hours, 7 days and 30 days\n- A log of problems, self tests and scrubs for every host\n- Alerts when a drive fails or has SMART warnings, runs hot or wears out, a pool or array degrades, or a thin pool fills up\n- Start and stop SMART self tests and scrubs, with a check before a scrub starts\n- Drives, pools and arrays show in the All hosts table, and health and temperature show as status tiles\n- Events for Automations and Operations when storage degrades, recovers, a drive fails or an array degrades\n- A storage card in Host Metrics and a dashboard card with every watched host, worst first\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T02:09:15.000Z",
+          "notes": "### Added\n\n- A Storage tab for each host that reads drive, pool and array health over SSH\n- SMART and NVMe health, temperature, wear, power on time and bad sector counts\n- ZFS pools, mdadm arrays, btrfs filesystems and LVM thin pools\n- Charts for the last 24 hours, 7 days and 30 days\n- A log of problems, self tests and scrubs for every host\n- Alerts when a drive fails or has SMART warnings, runs hot or wears out, a pool or array degrades, or a thin pool fills up\n- Start and stop SMART self tests and scrubs, with a check before a scrub starts\n- Drives, pools and arrays show in the All hosts table, and health and temperature show as status tiles\n- Events for Automations and Operations when storage degrades, recovers, a drive fails or an array degrades\n- A storage card in Host Metrics and a dashboard card with every watched host, worst first\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8122,6 +9301,47 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.3.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Sync/releases/download/v1.3.0/sync-1.3.0.tmxplug",
+          "sha256": "503820a2a002f809f0ceedeceb3723a80579fcd26c6069a6de1e9c02d99ff786",
+          "signature": "nrA1sAlR5h8CKY3/nbfOE0Hpz4ry03jVaQeX3sOWOdvsruBaBvoGZ+rfC5tXEfS1pc32L9zC74R7gCsYZsMuDw==",
+          "size": 475558,
+          "capabilities": [
+            "sync:provide",
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "hosts:lock",
+            "ssh:transport",
+            "users:impersonate",
+            "network:outbound",
+            "network:serve",
+            "kv:own",
+            "secrets:own",
+            "ui:surface",
+            "operations:provide",
+            "notify:send",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.6.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Sync/releases/tag/v1.3.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The web account switcher starts with an empty list once after this update. Sign in to your other accounts again to add them back\n- The status dot on hosts mirrored from another site is a plain value the host list draws (needs Termix 26.11.2)\n- The account switcher sits flush against the app rail, has cleaner spacing and always lists the account you are signed in to",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Sync/releases/download/v1.3.0/sync-1.3.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:47:03.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "E0lg98Sv/gDWgaBXFnHgZ7UQO/eVTpcbUZAp1rRuy+YTj6O8ElxlSpoBiVRP25ZkKSdY8O7O3j/Yx3ur8D4XDg=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Sync/releases/download/v1.2.0/sync-1.2.0.tmxplug",
@@ -8149,8 +9369,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Sync/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Refresh a remote site through Termix actions and see unreachable sites as a status tile\n- A dashboard card with reachable sites and their hosts\n- An alert when a remote site stops answering and when it is back, with an admin setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-09T02:03:56.000Z",
+          "notes": "### Added\n\n- Refresh a remote site through Termix actions and see unreachable sites as a status tile\n- A dashboard card with reachable sites and their hosts\n- An alert when a remote site stops answering and when it is back, with an admin setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8491,12 +9711,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:58:05.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8523,11 +9743,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:06.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- Translated into every supported language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8554,15 +9774,51 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:20.000Z",
-          "notes": "### Added\n\n- First release\n- Sends a small anonymous report once a day\n- Never sends usernames, hostnames or credentials\n- Choose what the report includes, or turn it off\n- Preview the exact report before it is sent\n- ENABLE_TELEMETRY locks the setting from the environment",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Added\n\n- First release\n- Sends a small anonymous report once a day\n- Never sends usernames, hostnames or credentials\n- Choose what the report includes, or turn it off\n- Preview the exact report before it is sent\n- ENABLE_TELEMETRY locks the setting from the environment",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
               "sig": "/mba/EZwQfxMT9RqJ0VjKGirWCzgAhAFp/NSQcMQfK7jqxM6pRANMZCQx8q7aER3JRzJDh/brHY29ZRvAcBSAw=="
+            }
+          ]
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/download/v1.1.0/telemetry-1.1.0.tmxplug",
+          "sha256": "5643a9ae5100f6551faf9c1a4d62043ecd9006325d21b6ea4081f0aa84586a9b",
+          "signature": "MQ24K1UTdBRq8a5+Wlc4hOpwpk/B8GPD4HdQ/S/hYBE1h7uwYa7N0aeeMLlVlOshVEddpfzZKC3uQUwkI6DfCg==",
+          "size": 104941,
+          "capabilities": [
+            "db:core-refs",
+            "network:outbound",
+            "network:serve",
+            "events:core",
+            "db:own",
+            "kv:own",
+            "plugins:read",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/download/v1.1.0/telemetry-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:40.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "k7J/5qMC9eBG1QEKH6Bj5JVlHMP1dFC3n9JFf7/zZ2Nll9fVxMZiVZmS1UJN63w5P1C0s5PEd3zzmrzcZyjoCw=="
             }
           ]
         }
@@ -8915,6 +10171,39 @@
       ],
       "gated": [
         {
+          "version": "1.3.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.3.0/tmux-monitor-1.3.0.tmxplug",
+          "sha256": "1a3d8b8a434d9a86d6d0ced4311fb69881231cbad4295050669bf8cbd862f2d5",
+          "signature": "q+Hd5nCxaGolJ38twSQb9lD7mI2GA3E2YhIsSbBDgn0ExureSFkRpVCtC8slLDKEY+u9PNbJN8ZWWQiOvVlgDw==",
+          "size": 332647,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.7.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.3.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The terminal for a tmux session draws in SSH Terminal's own frame (needs Termix 26.11.2)\n\n### Fixed\n\n- The session list scrolls when it is taller than the panel\n- Auto-Tmux starts on macOS hosts with mouse support on",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.3.0/tmux-monitor-1.3.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:11.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "zVqwV8yuEIpJkHhnF4pnfleRVqX6+1WfYkOZC5dVHcfWC/5saHJCIXRZfLSxzDhdfj7AURFILe4f8MzJnma5CQ=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.2.0/tmux-monitor-1.2.0.tmxplug",
@@ -8935,8 +10224,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- tmux sessions across hosts in the All hosts table, and ending a session through Termix actions\n- Opens inside the host page, set to that host\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Empty views use the same look as the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-09T02:07:29.000Z",
+          "notes": "### Added\n\n- tmux sessions across hosts in the All hosts table, and ending a session through Termix actions\n- Opens inside the host page, set to that host\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Empty views use the same look as the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -9801,6 +11090,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Virtual-Machines",
       "icon": "MonitorCog",
+      "video": "https://www.youtube.com/watch?v=faBbbhJbQ8A",
       "features": [
         "See and control every VM on your KVM hosts, or across all of them at once",
         "Make VMs from a cloud image or an ISO, with cloud-init for the login",
@@ -9819,11 +11109,47 @@
         "operations",
         "permissions",
         "settings",
-        "tabs"
+        "tabs",
+        "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=faBbbhJbQ8A",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Virtual-Machines/releases/download/v1.1.0/virtual-machines-1.1.0.tmxplug",
+          "sha256": "82c736c5eebcb5b5966110840437ca7b2d04ba0d9eb2a95912149276da6bdf5f",
+          "signature": "jGBGr1yeD/5HdJhppdOCfrwGSBvcMAxY4bLDNBXd2ZM08DcsLhk1eqyCSkH9bf1iXA+Asm4/mGib/9MGalYuCg==",
+          "size": 1309273,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.7.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Virtual-Machines/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The VM console draws in Remote Desktop's own frame (needs Termix 26.11.2)\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Virtual-Machines/releases/download/v1.1.0/virtual-machines-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:23.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "7NwsPcZRSlom5mbF+nefQZeFd4e7AWL1GbDFfJ1Z1X3MoOVjanbd18FsHbDObSz5tUZDXkfC1/FUXtaYc/pCDg=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -9848,8 +11174,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Virtual-Machines/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- See and control KVM virtual machines on your Linux hosts over SSH with libvirt\n- New VMs from a cloud image, an ISO or an empty disk, with cloud-init for the login\n- Change CPUs, memory, disks, network cards and the raw XML\n- Snapshots, clones and autostart\n- Storage pools, volumes, downloads and virtual networks\n- A graphical console through Remote Desktop and a serial console\n- Install libvirt from Termix\n- Jobs that run on the host and survive a Termix restart\n- Alerts when a VM crashes or stops, or a storage pool fills up\n- All VMs tab, dashboard card, homepage widget, terminal panel and host page tile\n- Termix actions for Operations Center, Automations, Fleets, the CLI, the assistant and MCP",
           "publishedAt": "2026-11-09T03:09:20.000Z",
+          "notes": "### Added\n\n- See and control KVM virtual machines on your Linux hosts over SSH with libvirt\n- New VMs from a cloud image, an ISO or an empty disk, with cloud-init for the login\n- Change CPUs, memory, disks, network cards and the raw XML\n- Snapshots, clones and autostart\n- Storage pools, volumes, downloads and virtual networks\n- A graphical console through Remote Desktop and a serial console\n- Install libvirt from Termix\n- Jobs that run on the host and survive a Termix restart\n- Alerts when a VM crashes or stops, or a storage pool fills up\n- All VMs tab, dashboard card, homepage widget, terminal panel and host page tile\n- Termix actions for Operations Center, Automations, Fleets, the CLI, the assistant and MCP",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -10357,6 +11683,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Web-Servers",
       "icon": "Earth",
+      "video": "https://www.youtube.com/watch?v=ooxMjv8nK7Y",
       "features": [
         "See nginx, Apache and Caddy on a host with their version and state",
         "List every site with its domains, ports, HTTPS and certificate expiry",
@@ -10378,9 +11705,44 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=ooxMjv8nK7Y",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Web-Servers/releases/download/v1.1.0/web-servers-1.1.0.tmxplug",
+          "sha256": "b968beb19705f81b82009518cd592c281dc37dfc292c7a8df4a8dd2ec40744dd",
+          "signature": "8QBfOvmvLiEEO1gtQG49VGOZCL6FXB1cpD3BOK2ouz1IMOqkSM9EqTRNK0Ajy68VYd0+BUD/ZdpgnVkru+4SCg==",
+          "size": 387065,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Servers/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Web-Servers/releases/download/v1.1.0/web-servers-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:53:29.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "BCkiHYN1mFE/vbKt/nTKPV9iHQAgxRxAkACVSXJAHA9ALaf0+a5U74jWRqyXQyVe2MVf1LWzk536EYEHBeONCg=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -10405,8 +11767,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Servers/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- See nginx, Apache and Caddy on a host with their version and state\n- List every site with its domains, ports, HTTPS and certificate expiry\n- Add static, reverse proxy, PHP and redirect sites from a form\n- Edit any config file, with a test before every save and backups to go back to\n- Turn sites on and off, start, stop, reload and restart the server\n- Get a Let's Encrypt certificate for a site with certbot\n- Read and follow access and error logs, with counts by status, path and client\n- Install nginx, Apache, Caddy or certbot\n- Get an alert when a web server stops\n- A dashboard card, a panel beside the terminal and a Web Servers card in Host Metrics\n- Reload, restart, test and turn sites on and off through Termix actions, and see web server state as a status tile",
           "publishedAt": "2026-11-09T03:37:49.000Z",
+          "notes": "### Added\n\n- See nginx, Apache and Caddy on a host with their version and state\n- List every site with its domains, ports, HTTPS and certificate expiry\n- Add static, reverse proxy, PHP and redirect sites from a form\n- Edit any config file, with a test before every save and backups to go back to\n- Turn sites on and off, start, stop, reload and restart the server\n- Get a Let's Encrypt certificate for a site with certbot\n- Read and follow access and error logs, with counts by status, path and client\n- Install nginx, Apache, Caddy or certbot\n- Get an alert when a web server stops\n- A dashboard card, a panel beside the terminal and a Web Servers card in Host Metrics\n- Reload, restart, test and turn sites on and off through Termix actions, and see web server state as a status tile",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
