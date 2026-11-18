@@ -1,0 +1,10 @@
+{
+  "id": "audit-tools",
+  "versions": {
+    "1.2.0": {
+      "sha256": "b9d6239a1783e00bd3e18941becfe9b4bd34034995b0d84e226dab25c3e78735",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44260489600",
+      "at": "2026-11-18T07:39:19.890Z"
+    }
+  }
+}
