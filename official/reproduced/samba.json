@@ -1,0 +1,10 @@
+{
+  "id": "samba",
+  "versions": {
+    "1.1.0": {
+      "sha256": "0f230f23801e25272cf8c3ec31e2106db5071242d3e416af62d5d89d0c216748",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T07:00:19.588Z"
+    }
+  }
+}
