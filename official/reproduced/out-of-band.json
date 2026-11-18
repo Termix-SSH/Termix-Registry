@@ -1,0 +1,10 @@
+{
+  "id": "out-of-band",
+  "versions": {
+    "1.1.0": {
+      "sha256": "d09f0c5eb7d1fc3c6896ef242406838a40d6cd27c3728730df445ccd36b5607d",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:49:40.664Z"
+    }
+  }
+}
