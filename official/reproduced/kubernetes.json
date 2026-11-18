@@ -1,0 +1,10 @@
+{
+  "id": "kubernetes",
+  "versions": {
+    "1.1.1": {
+      "sha256": "c2be13b837639ec34954813c8eae814674a4bb49ce88feeefeb692db77992f56",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:59:15.597Z"
+    }
+  }
+}
