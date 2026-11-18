@@ -1,0 +1,10 @@
+{
+  "id": "git",
+  "versions": {
+    "1.1.0": {
+      "sha256": "a0e73b3c8746f702ff74e086d912215c1505e5e70dc9f2b6feca883253132f0c",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44268176368",
+      "at": "2026-11-18T09:25:43.822Z"
+    }
+  }
+}
