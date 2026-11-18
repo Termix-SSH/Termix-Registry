@@ -1,0 +1,10 @@
+{
+  "id": "user-manager",
+  "versions": {
+    "1.1.0": {
+      "sha256": "0639aba4836778f96d4ccb07d0fde0f09c937f0e73830f7c0d04462f99786e87",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261935083",
+      "at": "2026-11-18T08:26:09.298Z"
+    }
+  }
+}
