@@ -1,0 +1,10 @@
+{
+  "id": "virtual-machines",
+  "versions": {
+    "1.1.0": {
+      "sha256": "82c736c5eebcb5b5966110840437ca7b2d04ba0d9eb2a95912149276da6bdf5f",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:59:36.144Z"
+    }
+  }
+}
