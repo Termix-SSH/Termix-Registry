@@ -1,0 +1,10 @@
+{
+  "id": "ssh-terminal",
+  "versions": {
+    "1.4.1": {
+      "sha256": "3b38286520fc730bda5134b1a69a2d521b74f4c89421b46e49116401e57ea63a",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261415569",
+      "at": "2026-11-18T08:24:28.920Z"
+    }
+  }
+}
