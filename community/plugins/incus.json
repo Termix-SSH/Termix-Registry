@@ -5,6 +5,10 @@
   "maintainers": ["deconstructionalism"],
   "versions": [
     {
+      "version": "0.3.0",
+      "sha256": "369b4b2c495511633439a0571f08085cedda287f91edd2e139a6f00bb5e7dada"
+    },
+    {
       "version": "0.2.0",
       "sha256": "d75c38bd69075fd43cd38e8c56dff650793101e0e15b0de36ab68260036bf8fd"
     }
