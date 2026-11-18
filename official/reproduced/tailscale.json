@@ -1,0 +1,10 @@
+{
+  "id": "tailscale",
+  "versions": {
+    "1.3.0": {
+      "sha256": "500fec6ef2a8342c330467bb7eec51b6dcb9ad966d64f422ba4da7606e7fd852",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261652114",
+      "at": "2026-11-18T08:25:19.095Z"
+    }
+  }
+}
