@@ -1,0 +1,10 @@
+{
+  "id": "databases",
+  "versions": {
+    "1.3.0": {
+      "sha256": "dd544f3d2cea62078acceb038567b6048fdd5a979e28505be8065cfa5bcc6323",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:46:16.390Z"
+    }
+  }
+}
