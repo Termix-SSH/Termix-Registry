@@ -1,0 +1,10 @@
+{
+  "id": "webauthn",
+  "versions": {
+    "1.4.0": {
+      "sha256": "ecde6ffcdf61dc7c6da9889d394b60a576f704133ee361d6cc4acf5bfaa216ae",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44262228734",
+      "at": "2026-11-18T08:26:26.559Z"
+    }
+  }
+}
