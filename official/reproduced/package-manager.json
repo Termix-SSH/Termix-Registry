@@ -1,0 +1,10 @@
+{
+  "id": "package-manager",
+  "versions": {
+    "1.1.0": {
+      "sha256": "a34a1369bf5dd9b9718a467aa4425efb9fd65334f2d395c5a7db15c9f4769510",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261355420",
+      "at": "2026-11-18T08:24:27.037Z"
+    }
+  }
+}
