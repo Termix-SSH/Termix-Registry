@@ -1,0 +1,10 @@
+{
+  "id": "step-ca",
+  "versions": {
+    "1.1.0": {
+      "sha256": "e17a1924983f369e342112d55ad8f93b40bcbd7ecb8d3a41cfc0745506590475",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:49:18.814Z"
+    }
+  }
+}
