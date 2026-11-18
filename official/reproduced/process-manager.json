@@ -1,0 +1,10 @@
+{
+  "id": "process-manager",
+  "versions": {
+    "1.1.0": {
+      "sha256": "80b9c59f9649ed02b4e2c0e206cbd05a8b0e4a42ae9ec47eae458e3040ee6e76",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44258144643",
+      "at": "2026-11-18T07:25:28.103Z"
+    }
+  }
+}
