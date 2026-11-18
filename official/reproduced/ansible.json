@@ -1,0 +1,10 @@
+{
+  "id": "ansible",
+  "versions": {
+    "1.1.0": {
+      "sha256": "e35969f3c729128519c26eee1e6e192f51e48073d8e6380c5be2e73ca8240c1a",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44268056364",
+      "at": "2026-11-18T09:24:31.943Z"
+    }
+  }
+}
