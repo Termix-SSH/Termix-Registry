@@ -1,0 +1,10 @@
+{
+  "id": "backups",
+  "versions": {
+    "1.1.0": {
+      "sha256": "76efde1a6d2e63d13582c456ebc22f1214fd1d3195d026689dfe3487d8ffb085",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251016476",
+      "at": "2026-11-18T06:57:26.646Z"
+    }
+  }
+}
