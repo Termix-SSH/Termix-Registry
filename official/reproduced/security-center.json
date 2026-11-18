@@ -1,0 +1,10 @@
+{
+  "id": "security-center",
+  "versions": {
+    "1.1.0": {
+      "sha256": "5d4b6493bd0f6362eb06e153c15a6ea54396509a414b74d812851cbc9f795f45",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:58:12.128Z"
+    }
+  }
+}
