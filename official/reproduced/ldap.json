@@ -1,0 +1,10 @@
+{
+  "id": "ldap",
+  "versions": {
+    "1.1.0": {
+      "sha256": "f457c1c176bbd08cc7e8106738ddb6bddfd87bb4210096c895b689e716bcbf75",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:51:50.154Z"
+    }
+  }
+}
