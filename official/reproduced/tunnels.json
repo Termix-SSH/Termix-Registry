@@ -1,0 +1,10 @@
+{
+  "id": "tunnels",
+  "versions": {
+    "1.4.0": {
+      "sha256": "d73f044d1649a84f0d4f4458dd6c1e479798db36f2cfea0bf42637dbffdeaea2",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261765658",
+      "at": "2026-11-18T08:25:43.740Z"
+    }
+  }
+}
