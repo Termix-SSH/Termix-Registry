@@ -120,6 +120,7 @@ jobs:
       tag: ${{ steps.version.outputs.tag }}
       base: ${{ steps.version.outputs.base }}
       locales: ${{ steps.version.outputs.locales }}
+      node: ${{ steps.node.outputs.version }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -138,6 +139,12 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: plugin/.nvmrc
+
+      # The rebuild must use this exact Node: a zlib change between patch
+      # releases changes the packed file.
+      - name: Node version
+        id: node
+        run: echo "version=$(node -p process.versions.node)" >> "$GITHUB_OUTPUT"
 
       - name: Registry tools
         working-directory: registry
@@ -533,6 +540,7 @@ jobs:
     with:
       repo: ${{ inputs.repo }}
       tag: ${{ needs.build.outputs.tag }}
+      node: ${{ needs.build.outputs.node }}
     permissions:
       contents: read
     secrets:

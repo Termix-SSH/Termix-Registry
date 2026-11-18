@@ -22,6 +22,10 @@ on:
         description: "Record an official release once it matches"
         type: boolean
         default: true
+      node:
+        description: "Exact Node version the release was built with"
+        type: string
+        default: ""
     secrets:
       CI_APP_PRIVATE_KEY:
         required: false
@@ -35,6 +39,11 @@ on:
         description: "Release tag (v1.2.0)"
         required: true
         type: string
+      node:
+        description: "Exact Node version the release was built with (empty uses the plugin .nvmrc)"
+        required: false
+        type: string
+        default: ""
 
 permissions: {}
 
@@ -65,8 +74,10 @@ jobs:
           path: registry
           persist-credentials: false
 
+      # node-version wins over the file when it is set.
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
+          node-version: ${{ inputs.node }}
           node-version-file: plugin/.nvmrc
 
       - name: Registry tools
