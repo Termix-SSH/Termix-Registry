@@ -1,0 +1,10 @@
+{
+  "id": "classic-layout",
+  "versions": {
+    "1.1.3": {
+      "sha256": "06f34e3f0905e25862e2722300134a8ec276c25009da064e897cc9b547828737",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44260602333",
+      "at": "2026-11-18T07:40:13.935Z"
+    }
+  }
+}
