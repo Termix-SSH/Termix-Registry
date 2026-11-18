@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18T08:27:06.185Z",
+  "updatedAt": "2026-11-18T09:25:23.447Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -11143,6 +11143,45 @@
       ],
       "gated": [
         {
+          "version": "1.4.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.4.0/tunnels-1.4.0.tmxplug",
+          "sha256": "d73f044d1649a84f0d4f4458dd6c1e479798db36f2cfea0bf42637dbffdeaea2",
+          "signature": "bvYW/M5GrUu525LGKg1sVBzWawwSIeKCDYoRTFciHuLcaKS0MFH0FgI7gE8cFeIDiv07rtwTIgoBgzCdnLB7CQ==",
+          "size": 574491,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs",
+            "desktop:local",
+            "secrets:own",
+            "notify:send",
+            "operations:provide",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.4.0",
+          "notes": "### Added\n\n- Other plugins can add their own sections to the Tunnels page, next to SSH and Gateways\n\n### Changed\n\n- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)\n- Form fields use the same background as the rest of Termix",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.4.0/tunnels-1.4.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:31:59.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "C/PnpVA7rfMXxMZFW1FTD4Efn34YzKPq387qKT4kPmB8Z0t4bWcG5Sk4OOHI7nyL5c7/ftXkM/3vRnxPA3H2Cw=="
+            }
+          ]
+        },
+        {
           "version": "1.3.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.3.0/tunnels-1.3.0.tmxplug",
@@ -11168,8 +11207,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- Tunnels host page tile\n- An alert and a Termix event when a tunnel fails for good, and an event when it is back\n- Tunnels are listed as a resource for Termix actions\n- Connect and disconnect tunnels from Automations, the CLI, the phone app and the command palette through Termix actions\n- Tunnels that are down show as a status tile\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Tunnel and gateway pages use the Termix tile look, with cards edge to edge and lines between them instead of gaps\n- SSH tunnels and gateways are tabs above the search bar\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Add tunnel and the other add buttons no longer have a filled box around them\n- Desktop SOCKS5 tunnels no longer drop the first data a program sends\n- A client tunnel closes its local connection when the target closes, so the next request no longer hangs\n- Tunnels starts again on MySQL, where an index change stopped it from loading\n- The tunnel settings and edit buttons have names for screen readers",
           "publishedAt": "2026-11-09T02:07:53.000Z",
+          "notes": "### Added\n\n- Tunnels host page tile\n- An alert and a Termix event when a tunnel fails for good, and an event when it is back\n- Tunnels are listed as a resource for Termix actions\n- Connect and disconnect tunnels from Automations, the CLI, the phone app and the command palette through Termix actions\n- Tunnels that are down show as a status tile\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- Tunnel and gateway pages use the Termix tile look, with cards edge to edge and lines between them instead of gaps\n- SSH tunnels and gateways are tabs above the search bar\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Add tunnel and the other add buttons no longer have a filled box around them\n- Desktop SOCKS5 tunnels no longer drop the first data a program sends\n- A client tunnel closes its local connection when the target closes, so the next request no longer hangs\n- Tunnels starts again on MySQL, where an index change stopped it from loading\n- The tunnel settings and edit buttons have names for screen readers",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -11351,6 +11390,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-UPS-Manager",
       "icon": "BatteryCharging",
+      "video": "https://www.youtube.com/watch?v=fakAHclIVc4",
       "features": [
         "Read UPS devices through NUT, apcupsd or an SNMP card",
         "Battery charge, runtime, load, voltage and temperature at a glance",
@@ -11369,9 +11409,46 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=fakAHclIVc4",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/download/v1.0.1/ups-manager-1.0.1.tmxplug",
+          "sha256": "4926694f5f9974d072427fd0d4e1f85a7e2e4af57dcaaa339062558d126a471e",
+          "signature": "n3rLAnTXVVpOA5q1a8id5Imwj+r3L5f8h/KDonpIgs1HUw6zy4HgmMDN82OT8ZLi4xRf24NrBpEJLiQBAAi9Dg==",
+          "size": 437586,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "kv:own",
+            "files:own",
+            "secrets:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/tag/v1.0.1",
+          "notes": "### Added\n\n- Live NUT currents, real power and, when turned on, calculated DC power\n- Battery and driver details, and a searchable list of every NUT value\n- Output energy used, in Wh and kWh, with charts for 24 hours, 7 days and 30 days\n- UPS load estimated from output watts and the UPS's real power rating when the device doesn't report it\n- Overview refresh from 1 to 30 seconds\n\n### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n\n### Fixed\n\n- Source editor Test button now matches the Save button size",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/download/v1.0.1/ups-manager-1.0.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:07:45.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "WryE51vUdWXukslt7P2w6IoT8I/9g2AOQb6Xknfpm7y5ggXknlK9BDR6k6KO9AI9yfK1Zr7SESt3A39mXixaDA=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -11398,8 +11475,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-UPS-Manager/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A UPS tab for each host that reads UPS devices through NUT, apcupsd or an SNMP card\n- Battery charge, runtime, load, input and output voltage, temperature and last self test\n- Charts for the last 24 hours, 7 days and 30 days\n- A power event log for every UPS\n- Alerts when power is lost, the battery is low or needs replacing, the UPS is overloaded, a self test fails or the UPS stops answering\n- Start a battery self test, mute the beeper and send other NUT commands, with a check before anything that can cut power\n- UPS devices show in the All hosts table, and power status, charge and runtime show as status tiles\n- A dashboard card with every UPS on your hosts, worst first\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T02:50:31.000Z",
+          "notes": "### Added\n\n- A UPS tab for each host that reads UPS devices through NUT, apcupsd or an SNMP card\n- Battery charge, runtime, load, input and output voltage, temperature and last self test\n- Charts for the last 24 hours, 7 days and 30 days\n- A power event log for every UPS\n- Alerts when power is lost, the battery is low or needs replacing, the UPS is overloaded, a self test fails or the UPS stops answering\n- Start a battery self test, mute the beeper and send other NUT commands, with a check before anything that can cut power\n- UPS devices show in the All hosts table, and power status, charge and runtime show as status tiles\n- A dashboard card with every UPS on your hosts, worst first\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -11417,6 +11494,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Uptime",
       "icon": "HeartPulse",
+      "video": "https://www.youtube.com/watch?v=HGcw-on85C0",
       "features": [
         "Check websites, TCP ports, ping, DNS records and TLS certificates",
         "Watch Termix hosts, Docker containers, systemd units and your own commands over SSH",
@@ -11438,9 +11516,51 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=HGcw-on85C0",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Uptime/releases/download/v1.0.1/uptime-1.0.1.tmxplug",
+          "sha256": "d71b9ba0fe2b0f6500454c6f538373e4e5c0caf9302785b303fa8f2e325c30be",
+          "signature": "Njed7SIYZfgbwHmgQ/vIIojZzn2JXPU/ZdfX6sRisG3ikDXg6PGa/6yyhddkDH/NDt1HtysfrtgT6IsuDlPyAQ==",
+          "size": 494450,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "network:probe",
+            "process:spawn",
+            "db:own",
+            "db:core-refs",
+            "files:own",
+            "secrets:own",
+            "notify:send",
+            "users:impersonate",
+            "events:core",
+            "ui:surface",
+            "operations:provide",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Uptime/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n\n### Fixed\n\n- Refuses private addresses written in IPv4-compatible (`::10.0.0.1`) or NAT64 (`64:ff9b::10.0.0.1`) form\n- Monitor editor Test button now matches the Save button size",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Uptime/releases/download/v1.0.1/uptime-1.0.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:12.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "vS4dZgkvF4McJBqouvncgncyh8c+nyurQdjOqWsXMooP8GKEdwlvdBrGfeBV84/PGgxYApOF4Bp7GW+ZXu19CA=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -11472,8 +11592,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Uptime/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Website, TCP port, ping, DNS record and TLS certificate checks\n- Termix host, Docker container, systemd unit and command checks\n- Check from a host, to reach private networks\n- Push monitors for cron jobs and backup scripts\n- Uptime numbers, response time charts and an incident history\n- Alerts through the Alerts plugin, with reminders and certificate warnings\n- Maintenance windows, one time or weekly\n- Public status pages with notes\n- Share monitors with users and roles\n- A permission for checking private addresses\n- Dashboard cards, a panel beside the terminal and tiles on the host page\n- Actions and events for Automations, Fleets, the CLI, the phone app and the assistant",
           "publishedAt": "2026-11-09T03:00:05.000Z",
+          "notes": "### Added\n\n- Website, TCP port, ping, DNS record and TLS certificate checks\n- Termix host, Docker container, systemd unit and command checks\n- Check from a host, to reach private networks\n- Push monitors for cron jobs and backup scripts\n- Uptime numbers, response time charts and an incident history\n- Alerts through the Alerts plugin, with reminders and certificate warnings\n- Maintenance windows, one time or weekly\n- Public status pages with notes\n- Share monitors with users and roles\n- A permission for checking private addresses\n- Dashboard cards, a panel beside the terminal and tiles on the host page\n- Actions and events for Automations, Fleets, the CLI, the phone app and the assistant",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -11491,6 +11611,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-User-Manager",
       "icon": "Users",
+      "video": "https://www.youtube.com/watch?v=YgjJJy36fYM",
       "features": [
         "See every account on a host with its groups, shell and password state",
         "Create users with a home folder, shell, groups, sudo and a password",
@@ -11507,9 +11628,41 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=YgjJJy36fYM",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-User-Manager/releases/download/v1.1.0/user-manager-1.1.0.tmxplug",
+          "sha256": "0639aba4836778f96d4ccb07d0fde0f09c937f0e73830f7c0d04462f99786e87",
+          "signature": "RBlRLt65iwcJDhQIFnHze0lZhLtLkxs3OTarv5/Jbxk8fuz/L65sRWxiwuGAM883wJ6dOdR6G+8I2qDvL1JFBw==",
+          "size": 257232,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-User-Manager/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-User-Manager/releases/download/v1.1.0/user-manager-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:12.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "MnPuP9UuI7b0DCrGlIctoSr5oWp/hPy0z80g8DZ/XxQzWQwWLXuchWvaZs4XYvf0wBCVZcq/Okqpym0WqiPbBw=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -11532,8 +11685,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-User-Manager/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Lock, unlock and delete users through Termix actions, and see accounts with an empty password as a status tile\n- See every account on a host with its groups, shell and password state\n- Create users with a home folder, shell, groups, sudo and a password\n- Set passwords, lock accounts and make users pick a new password\n- Add and remove the SSH keys a user can log in with\n- Create groups and change who is in them\n- See who is logged in and recent logins\n- A Users card in Host Metrics\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T02:56:46.000Z",
+          "notes": "### Added\n\n- Lock, unlock and delete users through Termix actions, and see accounts with an empty password as a status tile\n- See every account on a host with its groups, shell and password state\n- Create users with a home folder, shell, groups, sudo and a password\n- Set passwords, lock accounts and make users pick a new password\n- Add and remove the SSH keys a user can log in with\n- Create groups and change who is in them\n- See who is logged in and recent logins\n- A Users card in Host Metrics\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -11658,6 +11811,38 @@
       ],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Vault/releases/download/v1.2.0/vault-1.2.0.tmxplug",
+          "sha256": "e712f8ebf392bb3f33b368b03f0b4dfc3c637deef6f55cc7de4610917b86a9db",
+          "signature": "VlKpup2DpQApfc6tjIG4YFGB6ZS0Qcmrm+8lTLYrLXnf9R9UR+XHa5E/bx7ljCPtrKxZiPVLLxYIYGBzZge+BA==",
+          "size": 164984,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Vault/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Terminals load its sign in part only for hosts that use it or go through a jump host, so they open faster and use less memory\n- The terminal sign in looks like the Step CA and OPKSSH ones: an Open Browser to Authenticate button opens the sign in page, instead of a popup that opened by itself\n- Form fields use the same background as the rest of Termix",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Vault/releases/download/v1.2.0/vault-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:54:21.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "UpcjM2rwLiQtWJzpb8Tsk1ibKmOby1dhXotnvw+fIZy0Es9e1gxYy4lmso+CbhVW48UkCVNDxPpTz2Bl5mJDCw=="
+            }
+          ]
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Vault/releases/download/v1.1.0/vault-1.1.0.tmxplug",
@@ -11677,8 +11862,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Vault/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- OpenBao support: pick HashiCorp Vault or OpenBao on each signer profile\n\n### Changed\n\n- Renamed to SSH Certificate Signer\n- The page you land on after signing in now matches the Termix look and follows your theme and language\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable",
           "publishedAt": "2026-11-09T02:25:13.000Z",
+          "notes": "### Added\n\n- OpenBao support: pick HashiCorp Vault or OpenBao on each signer profile\n\n### Changed\n\n- Renamed to SSH Certificate Signer\n- The page you land on after signing in now matches the Termix look and follows your theme and language\n- Needs Termix 26.11.1 or newer\n\n### Fixed\n\n- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -11933,6 +12118,49 @@
       ],
       "gated": [
         {
+          "version": "1.3.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/download/v1.3.0/wake-on-lan-1.3.0.tmxplug",
+          "sha256": "89be7a9105715d945298235f3ee4f3d27e08e76bd1bd2da58533ef48ce277994",
+          "signature": "Iz06RHaeguLavihBYG2OLQTUEI5mtCMh7Ciazwy39Zbd6g/vzKzNsoN4bNAoBk3rLNMY3XhAMLGfY6w5aQuiDA==",
+          "size": 338871,
+          "capabilities": [
+            "credentials:use",
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "kv:own",
+            "network:broadcast",
+            "network:outbound",
+            "network:probe",
+            "network:serve",
+            "network:sockets",
+            "notify:send",
+            "operations:provide",
+            "process:spawn",
+            "secrets:own",
+            "ssh:connect",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.3.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/download/v1.3.0/wake-on-lan-1.3.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:13.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "DoMQEzNXi7B3zdZBbThio7ZBzR+y+byC1bXpX/EOe0BZJz57j8P3+q0mB/weCOoVDXopBI1u0tdeDZc36TIcAg=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/download/v1.2.0/wake-on-lan-1.2.0.tmxplug",
@@ -11962,8 +12190,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Power tab: every machine with its status, last change, open ports and a power button\n- Send the wake packet from any SSH host on the machine's network, for when Termix is somewhere else\n- Keep a host's own address and set a separate LAN IP, so a Tailscale host needs no second entry\n- Network scan from an SSH host or the Termix server, with results matched to your hosts\n- Shut down over SSH, with Sleep-On-LAN, or with your own command\n- Status from ports, ping through an SSH host, or your own command\n- Custom wake, shutdown and check commands with `{{ DEVICE_IP }}` and `{{ DEVICE_MAC }}`\n- Commands can run over SSH, or on the Termix server once an admin allows it\n- Wake and shut down on a cron schedule, with an alert if a run fails\n- Use the BMC from the Out-of-band plugin to power on and shut down, switched on per device\n- Wake, shut down and sleep from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Power state shows as a status tile on the dashboard and host page\n- SecureON passwords, wake port 7 or 9, broadcast worked out from the LAN IP and netmask\n- Device description, a clickable link that can open after waking, and a confirm step\n- Wake all for a folder\n- Homepage widget with status and power buttons\n- Shut down button on the host row\n- Shut down, scan and server command permissions\n\n### Changed\n\n- The dashboard card shows status and shuts machines down as well as waking them\n- The Wake-on-LAN host settings now sit behind a Power switch, turned on for hosts that already have a MAC\n- Automations and Mobile wake a host with its saved method\n\n### Fixed\n\n- Wake in the desktop app sends from the server when the host connects from the server, like it does in a browser",
           "publishedAt": "2026-11-09T03:09:36.000Z",
+          "notes": "### Added\n\n- Power tab: every machine with its status, last change, open ports and a power button\n- Send the wake packet from any SSH host on the machine's network, for when Termix is somewhere else\n- Keep a host's own address and set a separate LAN IP, so a Tailscale host needs no second entry\n- Network scan from an SSH host or the Termix server, with results matched to your hosts\n- Shut down over SSH, with Sleep-On-LAN, or with your own command\n- Status from ports, ping through an SSH host, or your own command\n- Custom wake, shutdown and check commands with `{{ DEVICE_IP }}` and `{{ DEVICE_MAC }}`\n- Commands can run over SSH, or on the Termix server once an admin allows it\n- Wake and shut down on a cron schedule, with an alert if a run fails\n- Use the BMC from the Out-of-band plugin to power on and shut down, switched on per device\n- Wake, shut down and sleep from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions\n- Power state shows as a status tile on the dashboard and host page\n- SecureON passwords, wake port 7 or 9, broadcast worked out from the LAN IP and netmask\n- Device description, a clickable link that can open after waking, and a confirm step\n- Wake all for a folder\n- Homepage widget with status and power buttons\n- Shut down button on the host row\n- Shut down, scan and server command permissions\n\n### Changed\n\n- The dashboard card shows status and shuts machines down as well as waking them\n- The Wake-on-LAN host settings now sit behind a Power switch, turned on for hosts that already have a MAC\n- Automations and Mobile wake a host with its saved method\n\n### Fixed\n\n- Wake in the desktop app sends from the server when the host connects from the server, like it does in a browser",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -12003,12 +12231,12 @@
             "auth:provide"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:02:34.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -12028,11 +12256,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:16.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- Translated into every supported language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -12052,15 +12280,44 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:34.000Z",
-          "notes": "### Added\n\n- First release\n- Warpgate's browser approval shows as a sign in dialog\n- Your saved password is sent to Warpgate for you",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Added\n\n- First release\n- Warpgate's browser approval shows as a sign in dialog\n- Your saved password is sent to Warpgate for you",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
               "sig": "mlg4VGUUI3y+/lecrQVUWLHRyPKqE8odTi2kzBP8Byiz9pNCKvrZPzNbyegKaj/by2AWDjIS2gCuRiezm72iDQ=="
+            }
+          ]
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/download/v1.1.0/warpgate-1.1.0.tmxplug",
+          "sha256": "511802fbd07376a2ce135bb9f2dbbc7bacda0a5da9f2701498a511c6c0242419",
+          "signature": "EdftTF8eF0ctMjW9fQSLdawcVKOSO9eXKeEp7osGYpD1SDitejv/l3/iF6XKnwn1HPFhUTpvWywplXLEk875Dg==",
+          "size": 20884,
+          "capabilities": [
+            "auth:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Warpgate/releases/download/v1.1.0/warpgate-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:30:19.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "OnTO/itZrX8ZuOKWrT2U1MsTZjgW3eL+rwDVS/VDnbaDV5Mbq6Cz/dyA6risS7iBJ+QKUQXzoNkG0SSM1y5BCA=="
             }
           ]
         }
@@ -12214,6 +12471,46 @@
       ],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.2.1/web-endpoint-1.2.1.tmxplug",
+          "sha256": "d8e439c4086b38043fee122719f737fc5a935bfaea4cef1956c8a67e8dc36b4f",
+          "signature": "KFJbz5bBeBKH93s4th+ckcMm2vPdzystWG7KTUt5fjFqdNoWUzeM1bQzY+74lVrRzgq4VW0Xr8HQkcU+zIzVCA==",
+          "size": 358411,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "network:serve",
+            "ui:surface",
+            "desktop:window",
+            "operations:provide",
+            "ssh:connect",
+            "kv:own",
+            "users:impersonate",
+            "notify:send",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "dependencies": {
+            "tunnels": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.2.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its screens run in a sandboxed frame on Termix 26.11.2 and later. The server picks the page a tab shows and Termix draws it, so the tab can't point it anywhere else or trust a bad certificate on its own\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n\n### Fixed\n\n- A very long mount path no longer keeps the server busy for a long time",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.2.1/web-endpoint-1.2.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:24.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "A+iqjPqWmFq1JKxEP9El3hwTD/rdPCqRuAcH1mPTjUE+66VPPZjxsCAwPA3sLJfqeidzp+X5sgT6SZIRfCZtAg=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.2.0/web-endpoint-1.2.0.tmxplug",
@@ -12240,8 +12537,8 @@
             "tunnels": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Through Termix: open a host's web page in a new browser tab through this server, with no route to it from your browser. Full apps work, with WebSockets and cookies. Needs Reverse Proxy 1.2.0 with a web endpoint domain (#7)\n- Check that a host's web endpoints answer through Termix actions, with a status tile on the host page\n- Permission Check web endpoints\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The host editor section uses the Termix tile look\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "publishedAt": "2026-11-09T03:02:25.000Z",
+          "notes": "### Added\n\n- Through Termix: open a host's web page in a new browser tab through this server, with no route to it from your browser. Full apps work, with WebSockets and cookies. Needs Reverse Proxy 1.2.0 with a web endpoint domain (#7)\n- Check that a host's web endpoints answer through Termix actions, with a status tile on the host page\n- Permission Check web endpoints\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The host editor section uses the Termix tile look\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -12425,8 +12722,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- An admin setting to hide the Passkeys button on the single sign-on page only, so it stays on the password page (Plugin-Login-Security #1). Needs Termix 26.11.1\n\n### Fixed\n\n- Turning off the security key step, or removing a key while it is on, now asks you to tap a key first",
           "publishedAt": "2026-11-09T03:08:49.000Z",
+          "notes": "### Added\n\n- An admin setting to hide the Passkeys button on the single sign-on page only, so it stays on the password page (Plugin-Login-Security #1). Needs Termix 26.11.1\n\n### Fixed\n\n- Turning off the security key step, or removing a key while it is on, now asks you to tap a key first",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -12579,6 +12876,40 @@
             }
           ]
         }
+      ],
+      "gated": [
+        {
+          "version": "1.4.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/download/v1.4.0/webauthn-1.4.0.tmxplug",
+          "sha256": "ecde6ffcdf61dc7c6da9889d394b60a576f704133ee361d6cc4acf5bfaa216ae",
+          "signature": "z9FZn/zYLjEirpIomfI2FELXO0A/FkQ19G4fkYHmNKTyV49FGiptykgO4Ul2V/loLWOHM72EEjSXqQUPOGxlCg==",
+          "size": 508440,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "auth:provide",
+            "settings:read-core",
+            "ui:surface",
+            "db:core-refs"
+          ],
+          "engine": {
+            "api": "^2.8.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/tag/v1.4.0",
+          "notes": "### Changed\n\n- On Termix 26.11.2 and later the Passkeys button and security key step are drawn by Termix, and the settings screens run in a sandboxed frame\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Form fields use the same background as the rest of Termix",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/download/v1.4.0/webauthn-1.4.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:02.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "8r4Xk5Q1hKBMWP8GhCPVUsBexNvZN4VdFM/x35BIYyT7hoiDgjefb41UREQ92nSIvZTSYKHl5uXrNYNHPuubCQ=="
+            }
+          ]
+        }
       ]
     },
     {
@@ -12589,6 +12920,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-WireGuard",
       "icon": "Network",
+      "video": "https://www.youtube.com/watch?v=ARggQ0qGvRc",
       "features": [
         "Install WireGuard and start, stop or restart interfaces on a host",
         "Create server interfaces with NAT and IP forwarding set up for you",
@@ -12606,9 +12938,42 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=ARggQ0qGvRc",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-WireGuard/releases/download/v1.1.0/wireguard-1.1.0.tmxplug",
+          "sha256": "56ae1a4b23079a95140c48933e49c97db48b9457027b02d11b65f4d66e217cfa",
+          "signature": "mFf7G8Fcp1+nSIJVn4Anbt27/lerXYExTmYEH9Iy6vDIGw6LFkvXm//M4ukM08eOQijp13Mew2KhYaOspsGTBg==",
+          "size": 335667,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WireGuard/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-WireGuard/releases/download/v1.1.0/wireguard-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:48:42.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "6+KGKB4v/N5Z0jWO/GF7yEAriH6L5Mf8XBltQrslz0r8WTggmD+7qkeoxxeSl5x+hChG4r9LNaztjgB5pTwzBw=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -12632,8 +12997,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WireGuard/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Start, stop and restart interfaces through Termix actions, list them across hosts and see interfaces that should be up but are down as a status tile\n- A WireGuard tab for each host to install and manage WireGuard over SSH\n- Create server interfaces with optional NAT, IP forwarding and a firewall port\n- Add clients with generated keys, a free IP, a config file and a QR code\n- Turn clients on or off, rotate their keys and remove them\n- Live handshake and traffic for every client\n- A config editor with a check before saving, a log viewer and service controls\n- A WireGuard card in Host Metrics\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-09T03:23:08.000Z",
+          "notes": "### Added\n\n- Start, stop and restart interfaces through Termix actions, list them across hosts and see interfaces that should be up but are down as a status tile\n- A WireGuard tab for each host to install and manage WireGuard over SSH\n- Create server interfaces with optional NAT, IP forwarding and a firewall port\n- Add clients with generated keys, a free IP, a config file and a QR code\n- Turn clients on or off, rotate their keys and remove them\n- Live handshake and traffic for every client\n- A config editor with a check before saving, a log viewer and service controls\n- A WireGuard card in Host Metrics\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -12776,6 +13141,36 @@
       ],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.2.0/workspaces-1.2.0.tmxplug",
+          "sha256": "260b1d30c0171462bfa005a58dff5af581cd7ea210d8601bee4a80515310b959",
+          "signature": "oHddn+hVsgeSfunytE8abuVOO9nu8+geQFIn01AGdz3g/NJdpTV2shWXs9fg/txOScjwvKBsKD/G64VbC1+rCA==",
+          "size": 145401,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- The workspaces panel puts search, its buttons and the save button on one row on Termix 26.11.2 and later\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The settings button in the Workspaces panel opens the Workspaces page in Settings",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.2.0/workspaces-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:29:17.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "LISYXC5cXdCc9BTdHClHDHhurajRdEStQKiOBtn8AqhWa4JRtRcfeBuJErOJMKR4Z+FcenTFk6MimfmVoBIRCg=="
+            }
+          ]
+        },
+        {
           "version": "1.1.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.1.1/workspaces-1.1.1.tmxplug",
@@ -12793,8 +13188,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.1.1",
-          "notes": "### Added\n\n- Saved workspaces in the command palette\n- A read action that lists workspaces, for the assistant and the CLI\n\n### Changed\n\n- Settings use the Termix tile look\n- Needs Termix 26.11.1 or newer\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- A failed save no longer leaves an uncaught error behind the toast",
           "publishedAt": "2026-11-09T03:14:11.000Z",
+          "notes": "### Added\n\n- Saved workspaces in the command palette\n- A read action that lists workspaces, for the assistant and the CLI\n\n### Changed\n\n- Settings use the Termix tile look\n- Needs Termix 26.11.1 or newer\n- Form labels match the rest of Termix\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- A failed save no longer leaves an uncaught error behind the toast",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
