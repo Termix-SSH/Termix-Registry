@@ -1,0 +1,10 @@
+{
+  "id": "wireguard",
+  "versions": {
+    "1.1.0": {
+      "sha256": "56ae1a4b23079a95140c48933e49c97db48b9457027b02d11b65f4d66e217cfa",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44262288978",
+      "at": "2026-11-18T08:26:34.526Z"
+    }
+  }
+}
