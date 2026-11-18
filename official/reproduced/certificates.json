@@ -1,0 +1,10 @@
+{
+  "id": "certificates",
+  "versions": {
+    "1.1.0": {
+      "sha256": "3c55e4318c8f9bd3613ac84c8a007592c932144e95a5970f859e5b2c53ac5be7",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:53:24.490Z"
+    }
+  }
+}
