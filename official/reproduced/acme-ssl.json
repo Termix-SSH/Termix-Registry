@@ -1,0 +1,10 @@
+{
+  "id": "acme-ssl",
+  "versions": {
+    "1.2.1": {
+      "sha256": "6138a4e795ebde0a66078a7b44463af04506e11186db144f74dcc44bddee26c0",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44260376582",
+      "at": "2026-11-18T07:38:35.609Z"
+    }
+  }
+}
