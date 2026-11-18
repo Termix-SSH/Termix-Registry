@@ -1,0 +1,10 @@
+{
+  "id": "operations-center",
+  "versions": {
+    "1.1.0": {
+      "sha256": "857d64960273e84536ac27815d805f0ae6b428e08484b8f5850ab147f34a467b",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44258045657",
+      "at": "2026-11-18T07:24:44.984Z"
+    }
+  }
+}
