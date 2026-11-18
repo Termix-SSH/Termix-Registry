@@ -121,8 +121,10 @@ jobs:
     environment: sync
     permissions:
       contents: read
+    # Each plugin has its own record file. One shared group keeps only one
+    # pending job and cancels the rest when many plugins release at once.
     concurrency:
-      group: registry-reproduced
+      group: registry-reproduced-${{ needs.rebuild.outputs.id }}
       cancel-in-progress: false
     steps:
       - name: App token
@@ -166,8 +168,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore: record reproducible build of $ID $VERSION"
-          for _ in 1 2 3; do
+          for _ in $(seq 1 15); do
             git pull --rebase origin main && git push && exit 0
-            sleep 5
+            sleep $((RANDOM % 10 + 3))
           done
           exit 1
