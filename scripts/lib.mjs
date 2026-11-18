@@ -134,13 +134,20 @@ export function changelogSection(markdown, version) {
 
 const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
 
-export async function github(url) {
+export async function github(url, attempt = 0) {
   const response = await fetch(`https://api.github.com${url}`, {
     headers: {
       Accept: "application/vnd.github+json",
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
   });
+  // Many release jobs at once hit the secondary rate limit, so wait and retry.
+  if ((response.status === 403 || response.status === 429) && attempt < 5) {
+    const after = Number(response.headers.get("retry-after")) || 0;
+    const wait = Math.max(after * 1000, 15000 * (attempt + 1));
+    await new Promise((resolve) => setTimeout(resolve, wait));
+    return github(url, attempt + 1);
+  }
   if (!response.ok) {
     const error = new Error(`${url}: ${response.status}`);
     error.status = response.status;
