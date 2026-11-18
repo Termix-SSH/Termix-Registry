@@ -1,0 +1,10 @@
+{
+  "id": "vault",
+  "versions": {
+    "1.2.0": {
+      "sha256": "e712f8ebf392bb3f33b368b03f0b4dfc3c637deef6f55cc7de4610917b86a9db",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261996755",
+      "at": "2026-11-18T08:26:05.012Z"
+    }
+  }
+}
