@@ -1,0 +1,10 @@
+{
+  "id": "warpgate",
+  "versions": {
+    "1.1.0": {
+      "sha256": "511802fbd07376a2ce135bb9f2dbbc7bacda0a5da9f2701498a511c6c0242419",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44262113980",
+      "at": "2026-11-18T08:26:08.859Z"
+    }
+  }
+}
