@@ -1,0 +1,10 @@
+{
+  "id": "session-sharing",
+  "versions": {
+    "1.2.1": {
+      "sha256": "ee2a8a2a1637630997f212ffdb33db96384e0553ab297c1b693a4263f59ef7de",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261475894",
+      "at": "2026-11-18T08:24:27.664Z"
+    }
+  }
+}
