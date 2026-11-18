@@ -1,0 +1,10 @@
+{
+  "id": "telemetry",
+  "versions": {
+    "1.1.0": {
+      "sha256": "5643a9ae5100f6551faf9c1a4d62043ecd9006325d21b6ea4081f0aa84586a9b",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44260207266",
+      "at": "2026-11-18T07:41:50.727Z"
+    }
+  }
+}
