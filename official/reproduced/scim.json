@@ -1,0 +1,10 @@
+{
+  "id": "scim",
+  "versions": {
+    "1.0.0": {
+      "sha256": "95ea40e4c8609c0d4851391347b99ac2e6dd45cebde272aefe307a0569ed9aa2",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44268260653",
+      "at": "2026-11-18T09:26:43.272Z"
+    }
+  }
+}
