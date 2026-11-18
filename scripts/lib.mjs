@@ -144,7 +144,12 @@ export async function github(url, attempt = 0) {
   // Many release jobs at once hit the secondary rate limit, so wait and retry.
   if ((response.status === 403 || response.status === 429) && attempt < 5) {
     const after = Number(response.headers.get("retry-after")) || 0;
-    const wait = Math.max(after * 1000, 15000 * (attempt + 1));
+    const reset = Number(response.headers.get("x-ratelimit-reset")) || 0;
+    const untilReset =
+      response.headers.get("x-ratelimit-remaining") === "0"
+        ? Math.min(reset * 1000 - Date.now() + 5000, 20 * 60e3)
+        : 0;
+    const wait = Math.max(after * 1000, untilReset, 15000 * (attempt + 1));
     await new Promise((resolve) => setTimeout(resolve, wait));
     return github(url, attempt + 1);
   }
