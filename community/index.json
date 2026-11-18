@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18T06:45:50.181Z",
+  "updatedAt": "2026-11-18T10:33:59.301Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -630,6 +630,38 @@
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "0.3.0",
+          "api": "2",
+          "url": "https://github.com/deconstructionalism/termix-plugin-incus/releases/download/v0.3.0/incus-0.3.0.tmxplug",
+          "sha256": "369b4b2c495511633439a0571f08085cedda287f91edd2e139a6f00bb5e7dada",
+          "signature": "VmHMsXbmBPlVgkkkXL7KnCp7FfEhfdLYzI8HZp3bYvKIxZdu2ToAmjcnwPJf7E6Mo8K8EOdHeYxyLTRKlf/tCQ==",
+          "size": 742323,
+          "capabilities": [
+            "hosts:read",
+            "ssh:connect",
+            "credentials:use",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.8.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/deconstructionalism/termix-plugin-incus/releases/tag/v0.3.0",
+          "notes": "### Changed\n\n- The Operate buttons (Start, Stop, Restart, Freeze, Unfreeze and the snapshot ones) run through Termix's action runner, now that it can hand actions to a plugin process. They show in Operations' run history, follow Termix's approval rules, and need the Operate permission itself: Manage alone no longer covers them.",
+          "provenance": {
+            "url": "https://github.com/deconstructionalism/termix-plugin-incus/releases/download/v0.3.0/incus-0.3.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:42:55.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "2wYZIgBAW/60QQTw4WZUh3Ii2FDDc/6drtOEOLmdiUZA71rpWJbe+VwW5EJ63PJdzJ2aqN6YocUF6AlNvyF1DQ=="
+            }
+          ]
+        },
         {
           "version": "0.2.0",
           "api": "2",
