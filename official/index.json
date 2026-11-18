@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-15T19:42:31.340Z",
+  "updatedAt": "2026-11-18T06:46:40.092Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3763,6 +3763,39 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/download/v1.2.0/import-export-1.2.0.tmxplug",
+          "sha256": "20929ec668956ca45a6fc9470a0c90caf913e0d9918c502dc710accf25a0f132",
+          "signature": "Yr1yh6SQYuyGrDwCBRBVGyotdchTNWO4hPKs6SoeaIaPnXUiZCH/BtESjvv7dr+lWfEMRtu6RIg5msEVOVziBA==",
+          "size": 93400,
+          "capabilities": [
+            "network:serve",
+            "hosts:read",
+            "hosts:write",
+            "hosts:export",
+            "credentials:write",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/download/v1.2.0/import-export-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:42.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "TCFntD+dG1JVb5RLM7dvS4Ni78KMD44mY8Giew9Mx5LEkGYxP7XIBy/6sA2zmyZS4z/KWV+yHSSpuQPU2yPvAQ=="
+            }
+          ]
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/download/v1.1.0/import-export-1.1.0.tmxplug",
@@ -3783,8 +3816,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Export hosts without secrets and import an SSH config as operations",
           "publishedAt": "2026-11-08T23:14:50.000Z",
+          "notes": "### Added\n\n- Export hosts without secrets and import an SSH config as operations",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -5338,6 +5371,44 @@
       ],
       "gated": [
         {
+          "version": "1.3.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.3.1/proxmox-1.3.1.tmxplug",
+          "sha256": "ecd79bd033bcf9567a97fca1a5f42419bd9c9a5ee2cb2db13bab84e633fe7356",
+          "signature": "z5W45c2PiDh2iCEXd/yLDtiVxUBAT6dHGLp8gqIwOnb/kfrcEI/WHxixHk+QeS96cxsdQD766bYWOu+Y+W1VAw==",
+          "size": 355482,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.7.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.3.1",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Other plugins can add their own settings to the Proxmox host settings, drawn in their own frames (needs Termix 26.11.2)\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later\n- Form fields use the same background as the rest of Termix\n\n### Fixed\n\n- Auto sync on several nodes of one cluster no longer creates the same guest twice when the nodes sync at the same time\n- Stopping the stats view checks that you can see the host and only stops your own view\n- Discovering guests on a host you can't reach answers not found, and server errors no longer show their details",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.3.1/proxmox-1.3.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:42.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "RvyzNx1+v4IzUbRf6k4Sw0YMn6uCTocHhvcNCVaVHnfL4SjOc7A06iNLUeSICZHckD7/vC8jLEn3zUZWvqZoBg=="
+            }
+          ]
+        },
+        {
           "version": "1.3.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.3.0/proxmox-1.3.0.tmxplug",
@@ -5363,8 +5434,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.3.0",
-          "notes": "### Added\n\n- Start, shut down, reboot and stop VMs and containers through Termix actions, list guests across clusters and see running guests as a status tile\n- Permission Manage Proxmox guests\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The overview uses the Termix tile look, with tiles edge to edge and lines between them instead of separate cards\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The Discover button is as tall as the node picker next to it",
           "publishedAt": "2026-11-09T01:01:25.000Z",
+          "notes": "### Added\n\n- Start, shut down, reboot and stop VMs and containers through Termix actions, list guests across clusters and see running guests as a status tile\n- Permission Manage Proxmox guests\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The overview uses the Termix tile look, with tiles edge to edge and lines between them instead of separate cards\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- The Discover button is as tall as the node picker next to it",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8910,12 +8981,12 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:57:57.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8940,11 +9011,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:04.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- Translated into every supported language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -8969,15 +9040,49 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:12.000Z",
-          "notes": "### Added\n\n- First release\n- Two-factor sign in with a code from any authenticator app\n- Each code works once, and wrong codes are rate limited\n- Backup codes in case you lose your phone\n- More than one device",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Added\n\n- First release\n- Two-factor sign in with a code from any authenticator app\n- Each code works once, and wrong codes are rate limited\n- Backup codes in case you lose your phone\n- More than one device",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
               "sig": "4QCo0Ns29NTfdYROlBUaLvMF8u0js0wJ6ukqlrwe9TuG7NBt9/XmeF2gTmkSjl791Apt3TpQv21FQYWJ2BScAQ=="
+            }
+          ]
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-TOTP/releases/download/v1.1.0/totp-1.1.0.tmxplug",
+          "sha256": "3f71d8d1b7a64ed9d9321c8cb1b526aa0113a2bd5cb199fe9a6d63274cb02df4",
+          "signature": "AzlD3bFph4oOaKxlZhOf3a2Rk9D6T2RnVQQerVHp4y3K6x98jDTLGC4zbX84zmxTCAB11z5fJXwds7p/aZIBDQ==",
+          "size": 186102,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "db:core-refs"
+          ],
+          "engine": {
+            "api": "^2.8.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- On Termix 26.11.2 and later the sign in code step is drawn by Termix itself, and the settings screen runs in a sandboxed frame",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-TOTP/releases/download/v1.1.0/totp-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T06:28:42.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "UHRFJY4z9XXCzXfKgXfFDwu8rVreno8sfBDMLqEKqdmX9TP5zA9Ag2ANEDYZ5s8TuzeWdFaYsqlqO+xR8EUnDg=="
             }
           ]
         }

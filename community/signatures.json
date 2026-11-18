@@ -143,6 +143,15 @@
       }
     ]
   },
+  "incus@0.2.0": {
+    "sha256": "d75c38bd69075fd43cd38e8c56dff650793101e0e15b0de36ab68260036bf8fd",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "YMRX9EmaOYeGqnIoD/ySa/klIZY1whI6OK5tNH2TNk7mJwTwYA3fE9AQiboC81todKYqveTw0+4yUaUG4bhfDg=="
+      }
+    ]
+  },
   "netbird@1.1.0": {
     "sha256": "018789f9a455fb8334b2a803d77c4f2b78d3eb9536c8bd04345aa259e66d1f95",
     "signatures": [

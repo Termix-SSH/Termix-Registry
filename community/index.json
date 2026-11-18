@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17T03:25:52.034Z",
+  "updatedAt": "2026-11-18T06:45:50.181Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -602,6 +602,63 @@
             {
               "keyId": "89d5fca007e3704a",
               "sig": "zODyMEi+8ZStOy/l+7hyiXk752WKQjqU5o6iPbGzmUI8Y36Y5n8llSE2LYqWVQBrLb4dNT6Ps2yb4jcuLP6RDg=="
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "incus",
+      "name": "Incus",
+      "description": "Incus containers and VMs on your hosts over SSH: usage, processes, logs, a shell and actions, with per-host levels and secret values kept out of view.",
+      "author": "deconstructionalism",
+      "category": "Infrastructure",
+      "repository": "https://github.com/deconstructionalism/termix-plugin-incus",
+      "icon": "Boxes",
+      "features": [
+        "Containers and VMs on each host, with state, addresses, CPU, memory and disk",
+        "Per host levels: read, operate or manage, set only by admins",
+        "Secret values in instance config never leave the server"
+      ],
+      "docs": "https://github.com/deconstructionalism/termix-plugin-incus/tree/main/docs",
+      "contributes": [
+        "dashboardCards",
+        "operations",
+        "permissions",
+        "settings",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "0.2.0",
+          "api": "2",
+          "url": "https://github.com/deconstructionalism/termix-plugin-incus/releases/download/v0.2.0/incus-0.2.0.tmxplug",
+          "sha256": "d75c38bd69075fd43cd38e8c56dff650793101e0e15b0de36ab68260036bf8fd",
+          "signature": "yGtG7LzwDdP0KrX4yTuBnByb1cASP1zaSBmVi22DKv1x6d1jTeg4IXTKn1NqgBHB5MpoIiwqR3BlroboP+tGAQ==",
+          "size": 742467,
+          "capabilities": [
+            "hosts:read",
+            "ssh:connect",
+            "credentials:use",
+            "network:serve",
+            "ui:surface",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.8.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/deconstructionalism/termix-plugin-incus/releases/tag/v0.2.0",
+          "notes": "### Added\n\n- Manage, on hosts at Read, operate and manage for people with the Manage permission:\n  - A config editor for an instance's own config: secret looking values show as `<hidden>` and keep their real value if left alone, changes are reviewed as a diff before applying, and a change made meanwhile by someone else is never overwritten.\n  - Revealing one hidden value at a time from Details, on hosts that allow it, each recorded in the audit log.\n  - New instance: a name, an image, profiles from the host, container or VM, and whether to start it.\n  - Clone (snapshots optional, with a warning when the instance has a fixed address), Rename and Delete. Rename and Delete need the instance stopped, and Delete needs its name typed.\n  - Protected instances can't have their config changed, or be renamed or deleted.\n\n### Changed\n\n- The dashboard card refreshes every 15 seconds, and at once when you come back to the page, instead of once a minute.",
+          "provenance": {
+            "url": "https://github.com/deconstructionalism/termix-plugin-incus/releases/download/v0.2.0/incus-0.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-15T09:16:10.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "YMRX9EmaOYeGqnIoD/ySa/klIZY1whI6OK5tNH2TNk7mJwTwYA3fE9AQiboC81todKYqveTw0+4yUaUG4bhfDg=="
             }
           ]
         }
