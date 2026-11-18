@@ -1,0 +1,10 @@
+{
+  "id": "ups-manager",
+  "versions": {
+    "1.0.1": {
+      "sha256": "4926694f5f9974d072427fd0d4e1f85a7e2e4af57dcaaa339062558d126a471e",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261822856",
+      "at": "2026-11-18T08:26:02.946Z"
+    }
+  }
+}
