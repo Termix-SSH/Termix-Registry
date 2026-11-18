@@ -15,6 +15,15 @@ export function mirrorBranch(dev, dependabotHead) {
   return `deps/${dev}/${dependabotHead.replace(/^dependabot\//, "")}`;
 }
 
+/** Copy branches whose dev branch is gone (released and deleted). */
+export function staleCopies(heads) {
+  const live = new Set(heads);
+  return heads.filter((h) => {
+    const dev = /^deps\/(dev-[^/]+)\//.exec(h)?.[1];
+    return dev !== undefined && !live.has(dev);
+  });
+}
+
 /** Hidden note in the mirror PR body that names the Dependabot PR and commit. */
 export function mirrorNote(number, sha) {
   return `<!-- ${MARKER} pr=${number} sha=${sha} -->`;

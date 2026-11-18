@@ -24,6 +24,7 @@ import {
   newestDev,
   readNote,
   specChanges,
+  staleCopies,
 } from "./lib.mjs";
 
 const ORG = "Termix-SSH";
@@ -259,14 +260,36 @@ function closeOrphans(prs) {
   }
 }
 
+/** Deletes copy branches left behind when their dev branch was released. */
+function deleteStaleCopies(heads) {
+  for (const branch of staleCopies(heads)) {
+    const open = read([
+      "pr",
+      "list",
+      "-R",
+      full,
+      "--head",
+      branch,
+      "--state",
+      "open",
+      "--json",
+      "number",
+    ]);
+    if (open.length) continue;
+    console.log(`  deleting ${branch}, its dev branch is gone`);
+    gh(["api", "-X", "DELETE", `repos/${full}/git/refs/heads/${branch}`]);
+  }
+}
+
 function main() {
   const prs = listDependabot().sort((a, b) => a.number - b.number);
   closeOrphans(prs);
-  if (!prs.length) return console.log(`${repo}: no Dependabot PRs`);
   const heads = git("ls-remote", "--heads", "origin")
     .split("\n")
     .map((l) => l.split("refs/heads/")[1])
     .filter(Boolean);
+  deleteStaleCopies(heads);
+  if (!prs.length) return console.log(`${repo}: no Dependabot PRs`);
   const dev = newestDev(heads);
   console.log(
     `${repo}: ${prs.length} Dependabot PRs, target ${dev ?? "default branch"}`,

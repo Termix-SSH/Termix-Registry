@@ -10,7 +10,21 @@ import {
   newestDev,
   readNote,
   specChanges,
+  staleCopies,
 } from "../../../scripts/dependabot-dev/lib.mjs";
+
+test("staleCopies finds copies whose dev branch is gone", () => {
+  assert.deepEqual(
+    staleCopies([
+      "main",
+      "dev-1.3.0",
+      "deps/dev-1.3.0/npm_and_yarn/a",
+      "deps/dev-1.2.0/npm_and_yarn/b",
+      "dependabot/npm_and_yarn/c",
+    ]),
+    ["deps/dev-1.2.0/npm_and_yarn/b"],
+  );
+});
 
 const pass = {
   __typename: "CheckRun",
