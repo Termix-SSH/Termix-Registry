@@ -1,0 +1,10 @@
+{
+  "id": "uptime",
+  "versions": {
+    "1.0.1": {
+      "sha256": "d71b9ba0fe2b0f6500454c6f538373e4e5c0caf9302785b303fa8f2e325c30be",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261880603",
+      "at": "2026-11-18T08:26:08.432Z"
+    }
+  }
+}
