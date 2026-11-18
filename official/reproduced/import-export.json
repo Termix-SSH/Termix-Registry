@@ -1,0 +1,10 @@
+{
+  "id": "import-export",
+  "versions": {
+    "1.2.0": {
+      "sha256": "20929ec668956ca45a6fc9470a0c90caf913e0d9918c502dc710accf25a0f132",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:41:45.313Z"
+    }
+  }
+}
