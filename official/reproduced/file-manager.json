@@ -1,0 +1,10 @@
+{
+  "id": "file-manager",
+  "versions": {
+    "1.2.2": {
+      "sha256": "fa787d2a7b8cd4f96c8fef8f1e9ebe95f88a4ff43eb45a5709f799ab16276d59",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44269448852",
+      "at": "2026-11-18T10:24:36.459Z"
+    }
+  }
+}
