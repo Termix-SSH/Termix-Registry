@@ -1,0 +1,10 @@
+{
+  "id": "storage-health",
+  "versions": {
+    "1.1.0": {
+      "sha256": "1cefa70ab3fab7c25eeb199b3ff33c21b604824da910cec27165a6e861567d41",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:55:27.051Z"
+    }
+  }
+}
