@@ -1,0 +1,10 @@
+{
+  "id": "log-search",
+  "versions": {
+    "1.1.0": {
+      "sha256": "fe351f73fa0f2125f483841278bb5f679e57ade41c3b5178a2ac6aef37ddd83f",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261065344",
+      "at": "2026-11-18T08:24:40.921Z"
+    }
+  }
+}
