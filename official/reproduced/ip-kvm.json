@@ -1,0 +1,10 @@
+{
+  "id": "ip-kvm",
+  "versions": {
+    "1.1.0": {
+      "sha256": "c6800be5b1e048732ee1d87bbb39c1e7f530add8bc7233bc9a938a7186d7f139",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44261009006",
+      "at": "2026-11-18T08:24:28.762Z"
+    }
+  }
+}
