@@ -1,0 +1,10 @@
+{
+  "id": "session-recording",
+  "versions": {
+    "1.2.1": {
+      "sha256": "a4081f1ac4187a4f2b5d3c4781b1d379fb5df81a52f8c7ef9f588b5175f0a4d9",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
+      "at": "2026-11-18T06:51:30.125Z"
+    }
+  }
+}
