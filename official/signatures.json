@@ -215,6 +215,15 @@
       }
     ]
   },
+  "ansible@1.1.0": {
+    "sha256": "e35969f3c729128519c26eee1e6e192f51e48073d8e6380c5be2e73ca8240c1a",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "NzDYIWKCD+kHJNB4oPJzQqEInUFRKaVwk7qkc7mcOqNrnuEfn5q6MEVciw28GvZMlt4B1uhmF8Y+tQa5JjIqAw=="
+      }
+    ]
+  },
   "audit-tools@1.0.0": {
     "sha256": "131479c294d692b1c0ed4d6cec273730a3a67a28ecd44825ffd36bade9aa863b",
     "signatures": [
@@ -431,6 +440,15 @@
       }
     ]
   },
+  "classic-themes@1.1.0": {
+    "sha256": "aa68bb0d7bae9478c437e530f52c701b5a644769d9213ccea205fddd13707d6e",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "LegjbIfpnipqWNqtTEVN2KuFMyS6Jb8r88uoZjdO9cQXynz/3mcRNXaEQy6VY8ixxUZNs42armhuIZfV3gLDBw=="
+      }
+    ]
+  },
   "cloud-providers@1.0.0": {
     "sha256": "2933f899d936253f0d715fb0374e886110a4b01139f0c32970b789dc957b3c61",
     "signatures": [
@@ -455,6 +473,15 @@
       {
         "keyId": "a7b173b2ec703171",
         "sig": "CMPd9PJGErm+NIsUN6GRSK69K/FSR4rs3pXmXGYkdTbWQhHR9QD4TQqsYx4BN/5DYJ7M98qmXNhe8EP2QdJaCA=="
+      }
+    ]
+  },
+  "cloud-providers@1.3.0": {
+    "sha256": "fc364de41fccb4800d89bfcd70be091903cd5f2259bda02f7edbd1581ff0ccc3",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "X5dicRms7xrTPZCPxXbk0ptIboZPqJgmcS6FZfzuiYbMru4vdccwq8VwlrHWSEtPSRw26fH7uwW75QSey3KiCg=="
       }
     ]
   },
@@ -818,6 +845,15 @@
       }
     ]
   },
+  "git@1.1.0": {
+    "sha256": "a0e73b3c8746f702ff74e086d912215c1505e5e70dc9f2b6feca883253132f0c",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "qSM+Lk2X3Jmxi0d4QkGGgmTHvMkvsD5aEGJz+8Uc0zrQCn6CNVdGbjJ3vQHln9YCoY5k5TPZWiIw37NO4EOgAg=="
+      }
+    ]
+  },
   "homepage@1.0.0": {
     "sha256": "65cd21802f6a71f3b3c582bc0007bfc91160abc161b2390bce715fd2ed987f99",
     "signatures": [
@@ -1004,6 +1040,15 @@
       {
         "keyId": "a7b173b2ec703171",
         "sig": "yVCc7HuuWCumu3eT0Xv/d1Zzme3m3RC4UeoZLphzb7KiN/3al8bN/eRu4hQiLotFJx60+1Lajn1VSqjLQv38AA=="
+      }
+    ]
+  },
+  "hosts-config@1.2.0": {
+    "sha256": "941b87f9638cbcb257f772a2c53d959b39c3d9a33320609869cd885f8f7ca566",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "S5nJOERG7OjIV8Kw7nPj+EMJWrBc9iMHkdqdjt7FJaRFQxg2vDEOiVsdHXr5scG5isruQR0Z8i+iv8Uiw+vBAQ=="
       }
     ]
   },
@@ -1664,6 +1709,15 @@
       }
     ]
   },
+  "scim@1.0.0": {
+    "sha256": "95ea40e4c8609c0d4851391347b99ac2e6dd45cebde272aefe307a0569ed9aa2",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "+ojfPaz4vJEh1m0xX3DdiXzjX+qARw+jpnEfFXdWZoM4SaSTaAQZ68ft6tdJJSYSdj4YpufAOjHesAxuTuAYBg=="
+      }
+    ]
+  },
   "secret-sources@1.0.0": {
     "sha256": "04e9cfca70ffafc41546ddf0f1f6411743a2e0e9835b26ad5c0b91ac11028485",
     "signatures": [
@@ -1769,6 +1823,15 @@
       {
         "keyId": "a7b173b2ec703171",
         "sig": "zR8cFbXlUWmWWANaChPY3oTOjI+MXELOV5TCdUR2n774XHAM5LiO9gm11cNnHM4gx1TOmZ3GeJXi8ogWjaCWCQ=="
+      }
+    ]
+  },
+  "serial@1.1.0": {
+    "sha256": "d6f989299f39ab1fbf6d91d001e03488705dbd5188f2af2b6a0ef4ced331b59b",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "av/YGHMvb7TvCHc33JYtvMQLYCldvymM035UdX/NkBu50blJaa8F/ePpxGhSMq0d5UN0RsjID7nT/gjXQNvHDQ=="
       }
     ]
   },

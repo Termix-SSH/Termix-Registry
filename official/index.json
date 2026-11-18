@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18T09:25:23.447Z",
+  "updatedAt": "2026-11-18T09:34:45.341Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -930,6 +930,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Ansible",
       "icon": "Workflow",
+      "video": "https://www.youtube.com/watch?v=-yTxBCa-zM0",
       "features": [
         "Edit the playbooks in a project folder on the control host",
         "Run playbooks with check mode, diff, tags, limit and extra vars",
@@ -946,9 +947,43 @@
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=-yTxBCa-zM0",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Ansible/releases/download/v1.1.0/ansible-1.1.0.tmxplug",
+          "sha256": "e35969f3c729128519c26eee1e6e192f51e48073d8e6380c5be2e73ca8240c1a",
+          "signature": "/JsJfjm33P1Lfe4bWZeS3WwxTjQETVVsm5wSaHj/+fWfqgyj4FH+NNOYeCCrK5+FLBoqxV1paPq9vQtf42S5Cw==",
+          "size": 258218,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Ansible/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Ansible/releases/download/v1.1.0/ansible-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:40.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "NzDYIWKCD+kHJNB4oPJzQqEInUFRKaVwk7qkc7mcOqNrnuEfn5q6MEVciw28GvZMlt4B1uhmF8Y+tQa5JjIqAw=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -972,8 +1007,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Ansible/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Edit the playbooks and other files in a project folder on a control host\n- Run playbooks with check mode, diff, tags, limit and extra variables\n- Use Termix hosts, folders and tags as the inventory\n- Live run output, a recap per host and a run history\n- Run ad-hoc modules on any hosts\n- Gather facts from hosts\n- Run and list playbooks through Termix actions",
           "publishedAt": "2026-11-08T20:29:36.000Z",
+          "notes": "### Added\n\n- Edit the playbooks and other files in a project folder on a control host\n- Run playbooks with check mode, diff, tags, limit and extra variables\n- Use Termix hosts, folders and tags as the inventory\n- Live run output, a recap per host and a run history\n- Run ad-hoc modules on any hosts\n- Gather facts from hosts\n- Run and list playbooks through Termix actions",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1893,6 +1928,33 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/download/v1.1.0/classic-themes-1.1.0.tmxplug",
+          "sha256": "aa68bb0d7bae9478c437e530f52c701b5a644769d9213ccea205fddd13707d6e",
+          "signature": "C0s9naDNMUv0NIXY5yXxxQnb5fqIu66Jo7x713PE8ERr/HvYduwe1vN98L1LRmCKTntzcFS/ycaRpuY88BEGAg==",
+          "size": 16403,
+          "capabilities": [
+            "ui:theme"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Built for plugin API 2, so it no longer needs Run without isolation turned on\n- Needs Termix 26.11.2 or newer",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/download/v1.1.0/classic-themes-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:40.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "LegjbIfpnipqWNqtTEVN2KuFMyS6Jb8r88uoZjdO9cQXynz/3mcRNXaEQy6VY8ixxUZNs42armhuIZfV3gLDBw=="
+            }
+          ]
+        },
+        {
           "version": "1.0.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/download/v1.0.1/classic-themes-1.0.1.tmxplug",
@@ -1907,8 +1969,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Borders are solid colors, so they look the same on every surface",
           "publishedAt": "2026-11-08T20:30:19.000Z",
+          "notes": "### Changed\n\n- Borders are solid colors, so they look the same on every surface",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -1969,6 +2031,43 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.3.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/download/v1.3.0/cloud-providers-1.3.0.tmxplug",
+          "sha256": "fc364de41fccb4800d89bfcd70be091903cd5f2259bda02f7edbd1581ff0ccc3",
+          "signature": "jzwm00bqTXdMNzdxLLxFgYwhEsYA3hQB6crXjNyodo/12Rbaz7br8FsPCdoZgWdgvCdRtfIWK4XvPK3B8FMECg==",
+          "size": 195276,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "ui:surface",
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "users:impersonate",
+            "notify:send",
+            "operations:provide"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/tag/v1.3.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/download/v1.3.0/cloud-providers-1.3.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:40.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "X5dicRms7xrTPZCPxXbk0ptIboZPqJgmcS6FZfzuiYbMru4vdccwq8VwlrHWSEtPSRw26fH7uwW75QSey3KiCg=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/download/v1.2.0/cloud-providers-1.2.0.tmxplug",
@@ -1993,8 +2092,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Sync a cloud account through Termix actions, so a rule, rollout or the CLI can run it, and see failing syncs as a status tile\n- A homepage widget with your cloud accounts and any that fail\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The accounts page and its forms use the Termix page header and tile look\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "publishedAt": "2026-11-08T20:35:22.000Z",
+          "notes": "### Added\n\n- Sync a cloud account through Termix actions, so a rule, rollout or the CLI can run it, and see failing syncs as a status tile\n- A homepage widget with your cloud accounts and any that fail\n\n### Changed\n\n- Needs Termix 26.11.1 or newer\n- The accounts page and its forms use the Termix page header and tile look\n- Toolbars, loading screens, back buttons and Save bars match the rest of Termix\n\n### Fixed\n\n- Password fields with the show button are the same height as the other fields next to them",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -3585,6 +3684,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Git",
       "icon": "GitBranch",
+      "video": "https://www.youtube.com/watch?v=Qcq9u3bJtqA",
       "features": [
         "Add the git repos on a host, or find them with a scan",
         "Branch, ahead and behind counts, changed files and the last commit for each repo",
@@ -3604,9 +3704,44 @@
         "tabs",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=Qcq9u3bJtqA",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Git/releases/download/v1.1.0/git-1.1.0.tmxplug",
+          "sha256": "a0e73b3c8746f702ff74e086d912215c1505e5e70dc9f2b6feca883253132f0c",
+          "signature": "EaWP8bg/sB171V7fuDs0EjD2iJ+iww9BMiTtXGC0CDXgyD7Woh9SlYPwo8AhAATLDyRbwNWxhcrk3+boGb5ACA==",
+          "size": 352919,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "users:impersonate",
+            "ui:surface",
+            "operations:provide",
+            "kv:own",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Git/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Git/releases/download/v1.1.0/git-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:40.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "qSM+Lk2X3Jmxi0d4QkGGgmTHvMkvsD5aEGJz+8Uc0zrQCn6CNVdGbjJ3vQHln9YCoY5k5TPZWiIw37NO4EOgAg=="
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -3631,8 +3766,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Git/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Add the git repos on a host, or find them with a scan\n- Branch, ahead and behind counts, changed files and the last commit for each repo\n- Diffs, staging, commits, history and commit details\n- Fetch, pull, push, switch, create, merge and delete branches, stash\n- Clone a repo onto the host\n- Auto pull on a schedule with an optional command after a pull and alerts when it fails\n- Uses the keys and git settings of the host's login user, no secrets stored in Termix\n- A Git panel beside terminals, a dashboard card and status tiles for Operations Center\n- Pull, push, fetch, switch, merge and reset through Termix actions\n- Status tiles for repos that are behind, have changes or fail to pull\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-08T23:47:28.000Z",
+          "notes": "### Added\n\n- Add the git repos on a host, or find them with a scan\n- Branch, ahead and behind counts, changed files and the last commit for each repo\n- Diffs, staging, commits, history and commit details\n- Fetch, pull, push, switch, create, merge and delete branches, stash\n- Clone a repo onto the host\n- Auto pull on a schedule with an optional command after a pull and alerts when it fails\n- Uses the keys and git settings of the host's login user, no secrets stored in Termix\n- A Git panel beside terminals, a dashboard card and status tiles for Operations Center\n- Pull, push, fetch, switch, merge and reset through Termix actions\n- Status tiles for repos that are behind, have changes or fail to pull\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -4363,6 +4498,43 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/download/v1.2.0/hosts-config-1.2.0.tmxplug",
+          "sha256": "941b87f9638cbcb257f772a2c53d959b39c3d9a33320609869cd885f8f7ca566",
+          "signature": "wDiM/7m8mkLG+jIOgJPLDldVKQ8pMPubmaSn7j6cXOnxiHbFtMIGVTMsRW4ipMY6Fm1vSpqJT13CsLswdmNlCQ==",
+          "size": 225428,
+          "capabilities": [
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "hosts:lock",
+            "credentials:use",
+            "users:impersonate",
+            "network:serve",
+            "ui:surface",
+            "notify:send",
+            "operations:provide",
+            "config:secrets"
+          ],
+          "engine": {
+            "api": "^2.4.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Termix reads the hosts file and the `{ env }` and `{ file }` secrets it points at for the plugin. Secrets need the new Read secrets the server holds access, which an admin approves with the update. Termix's own keys and data folder can't be used as secrets\n- The hosts file must sit outside Termix's data folder\n\n### Fixed\n\n- A reload only writes the hosts that changed, so a large hosts file no longer times out when one host changes",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/download/v1.2.0/hosts-config-1.2.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:41.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "S5nJOERG7OjIV8Kw7nPj+EMJWrBc9iMHkdqdjt7FJaRFQxg2vDEOiVsdHXr5scG5isruQR0Z8i+iv8Uiw+vBAQ=="
+            }
+          ]
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/download/v1.1.0/hosts-config-1.1.0.tmxplug",
@@ -4386,8 +4558,8 @@
             "termix": ">=26.11.1-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- Reload the hosts file through Termix actions and see whether it applied as a status tile\n- An alert to admins when the hosts file cannot be read or some hosts are not applied, with a setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "publishedAt": "2026-11-08T23:09:04.000Z",
+          "notes": "### Added\n\n- Reload the hosts file through Termix actions and see whether it applied as a status tile\n- An alert to admins when the hosts file cannot be read or some hosts are not applied, with a setting to turn it off\n\n### Changed\n\n- Needs Termix 26.11.1 or newer",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -7367,6 +7539,62 @@
       ]
     },
     {
+      "id": "scim",
+      "name": "SCIM Provisioning",
+      "description": "Create, update and remove Termix accounts and roles from your identity provider with SCIM.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-SCIM",
+      "icon": "UserCog",
+      "features": [
+        "SCIM 2.0 server for Entra ID, Okta, JumpCloud, OneLogin, Authentik and others",
+        "Create, update, turn off and remove accounts from your identity provider",
+        "Map pushed groups to Termix roles",
+        "New accounts link to their SSO or LDAP sign in by email",
+        "More than one identity provider, each with its own URL and token",
+        "Recent changes log per connection"
+      ],
+      "docs": "https://docs.termix.site/plugins/scim",
+      "contributes": [
+        "permissions",
+        "settings"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-SCIM/releases/download/v1.0.0/scim-1.0.0.tmxplug",
+          "sha256": "95ea40e4c8609c0d4851391347b99ac2e6dd45cebde272aefe307a0569ed9aa2",
+          "signature": "b3t3/PM7c5OQUTWJPaAcV5EOV3/SvXbLjgpzR8FIAnhwCis/sJAXXF0WfeefjGOM+yXVwiPjcTHA5buWARj5Dg==",
+          "size": 195118,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:read",
+            "users:write"
+          ],
+          "engine": {
+            "api": "^2.9.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SCIM/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- SCIM 2.0 server so an identity provider like Entra ID or Okta can create, update, turn off and remove Termix accounts\n- More than one identity provider, each with its own URL and token\n- Map pushed groups to Termix roles, plus default roles for every user\n- Optional mapping of a group to the admin role\n- Choose whether a deleted user is turned off or deleted\n- Optional take over of existing accounts with the same username or email, never admins\n- New accounts link to their SSO or LDAP sign in by email\n- Recent changes per connection on the settings page",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-SCIM/releases/download/v1.0.0/scim-1.0.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T07:40:40.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "+ojfPaz4vJEh1m0xX3DdiXzjX+qARw+jpnEfFXdWZoM4SaSTaAQZ68ft6tdJJSYSdj4YpufAOjHesAxuTuAYBg=="
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "secret-sources",
       "name": "Secret Sources",
       "description": "Pull host passwords and keys from 1Password, Bitwarden, Infisical or HashiCorp Vault when you connect instead of storing them in Termix.",
@@ -7747,12 +7975,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:55:25.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -7774,11 +8002,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:50.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Changed\n\n- Translated into every supported language",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
@@ -7800,15 +8028,46 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:04.000Z",
-          "notes": "### Added\n\n- First release\n- Serial console to a router, switch or other device plugged into your computer\n- Set the baud rate, data bits, stop bits and parity\n- The desktop app talks to the device directly\n- Browsers use the Web Serial API (Chrome, Edge or Firefox 151 and newer)",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
           },
+          "notes": "### Added\n\n- First release\n- Serial console to a router, switch or other device plugged into your computer\n- Set the baud rate, data bits, stop bits and parity\n- The desktop app talks to the device directly\n- Browsers use the Web Serial API (Chrome, Edge or Firefox 151 and newer)",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
               "sig": "CiRJji/w988bFoth5Oy5l/bYpb+6aBWZqgDvrk5F3v3JqN5ZBQcMjiwQ2Cmbjfu74RUgekHp/FPbAJXN8a3SBQ=="
+            }
+          ]
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Serial/releases/download/v1.1.0/serial-1.1.0.tmxplug",
+          "sha256": "d6f989299f39ab1fbf6d91d001e03488705dbd5188f2af2b6a0ef4ced331b59b",
+          "signature": "xx5bPwVNhsGQGwz2mEr+q2vH/F8XgOEQcfcv/wgqQNelH0FKnI6wW40kNHiDNSs3D0Noi+iyCSwDEmRbAqV3Ag==",
+          "size": 777752,
+          "capabilities": [
+            "network:serve",
+            "device:serial",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- Its screens run in a sandboxed frame. In the browser, Termix asks for the serial port and the plugin only gets the port you pick\n- In the browser, the serial tab waits for you to click Reconnect before the port picker opens\n\n### Fixed\n\n- Copy and paste in the serial terminal with Ctrl+Shift+C and Ctrl+Shift+V, or Cmd on macOS",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Serial/releases/download/v1.1.0/serial-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-18T08:28:39.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "av/YGHMvb7TvCHc33JYtvMQLYCldvymM035UdX/NkBu50blJaa8F/ePpxGhSMq0d5UN0RsjID7nT/gjXQNvHDQ=="
             }
           ]
         }
