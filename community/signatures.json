@@ -179,6 +179,15 @@
       }
     ]
   },
+  "netbird@2.0.1": {
+    "sha256": "2a134b7e79871854fc2bcd945063b72f298ecc92a230ccd5b7386cef83e0ee08",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "STvgvK9aCyh/nAWaWnnl2jtzVSVdcgZflpaz66sdclLG0caSGqLJ2dVCnD68ZHey2eU+x5NLGVsHnd5c1w3lCA=="
+      }
+    ]
+  },
   "pve-power@0.6.8": {
     "sha256": "91e26e7264bfce30858bfbb73de12af2c879589e7e0626e4701e27a0f43d82b2",
     "signatures": [

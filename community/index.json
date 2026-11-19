@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18T10:33:59.301Z",
+  "updatedAt": "2026-11-19T20:38:26.234Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -709,8 +709,9 @@
         "Single sign-on with any OpenID Connect provider (code flow with PKCE), so each user sees what NetBird lets them see",
         "Service user token or a personal access token per user as an alternative",
         "Select peers and add them as hosts in one go, into a folder, with a saved credential; existing hosts are skipped",
+        "Finds hosts whose NetBird peer is gone, got a new NetBird IP or has been offline for a long time, and updates or removes them after you confirm",
         "Peer details: client version, location, login expiry, accessible peers",
-        "Explains per port which policy rule allows the Termix server to reach a peer, which rules use other ports and which are switched off",
+        "Explains per port which policy rule lets Termix reach a peer, checks its posture checks (version, OS, location) and names other rules",
         "Works with NetBird Cloud and self-hosted management servers"
       ],
       "docs": "https://github.com/P3RF3CTION/termix-plugin-netbird/tree/main/docs",
@@ -721,6 +722,40 @@
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "2.0.1",
+          "api": "2",
+          "url": "https://github.com/P3RF3CTION/termix-plugin-netbird/releases/download/v2.0.1/netbird-2.0.1.tmxplug",
+          "sha256": "2a134b7e79871854fc2bcd945063b72f298ecc92a230ccd5b7386cef83e0ee08",
+          "signature": "ja7zZm/xCfMGrfmCfvzethcH9p6SYhQFPA9X4FPLMfAxs8Pmbr88RiPssQTO65hauUGZZ620nfZU1q0v4z5pDw==",
+          "size": 111168,
+          "capabilities": [
+            "network:outbound",
+            "network:serve",
+            "ui:surface",
+            "hosts:read",
+            "hosts:write",
+            "kv:own",
+            "secrets:own",
+            "credentials:use"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/P3RF3CTION/termix-plugin-netbird/releases/tag/v2.0.1",
+          "notes": "Maintenance release with no change in behaviour. Requirements are unchanged: Termix 26.11.2 or newer (plugin API 2).\n\n### Changed\n\n- Dependency updates: lucide-react 1.72.0 (icons in the panel), and for development and build typescript 7.0.2, vitest 5.1.0, jsdom 30.1.3, better-sqlite3 13.1.1, i18next 26.7.2, react-i18next 17.1.13, prettier 3.10.0, @types/node 26.6.6 and commitlint 21.2.4",
+          "provenance": {
+            "url": "https://github.com/P3RF3CTION/termix-plugin-netbird/releases/download/v2.0.1/netbird-2.0.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-19T08:10:49.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "STvgvK9aCyh/nAWaWnnl2jtzVSVdcgZflpaz66sdclLG0caSGqLJ2dVCnD68ZHey2eU+x5NLGVsHnd5c1w3lCA=="
+            }
+          ]
+        },
         {
           "version": "1.2.0",
           "api": "1",
