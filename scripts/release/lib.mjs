@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import semver from "semver";
 import { isSigned, loadPrivateKey, signDigest } from "../lib.mjs";
 
 const DEV_BRANCH = /^dev-(\d+\.\d+\.\d+)$/;
@@ -103,12 +104,27 @@ export function stampLockText(text, version) {
   return JSON.stringify(lock, null, 2) + "\n";
 }
 
-/** Puts a section above the first ## heading of a changelog. */
+/**
+ * Puts a beta section above the first ## heading of a changelog. The dev
+ * branch already lists the coming release (1.4.0 for 1.4.0-beta.1), which
+ * would sort above the beta, so sections newer than the beta are left out.
+ */
 export function insertChangelogSection(text, section) {
-  const at = text.search(/^## /m);
-  return at < 0
-    ? `${text.trimEnd()}\n\n${section}`
-    : text.slice(0, at) + section + text.slice(at);
+  const beta = /^## (\S+)/.exec(section)?.[1];
+  const parts = text.split(/^(?=## )/m);
+  const head = parts[0].startsWith("## ") ? "" : parts.shift();
+  const kept = parts.filter((part) => {
+    const version = /^## (\S+)/.exec(part)?.[1];
+    return !(
+      semver.valid(beta) &&
+      semver.valid(version) &&
+      semver.gt(version, beta)
+    );
+  });
+  if (kept.length === 0) {
+    return head.trim() ? `${head.trimEnd()}\n\n${section}` : section;
+  }
+  return head + section + kept.join("");
 }
 
 /**

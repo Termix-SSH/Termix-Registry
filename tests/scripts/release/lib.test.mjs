@@ -131,6 +131,23 @@ test("insertChangelogSection puts the beta section first", () => {
   );
 });
 
+test("insertChangelogSection leaves out the coming release the beta is for", () => {
+  assert.equal(
+    insertChangelogSection(
+      "# Changelog\n\n## 1.1.0\n\n- new\n\n## 1.0.0\n\n- old\n",
+      "## 1.1.0-beta.1\n\n",
+    ),
+    "# Changelog\n\n## 1.1.0-beta.1\n\n## 1.0.0\n\n- old\n",
+  );
+  assert.equal(
+    insertChangelogSection(
+      "# Changelog\n\n## 1.0.0\n\n- first\n",
+      "## 1.0.0-beta.1\n",
+    ),
+    "# Changelog\n\n## 1.0.0-beta.1\n",
+  );
+});
+
 test("signArtifact signs with the key and refuses one that is not published", () => {
   const pair = crypto.generateKeyPairSync("ed25519");
   const other = crypto.generateKeyPairSync("ed25519");
