@@ -5,6 +5,10 @@
   "maintainers": ["P3RF3CTION"],
   "versions": [
     {
+      "version": "2.0.1",
+      "sha256": "2a134b7e79871854fc2bcd945063b72f298ecc92a230ccd5b7386cef83e0ee08"
+    },
+    {
       "version": "1.2.0",
       "sha256": "11754338d21a291f7014fda9a0bc93550dd3e3e07a1c63284ce572a10ee586e4"
     },
