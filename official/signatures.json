@@ -206,6 +206,15 @@
       }
     ]
   },
+  "alerts@1.4.0-beta.1": {
+    "sha256": "25a0cdb5a0048df7756a489cdb6614713d2a4c8b3047fb6c8d060265db4d3a95",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "eQA/tAgJozqR5I7k8tJKbQAEM/ctt3FsgjDoy9HU7QbyWtp9aQUnOQ3ywHtXUp69V85wgdEDP2BwRzzEs8ttCQ=="
+      }
+    ]
+  },
   "ansible@1.0.0": {
     "sha256": "f6ce9fab3521a7d3ab9e90b123bb5a206ab42da4df7ec36942784cd99dfcb1c7",
     "signatures": [

@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18T11:33:49.805Z",
+  "updatedAt": "2026-11-19T23:06:15.420Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -849,6 +849,44 @@
       ],
       "gated": [
         {
+          "version": "1.4.0-beta.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0-beta.1/alerts-1.4.0-beta.1.tmxplug",
+          "sha256": "25a0cdb5a0048df7756a489cdb6614713d2a4c8b3047fb6c8d060265db4d3a95",
+          "signature": "wG0+jDO0WdWX20P/UIaKuwIVw5kjCowNRHICQsoxxD61cXer1mMsTEriX0qm+YiSXdbE6hcA+wKhgyXGm1dGAg==",
+          "size": 640242,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface",
+            "operations:provide",
+            "notify:send",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.4.0-beta.1",
+          "notes": "### Changed\n\n- feat: push alerts to phones linked from the Termix app\n- Beta build",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0-beta.1/alerts-1.4.0-beta.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-19T23:04:03.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "eQA/tAgJozqR5I7k8tJKbQAEM/ctt3FsgjDoy9HU7QbyWtp9aQUnOQ3ywHtXUp69V85wgdEDP2BwRzzEs8ttCQ=="
+            }
+          ]
+        },
+        {
           "version": "1.3.1",
           "api": "2",
           "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.3.1/alerts-1.3.1.tmxplug",
@@ -874,11 +912,11 @@
             "termix": ">=26.11.2-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.3.1",
-          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The settings button in Alerts opens the Alerts page in Settings\n\n### Fixed\n\n- Updated nodemailer to a release with security fixes\n- Saved channel tokens, webhook URLs and header values stay on the server. Editing a channel shows them as saved, and leaving them empty keeps them",
           "provenance": {
             "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.3.1/alerts-1.3.1.tmxplug.sigstore.json"
           },
           "publishedAt": "2026-11-18T06:42:16.000Z",
+          "notes": "### Changed\n\n- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it\n- The settings button in Alerts opens the Alerts page in Settings\n\n### Fixed\n\n- Updated nodemailer to a release with security fixes\n- Saved channel tokens, webhook URLs and header values stay on the server. Editing a channel shows them as saved, and leaving them empty keeps them",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
