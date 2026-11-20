@@ -1,0 +1,97 @@
+name: Prune update branches
+
+# Deletes dependabot/ and deps/ branches with no open PR in every repo the
+# Termix CI App can reach. Dependabot leaves its branch behind when anyone but
+# itself closes the PR.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: Only list what would be deleted
+        type: boolean
+        default: false
+  schedule:
+    - cron: "23 7 * * *"
+
+permissions: {}
+
+jobs:
+  list:
+    runs-on: ubuntu-24.04
+    environment: sync
+    permissions:
+      contents: read
+    outputs:
+      repos: ${{ steps.list.outputs.repos }}
+    steps:
+      # Read only, to see private repos too. Writes use a per-repo token below.
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH # zizmor: ignore[github-app]
+          permission-contents: read
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install
+        run: npm ci --ignore-scripts --omit=dev
+
+      - name: Repos with update branches
+        id: list
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          LIST: "1"
+        run: node scripts/dependabot-dev/prune.mjs
+
+  prune:
+    needs: list
+    if: needs.list.outputs.repos != '[]' && needs.list.outputs.repos != ''
+    runs-on: ubuntu-24.04
+    # Holds the Termix CI App key.
+    environment: sync
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        repo: ${{ fromJSON(needs.list.outputs.repos) }}
+    steps:
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: ${{ matrix.repo }}
+          permission-contents: write
+          permission-pull-requests: read
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install
+        run: npm ci --ignore-scripts --omit=dev
+
+      - name: Prune
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          REPO: ${{ matrix.repo }}
+          DRY_RUN: ${{ inputs.dry-run && '1' || '0' }}
+        run: node scripts/dependabot-dev/prune.mjs

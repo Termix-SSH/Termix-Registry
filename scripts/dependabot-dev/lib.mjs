@@ -126,3 +126,16 @@ export function decide({ pr, dev, mirror }) {
     return { kind: "merge-mirror" };
   return { kind: "wait" };
 }
+
+/**
+ * Update branches nothing uses any more: a dependabot/ or deps/ branch with no
+ * open PR whose last commit is older than minAgeMs. The age check leaves alone
+ * a branch whose PR is about to be opened.
+ */
+export function prunable(branches, openHeads, now, minAgeMs = 60 * 60 * 1000) {
+  const open = new Set(openHeads);
+  return branches
+    .filter((b) => /^(dependabot|deps)\//.test(b.name) && !open.has(b.name))
+    .filter((b) => now - Date.parse(b.date) > minAgeMs)
+    .map((b) => b.name);
+}

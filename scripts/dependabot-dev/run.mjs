@@ -105,10 +105,11 @@ function comment(number, body) {
 
 function closePr(number, body) {
   if (body) comment(number, body);
-  gh(["pr", "close", String(number), "-R", full]);
+  // Dependabot only deletes its branch when it closes the PR itself.
+  gh(["pr", "close", String(number), "-R", full, "--delete-branch"]);
 }
 
-function squash(number) {
+function squash(number, branch) {
   // The App is a bypass actor, so the API merges without the review rule.
   gh([
     "api",
@@ -118,6 +119,10 @@ function squash(number) {
     "-f",
     "merge_method=squash",
   ]);
+  // Merging through the API leaves the head branch behind.
+  sh("gh", ["api", "-X", "DELETE", `repos/${full}/git/refs/heads/${branch}`], {
+    ok: true,
+  });
 }
 
 let botIdentity = null;
@@ -304,13 +309,13 @@ function main() {
     try {
       if (step.kind === "merge-dependabot") {
         if (merged) continue;
-        squash(pr.number);
+        squash(pr.number, pr.headRefName);
         merged = true;
       } else if (step.kind === "close-dependabot") {
         closePr(pr.number, `Merged into \`${dev}\` in ${step.via.url}.`);
       } else if (step.kind === "merge-mirror") {
         if (merged) continue;
-        squash(mirror.number);
+        squash(mirror.number, branch);
         merged = true;
         closePr(pr.number, `Merged into \`${dev}\` in ${mirror.url}.`);
       } else if (step.kind === "build" || step.kind === "rebuild") {

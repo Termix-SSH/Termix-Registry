@@ -8,6 +8,7 @@ import {
   mirrorBranch,
   mirrorNote,
   newestDev,
+  prunable,
   readNote,
   specChanges,
   staleCopies,
@@ -137,5 +138,28 @@ test("decide", () => {
     decide({ pr, dev: "dev-1.0.0", mirror: { ...mirror, state: "MERGED" } })
       .kind,
     "close-dependabot",
+  );
+});
+
+test("prunable keeps open, recent and other branches", () => {
+  const now = Date.parse("2026-11-20T12:00:00Z");
+  const old = "2026-11-19T12:00:00Z";
+  const branches = [
+    { name: "dependabot/npm_and_yarn/zod-4.1.0", date: old },
+    { name: "dependabot/npm_and_yarn/open-1.0.0", date: old },
+    {
+      name: "dependabot/github_actions/new-2.0.0",
+      date: "2026-11-20T11:30:00Z",
+    },
+    { name: "deps/dev-1.2.0/dependabot/npm_and_yarn/zod-4.1.0", date: old },
+    { name: "dev-1.2.0", date: old },
+    { name: "main", date: old },
+  ];
+  assert.deepEqual(
+    prunable(branches, ["dependabot/npm_and_yarn/open-1.0.0"], now),
+    [
+      "dependabot/npm_and_yarn/zod-4.1.0",
+      "deps/dev-1.2.0/dependabot/npm_and_yarn/zod-4.1.0",
+    ],
   );
 });
