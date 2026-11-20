@@ -5,6 +5,10 @@
   "maintainers": ["Reydan46"],
   "versions": [
     {
+      "version": "1.1.0",
+      "sha256": "928acaeeeec1e8b9ac3a39b6ede37731099594eb17bf66b766702a42a08ff355"
+    },
+    {
       "version": "1.0.5",
       "sha256": "c6918d51ce5229a06c385e6f64961b1bce6ba422dd8a7ea96efb9d6ef08ba2ce"
     },
