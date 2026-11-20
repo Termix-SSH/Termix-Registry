@@ -240,3 +240,39 @@ export function buildRequest(chunk, cats) {
     },
   };
 }
+
+/**
+ * Reads a streamed chat completion and returns the message text. Streaming
+ * keeps bytes flowing, so proxies that cut idle requests (Cloudflare stops
+ * at about 100 seconds) never end a long one.
+ */
+export async function readStream(body) {
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let content = "";
+  let finish = null;
+  const take = (line) => {
+    if (!line.startsWith("data:")) return;
+    const data = line.slice(5).trim();
+    if (!data || data === "[DONE]") return;
+    const event = JSON.parse(data);
+    if (event.error) throw new Error(event.error.message ?? "stream error");
+    const choice = event.choices?.[0];
+    if (choice?.delta?.content) content += choice.delta.content;
+    if (choice?.finish_reason) finish = choice.finish_reason;
+  };
+  for await (const chunk of body) {
+    buffer +=
+      typeof chunk === "string"
+        ? chunk
+        : decoder.decode(chunk, { stream: true });
+    let end;
+    while ((end = buffer.indexOf("\n")) >= 0) {
+      take(buffer.slice(0, end).trim());
+      buffer = buffer.slice(end + 1);
+    }
+  }
+  take(buffer.trim());
+  if (!finish) throw new Error("the stream ended early");
+  return content;
+}
