@@ -25,6 +25,7 @@ import {
   flatten,
   needsWork,
   pluralCategories,
+  readStream,
   toJson,
 } from "./lib.mjs";
 
@@ -41,7 +42,9 @@ const { values: args } = parseArgs({
     languages: { type: "string" },
     lock: { type: "string" },
     only: { type: "string" },
-    concurrency: { type: "string", default: "16" },
+    // The server holds about 14 requests at once and shares them with the
+    // bot. More than that makes it drop and redo work.
+    concurrency: { type: "string", default: "8" },
     retranslate: { type: "boolean", default: false },
     plan: { type: "boolean", default: false },
   },
@@ -136,14 +139,14 @@ async function post(body) {
           Authorization: `Bearer ${process.env.TERMIX_LLM_API_KEY}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(body),
+        body: JSON.stringify({ ...body, stream: true }),
         signal: AbortSignal.timeout(10 * 60 * 1000),
       });
       if (!res.ok)
         throw new Error(
           `HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`,
         );
-      return await res.json();
+      return await readStream(res.body);
     } catch (error) {
       if (attempt >= 4) throw error;
       await new Promise((r) => setTimeout(r, 2000 * attempt ** 2));
@@ -153,7 +156,7 @@ async function post(body) {
 
 async function translateChunk(job, chunk) {
   const { input, schema } = buildRequest(chunk, job.cats);
-  const data = await post({
+  const content = await post({
     model: MODEL,
     temperature: 0.2,
     top_p: 0.9,
@@ -173,7 +176,7 @@ async function translateChunk(job, chunk) {
     },
     chat_template_kwargs: { enable_thinking: false },
   });
-  const output = JSON.parse(data.choices[0].message.content);
+  const output = JSON.parse(content);
   const bad = [];
   chunk.forEach((unit, index) => {
     const value = output[String(index + 1)];
@@ -197,8 +200,29 @@ for (const job of jobs) {
     queue.push({ job, chunk, round: 1 });
 }
 
+// Writes every language, even untouched ones, so stale keys get pruned. Also
+// runs every few minutes, so a stopped run keeps what it finished: the next
+// run skips strings that already have a value.
+function saveLanguages() {
+  fs.mkdirSync(args.out, { recursive: true });
+  for (const job of jobs) {
+    const values = new Map();
+    for (const unit of units) {
+      const value =
+        job.results.get(unit.id) ?? existingValue(unit, job.cats, job.existing);
+      if (value != null) values.set(unit.id, value);
+    }
+    const text = toJson(buildLanguageFile(units, job.cats, values));
+    const before = fs.existsSync(job.file)
+      ? fs.readFileSync(job.file, "utf8")
+      : null;
+    if (text !== before) fs.writeFileSync(job.file, text);
+  }
+}
+
 let done = 0;
 let lastLog = 0;
+let lastSave = Date.now();
 async function worker() {
   while (queue.length) {
     const task = queue.shift();
@@ -216,6 +240,10 @@ async function worker() {
       for (const chunk of chunkUnits(bad, size)) {
         queue.push({ job: task.job, chunk, round: task.round + 1 });
       }
+    }
+    if (Date.now() - lastSave > 5 * 60 * 1000) {
+      lastSave = Date.now();
+      saveLanguages();
     }
     if (Date.now() - lastLog > 15000) {
       lastLog = Date.now();
@@ -245,28 +273,16 @@ if (total > 0) {
   }
 
   const started = Date.now();
-  const concurrency = Math.max(1, Number(args.concurrency) || 16);
+  const concurrency = Math.max(1, Number(args.concurrency) || 8);
   await Promise.all(Array.from({ length: concurrency }, worker));
   console.log(
     `  ${done}/${total} translated in ${Math.round((Date.now() - started) / 1000)}s`,
   );
 }
 
-// Write every language, even untouched ones, so stale keys get pruned.
-fs.mkdirSync(args.out, { recursive: true });
+saveLanguages();
 const rows = [];
 for (const job of jobs) {
-  const values = new Map();
-  for (const unit of units) {
-    const value =
-      job.results.get(unit.id) ?? existingValue(unit, job.cats, job.existing);
-    if (value != null) values.set(unit.id, value);
-  }
-  const text = toJson(buildLanguageFile(units, job.cats, values));
-  const before = fs.existsSync(job.file)
-    ? fs.readFileSync(job.file, "utf8")
-    : null;
-  if (text !== before) fs.writeFileSync(job.file, text);
   rows.push(
     `| ${job.language.name} | ${job.results.size} | ${job.failed.size} |`,
   );

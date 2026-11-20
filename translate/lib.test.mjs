@@ -10,6 +10,7 @@ import {
   existingValue,
   flatten,
   needsWork,
+  readStream,
   pluralCategories,
   unflatten,
 } from "./lib.mjs";
@@ -187,4 +188,28 @@ test("request schema requires every entry", () => {
   });
   assert.deepEqual(schema.required, ["1", "2", "3", "4"]);
   assert.deepEqual(schema.properties["3"].required, ["one", "other"]);
+});
+
+test("reads a streamed completion split across chunks", async () => {
+  const enc = new TextEncoder();
+  const parts = [
+    'data: {"choices":[{"delta":{"content":"{\\"1\\":"}}]}\n\nda',
+    'ta: {"choices":[{"delta":{"content":"\\"Hallo\\"}"},"finish_reason":null}]}\n\n',
+    'data: {"choices":[{"delta":{},"finish_reason":"stop"}]}\n\ndata: [DONE]\n\n',
+  ];
+  async function* body() {
+    for (const p of parts) yield enc.encode(p);
+  }
+  assert.equal(await readStream(body()), '{"1":"Hallo"}');
+});
+
+test("a stream that stops early or reports an error throws", async () => {
+  async function* cut() {
+    yield 'data: {"choices":[{"delta":{"content":"{"}}]}\n\n';
+  }
+  await assert.rejects(readStream(cut()), /ended early/);
+  async function* bad() {
+    yield 'data: {"error":{"message":"boom"}}\n\n';
+  }
+  await assert.rejects(readStream(bad()), /boom/);
 });
