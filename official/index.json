@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19T23:06:15.420Z",
+  "updatedAt": "2026-11-20T00:00:39.640Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -849,6 +849,44 @@
       ],
       "gated": [
         {
+          "version": "1.4.0-beta.2",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0-beta.2/alerts-1.4.0-beta.2.tmxplug",
+          "sha256": "36c7cde789fa10ff1c07a57abd5aa97001926d40d9e585e098538b6bfbd0f6d4",
+          "signature": "1g/CXF6Do1Y32ze8VlU856s/4a+19x3RpgD3+MdXp0s44bANYCx2aqlErioqlIVfyczGUKLsoGschfmb1YWeCw==",
+          "size": 641681,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface",
+            "operations:provide",
+            "notify:send",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.4.0-beta.2",
+          "notes": "### Changed\n\n- fix: unlink every copy of a phone and allow unlinking twice\n- fix: keep one rule per phone when the app links it several times at once\n- Beta build",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0-beta.2/alerts-1.4.0-beta.2.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-19T23:58:19.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "iW9lyUA0YC91sV5UQz9JvRifaakCq7cgcTJR8qlpErD5ZSEVyYk6GQiwVCGj3MVDQ2MOvvtivIWnemY+VERbBw=="
+            }
+          ]
+        },
+        {
           "version": "1.4.0-beta.1",
           "api": "2",
           "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0-beta.1/alerts-1.4.0-beta.1.tmxplug",
@@ -874,11 +912,11 @@
             "termix": ">=26.11.2-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.4.0-beta.1",
-          "notes": "### Changed\n\n- feat: push alerts to phones linked from the Termix app\n- Beta build",
           "provenance": {
             "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0-beta.1/alerts-1.4.0-beta.1.tmxplug.sigstore.json"
           },
           "publishedAt": "2026-11-19T23:04:03.000Z",
+          "notes": "### Changed\n\n- feat: push alerts to phones linked from the Termix app\n- Beta build",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
