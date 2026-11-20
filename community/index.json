@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19T20:38:26.234Z",
+  "updatedAt": "2026-11-20T21:18:20.467Z",
   "plugins": [
     {
       "id": "command-editor",
@@ -96,6 +96,39 @@
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Reydan46/termix-plugin-container-files/releases/download/v1.1.0/container-files-1.1.0.tmxplug",
+          "sha256": "928acaeeeec1e8b9ac3a39b6ede37731099594eb17bf66b766702a42a08ff355",
+          "signature": "xvj3TCJldV/TE4C6tAkcIiWArv+VFS+f5Uf3NMfH0X+Lm87p3xC6XdUJdW9KDPTat1LCMkIE+DBY0yih0idvAA==",
+          "size": 7874297,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "files:own",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2"
+          },
+          "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-container-files/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Needs Termix 26.11.2 or newer (plugin API 2): the backend runs in a sandboxed process and the interface in frames. Older Termix versions keep using 1.0.5.\n- A host whose key Termix does not trust yet fails once with Termix's own message (open a terminal to the host once) instead of retrying.\n- The local files item is only in the Add panel menu and is disabled while that panel is open.\n\n### Added\n\n- The container list can be sorted by name, state or image, and the choice is remembered. The picker in the Add panel menu has a name filter and the same sort.\n- `GET /plugin-api/container-files/diagnostics` shows how the recent cleanups of cancelled host processes ended.\n\n### Fixed\n\n- Cancelling or failing a copy, upload or download ends the `docker cp` it started on the host. Before, it kept running and after a few cancels every container failed with \"Channel open failure\". Cancelling an upload no longer stops the whole plugin process either.\n- Uploads work again: they reach the plugin (before, progress stayed at zero and later commands ended in \"Command timed out\"), a finished upload is no longer cancelled, and a file of about 5 MB or more no longer fails with \"unexpected EOF\".\n- Files over 50 MB upload in pieces of 32 MB (the proxy in front of Termix refuses bigger requests), joined in the container, which needs a shell there. Progress counts the whole file.\n- An upload sent again by the browser or a proxy no longer fails with \"Transfer id already in use\".\n- Host actions (for example opening a terminal) stay hidden until the permission is known, and the focus ring in dialogs follows the Termix theme.\n- PDF preview works in a frame and shows the reason when a PDF still fails.\n- Progress, cancel and results of copies, uploads and archives show inside the tab again; downloads no longer try the file picker, which a frame may not open.",
+          "provenance": {
+            "url": "https://github.com/Reydan46/termix-plugin-container-files/releases/download/v1.1.0/container-files-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-20T14:55:35.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "y7PqYz3jJ5kvG761kFZMINm8dm46AOYA1aq2z4KPW8O0ftGLBCSMWpiH4Yjm4llUyyePdZtH0+ddwYp5z2WoCg=="
+            }
+          ]
+        },
         {
           "version": "1.0.5",
           "api": "1",
@@ -401,6 +434,33 @@
       ],
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "2",
+          "url": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/download/v1.1.0/host-auth-badges-1.1.0.tmxplug",
+          "sha256": "9e2643333f4d4f07e50e905d53758754def4b180d1f70f0d98efa72933dd613e",
+          "signature": "35ecOmq4Tuo0FMg5jUotRRaWihYeyzsKdUAZCcPHDe8h0z/pH/nTErvxOR1Y3yd1zb8l/3Ljce3a2xbsEtJEDg==",
+          "size": 80516,
+          "capabilities": [
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2"
+          },
+          "releaseNotesUrl": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- The plugin now runs on Termix 26.11.2 or newer (plugin API 2), where plugin interfaces run in sandboxed frames. Older Termix versions keep using 1.0.2.\n- In the host list the badge is drawn by Termix from plain data, so it shows the short text of the SOURCE and METHOD parts as small labels with a tooltip. Icons, custom colors, layouts, palettes and sizes cannot reach the host list yet, so their settings and the preview are hidden. They are kept in the code and come back when Termix can draw them. Position and size are hidden too, because the shell decides them. Enabled, the Text toggle and the editable labels still apply.\n- Hosts that are disabled or off screen no longer need special handling: the shell asks only for rows it draws.\n\n### Fixed\n\n- The unsaved-changes notice no longer says changes are applied to host badges before saving, and the reset-appearance dialog speaks of all overrides instead of \"three\".",
+          "provenance": {
+            "url": "https://github.com/Reydan46/termix-plugin-host-auth-badges/releases/download/v1.1.0/host-auth-badges-1.1.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-20T15:14:41.000Z",
+          "signatures": [
+            {
+              "keyId": "89d5fca007e3704a",
+              "sig": "2ftSTqzCS5sAa81YkapnhT9ihhMDh3conPyvajB81bXi3pWq8EgHD7GSmNEZh7hrzs4vX5kexrHhN6Zt5TfeDg=="
+            }
+          ]
+        },
         {
           "version": "1.0.2",
           "api": "1",

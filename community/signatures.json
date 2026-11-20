@@ -53,6 +53,15 @@
       }
     ]
   },
+  "container-files@1.1.0": {
+    "sha256": "928acaeeeec1e8b9ac3a39b6ede37731099594eb17bf66b766702a42a08ff355",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "y7PqYz3jJ5kvG761kFZMINm8dm46AOYA1aq2z4KPW8O0ftGLBCSMWpiH4Yjm4llUyyePdZtH0+ddwYp5z2WoCg=="
+      }
+    ]
+  },
   "deep-connect@1.2.0": {
     "sha256": "f73da68e3248390f5cb9a804da84dbf9076a8b5b7ef85f19b3e72f54d4580ed5",
     "signatures": [
@@ -95,6 +104,15 @@
       {
         "keyId": "89d5fca007e3704a",
         "sig": "Ff8FAWMaPIFqShRSFqMVg0jbyinjfB8JEP6jbax9tIr/g43n7gIldan3Yg1QCJtF2c6ydorjrmkmA13meJTzCQ=="
+      }
+    ]
+  },
+  "host-auth-badges@1.1.0": {
+    "sha256": "9e2643333f4d4f07e50e905d53758754def4b180d1f70f0d98efa72933dd613e",
+    "signatures": [
+      {
+        "keyId": "89d5fca007e3704a",
+        "sig": "2ftSTqzCS5sAa81YkapnhT9ihhMDh3conPyvajB81bXi3pWq8EgHD7GSmNEZh7hrzs4vX5kexrHhN6Zt5TfeDg=="
       }
     ]
   },
