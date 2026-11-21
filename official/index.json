@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21T10:10:51.663Z",
+  "updatedAt": "2026-11-21T10:37:54.223Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -748,7 +748,7 @@
     {
       "id": "alerts",
       "name": "Alerts",
-      "description": "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email.",
+      "description": "One inbox for every alert in Termix, with delivery to the mobile app, webhooks, ntfy, Discord and email.",
       "author": "Termix",
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
@@ -757,7 +757,8 @@
       "features": [
         "One inbox for alerts from every part of Termix",
         "Popups for new alerts",
-        "Send alerts to Discord, ntfy, email or a webhook",
+        "Send alerts to Discord, Slack, Teams, Telegram, ntfy, Gotify, Pushover, Matrix, email or a webhook",
+        "Push notifications on your phone through the Termix app",
         "Rules that pick which alerts go where",
         "Optional news from the Termix team, like security notices and releases",
         "An alerts inbox card for the dashboard"
@@ -934,6 +935,44 @@
         }
       ],
       "gated": [
+        {
+          "version": "1.4.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0/alerts-1.4.0.tmxplug",
+          "sha256": "0182dede402a44e1ac6926ae4dd637c06fe73f6d72ca6ea316ace4e8f7c1e326",
+          "signature": "odPZx3bQ9+/a91RqkjrKAK/HfU0NGKHvW63j+Qi/Bu5NRaAFdIwkObMJeMNGGgJRnkPkbCtM8mPSSDhCh+ntBg==",
+          "size": 672298,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface",
+            "operations:provide",
+            "notify:send",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.4.0",
+          "notes": "### Added\n\n- Push notifications on your phone. Turn them on in the Termix app and the phone shows up as a Mobile app channel with its own rule\n- Phones that stop taking notifications are turned off on their own\n- Slack, Microsoft Teams, Gotify, Pushover and Matrix channels\n- Other plugins can act when an alert comes in, like an Automations trigger that restarts a service when its Uptime monitor goes down",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.4.0/alerts-1.4.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-21T09:04:33.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "E2n+VfD3v2svfoko83ZvckVMmrCzxRB6BrluqBXG9aIB9IF+5ef0cyuA5srVinXdGNVxZ6xbSdzMASFkDwY8DQ=="
+            }
+          ]
+        },
         {
           "version": "1.3.1",
           "api": "2",
@@ -4457,6 +4496,58 @@
       ]
     },
     {
+      "id": "host-layout",
+      "name": "Host Layout",
+      "description": "A host first Termix layout with a tree of hosts and every tool as a tab on the selected host.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Host-Layout",
+      "icon": "ListTree",
+      "features": [
+        "Tree of folders, hosts, sub hosts, containers and VMs",
+        "Every tool for a host is a tab on that host",
+        "Sessions keep running when you switch hosts",
+        "Full host editor, Manage and Settings screens",
+        "Command palette, plugin panels and a phone view"
+      ],
+      "docs": "https://docs.termix.site/plugins/host-layout",
+      "contributes": [
+        "layouts",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Layout/releases/download/v1.0.0/host-layout-1.0.0.tmxplug",
+          "sha256": "5ed55c0d93b1b37deb8128bc39a297579e790694280472f5b5e963d63efb8147",
+          "signature": "S0cL+ibAgotLUbDcXS324UD9CunkQF3jRnUTdb5T6CzjFMjaNZEp3M43HwRHQgR/XvBp9p4nSKLRreS7b9FiAA==",
+          "size": 2198000,
+          "capabilities": [
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.9.0",
+            "termix": ">=26.11.3-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Layout/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A host first layout: a tree of folders, hosts and sub hosts on the left and the selected host on the right\n- Containers and VMs that plugins list under a host in the tree, opening in that plugin's tab\n- A tab for every tool and session a host has, with an Overview tab showing its details, tools and host page cards\n- Sessions keep running when you switch hosts, and each host opens on the tab you left\n- Host search, status dots, badges, open tab counts and a menu with edit and plugin actions on each host row\n- Open pages list, Tools menu and a right side dock for plugin panels, Quick Connect and Connections\n- Dashboard, Manage, Settings, admin pages, host and credential editors and command palette from Classic Layout\n- Phone view with the tree first and a back button to it",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Host-Layout/releases/download/v1.0.0/host-layout-1.0.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-21T10:17:52.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "D5+jE+SvnEkCg4mWbliZZRtJdICXVAP0HxP4jT9hRaU+euuapCpzMPLJtFUqdJbgGFIT/ck4E8tQ3qGeLY5gAg=="
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "host-metrics",
       "name": "Host Metrics",
       "description": "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts.",
@@ -6861,6 +6952,61 @@
             {
               "keyId": "a7b173b2ec703171",
               "sig": "Wvx6E5ozcY971R9V2cOMy9RbbhUmwJeTvH6riXupA/q6D4n4409pLDlPedQdcVdfGV8JTWCwHkCzKV2gzzBPDw=="
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "original-layout",
+      "name": "Original Layout",
+      "description": "The Termix layout from before 2.3.0, with a floating sidebar of host folders and a floating tab bar.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Original-Layout",
+      "icon": "PanelsLeftBottom",
+      "features": [
+        "Floating sidebar with a card for each host folder",
+        "Floating tab bar with rounded tabs over a framed tab area",
+        "Tools sidebar on the right for snippets, history and other panels",
+        "The old dark and light colors as two themes",
+        "Dashboard, Host Manager and Settings from Classic Layout"
+      ],
+      "docs": "https://docs.termix.site/plugins/original-layout",
+      "contributes": [
+        "layouts",
+        "settings",
+        "tabs",
+        "themes"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Original-Layout/releases/download/v1.0.0/original-layout-1.0.0.tmxplug",
+          "sha256": "aa464b979de089b576718088b3026dc94a0157e51f4913050d31bd3be90fa9ef",
+          "signature": "e1UqxFoMWRtJ4HBt+myy8nb4WlI7q2U8kCoy+bDQZwRhmHzZopyhwUBkuZwiJcrwko5DEeUU115sF0V+QyvZBw==",
+          "size": 2243931,
+          "capabilities": [
+            "ui:layout",
+            "ui:surface",
+            "ui:theme"
+          ],
+          "engine": {
+            "api": "^2.6.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Original-Layout/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- The Termix layout from before 2.3.0: a floating host sidebar, a floating tab bar and a framed tab area\n- A card for each host folder, with sub-folders and sub-hosts inside, that you can fold and that stays folded\n- Host rows with a status dot, buttons for the tools you use most and a menu for the rest\n- Host search by name or with tag:, name:, user:, ip:, port:, folder: and auth:\n- Apps menu in the sidebar with everything the icon rail had\n- Account menu at the bottom of the sidebar with Profile, Admin Settings, Plugins, Settings, theme and Log out\n- Rounded tabs with the open one underlined, plus Tools and Quick Connect buttons in the tab bar\n- Tools sidebar on the right for snippets, history and other panels\n- Original Dark and Original Light themes with the old colors\n- The old system font, white highlights, rounded corners and rounded sub-tab groups while the layout or an Original theme is on\n- Dashboard with the old header and links, and cards as separate boxes\n- Host Manager with Host Viewer, Add Host, Credentials Viewer and Add Credential tabs, and cards in folder sections\n- Settings, admin pages, host and credential editors, command palette and mobile bar from Classic Layout",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Original-Layout/releases/download/v1.0.0/original-layout-1.0.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-21T10:18:45.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "ed0+D5KdFHfHR90AbECT4a/PUAj6h2wWq7Az2/BDCVQiG2AkKW2hExBvl41SOxi04uHqhIma6xBcjPOAzWEtCw=="
             }
           ]
         }
@@ -11782,6 +11928,61 @@
             {
               "keyId": "a7b173b2ec703171",
               "sig": "k7J/5qMC9eBG1QEKH6Bj5JVlHMP1dFC3n9JFf7/zZ2Nll9fVxMZiVZmS1UJN63w5P1C0s5PEd3zzmrzcZyjoCw=="
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminal-layout",
+      "name": "Terminal Layout",
+      "description": "A terminal first Termix layout with a command palette for everything and tiled panes like tmux.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Terminal-Layout",
+      "icon": "SquareTerminal",
+      "features": [
+        "Sessions fill the screen with almost no chrome",
+        "Tiled panes like tmux or Zellij",
+        "Ctrl+Space prefix keys to split, move, zoom and close panes",
+        "Command palette for hosts, tabs, actions and settings",
+        "Ctrl+Enter in the palette opens a host in a new pane",
+        "One line status bar with numbered tabs",
+        "Manage, Settings and the host editor from Classic Layout"
+      ],
+      "docs": "https://docs.termix.site/plugins/terminal-layout",
+      "contributes": [
+        "keybindingActions",
+        "layouts",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Terminal-Layout/releases/download/v1.0.0/terminal-layout-1.0.0.tmxplug",
+          "sha256": "2166fdd054bf875a6a6c6534bae451902b44207108cc0418ae39fcde95cc8f8e",
+          "signature": "rZ6OStPkJYieyr1WF0baXa/+qhZ/k9fwi9pSrLNSqYQ0ViXZoqqOJYOQr/r7bL/4YCyj+/hakEHFsh7JlhNBCA==",
+          "size": 2197349,
+          "capabilities": [
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^2.6.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Terminal-Layout/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A terminal first layout: sessions fill the screen with one status line at the bottom\n- Tiled panes like tmux or Zellij, with Ctrl+Space prefix keys to split, move, zoom, close and even them out\n- Prefix keys for the palette, next and previous tab, last tab, tab numbers, rename and the status line\n- Ctrl+Space works inside terminals and can be changed in Settings, Keybindings\n- Command palette with hosts, open tabs, pane commands, plugin actions and settings\n- Ctrl+Enter in the palette opens a host in a new pane\n- Status line with numbered tabs, the focused host and the terminal's plugin buttons\n- Start screen with your hosts when nothing is open\n- Hosts, Quick Connect, Connections and plugin panels on the right side\n- Dashboard, Manage, Settings, admin pages and the host and credential editors from Classic Layout\n- Phone view with a taller status line and a back button on pages",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Terminal-Layout/releases/download/v1.0.0/terminal-layout-1.0.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-21T10:17:06.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "rWP7rulj486gtcjsWqX/1PU3u74W+JQiFpE89i5ZIjokhCSvbLCoL5jzfzmgEkqMipolOPt3GqqPKIpFJa+lAQ=="
             }
           ]
         }
