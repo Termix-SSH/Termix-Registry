@@ -22,6 +22,7 @@
     "Termix-SSH/Plugin-Fleets",
     "Termix-SSH/Plugin-Git",
     "Termix-SSH/Plugin-Homepage",
+    "Termix-SSH/Plugin-Host-Layout",
     "Termix-SSH/Plugin-Host-Metrics",
     "Termix-SSH/Plugin-Host-Status",
     "Termix-SSH/Plugin-Hosts-Config",
