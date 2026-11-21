@@ -1403,6 +1403,15 @@
       }
     ]
   },
+  "log-search@1.3.0": {
+    "sha256": "523bf3c2544030eed8d02809da749d37663101c17ee3ca770d2e0f23a1ae8583",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "3GyQFBixrLNRSwlVwonZ3BinI96ofOLQaM0UOFiseu7mkUzPu3ic4fHXUqvyCZsxfnarQwaCAU/s5J2TOJpnCA=="
+      }
+    ]
+  },
   "login-security@1.0.0": {
     "sha256": "b21dff5722e72a02022d563ef27130e8b56a53e273f1668fade4ec7d030374aa",
     "signatures": [
