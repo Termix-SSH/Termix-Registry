@@ -63,6 +63,7 @@
     "Termix-SSH/Plugin-Sync",
     "Termix-SSH/Plugin-Tailscale",
     "Termix-SSH/Plugin-Telemetry",
+    "Termix-SSH/Plugin-Terminal-Layout",
     "Termix-SSH/Plugin-Termix-Identity",
     "Termix-SSH/Plugin-Tmux-Monitor",
     "Termix-SSH/Plugin-TOTP",
