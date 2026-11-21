@@ -1,0 +1,10 @@
+{
+  "id": "terminal-layout",
+  "versions": {
+    "1.0.0": {
+      "sha256": "2166fdd054bf875a6a6c6534bae451902b44207108cc0418ae39fcde95cc8f8e",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44893098139",
+      "at": "2026-11-21T10:36:30.559Z"
+    }
+  }
+}
