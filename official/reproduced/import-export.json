@@ -5,6 +5,11 @@
       "sha256": "20929ec668956ca45a6fc9470a0c90caf913e0d9918c502dc710accf25a0f132",
       "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44251013003",
       "at": "2026-11-18T06:41:45.313Z"
+    },
+    "1.3.0": {
+      "sha256": "42e5b0e5bd383a015f916e7949fe1dcc119c1b9a0899da5e9273c1d9fae8ddf6",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44880987943",
+      "at": "2026-11-21T08:09:45.206Z"
     }
   }
 }
