@@ -1,0 +1,10 @@
+{
+  "id": "wall-display",
+  "versions": {
+    "1.0.0": {
+      "sha256": "deaa8be11df0feb4ad80127fbc56288f7f46cfd7e57aff7d3577b6579c794444",
+      "run": "https://github.com/Termix-SSH/Termix-Registry/actions/runs/44880987943",
+      "at": "2026-11-21T09:36:29.207Z"
+    }
+  }
+}
