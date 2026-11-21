@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21T09:44:02.986Z",
+  "updatedAt": "2026-11-21T10:10:51.663Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -12389,7 +12389,8 @@
         "WireGuard gateways that forward public ports to services on a private host",
         "Finds listening ports on its own, with a switch for each one",
         "Client tunnels on your own computer from the desktop app, with presets you can save to the server",
-        "A tunnels panel beside any SSH terminal and a tunnels dashboard card"
+        "A tunnels panel beside any SSH terminal and a tunnels dashboard card",
+        "Run graphical programs on a host with X11 forwarding and see their windows on your computer"
       ],
       "docs": "https://docs.termix.site/plugins/tunnels",
       "contributes": [
@@ -12532,6 +12533,45 @@
       ],
       "gated": [
         {
+          "version": "1.5.0",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.5.0/tunnels-1.5.0.tmxplug",
+          "sha256": "d4298a1b84d25074369be8feaa754c0bda44484d96398a76324e8cc6db017ea2",
+          "signature": "JvyYue8khBrUA34VCh8r0HNIj9Cot2AaeKVceXiOipEouTAcaEsDf0k40PUIqBnRjR7DOk8FA8Jdwqs7jaCYAg==",
+          "size": 617151,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs",
+            "desktop:local",
+            "secrets:own",
+            "notify:send",
+            "operations:provide",
+            "network:sockets"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.5.0",
+          "notes": "### Added\n\n- X11 apps: start a graphical program on a host, like xclock or virt-manager, and its windows open on an X server the admin sets, such as VcXsrv or XQuartz next to the desktop app\n\n### Fixed\n\n- Local and dynamic tunnels keep forwarding new connections instead of stopping about 30 seconds after they start",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.5.0/tunnels-1.5.0.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-21T09:54:41.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "AwhyBwOrRi/SNr0E3DbM1//BpzaGMIYdK11vi7jhUgKqgth0LwdlP+jPvDb41VZ1nCIjJFDEhk8/68oYlLb4AQ=="
+            }
+          ]
+        },
+        {
           "version": "1.4.0",
           "api": "2",
           "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.4.0/tunnels-1.4.0.tmxplug",
@@ -12558,11 +12598,11 @@
             "termix": ">=26.11.2-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.4.0",
-          "notes": "### Added\n\n- Other plugins can add their own sections to the Tunnels page, next to SSH and Gateways\n\n### Changed\n\n- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)\n- Form fields use the same background as the rest of Termix",
           "provenance": {
             "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.4.0/tunnels-1.4.0.tmxplug.sigstore.json"
           },
           "publishedAt": "2026-11-18T06:31:59.000Z",
+          "notes": "### Added\n\n- Other plugins can add their own sections to the Tunnels page, next to SSH and Gateways\n\n### Changed\n\n- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)\n- Form fields use the same background as the rest of Termix",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",

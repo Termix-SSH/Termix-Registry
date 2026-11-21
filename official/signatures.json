@@ -3005,6 +3005,15 @@
       }
     ]
   },
+  "tunnels@1.5.0": {
+    "sha256": "d4298a1b84d25074369be8feaa754c0bda44484d96398a76324e8cc6db017ea2",
+    "signatures": [
+      {
+        "keyId": "a7b173b2ec703171",
+        "sig": "AwhyBwOrRi/SNr0E3DbM1//BpzaGMIYdK11vi7jhUgKqgth0LwdlP+jPvDb41VZ1nCIjJFDEhk8/68oYlLb4AQ=="
+      }
+    ]
+  },
   "ups-manager@1.0.0": {
     "sha256": "b50ca4eaee3c9e060e2fed630d134c43694054d238364283d49ac7ecb23e559c",
     "signatures": [
