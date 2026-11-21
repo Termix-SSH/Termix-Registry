@@ -73,6 +73,7 @@
     "Termix-SSH/Plugin-Vault",
     "Termix-SSH/Plugin-Virtual-Machines",
     "Termix-SSH/Plugin-Wake-On-LAN",
+    "Termix-SSH/Plugin-Wall-Display",
     "Termix-SSH/Plugin-Warpgate",
     "Termix-SSH/Plugin-Web-Endpoint",
     "Termix-SSH/Plugin-Web-Servers",
