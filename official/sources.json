@@ -37,6 +37,7 @@
     "Termix-SSH/Plugin-Object-Storage",
     "Termix-SSH/Plugin-Operations-Center",
     "Termix-SSH/Plugin-OPKSSH",
+    "Termix-SSH/Plugin-Original-Layout",
     "Termix-SSH/Plugin-Out-Of-Band",
     "Termix-SSH/Plugin-Package-Manager",
     "Termix-SSH/Plugin-Privileged-Access",
