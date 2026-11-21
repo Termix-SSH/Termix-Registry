@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21T12:34:52.689Z",
+  "updatedAt": "2026-11-21T12:59:30.539Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -13892,6 +13892,7 @@
         "settings",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=A8KqBOafA7U",
       "versions": [],
       "gated": [
         {
