@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21T12:59:30.539Z",
+  "updatedAt": "2026-11-21T17:48:47.723Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -5894,6 +5894,42 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "2",
+          "url": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/download/v1.2.1/log-search-1.2.1.tmxplug",
+          "sha256": "a7316d575d0f43eb9967a9a14be229a0682e8a37955d673e98cae79d7a3672bc",
+          "signature": "uYnVuJw6KzYxohkG7JXwCgJOqI6Jjqq1X6gv52iuj4uccFdTj5E9Ga084R3SAUFR7Lq0jmx8/b/spgEiXVLPAQ==",
+          "size": 235689,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "operations:provide",
+            "db:own",
+            "notify:send",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^2.0.0",
+            "termix": ">=26.11.2-0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/tag/v1.2.1",
+          "notes": "### Fixed\n\n- Search and Enter did nothing in Chrome, so no log lines showed up",
+          "provenance": {
+            "url": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/download/v1.2.1/log-search-1.2.1.tmxplug.sigstore.json"
+          },
+          "publishedAt": "2026-11-21T17:46:37.000Z",
+          "signatures": [
+            {
+              "keyId": "a7b173b2ec703171",
+              "sig": "/tgemEZNbHPfNxKAe82iAK7xEx0uPl3SeexbbEKyuUgV101FlTg0/a+Yjpbz5eMGyi1f5hdSSwg8BlA3CUEdBg=="
+            }
+          ]
+        },
+        {
           "version": "1.2.0",
           "api": "2",
           "url": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/download/v1.2.0/log-search-1.2.0.tmxplug",
@@ -5917,11 +5953,11 @@
             "termix": ">=26.11.2-0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Follow: new matching lines from the journal, log files and containers show up live, on up to 10 hosts, with pause and clear\n- Saved searches: keep a search with a name and pick it again later\n- Alerts on saved searches: a saved search can run in the background every few minutes and send one alert when it finds enough lines and one when it goes quiet\n- Run a saved log search action for the assistant, the CLI and MCP",
           "provenance": {
             "url": "https://github.com/Termix-SSH/Plugin-Log-Search/releases/download/v1.2.0/log-search-1.2.0.tmxplug.sigstore.json"
           },
           "publishedAt": "2026-11-21T08:16:24.000Z",
+          "notes": "### Added\n\n- Follow: new matching lines from the journal, log files and containers show up live, on up to 10 hosts, with pause and clear\n- Saved searches: keep a search with a name and pick it again later\n- Alerts on saved searches: a saved search can run in the background every few minutes and send one alert when it finds enough lines and one when it goes quiet\n- Run a saved log search action for the assistant, the CLI and MCP",
           "signatures": [
             {
               "keyId": "a7b173b2ec703171",
