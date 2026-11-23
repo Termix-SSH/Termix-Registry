@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-11-22T11:58:35.692Z",
+  "updatedAt": "2026-11-23T13:38:57.413Z",
   "plugins": {
     "command-editor": {
-      "downloads": 89,
+      "downloads": 92,
       "versions": {
         "1.0.0": {
-          "downloads": 89
+          "downloads": 92
         }
       }
     },
     "container-files": {
-      "downloads": 330,
+      "downloads": 339,
       "versions": {
         "1.1.0": {
-          "downloads": 19
+          "downloads": 28
         },
         "1.0.5": {
           "downloads": 133
@@ -65,10 +65,10 @@
       }
     },
     "herdr": {
-      "downloads": 130,
+      "downloads": 132,
       "versions": {
         "1.4.0": {
-          "downloads": 53
+          "downloads": 55
         },
         "1.1.0": {
           "downloads": 2
@@ -79,10 +79,10 @@
       }
     },
     "host-auth-badges": {
-      "downloads": 97,
+      "downloads": 103,
       "versions": {
         "1.1.0": {
-          "downloads": 13
+          "downloads": 19
         },
         "1.0.2": {
           "downloads": 52
@@ -96,10 +96,10 @@
       }
     },
     "host-icons": {
-      "downloads": 408,
+      "downloads": 412,
       "versions": {
         "0.6.0": {
-          "downloads": 225
+          "downloads": 229
         },
         "0.5.0": {
           "downloads": 56
@@ -130,10 +130,10 @@
       }
     },
     "netbird": {
-      "downloads": 166,
+      "downloads": 173,
       "versions": {
         "2.0.1": {
-          "downloads": 23
+          "downloads": 30
         },
         "2.0.0": {
           "downloads": 7
@@ -147,13 +147,13 @@
       }
     },
     "pve-power": {
-      "downloads": 321,
+      "downloads": 337,
       "versions": {
         "0.8.3": {
-          "downloads": 2
+          "downloads": 6
         },
         "0.8.2": {
-          "downloads": 46
+          "downloads": 58
         },
         "0.8.1": {
           "downloads": 4
@@ -179,10 +179,10 @@
       }
     },
     "termix-vscode": {
-      "downloads": 141,
+      "downloads": 143,
       "versions": {
         "1.1.1": {
-          "downloads": 138
+          "downloads": 140
         },
         "1.1.0": {
           "downloads": 3
