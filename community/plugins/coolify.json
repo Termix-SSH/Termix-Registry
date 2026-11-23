@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "coolify",
+  "repository": "https://github.com/pacnpal/termix-coolify-plugin",
+  "maintainers": ["pacnpal"],
+  "versions": [
+    {
+      "version": "1.0.4",
+      "sha256": "f8bf35f8aa365222ea84ef0ebe6985ce661ed0d0cae1847eda978d6f6de4612d"
+    }
+  ]
+}
