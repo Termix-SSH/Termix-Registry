@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "selkies",
+  "repository": "https://github.com/TheDuffman85/Termix-Plugin-Selkies",
+  "maintainers": ["TheDuffman85"],
+  "versions": [
+    {
+      "version": "0.1.0",
+      "sha256": "d590cc2d0d3386dac094b3e61515464ed1a0aa1f5199a4e7fb136e2f4ecd4e1b"
+    }
+  ]
+}
