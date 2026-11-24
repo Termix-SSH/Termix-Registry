@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T13:38:57.413Z",
+  "updatedAt": "2026-11-24T14:15:45.558Z",
   "plugins": {
     "command-editor": {
       "downloads": 92,
@@ -10,10 +10,10 @@
       }
     },
     "container-files": {
-      "downloads": 339,
+      "downloads": 348,
       "versions": {
         "1.1.0": {
-          "downloads": 28
+          "downloads": 37
         },
         "1.0.5": {
           "downloads": 133
@@ -36,10 +36,13 @@
       }
     },
     "deep-connect": {
-      "downloads": 59,
+      "downloads": 67,
       "versions": {
+        "2.0.0": {
+          "downloads": 4
+        },
         "1.2.0": {
-          "downloads": 37
+          "downloads": 41
         },
         "1.1.0": {
           "downloads": 4
@@ -65,10 +68,10 @@
       }
     },
     "herdr": {
-      "downloads": 132,
+      "downloads": 133,
       "versions": {
         "1.4.0": {
-          "downloads": 55
+          "downloads": 56
         },
         "1.1.0": {
           "downloads": 2
@@ -79,10 +82,10 @@
       }
     },
     "host-auth-badges": {
-      "downloads": 103,
+      "downloads": 105,
       "versions": {
         "1.1.0": {
-          "downloads": 19
+          "downloads": 21
         },
         "1.0.2": {
           "downloads": 52
@@ -96,10 +99,10 @@
       }
     },
     "host-icons": {
-      "downloads": 412,
+      "downloads": 417,
       "versions": {
         "0.6.0": {
-          "downloads": 229
+          "downloads": 234
         },
         "0.5.0": {
           "downloads": 56
@@ -130,13 +133,13 @@
       }
     },
     "netbird": {
-      "downloads": 173,
+      "downloads": 177,
       "versions": {
         "2.0.1": {
-          "downloads": 30
+          "downloads": 33
         },
         "2.0.0": {
-          "downloads": 7
+          "downloads": 8
         },
         "1.2.0": {
           "downloads": 101
@@ -147,13 +150,13 @@
       }
     },
     "pve-power": {
-      "downloads": 337,
+      "downloads": 344,
       "versions": {
         "0.8.3": {
           "downloads": 6
         },
         "0.8.2": {
-          "downloads": 58
+          "downloads": 64
         },
         "0.8.1": {
           "downloads": 4
@@ -162,7 +165,7 @@
           "downloads": 4
         },
         "0.7.0": {
-          "downloads": 92
+          "downloads": 93
         },
         "0.6.9": {
           "downloads": 135
@@ -179,10 +182,10 @@
       }
     },
     "termix-vscode": {
-      "downloads": 143,
+      "downloads": 145,
       "versions": {
         "1.1.1": {
-          "downloads": 140
+          "downloads": 142
         },
         "1.1.0": {
           "downloads": 3
