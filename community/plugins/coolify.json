@@ -5,8 +5,8 @@
   "maintainers": ["pacnpal"],
   "versions": [
     {
-      "version": "1.0.5",
-      "sha256": "b9505efd494346e5e2b49ff4790c931187fda739340b06215efe90af484877f6"
+      "version": "1.0.6",
+      "sha256": "bd48cb745cb32d30e69c1b91d8038c885d2b3dcd49e9ec9fcba1cfaa3d364cf7"
     }
   ]
 }
