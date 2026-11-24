@@ -5,6 +5,10 @@
   "maintainers": ["samsclub91"],
   "versions": [
     {
+      "version": "2.0.0",
+      "sha256": "b18a92ba99ff743e530a71bff7b2a083bbcfdafa17561a4425428ae392cb13d8"
+    },
+    {
       "version": "1.2.0",
       "sha256": "f73da68e3248390f5cb9a804da84dbf9076a8b5b7ef85f19b3e72f54d4580ed5"
     }
