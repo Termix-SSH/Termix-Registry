@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "runbooks",
+  "repository": "https://github.com/Coolroo/termix-plugin-runbooks",
+  "maintainers": ["Coolroo"],
+  "versions": [
+    {
+      "version": "1.4.5",
+      "sha256": "a02739d3620371de7f8e58b93b9c493722f4a8e9227291bb6c029c370964ee75"
+    }
+  ]
+}
