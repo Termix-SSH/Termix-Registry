@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-11-26T13:08:07.133Z",
+  "updatedAt": "2026-11-27T13:06:26.825Z",
   "plugins": {
     "acme-ssl": {
-      "downloads": 15637,
+      "downloads": 15735,
       "versions": {
         "1.2.1": {
-          "downloads": 1839
+          "downloads": 1933
         },
         "1.2.0": {
-          "downloads": 1702
+          "downloads": 1703
         },
         "1.1.0": {
-          "downloads": 7151
+          "downloads": 7153
         },
         "1.0.2": {
           "downloads": 1292
@@ -20,15 +20,15 @@
           "downloads": 1122
         },
         "1.0.0": {
-          "downloads": 2531
+          "downloads": 2532
         }
       }
     },
     "ai": {
-      "downloads": 17549,
+      "downloads": 17656,
       "versions": {
         "1.4.4": {
-          "downloads": 1228
+          "downloads": 1331
         },
         "1.4.3": {
           "downloads": 8
@@ -43,7 +43,7 @@
           "downloads": 1938
         },
         "1.3.1": {
-          "downloads": 1640
+          "downloads": 1643
         },
         "1.3.0": {
           "downloads": 6534
@@ -61,24 +61,24 @@
           "downloads": 1161
         },
         "1.0.0": {
-          "downloads": 2512
+          "downloads": 2513
         }
       }
     },
     "alerts": {
-      "downloads": 13182,
+      "downloads": 13335,
       "versions": {
         "1.4.0": {
-          "downloads": 1466
+          "downloads": 1578
         },
         "1.3.1": {
-          "downloads": 1197
+          "downloads": 1227
         },
         "1.3.0": {
-          "downloads": 2137
+          "downloads": 2138
         },
         "1.2.0": {
-          "downloads": 2152
+          "downloads": 2161
         },
         "1.1.0": {
           "downloads": 1235
@@ -90,15 +90,15 @@
           "downloads": 1182
         },
         "1.0.0": {
-          "downloads": 2473
+          "downloads": 2474
         }
       }
     },
     "ansible": {
-      "downloads": 1716,
+      "downloads": 1728,
       "versions": {
         "1.1.0": {
-          "downloads": 952
+          "downloads": 964
         },
         "1.0.0": {
           "downloads": 764
@@ -106,24 +106,24 @@
       }
     },
     "audit-tools": {
-      "downloads": 8281,
+      "downloads": 8337,
       "versions": {
         "1.2.0": {
-          "downloads": 1497
+          "downloads": 1551
         },
         "1.1.0": {
-          "downloads": 1144
+          "downloads": 1145
         },
         "1.0.0": {
-          "downloads": 5640
+          "downloads": 5641
         }
       }
     },
     "automations": {
-      "downloads": 16938,
+      "downloads": 17044,
       "versions": {
         "1.4.0": {
-          "downloads": 1296
+          "downloads": 1399
         },
         "1.3.0": {
           "downloads": 922
@@ -132,7 +132,7 @@
           "downloads": 1879
         },
         "1.2.0": {
-          "downloads": 7539
+          "downloads": 7541
         },
         "1.1.0": {
           "downloads": 320
@@ -147,15 +147,15 @@
           "downloads": 1155
         },
         "1.0.0": {
-          "downloads": 2475
+          "downloads": 2476
         }
       }
     },
     "backups": {
-      "downloads": 1824,
+      "downloads": 1835,
       "versions": {
         "1.2.0": {
-          "downloads": 522
+          "downloads": 533
         },
         "1.1.0": {
           "downloads": 506
@@ -166,10 +166,10 @@
       }
     },
     "certificates": {
-      "downloads": 1687,
+      "downloads": 1699,
       "versions": {
         "1.1.0": {
-          "downloads": 944
+          "downloads": 956
         },
         "1.0.0": {
           "downloads": 743
@@ -177,22 +177,22 @@
       }
     },
     "classic-layout": {
-      "downloads": 9028,
+      "downloads": 9178,
       "versions": {
         "1.2.0": {
-          "downloads": 1503
+          "downloads": 1613
         },
         "1.1.3": {
-          "downloads": 1195
+          "downloads": 1224
         },
         "1.1.2": {
-          "downloads": 2116
+          "downloads": 2117
         },
         "1.1.1": {
-          "downloads": 1380
+          "downloads": 1384
         },
         "1.1.0": {
-          "downloads": 901
+          "downloads": 907
         },
         "1.0.2": {
           "downloads": 1195
@@ -206,33 +206,33 @@
       }
     },
     "classic-themes": {
-      "downloads": 8328,
+      "downloads": 8476,
       "versions": {
         "1.2.0": {
-          "downloads": 1470
+          "downloads": 1578
         },
         "1.1.0": {
-          "downloads": 1189
+          "downloads": 1218
         },
         "1.0.1": {
-          "downloads": 2453
+          "downloads": 2458
         },
         "1.0.0": {
-          "downloads": 3216
+          "downloads": 3222
         }
       }
     },
     "cloud-providers": {
-      "downloads": 2054,
+      "downloads": 2072,
       "versions": {
         "1.3.0": {
-          "downloads": 981
+          "downloads": 998
         },
         "1.2.0": {
           "downloads": 799
         },
         "1.1.0": {
-          "downloads": 241
+          "downloads": 242
         },
         "1.0.0": {
           "downloads": 33
@@ -240,24 +240,24 @@
       }
     },
     "credential-tools": {
-      "downloads": 7853,
+      "downloads": 7986,
       "versions": {
         "1.2.0": {
-          "downloads": 2412
+          "downloads": 2538
         },
         "1.1.0": {
-          "downloads": 2133
+          "downloads": 2134
         },
         "1.0.0": {
-          "downloads": 3308
+          "downloads": 3314
         }
       }
     },
     "cron": {
-      "downloads": 1826,
+      "downloads": 1843,
       "versions": {
         "1.1.0": {
-          "downloads": 1026
+          "downloads": 1043
         },
         "1.0.0": {
           "downloads": 800
@@ -265,19 +265,19 @@
       }
     },
     "databases": {
-      "downloads": 2634,
+      "downloads": 2658,
       "versions": {
         "1.4.0": {
-          "downloads": 604
+          "downloads": 626
         },
         "1.3.0": {
           "downloads": 563
         },
         "1.2.0": {
-          "downloads": 929
+          "downloads": 930
         },
         "1.1.1": {
-          "downloads": 320
+          "downloads": 321
         },
         "1.1.0": {
           "downloads": 171
@@ -288,10 +288,10 @@
       }
     },
     "dns": {
-      "downloads": 1750,
+      "downloads": 1763,
       "versions": {
         "1.1.0": {
-          "downloads": 962
+          "downloads": 975
         },
         "1.0.0": {
           "downloads": 788
@@ -299,25 +299,25 @@
       }
     },
     "docker": {
-      "downloads": 13341,
+      "downloads": 13490,
       "versions": {
         "1.4.0": {
-          "downloads": 1494
+          "downloads": 1605
         },
         "1.3.1": {
-          "downloads": 1201
+          "downloads": 1229
         },
         "1.3.0": {
-          "downloads": 2102
+          "downloads": 2104
         },
         "1.2.3": {
           "downloads": 1208
         },
         "1.2.2": {
-          "downloads": 754
+          "downloads": 760
         },
         "1.2.1": {
-          "downloads": 1186
+          "downloads": 1187
         },
         "1.2.0": {
           "downloads": 409
@@ -332,30 +332,30 @@
           "downloads": 1197
         },
         "1.0.0": {
-          "downloads": 2465
+          "downloads": 2466
         }
       }
     },
     "file-manager": {
-      "downloads": 13014,
+      "downloads": 13151,
       "versions": {
         "1.3.0": {
-          "downloads": 1228
+          "downloads": 1324
         },
         "1.2.2": {
-          "downloads": 1222
+          "downloads": 1251
         },
         "1.2.1": {
           "downloads": 2
         },
         "1.2.0": {
-          "downloads": 2109
+          "downloads": 2110
         },
         "1.1.3": {
-          "downloads": 1367
+          "downloads": 1371
         },
         "1.1.2": {
-          "downloads": 889
+          "downloads": 895
         },
         "1.1.1": {
           "downloads": 1158
@@ -373,15 +373,15 @@
           "downloads": 244
         },
         "1.0.0": {
-          "downloads": 2440
+          "downloads": 2441
         }
       }
     },
     "firewall": {
-      "downloads": 1883,
+      "downloads": 1899,
       "versions": {
         "1.2.0": {
-          "downloads": 556
+          "downloads": 572
         },
         "1.1.0": {
           "downloads": 526
@@ -392,19 +392,19 @@
       }
     },
     "fleets": {
-      "downloads": 16777,
+      "downloads": 16884,
       "versions": {
         "1.3.0": {
-          "downloads": 1238
+          "downloads": 1341
         },
         "1.2.1": {
           "downloads": 889
         },
         "1.2.0": {
-          "downloads": 1851
+          "downloads": 1852
         },
         "1.1.0": {
-          "downloads": 2240
+          "downloads": 2242
         },
         "1.0.2": {
           "downloads": 6909
@@ -413,15 +413,15 @@
           "downloads": 1143
         },
         "1.0.0": {
-          "downloads": 2507
+          "downloads": 2508
         }
       }
     },
     "git": {
-      "downloads": 1782,
+      "downloads": 1798,
       "versions": {
         "1.1.0": {
-          "downloads": 992
+          "downloads": 1008
         },
         "1.0.0": {
           "downloads": 790
@@ -429,19 +429,19 @@
       }
     },
     "homepage": {
-      "downloads": 17712,
+      "downloads": 17839,
       "versions": {
         "1.2.2": {
-          "downloads": 1364
+          "downloads": 1487
         },
         "1.2.1": {
           "downloads": 934
         },
         "1.2.0": {
-          "downloads": 2176
+          "downloads": 2177
         },
         "1.1.0": {
-          "downloads": 8790
+          "downloads": 8792
         },
         "1.0.2": {
           "downloads": 786
@@ -450,38 +450,38 @@
           "downloads": 1175
         },
         "1.0.0": {
-          "downloads": 2487
+          "downloads": 2488
         }
       }
     },
     "host-layout": {
-      "downloads": 1201,
+      "downloads": 1299,
       "versions": {
         "1.0.0": {
-          "downloads": 1201
+          "downloads": 1299
         }
       }
     },
     "host-metrics": {
-      "downloads": 13252,
+      "downloads": 13404,
       "versions": {
         "1.5.0": {
-          "downloads": 1488
+          "downloads": 1600
         },
         "1.4.1": {
-          "downloads": 1201
+          "downloads": 1230
         },
         "1.4.0": {
-          "downloads": 2086
+          "downloads": 2089
         },
         "1.3.1": {
           "downloads": 1225
         },
         "1.3.0": {
-          "downloads": 757
+          "downloads": 763
         },
         "1.2.0": {
-          "downloads": 1197
+          "downloads": 1198
         },
         "1.1.0": {
           "downloads": 500
@@ -496,32 +496,32 @@
           "downloads": 239
         },
         "1.0.0": {
-          "downloads": 2490
+          "downloads": 2491
         }
       }
     },
     "host-status": {
-      "downloads": 7974,
+      "downloads": 8108,
       "versions": {
         "1.2.0": {
-          "downloads": 2459
+          "downloads": 2586
         },
         "1.1.0": {
-          "downloads": 2139
+          "downloads": 2140
         },
         "1.0.0": {
-          "downloads": 3376
+          "downloads": 3382
         }
       }
     },
     "hosts-config": {
-      "downloads": 8086,
+      "downloads": 8145,
       "versions": {
         "1.2.0": {
-          "downloads": 1507
+          "downloads": 1564
         },
         "1.1.0": {
-          "downloads": 1188
+          "downloads": 1190
         },
         "1.0.0": {
           "downloads": 5391
@@ -529,19 +529,19 @@
       }
     },
     "import-export": {
-      "downloads": 8201,
+      "downloads": 8339,
       "versions": {
         "1.3.0": {
-          "downloads": 1343
+          "downloads": 1444
         },
         "1.2.0": {
-          "downloads": 1231
+          "downloads": 1258
         },
         "1.1.0": {
-          "downloads": 2100
+          "downloads": 2101
         },
         "1.0.1": {
-          "downloads": 2029
+          "downloads": 2038
         },
         "1.0.0": {
           "downloads": 1498
@@ -549,10 +549,10 @@
       }
     },
     "ip-kvm": {
-      "downloads": 1672,
+      "downloads": 1683,
       "versions": {
         "1.1.0": {
-          "downloads": 925
+          "downloads": 936
         },
         "1.0.0": {
           "downloads": 747
@@ -560,16 +560,16 @@
       }
     },
     "kubernetes": {
-      "downloads": 2040,
+      "downloads": 2061,
       "versions": {
         "1.2.0": {
-          "downloads": 495
+          "downloads": 512
         },
         "1.1.1": {
-          "downloads": 498
+          "downloads": 500
         },
         "1.1.0": {
-          "downloads": 780
+          "downloads": 782
         },
         "1.0.1": {
           "downloads": 230
@@ -580,13 +580,13 @@
       }
     },
     "ldap": {
-      "downloads": 15080,
+      "downloads": 15173,
       "versions": {
         "1.1.0": {
-          "downloads": 1708
+          "downloads": 1799
         },
         "1.0.3": {
-          "downloads": 1980
+          "downloads": 1981
         },
         "1.0.2": {
           "downloads": 7794
@@ -595,21 +595,21 @@
           "downloads": 1104
         },
         "1.0.0": {
-          "downloads": 2494
+          "downloads": 2495
         }
       }
     },
     "log-search": {
-      "downloads": 1831,
+      "downloads": 1846,
       "versions": {
         "1.3.0": {
-          "downloads": 202
+          "downloads": 216
         },
         "1.2.1": {
           "downloads": 11
         },
         "1.2.0": {
-          "downloads": 316
+          "downloads": 317
         },
         "1.1.0": {
           "downloads": 523
@@ -620,13 +620,13 @@
       }
     },
     "login-security": {
-      "downloads": 6703,
+      "downloads": 6757,
       "versions": {
         "1.2.0": {
-          "downloads": 740
+          "downloads": 793
         },
         "1.1.0": {
-          "downloads": 579
+          "downloads": 580
         },
         "1.0.0": {
           "downloads": 5384
@@ -634,10 +634,10 @@
       }
     },
     "network-devices": {
-      "downloads": 1859,
+      "downloads": 1875,
       "versions": {
         "1.2.0": {
-          "downloads": 531
+          "downloads": 547
         },
         "1.1.0": {
           "downloads": 508
@@ -648,10 +648,10 @@
       }
     },
     "network-topology": {
-      "downloads": 17052,
+      "downloads": 17173,
       "versions": {
         "1.1.1": {
-          "downloads": 2098
+          "downloads": 2218
         },
         "1.1.0": {
           "downloads": 1998
@@ -663,26 +663,26 @@
           "downloads": 1161
         },
         "1.0.0": {
-          "downloads": 2499
+          "downloads": 2500
         }
       }
     },
     "notes": {
-      "downloads": 1796,
+      "downloads": 1813,
       "versions": {
         "1.1.0": {
-          "downloads": 997
+          "downloads": 1013
         },
         "1.0.0": {
-          "downloads": 799
+          "downloads": 800
         }
       }
     },
     "object-storage": {
-      "downloads": 1719,
+      "downloads": 1733,
       "versions": {
         "1.2.0": {
-          "downloads": 485
+          "downloads": 499
         },
         "1.1.0": {
           "downloads": 487
@@ -693,27 +693,27 @@
       }
     },
     "operations-center": {
-      "downloads": 4721,
+      "downloads": 4859,
       "versions": {
         "1.1.1": {
-          "downloads": 1458
+          "downloads": 1568
         },
         "1.1.0": {
-          "downloads": 1191
+          "downloads": 1218
         },
         "1.0.0": {
-          "downloads": 2072
+          "downloads": 2073
         }
       }
     },
     "opkssh": {
-      "downloads": 15891,
+      "downloads": 15993,
       "versions": {
         "1.0.4": {
-          "downloads": 1802
+          "downloads": 1902
         },
         "1.0.3": {
-          "downloads": 2090
+          "downloads": 2091
         },
         "1.0.2": {
           "downloads": 8399
@@ -722,23 +722,23 @@
           "downloads": 1117
         },
         "1.0.0": {
-          "downloads": 2483
+          "downloads": 2484
         }
       }
     },
     "original-layout": {
-      "downloads": 1246,
+      "downloads": 1350,
       "versions": {
         "1.0.0": {
-          "downloads": 1246
+          "downloads": 1350
         }
       }
     },
     "out-of-band": {
-      "downloads": 1631,
+      "downloads": 1644,
       "versions": {
         "1.1.0": {
-          "downloads": 906
+          "downloads": 919
         },
         "1.0.0": {
           "downloads": 725
@@ -746,10 +746,10 @@
       }
     },
     "package-manager": {
-      "downloads": 1986,
+      "downloads": 2007,
       "versions": {
         "1.2.0": {
-          "downloads": 597
+          "downloads": 618
         },
         "1.1.0": {
           "downloads": 557
@@ -760,10 +760,10 @@
       }
     },
     "privileged-access": {
-      "downloads": 1628,
+      "downloads": 1640,
       "versions": {
         "1.0.1": {
-          "downloads": 907
+          "downloads": 919
         },
         "1.0.0": {
           "downloads": 721
@@ -771,10 +771,10 @@
       }
     },
     "process-manager": {
-      "downloads": 1812,
+      "downloads": 1830,
       "versions": {
         "1.1.0": {
-          "downloads": 1030
+          "downloads": 1048
         },
         "1.0.0": {
           "downloads": 782
@@ -782,10 +782,10 @@
       }
     },
     "proxmox": {
-      "downloads": 18263,
+      "downloads": 18388,
       "versions": {
         "1.4.0": {
-          "downloads": 1455
+          "downloads": 1578
         },
         "1.3.1": {
           "downloads": 992
@@ -794,7 +794,7 @@
           "downloads": 2081
         },
         "1.2.1": {
-          "downloads": 1794
+          "downloads": 1795
         },
         "1.2.0": {
           "downloads": 970
@@ -809,30 +809,30 @@
           "downloads": 1174
         },
         "1.0.0": {
-          "downloads": 2458
+          "downloads": 2459
         }
       }
     },
     "remote-desktop": {
-      "downloads": 14311,
+      "downloads": 14480,
       "versions": {
         "1.4.3": {
-          "downloads": 1538
+          "downloads": 1657
         },
         "1.4.2": {
-          "downloads": 1242
+          "downloads": 1270
         },
         "1.4.1": {
-          "downloads": 736
+          "downloads": 745
         },
         "1.4.0": {
-          "downloads": 2099
+          "downloads": 2101
         },
         "1.3.1": {
-          "downloads": 1445
+          "downloads": 1448
         },
         "1.3.0": {
-          "downloads": 910
+          "downloads": 916
         },
         "1.2.1": {
           "downloads": 1192
@@ -841,7 +841,7 @@
           "downloads": 509
         },
         "1.1.0": {
-          "downloads": 857
+          "downloads": 858
         },
         "1.0.2": {
           "downloads": 1028
@@ -850,18 +850,18 @@
           "downloads": 241
         },
         "1.0.0": {
-          "downloads": 2514
+          "downloads": 2515
         }
       }
     },
     "reverse-proxy": {
-      "downloads": 2142,
+      "downloads": 2160,
       "versions": {
         "1.2.1": {
-          "downloads": 972
+          "downloads": 989
         },
         "1.2.0": {
-          "downloads": 811
+          "downloads": 812
         },
         "1.1.1": {
           "downloads": 134
@@ -875,10 +875,10 @@
       }
     },
     "samba": {
-      "downloads": 2202,
+      "downloads": 2223,
       "versions": {
         "1.2.0": {
-          "downloads": 542
+          "downloads": 563
         },
         "1.1.0": {
           "downloads": 528
@@ -892,24 +892,24 @@
       }
     },
     "scim": {
-      "downloads": 876,
+      "downloads": 885,
       "versions": {
         "1.0.0": {
-          "downloads": 876
+          "downloads": 885
         }
       }
     },
     "secret-sources": {
-      "downloads": 16885,
+      "downloads": 16992,
       "versions": {
         "1.2.0": {
-          "downloads": 1158
+          "downloads": 1263
         },
         "1.1.3": {
           "downloads": 921
         },
         "1.1.2": {
-          "downloads": 2186
+          "downloads": 2187
         },
         "1.1.1": {
           "downloads": 1350
@@ -924,15 +924,15 @@
           "downloads": 1119
         },
         "1.0.0": {
-          "downloads": 2506
+          "downloads": 2507
         }
       }
     },
     "security-center": {
-      "downloads": 1799,
+      "downloads": 1815,
       "versions": {
         "1.1.0": {
-          "downloads": 1015
+          "downloads": 1031
         },
         "1.0.0": {
           "downloads": 784
@@ -940,27 +940,27 @@
       }
     },
     "serial": {
-      "downloads": 11899,
+      "downloads": 12033,
       "versions": {
         "1.1.0": {
-          "downloads": 2389
+          "downloads": 2515
         },
         "1.0.2": {
-          "downloads": 5907
+          "downloads": 5914
         },
         "1.0.1": {
           "downloads": 1118
         },
         "1.0.0": {
-          "downloads": 2485
+          "downloads": 2486
         }
       }
     },
     "service-manager": {
-      "downloads": 2726,
+      "downloads": 2759,
       "versions": {
         "1.1.3": {
-          "downloads": 1182
+          "downloads": 1215
         },
         "1.1.2": {
           "downloads": 947
@@ -977,16 +977,16 @@
       }
     },
     "session-recording": {
-      "downloads": 16446,
+      "downloads": 16553,
       "versions": {
         "1.2.1": {
-          "downloads": 1959
+          "downloads": 2064
         },
         "1.2.0": {
           "downloads": 1841
         },
         "1.1.1": {
-          "downloads": 1530
+          "downloads": 1531
         },
         "1.1.0": {
           "downloads": 6379
@@ -998,15 +998,15 @@
           "downloads": 1128
         },
         "1.0.0": {
-          "downloads": 2489
+          "downloads": 2490
         }
       }
     },
     "session-sharing": {
-      "downloads": 16287,
+      "downloads": 16396,
       "versions": {
         "1.2.2": {
-          "downloads": 1187
+          "downloads": 1294
         },
         "1.2.1": {
           "downloads": 866
@@ -1015,7 +1015,7 @@
           "downloads": 1823
         },
         "1.1.0": {
-          "downloads": 7679
+          "downloads": 7680
         },
         "1.0.2": {
           "downloads": 1145
@@ -1024,21 +1024,21 @@
           "downloads": 1124
         },
         "1.0.0": {
-          "downloads": 2463
+          "downloads": 2464
         }
       }
     },
     "simple-layout": {
-      "downloads": 3884,
+      "downloads": 3990,
       "versions": {
         "1.2.0": {
-          "downloads": 1278
+          "downloads": 1382
         },
         "1.1.0": {
           "downloads": 685
         },
         "1.0.2": {
-          "downloads": 1045
+          "downloads": 1047
         },
         "1.0.1": {
           "downloads": 846
@@ -1049,19 +1049,19 @@
       }
     },
     "snippets": {
-      "downloads": 12750,
+      "downloads": 12898,
       "versions": {
         "1.4.1": {
-          "downloads": 1476
+          "downloads": 1587
         },
         "1.4.0": {
-          "downloads": 1192
+          "downloads": 1219
         },
         "1.3.0": {
-          "downloads": 2075
+          "downloads": 2076
         },
         "1.2.0": {
-          "downloads": 1916
+          "downloads": 1924
         },
         "1.1.0": {
           "downloads": 1221
@@ -1073,27 +1073,27 @@
           "downloads": 1193
         },
         "1.0.0": {
-          "downloads": 2587
+          "downloads": 2588
         }
       }
     },
     "ssh-terminal": {
-      "downloads": 13075,
+      "downloads": 13228,
       "versions": {
         "1.5.0": {
-          "downloads": 1509
+          "downloads": 1623
         },
         "1.4.1": {
-          "downloads": 1225
+          "downloads": 1253
         },
         "1.4.0": {
-          "downloads": 2079
+          "downloads": 2081
         },
         "1.3.0": {
-          "downloads": 1207
+          "downloads": 1209
         },
         "1.2.0": {
-          "downloads": 816
+          "downloads": 822
         },
         "1.1.1": {
           "downloads": 1163
@@ -1111,27 +1111,27 @@
           "downloads": 252
         },
         "1.0.0": {
-          "downloads": 2494
+          "downloads": 2495
         }
       }
     },
     "sso": {
-      "downloads": 13035,
+      "downloads": 13182,
       "versions": {
         "1.3.0": {
-          "downloads": 1444
+          "downloads": 1552
         },
         "1.2.0": {
-          "downloads": 1216
+          "downloads": 1244
         },
         "1.1.0": {
-          "downloads": 2120
+          "downloads": 2121
         },
         "1.0.5": {
-          "downloads": 1362
+          "downloads": 1365
         },
         "1.0.4": {
-          "downloads": 1962
+          "downloads": 1968
         },
         "1.0.3": {
           "downloads": 1182
@@ -1143,15 +1143,15 @@
           "downloads": 181
         },
         "1.0.0": {
-          "downloads": 2393
+          "downloads": 2394
         }
       }
     },
     "step-ca": {
-      "downloads": 15770,
+      "downloads": 15874,
       "versions": {
         "1.1.0": {
-          "downloads": 1793
+          "downloads": 1896
         },
         "1.0.3": {
           "downloads": 1924
@@ -1163,15 +1163,15 @@
           "downloads": 1107
         },
         "1.0.0": {
-          "downloads": 2471
+          "downloads": 2472
         }
       }
     },
     "storage-health": {
-      "downloads": 1887,
+      "downloads": 1905,
       "versions": {
         "1.1.0": {
-          "downloads": 1063
+          "downloads": 1081
         },
         "1.0.0": {
           "downloads": 824
@@ -1179,19 +1179,19 @@
       }
     },
     "sync": {
-      "downloads": 9153,
+      "downloads": 9300,
       "versions": {
         "1.3.1": {
-          "downloads": 1540
+          "downloads": 1651
         },
         "1.3.0": {
-          "downloads": 1244
+          "downloads": 1269
         },
         "1.2.0": {
-          "downloads": 2155
+          "downloads": 2156
         },
         "1.1.0": {
-          "downloads": 2358
+          "downloads": 2368
         },
         "1.0.1": {
           "downloads": 1311
@@ -1202,16 +1202,16 @@
       }
     },
     "tailscale": {
-      "downloads": 16085,
+      "downloads": 16191,
       "versions": {
         "1.3.0": {
-          "downloads": 1888
+          "downloads": 1991
         },
         "1.2.0": {
-          "downloads": 1811
+          "downloads": 1812
         },
         "1.1.0": {
-          "downloads": 7642
+          "downloads": 7643
         },
         "1.0.2": {
           "downloads": 1126
@@ -1220,40 +1220,40 @@
           "downloads": 1128
         },
         "1.0.0": {
-          "downloads": 2490
+          "downloads": 2491
         }
       }
     },
     "telemetry": {
-      "downloads": 11918,
+      "downloads": 12049,
       "versions": {
         "1.1.0": {
-          "downloads": 2370
+          "downloads": 2493
         },
         "1.0.2": {
-          "downloads": 5879
+          "downloads": 5886
         },
         "1.0.1": {
           "downloads": 1183
         },
         "1.0.0": {
-          "downloads": 2486
+          "downloads": 2487
         }
       }
     },
     "terminal-layout": {
-      "downloads": 1221,
+      "downloads": 1321,
       "versions": {
         "1.0.0": {
-          "downloads": 1221
+          "downloads": 1321
         }
       }
     },
     "termix-identity": {
-      "downloads": 16325,
+      "downloads": 16433,
       "versions": {
         "1.1.1": {
-          "downloads": 2024
+          "downloads": 2131
         },
         "1.1.0": {
           "downloads": 1993
@@ -1265,21 +1265,21 @@
           "downloads": 1118
         },
         "1.0.0": {
-          "downloads": 2496
+          "downloads": 2497
         }
       }
     },
     "tmux-monitor": {
-      "downloads": 17307,
+      "downloads": 17433,
       "versions": {
         "1.3.0": {
-          "downloads": 2152
+          "downloads": 2274
         },
         "1.2.0": {
-          "downloads": 1960
+          "downloads": 1961
         },
         "1.1.0": {
-          "downloads": 8179
+          "downloads": 8181
         },
         "1.0.4": {
           "downloads": 616
@@ -1294,44 +1294,44 @@
           "downloads": 217
         },
         "1.0.0": {
-          "downloads": 2508
+          "downloads": 2509
         }
       }
     },
     "totp": {
-      "downloads": 10759,
+      "downloads": 10887,
       "versions": {
         "1.1.0": {
-          "downloads": 1680
+          "downloads": 1800
         },
         "1.0.2": {
-          "downloads": 5406
+          "downloads": 5413
         },
         "1.0.1": {
           "downloads": 1183
         },
         "1.0.0": {
-          "downloads": 2490
+          "downloads": 2491
         }
       }
     },
     "tunnels": {
-      "downloads": 14256,
+      "downloads": 14405,
       "versions": {
         "1.5.0": {
-          "downloads": 1500
+          "downloads": 1613
         },
         "1.4.0": {
-          "downloads": 1192
+          "downloads": 1217
         },
         "1.3.0": {
-          "downloads": 2076
+          "downloads": 2077
         },
         "1.2.3": {
-          "downloads": 1147
+          "downloads": 1150
         },
         "1.2.2": {
-          "downloads": 1895
+          "downloads": 1901
         },
         "1.2.1": {
           "downloads": 1112
@@ -1352,15 +1352,15 @@
           "downloads": 239
         },
         "1.0.0": {
-          "downloads": 2497
+          "downloads": 2498
         }
       }
     },
     "ups-manager": {
-      "downloads": 1663,
+      "downloads": 1674,
       "versions": {
         "1.0.1": {
-          "downloads": 925
+          "downloads": 936
         },
         "1.0.0": {
           "downloads": 738
@@ -1368,21 +1368,21 @@
       }
     },
     "uptime": {
-      "downloads": 1857,
+      "downloads": 1872,
       "versions": {
         "1.0.1": {
-          "downloads": 1031
+          "downloads": 1045
         },
         "1.0.0": {
-          "downloads": 826
+          "downloads": 827
         }
       }
     },
     "user-manager": {
-      "downloads": 1784,
+      "downloads": 1800,
       "versions": {
         "1.1.0": {
-          "downloads": 1006
+          "downloads": 1022
         },
         "1.0.0": {
           "downloads": 778
@@ -1390,10 +1390,10 @@
       }
     },
     "vault": {
-      "downloads": 15754,
+      "downloads": 15858,
       "versions": {
         "1.2.0": {
-          "downloads": 1921
+          "downloads": 2024
         },
         "1.1.0": {
           "downloads": 1900
@@ -1405,35 +1405,35 @@
           "downloads": 1149
         },
         "1.0.0": {
-          "downloads": 2497
+          "downloads": 2498
         }
       }
     },
     "virtual-machines": {
-      "downloads": 1706,
+      "downloads": 1721,
       "versions": {
         "1.2.0": {
-          "downloads": 472
+          "downloads": 486
         },
         "1.1.0": {
           "downloads": 487
         },
         "1.0.0": {
-          "downloads": 747
+          "downloads": 748
         }
       }
     },
     "wake-on-lan": {
-      "downloads": 16624,
+      "downloads": 16741,
       "versions": {
         "1.3.0": {
-          "downloads": 1940
+          "downloads": 2054
         },
         "1.2.0": {
-          "downloads": 1912
+          "downloads": 1913
         },
         "1.1.0": {
-          "downloads": 7995
+          "downloads": 7996
         },
         "1.0.2": {
           "downloads": 1143
@@ -1442,52 +1442,52 @@
           "downloads": 1133
         },
         "1.0.0": {
-          "downloads": 2501
+          "downloads": 2502
         }
       }
     },
     "wall-display": {
-      "downloads": 1208,
+      "downloads": 1309,
       "versions": {
         "1.0.0": {
-          "downloads": 1208
+          "downloads": 1309
         }
       }
     },
     "warpgate": {
-      "downloads": 15333,
+      "downloads": 15441,
       "versions": {
         "1.1.0": {
-          "downloads": 1893
+          "downloads": 1999
         },
         "1.0.2": {
-          "downloads": 9838
+          "downloads": 9839
         },
         "1.0.1": {
           "downloads": 1105
         },
         "1.0.0": {
-          "downloads": 2497
+          "downloads": 2498
         }
       }
     },
     "web-endpoint": {
-      "downloads": 17791,
+      "downloads": 17918,
       "versions": {
         "1.3.0": {
-          "downloads": 1308
+          "downloads": 1420
         },
         "1.2.1": {
           "downloads": 869
         },
         "1.2.0": {
-          "downloads": 2002
+          "downloads": 2003
         },
         "1.1.0": {
-          "downloads": 8186
+          "downloads": 8187
         },
         "1.0.3": {
-          "downloads": 1105
+          "downloads": 1117
         },
         "1.0.2": {
           "downloads": 675
@@ -1496,15 +1496,15 @@
           "downloads": 1165
         },
         "1.0.0": {
-          "downloads": 2481
+          "downloads": 2482
         }
       }
     },
     "web-servers": {
-      "downloads": 1777,
+      "downloads": 1792,
       "versions": {
         "1.1.0": {
-          "downloads": 993
+          "downloads": 1008
         },
         "1.0.0": {
           "downloads": 784
@@ -1512,16 +1512,16 @@
       }
     },
     "webauthn": {
-      "downloads": 12785,
+      "downloads": 12919,
       "versions": {
         "1.4.0": {
-          "downloads": 2389
+          "downloads": 2512
         },
         "1.3.0": {
-          "downloads": 2389
+          "downloads": 2394
         },
         "1.2.0": {
-          "downloads": 1981
+          "downloads": 1986
         },
         "1.1.0": {
           "downloads": 1657
@@ -1533,15 +1533,15 @@
           "downloads": 1190
         },
         "1.0.0": {
-          "downloads": 2491
+          "downloads": 2492
         }
       }
     },
     "wireguard": {
-      "downloads": 1673,
+      "downloads": 1685,
       "versions": {
         "1.1.0": {
-          "downloads": 930
+          "downloads": 942
         },
         "1.0.0": {
           "downloads": 743
@@ -1549,16 +1549,16 @@
       }
     },
     "workspaces": {
-      "downloads": 12389,
+      "downloads": 12520,
       "versions": {
         "1.2.0": {
-          "downloads": 2379
+          "downloads": 2502
         },
         "1.1.1": {
-          "downloads": 2081
+          "downloads": 2082
         },
         "1.1.0": {
-          "downloads": 3081
+          "downloads": 3087
         },
         "1.0.2": {
           "downloads": 1183
@@ -1567,7 +1567,7 @@
           "downloads": 1181
         },
         "1.0.0": {
-          "downloads": 2484
+          "downloads": 2485
         }
       }
     }

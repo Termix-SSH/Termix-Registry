@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26T13:07:36.558Z",
+  "updatedAt": "2026-11-27T13:05:58.087Z",
   "plugins": {
     "command-editor": {
       "downloads": 96,
@@ -10,10 +10,10 @@
       }
     },
     "container-files": {
-      "downloads": 359,
+      "downloads": 362,
       "versions": {
         "1.1.0": {
-          "downloads": 48
+          "downloads": 51
         },
         "1.0.5": {
           "downloads": 133
@@ -68,10 +68,10 @@
       }
     },
     "herdr": {
-      "downloads": 139,
+      "downloads": 141,
       "versions": {
         "1.4.0": {
-          "downloads": 62
+          "downloads": 64
         },
         "1.1.0": {
           "downloads": 2
@@ -82,10 +82,10 @@
       }
     },
     "host-auth-badges": {
-      "downloads": 109,
+      "downloads": 110,
       "versions": {
         "1.1.0": {
-          "downloads": 24
+          "downloads": 25
         },
         "1.0.2": {
           "downloads": 53
@@ -99,10 +99,10 @@
       }
     },
     "host-icons": {
-      "downloads": 426,
+      "downloads": 427,
       "versions": {
         "0.6.0": {
-          "downloads": 243
+          "downloads": 244
         },
         "0.5.0": {
           "downloads": 56
@@ -133,13 +133,13 @@
       }
     },
     "netbird": {
-      "downloads": 193,
+      "downloads": 194,
       "versions": {
         "2.0.2": {
           "downloads": 4
         },
         "2.0.1": {
-          "downloads": 38
+          "downloads": 39
         },
         "2.0.0": {
           "downloads": 10
@@ -153,13 +153,13 @@
       }
     },
     "pve-power": {
-      "downloads": 356,
+      "downloads": 359,
       "versions": {
         "0.8.3": {
           "downloads": 6
         },
         "0.8.2": {
-          "downloads": 75
+          "downloads": 78
         },
         "0.8.1": {
           "downloads": 4
@@ -185,10 +185,10 @@
       }
     },
     "termix-vscode": {
-      "downloads": 151,
+      "downloads": 153,
       "versions": {
         "1.1.1": {
-          "downloads": 148
+          "downloads": 150
         },
         "1.1.0": {
           "downloads": 3
